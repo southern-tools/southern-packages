@@ -1,0 +1,11 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>southern-packages</name>
+    <description>Various ebuilds for Gentoo</description>
+    <owner>
+      <email>diego.samuelle@gmail.com</email>
+      <name>southern</name>
+    </owner>
+    <source type="git">https://github.com/southern-tools/southern-packages</source>
+  </repo>
+</repositories>
