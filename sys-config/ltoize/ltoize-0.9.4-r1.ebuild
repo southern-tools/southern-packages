@@ -53,7 +53,7 @@ pkg_setup() {
 
 pkg_preinst() {
 
-	GENTOOLTO_PORTDIR=$(portageq get_repo_path ${PORTAGE_CONFIGROOT} lto-overlay)
+	GENTOOLTO_PORTDIR=$(portageq get_repo_path ${PORTAGE_CONFIGROOT} southern-packages)
 	LTO_PORTAGE_DIR="${GENTOOLTO_PORTDIR}/${CATEGORY}/${PN}/files"
 
 	ACTIVE_GCC=$(gcc-fullversion)
@@ -73,7 +73,7 @@ pkg_preinst() {
 
 	#Install patch framework
 
-	elog "Installing bashrc.d hook symlink to apply LTO patches directly from lto-overlay"
+	elog "Installing bashrc.d hook symlink to apply LTO patches directly from southern-packages"
 	dosym "${LTO_PORTAGE_DIR}/bashrc.d/41-lto-patch.sh" "${PORTAGE_CONFIGROOT%/}/etc/portage/bashrc.d/41-lto-patch.sh"
 
 	#Optional: install flag-o-matic overrides
@@ -89,7 +89,7 @@ pkg_postinst()
 	elog "If you have not done so, you will need to modify your make.conf settings to enable LTO building on your system."
 	elog "A symlink has been placed in ${PORTAGE_CONFIGROOT%/}/etc/portage/make.conf.lto that can be used as a basis for these modifications."
 	elog "See README.md for more details."
-	elog "lto-overlay and ltoize are part of a project to help find undefined behaviour in C and C++ programs through the use of aggressive compiler optimizations."
+	elog "southern-packages and ltoize are part of a project to help find undefined behaviour in C and C++ programs through the use of aggressive compiler optimizations."
 	elog "One of the aims of this project is also to improve the performance of linux distributions through these mechanisms as well."
 	elog "Occasionally, you will experience breakage due to LTO problems.  These are documented in the README.md of this repository."
 	elog "If you add an override for a particular package, please consider sending a pull request upstream so that other users of this repository can benefit."
