@@ -1,0 +1,12 @@
+
+
+# Southern Tools
+#
+/dev/mapper/vg1-root    /	                        ext4            defaults,noatime,discard,errors=remount-ro							0 1
+/dev/mapper/vg1-swap    none                            swap            defaults,noatime,discard,pri=3									0 0
+/dev/mapper/vg1-home    /home                           ext4            defaults,noatime,discard									0 2
+tmpfs                   /tmp                            tmpfs           rw,noatime,nodev,nosuid,size=2G,mode=1777							0 0
+tmpfs                   /var/tmp                        tmpfs           rw,noatime,nodev,nosuid,size=10G,mode=1777							0 0
+tmpfs	                /var/tmp/portage                tmpfs           rw,noatime,nodev,nosuid,size=10G,uid=portage,gid=portage,mode=775,x-mount.mkdir=775		0 0
+#/dev/cdrom/		/mnt/cdrom			auto		noauto,user,ro											0 0
+efivarfs		/sys/firmware/efi/efivars	efivarfs	rw,nosuid,nodev,noexec,relatime									0 0
