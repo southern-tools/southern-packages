@@ -293,5 +293,11 @@ sudo rsync -a /home/$user_name/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
 # Sound card
 sudo cat /home/$user_name/etc/modprobe.d/alsa.conf >> /etc/modprobe.d/alsa.conf
 
+# strip down some services
+rc-update del binfmt boot
+rc-update del opentmpfiles-dev sysinit
+rc-update del opentmpfiles-setup boot
+
+
 ##### Final message #####
 echo -e "* The installation of Southern Tools is done, enjoy your not-so-minimalistic system ;)"
