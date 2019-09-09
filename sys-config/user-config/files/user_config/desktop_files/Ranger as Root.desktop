@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Ranger as Root
+
+Comment=Text based file browser (as Root)
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e sudo ranger"
+
+Icon=utilities-terminal
+
+Categories=System;FileTools;FileManager;

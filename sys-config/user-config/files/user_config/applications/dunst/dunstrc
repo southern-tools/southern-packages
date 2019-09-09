@@ -1,0 +1,26 @@
+# Southern Tools
+
+[global]
+    monitor = 0
+    transparency = 10
+    font = Hack 12
+    geometry = "900x15-60+60"
+    alignment = center
+    word_wrap = yes
+[shortcuts]
+    close = ctrl+space    
+    close_all = ctrl+shift+space
+[urgency_low]
+    background = "#2E3340"
+    foreground = "#44B5B1"
+    timeout = 10
+[urgency_normal]
+    background = "#2E3340"
+    foreground = "#44B5B1"
+    timeout = 10
+[urgency_critical]
+    background = "#EF5847"
+    foreground = "#F2F1B9"
+    timeout = 0
+
+

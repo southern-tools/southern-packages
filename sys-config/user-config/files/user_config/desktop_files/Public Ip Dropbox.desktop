@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Public Ip Dropbox
+
+Comment=Obtain public IP
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e ~/.user_config/scripts/public_ip_dropbox.sh"
+
+Icon=utilities-terminal
+
+Categories=System;
