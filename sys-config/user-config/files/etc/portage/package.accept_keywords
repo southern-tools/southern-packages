@@ -35,7 +35,7 @@ media-libs/suil ~amd64 # required by media-sound/ardour
 media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
-net-wireless/iw ~amd64 # increasing signal strenght
+net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
