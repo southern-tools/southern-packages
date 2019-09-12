@@ -125,8 +125,17 @@ sed -i 's/^gtk-cursor-theme-name.*$/gtk-cursor-theme-name=gentoo-silver/' ~/.con
 # Rtorrent magnet links
 echo 'x-scheme-handler/magnet=rtorrent.desktop;' | tee -a ~/.config/mimeapps.list
 
+# setting vdirsyncer
+mkdir -p ~/.config/vdirsyncer
+ln -vsf ~/.user_config/no_share/vdirsyncer_config ~/.config/vdirsyncer/config
 
+# setting khard
+mkdir -p ~/.config/khard
+ln -vsf ~/.user_config/applications/khard/khard.conf ~/.config/khard/
 
+# setting khal
+mkdir -p ~/.config/khal
+ln -vsf ~/.user_config/applications/khal/config ~/.config/khal/
 
 ##### Changes to the system #####
 

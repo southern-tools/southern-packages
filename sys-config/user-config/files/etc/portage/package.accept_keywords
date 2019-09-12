@@ -91,3 +91,16 @@ x11-wm/i3-gaps ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
+# required by app-misc/khal-0.9.10::gentoo
+# required by khal (argument)
+=dev-python/icalendar-4.0.3 ~amd64
+# required by khal (argument)
+=app-misc/khal-0.9.10 ~amd64
+# required by app-misc/khal-0.9.10::gentoo
+# required by khal (argument)
+=dev-python/click-log-0.3.2 ~amd64
+# required by dev-python/vdirsyncer-0.16.7::gentoo
+# required by dev-python/vdirsyncer (argument)
+=dev-python/click-threading-0.4.4 ~amd64
+# required by dev-python/vdirsyncer (argument)
+=dev-python/vdirsyncer-0.16.7 ~amd64
