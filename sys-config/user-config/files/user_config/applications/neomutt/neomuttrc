@@ -7,8 +7,8 @@
 set use_from = yes
 set envelope_from = yes
 
-set header_cache = "/tmp/neomutt_cache/headers/"
-set message_cachedir = "/tmp/neomutt_cache/bodies/"
+set header_cache = "~/.config/neomutt/cache/headers/"
+set message_cachedir = "~/.config/neomutt/cache/bodies/"
 set mailcap_path = ~/.user_config/applications/neomutt/mailcap
 
 set sleep_time=0

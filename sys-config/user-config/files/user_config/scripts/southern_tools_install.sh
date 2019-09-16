@@ -127,7 +127,9 @@ echo 'x-scheme-handler/magnet=rtorrent.desktop;' | tee -a ~/.config/mimeapps.lis
 
 # setting vdirsyncer
 mkdir -p ~/.config/vdirsyncer
+rsync -a ~/.user_config/applications/vdirsyncer/vdirsyncer_config_template ~/.user_config/no_share/vdirsyncer_config
 ln -vsf ~/.user_config/no_share/vdirsyncer_config ~/.config/vdirsyncer/config
+# But will not work, it needs configuration!
 
 # setting khard
 mkdir -p ~/.config/khard

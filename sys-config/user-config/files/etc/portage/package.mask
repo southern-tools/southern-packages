@@ -1,7 +1,7 @@
 # Southern Tools "package.mask"
 
 */*::southern-packages
-<sys-kernel/gentoo-sources-5.2.13 # block upgrades
->sys-kernel/gentoo-sources-5.2.13 # block upgrades
+<sys-kernel/gentoo-sources-5.2.14 # block upgrades
+>sys-kernel/gentoo-sources-5.2.14 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 >x11-misc/i3status-2.12

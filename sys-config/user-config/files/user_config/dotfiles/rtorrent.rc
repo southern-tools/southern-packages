@@ -23,7 +23,7 @@ schedule2 = low_diskspace,5,60,close_low_diskspace=100M
 # Edited
 port_range = 50000-50000
 check_hash = yes
-#encryption = allow_incoming,try_outgoing,enable_retry
+# encryption = allow_incoming,try_outgoing,enable_retry
 # More agressive encryption
 protocol.encryption.set = require,require_RC4,allow_incoming,try_outgoing
 protocol.pex.set = yes

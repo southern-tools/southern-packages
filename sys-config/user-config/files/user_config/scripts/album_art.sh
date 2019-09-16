@@ -4,7 +4,7 @@
 #
 #set -x
 
-music_dir=~/Music/music
+music_dir=~/Audio/Music
 cover=/tmp/cover.jpg
 
 function reset_background
