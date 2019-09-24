@@ -35,6 +35,7 @@ gui-libs/wlroots ~amd64
 gui-wm/sway ~amd64
 media-fonts/fontawesome ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
+media-libs/mesa ~amd64
 media-libs/suil ~amd64 # required by media-sound/ardour
 media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
@@ -54,6 +55,7 @@ sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
 sys-libs/glibc ~amd64 # required for lto
 www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
+#www-client/ungoogled-chromium-bin ~amd64 # required by ungoogled-chromium-bin (argument)
 www-plugins/google-talkplugin ~amd64
 x11-apps/copyq ~amd64
 x11-libs/gtk+::southern-packages # required by mv repo
@@ -78,23 +80,23 @@ x11-wm/i3-gaps ~amd64
 =dev-libs/openssl-1.1.1d ~amd64 # compile error on version 1.0.2t with lto
 =dev-libs/nspr-4.22 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
 =dev-libs/nss-3.46 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
-=dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
-=dev-tex/biblatex-3.12 ~amd64 # required by biber
-=dev-tex/biblatex-apa-7.5 ~amd64
 =dev-python/css-parser-1.0.4-r1 ~amd64 # required by app-text/calibre
 =dev-python/icalendar-4.0.3 ~amd64 # required by app-misc/khal-0.9.10::gentoo
 =dev-python/markdown-3.0.1 ~amd64 # required by app-text/calibre
 =dev-python/mechanize-0.3.6 ~amd64 # required by app-text/calibre
+=dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
+=dev-tex/biblatex-3.12 ~amd64 # required by biber
+=dev-tex/biblatex-apa-7.5 ~amd64
 =media-libs/harfbuzz-2.6.1 ~amd64  # required by www-client/chromium-76.0.3809.100::gentoo
 =media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
 =sys-devel/lld-8.0.1 ~amd64 # # required by www-client/firefox-69.0::gentoo[clang]
-=sys-devel/llvmgold-8 ~amd64 # required by sys-devel/llvm-8.0.1::gentoo[gold], sys-devel/lld-8.0.1, www-client/firefox-69.0
-=sys-libs/libomp-8.0.1 ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt
-=sys-libs/compiler-rt-8.0.1 ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, compiler-rt-sanitizers
-=sys-libs/compiler-rt-sanitizers-8.0.1 ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt
+=sys-devel/llvmgold-9 ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
+=sys-libs/libomp-9.0.0 ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
+=sys-libs/compiler-rt-9.0.0 ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
+=sys-libs/compiler-rt-sanitizers-9.0.0 ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt,sanitize], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 =virtual/cargo-1.37.0 ~amd64  # required by dev-util/cbindgen-0.9.0, www-client/firefox-69.0
 =virtual/rust-1.37.0 ~amd64 # required by www-client/firefox-69.0
-=www-client/firefox-69.0 ~amd64 # stabilizing version
+=www-client/firefox-69.0.1 ~amd64 # stabilizing version
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
