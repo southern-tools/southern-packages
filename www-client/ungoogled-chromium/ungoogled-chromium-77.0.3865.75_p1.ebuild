@@ -25,7 +25,7 @@ SRC_URI="
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="
 	+cfi closure-compile convert-dict cups custom-cflags gnome gnome-keyring gold
 	jumbo-build kerberos libcxx +lld new-tcmalloc optimize-thinlto optimize-webui
@@ -194,7 +194,6 @@ PATCHES=(
 	"${FILESDIR}/${PN}-system-libusb-r0.patch"
 	"${FILESDIR}/${PN}-system-nspr-r0.patch"
 	"${FILESDIR}/${PN}-system-fix-shim-headers-r0.patch"
-	"${FILESDIR}/${PN}-77-system-icu.patch"
 	"${FILESDIR}/${PN}-unbundle-zlib.patch"
 	"${FILESDIR}/${PN}-skia-harmony.patch"
 )
@@ -239,9 +238,13 @@ src_prepare() {
 
 	use convert-dict && eapply "${FILESDIR}/${PN}-ucf-dict-utility.patch"
 	use system-harfbuzz && eapply "${FILESDIR}/${PN}-77-system-hb.patch"
+	use system-icu && eapply "${FILESDIR}/${PN}-system-icu.patch"
+	use system-icu && eapply "${FILESDIR}/${PN}-77-system-icu.patch"
 	use system-jsoncpp && eapply "${FILESDIR}/${PN}-system-jsoncpp-r1.patch"
 	use system-libvpx && eapply "${FILESDIR}/${PN}-system-vpx-r1.patch"
+	has_version "=media-libs/libvpx-1.7*" && eapply "${FILESDIR}/${PN}-vpx-1.7-compatibility-r0.patch"
 	use system-openjpeg && eapply "${FILESDIR}/${PN}-system-openjpeg-r1.patch"
+	use vaapi && eapply "${FILESDIR}/${PN}-enable-vaapi.patch"
 	use vaapi && eapply "${FILESDIR}/${PN}-fix-vaapi.patch"
 	use widevine && eapply "${FILESDIR}/${PN}-widevine.patch"
 
@@ -687,7 +690,6 @@ src_configure() {
 		"use_vaapi=$(usetf vaapi)"
 
 		# Additional flags
-		"enable_desktop_in_product_help=false"
 		"enable_pdf=$(usetf pdf)"
 		"enable_print_preview=$(usetf pdf)"
 		"rtc_build_examples=false"
