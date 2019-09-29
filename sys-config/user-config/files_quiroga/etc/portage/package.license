@@ -1,0 +1,17 @@
+# Southern Tools "package.license"
+
+app-arch/unrar unRAR
+app-editors/sublime-text Sublime
+app-text/calibre unRAR
+dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
+dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
+dev-util/intel-ocl-sdk Intel-SDP
+media-fonts/corefonts MSttfEULA
+sys-firmware/intel-microcode intel-ucode intel-ucode-20180807
+sys-kernel/gentoo-sources linux-firmware
+sys-kernel/linux-firmware linux-fw-redistributable no-source-code
+www-plugins/adobe-flash AdobeFlash-11.x
+www-plugins/chrome-binary-plugins google-chrome
+www-plugins/google-talkplugin Google-TOS
+
+# autounmask

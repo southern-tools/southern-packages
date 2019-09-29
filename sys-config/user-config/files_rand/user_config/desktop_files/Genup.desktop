@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Genup
+
+Comment=System update
+
+Exec=i3-msg "exec --no-startup-id urxvtc -hold -e sudo genup -p"
+
+Icon=utilities-terminal
+
+Categories=System;

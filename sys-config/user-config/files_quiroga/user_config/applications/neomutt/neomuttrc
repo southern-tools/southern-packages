@@ -1,0 +1,52 @@
+# Southern Tools
+
+#--------------------------------------------------------------------------
+# User settings
+#--------------------------------------------------------------------------
+
+set use_from = yes
+set envelope_from = yes
+
+set header_cache = "~/.config/neomutt/cache/headers/"
+set message_cachedir = "~/.config/neomutt/cache/bodies/"
+set mailcap_path = ~/.user_config/applications/neomutt/mailcap
+
+set sleep_time=0
+set beep=no
+set editor="nano"
+set sort=threads
+set sort_browser=reverse-date
+set sort_aux=reverse-last-date-received
+#set sort_re
+
+auto_view text/html
+auto_view application/msword
+auto_view application/pdf
+auto_view image/*
+auto_view text/plain
+auto_view application/pdf
+auto_view application/postscript
+
+set mail_check_stats
+
+#--------------------------------------------------------------------------     
+# Sidebar configuration
+#--------------------------------------------------------------------------
+
+set sidebar_visible=yes
+color sidebar_new yellow default
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
+#--------------------------------------------------------------------------
+# Other configuration files
+#--------------------------------------------------------------------------
+
+source ~/.user_config/no_share/neomutt_gmail
+source ~/.user_config/applications/neomutt/colors

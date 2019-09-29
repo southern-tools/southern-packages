@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Variables
+selection=$(xsel -o | cat | cut -c1-25)
+
+if [ -n "$selection" ]; then
+	echo " [$selection]"
+else
+	echo ""
+fi

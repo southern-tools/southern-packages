@@ -1,0 +1,6 @@
+
+
+# Southern Tools
+#
+USER_NAME ALL=(ALL) ALL
+%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown

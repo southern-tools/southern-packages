@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Git Pull Only
+
+Comment=Git multiple pull and pushes
+
+Exec=i3-msg "exec --no-startup-id urxvtc -hold -e ~/.user_config/scripts/git_pull.sh"
+
+Icon=utilities-terminal
+
+Categories=Development;

@@ -1,0 +1,14 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Rtorrent
+
+Comment=Torrent client
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e rtorrent"
+
+Icon=utilities-terminal
+
+Categories=Network;
+

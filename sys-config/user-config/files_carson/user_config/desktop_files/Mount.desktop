@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Mount
+
+Comment=Mount devices
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e devmon"
+
+Icon=utilities-terminal
+
+Categories=System;

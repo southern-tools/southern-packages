@@ -1,0 +1,13 @@
+{
+	"color_scheme": "Packages/sublime_zk/Monokai Extended-zk.tmTheme",
+    "extensions":
+    [
+        "zks"
+    ],
+    //"font_face": "consolas",
+    "font_size": 8,
+	"line_numbers": false,
+ 	"gutter": false,
+ 	"word_wrap": true,
+ 	"margin": 12,
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Southern Tools
+
+#[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+xrdb ~/.Xresources
+~/.user_config/scripts/displays.sh
+xinput map-to-output 19 eDP-1
+feh --bg-fill ~/.user_config/backgrounds/forest.jpg &
+light -S 80
+#compton -bcCGfz
+#compton --config ~/.user_config/applications/compton/config -b
+xautolock -time 7 -corners 0-00 -cornersize 40 -locker "~/.user_config/scripts/locker.sh" -notify 7 -notifier "sleep 1; xset dpms force off" &
+redshift -l 49.59:17.25 &
+# dunst -config ~/.user_config/applications/dunst/dunstrc
+# spacefm -d
+urxvtd --quiet --opendisplay --fork
+copyq &
+# Start i3
+exec i3 -c ~/.user_config/applications/i3/config

@@ -1,0 +1,63 @@
+# Southern Tools
+#
+# This file doesn't document all available parameters, see
+# http://vdirsyncer.pimutils.org/ for the rest of them.
+
+[general]
+# A folder where vdirsyncer can store some metadata about each pair.
+status_path = "~/.config/vdirsyncer/status/"
+
+# CARDDAV
+[pair user_contacts]
+# A `[pair <name>]` block defines two storages `a` and `b` that should be
+# synchronized. The definition of these storages follows in `[storage <name>]`
+# blocks. This is similar to accounts in OfflineIMAP.
+a = "google_contacts"
+b = "local_contacts"
+# Synchronize all collections that can be found.
+# You need to run `vdirsyncer discover` if new calendars/addressbooks are added
+# on the server.
+collections = ["from a", "from b"]
+# Synchronize the "display name" property into a local file (~/.contacts/displayname).
+metadata = ["displayname"]
+# To resolve a conflict the following values are possible:
+#   `null` - abort when collisions occur (default)
+#   `"a wins"` - assume a's items to be more up-to-date
+#   `"b wins"` - assume b's items to be more up-to-date
+#conflict_resolution = null
+[storage local_contacts]
+# A storage references actual data on a remote server or on the local disk.
+# Similar to repositories in OfflineIMAP.
+type = "filesystem"
+path = "~/.contacts/"
+fileext = ".vcf"
+[storage google_contacts]
+type = "google_contacts"
+token_file = "~/.config/vdirsyncer/google_token_contacts"
+client_id = ""
+client_secret = ""
+#url = "https://nextcloud.example.com/"
+#username =
+# The password can also be fetched from the system password storage, netrc or a
+# custom command. See http://vdirsyncer.pimutils.org/en/stable/keyring.html
+#password =
+
+# CALDAV
+[pair user_calendar]
+a = "google_calendar"
+b = "local_calendar"
+collections = ["from a", "from b"]
+# Calendars also have a color property
+metadata = ["displayname", "color"]
+[storage local_calendar]
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
+[storage google_calendar]
+type = "google_calendar"
+token_file = "~/.config/vdirsyncer/google_token_calendar"
+client_id = ""
+client_secret = ""
+#url = "https://nextcloud.example.com/"
+#username =
+#password =

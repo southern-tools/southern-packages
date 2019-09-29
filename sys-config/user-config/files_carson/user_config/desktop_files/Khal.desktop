@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Khal
+
+Comment=CLI Calendar
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e ikhal"
+
+Icon=utilities-terminal
+
+Categories=System;

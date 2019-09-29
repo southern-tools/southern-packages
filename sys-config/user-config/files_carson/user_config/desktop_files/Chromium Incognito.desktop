@@ -1,0 +1,17 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Chromium Incognito
+
+Comment=Incognito version of Chromium
+
+Exec=i3-msg "exec --no-startup-id chromium-browser --incognito %U"
+
+Icon=chromium-browser
+
+Categories=Network;WebBrowser;
+
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/mailto;x-scheme-handler/webcal;
+
+StartupWMClass=chromium-browser

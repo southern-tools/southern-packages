@@ -1,0 +1,5 @@
+#!/bin/sh
+# Southern Tools
+#
+e4defrag -v /
+e4defrag -v /home

@@ -1,0 +1,9 @@
+# Southern Tools
+#
+# ncmpcpp_directory =		"~/.user_config/applications/ncmpcpp"
+# lyrics_directory =		"~/Audio/Music/.lyrics"
+mpd_host =			"southern@localhost"
+# mpd_host =			"/tmp/mpd-socket"
+# mpd_music_dir =		"~/Audio/Music/"
+mpd_crossfade_time =		"1"
+# execute_on_song_change=	"~/.user_config/scripts/album_art.sh"

@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Hotspot
+
+Comment=Share WiFi
+
+Exec=i3-msg "exec --no-startup-id urxvtc -e sudo ~/.user_config/scripts/hotspot.sh \\$(ls /sys/class/net | grep wl | cut -d ":" -f1) \\$(ls /sys/class/net | grep en | cut -d ":" -f1)"
+
+Icon=utilities-terminal
+
+Categories=Network;

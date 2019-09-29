@@ -1,0 +1,6 @@
+#!/bin/bash
+# Southern Tools
+#
+# commands in this script will be run once the main boot process is complete
+# ensure the framebuffer is properly cleared...
+cat /dev/zero > /dev/fb0 2>/dev/null
