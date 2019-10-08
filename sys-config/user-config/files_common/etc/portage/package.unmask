@@ -9,5 +9,5 @@ dev-lang/python::southern-packages
 sci-misc/zotero-bin::southern-packages
 sys-config/ltoize::southern-packages
 sys-kernel/buildkernel::southern-packages
-=www-client/ungoogled-chromium-76.0.3809.132_p1::southern-packages
+www-client/ungoogled-chromium::southern-packages
 x11-libs/gtk+::southern-packages
