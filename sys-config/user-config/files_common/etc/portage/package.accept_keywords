@@ -73,6 +73,7 @@ x11-wm/i3-gaps ~amd64
 
 # specific version
 =app-portage/portage-utils-0.80 ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
+=app-text/hunspell-1.7.0-r1 ~amd64 # required by app-text/calibre-4.1.0::gentoo
 =dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
 =dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
 =dev-lang/rust-1.37.0 ~amd64 # required by virtual/rust-1.37.0, www-client/firefox-69.0
@@ -84,6 +85,9 @@ dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev
 =dev-python/icalendar-4.0.3 ~amd64 # required by app-misc/khal-0.9.10::gentoo
 =dev-python/markdown-3.0.1 ~amd64 # required by app-text/calibre
 =dev-python/mechanize-0.3.6 ~amd64 # required by app-text/calibre
+=dev-python/PyQt5-5.13.1 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
+=dev-python/PyQt5-sip-4.19.19 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
+=dev-python/sip-4.19.19 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
 =dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
 =dev-tex/biblatex-3.12 ~amd64 # required by biber
 =dev-tex/biblatex-apa-7.5 ~amd64
