@@ -47,6 +47,7 @@ sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-devel/binutils ~amd64 # required for lto
 sys-devel/clang ~amd64 # required by dev-libs/intel-neo
+sys-devel/clang-common  ~amd64 # just in case
 sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 sys-devel/gcc ~amd64 # required for lto
 sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
@@ -76,30 +77,30 @@ x11-wm/i3-gaps ~amd64
 =app-text/hunspell-1.7.0-r1 ~amd64 # required by app-text/calibre-4.1.0::gentoo
 =dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
 =dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
-=dev-lang/rust-1.37.0 ~amd64 # required by virtual/rust-1.37.0, www-client/firefox-69.0
-dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
-=dev-libs/openssl-1.1.1d-r1 ~amd64 # compile error on version 1.0.2t with lto
-=dev-libs/nspr-4.22 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
+#=dev-lang/rust-1.37.0 ~amd64 # required by virtual/rust-1.37.0, www-client/firefox-69.0
+#dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
+#=dev-libs/openssl-1.1.1d-r1 ~amd64 # compile error on version 1.0.2t with lto
+#=dev-libs/nspr-4.22 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
 =dev-libs/nss-3.46 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
-=dev-python/css-parser-1.0.4-r1 ~amd64 # required by app-text/calibre
+#=dev-python/css-parser-1.0.4-r1 ~amd64 # required by app-text/calibre
 =dev-python/icalendar-4.0.3 ~amd64 # required by app-misc/khal-0.9.10::gentoo
-=dev-python/markdown-3.0.1 ~amd64 # required by app-text/calibre
-=dev-python/mechanize-0.3.6 ~amd64 # required by app-text/calibre
+#=dev-python/markdown-3.0.1 ~amd64 # required by app-text/calibre
+#=dev-python/mechanize-0.3.6 ~amd64 # required by app-text/calibre
 =dev-python/PyQt5-5.13.1 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
 =dev-python/PyQt5-sip-4.19.19 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
 =dev-python/sip-4.19.19 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
-=dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
-=dev-tex/biblatex-3.12 ~amd64 # required by biber
+#=dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
+#=dev-tex/biblatex-3.12 ~amd64 # required by biber
 =dev-tex/biblatex-apa-7.5 ~amd64
-=media-libs/harfbuzz-2.6.1 ~amd64  # required by www-client/chromium-76.0.3809.100::gentoo
-=media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+#=media-libs/harfbuzz-2.6.1 ~amd64  # required by www-client/chromium-76.0.3809.100::gentoo
+#=media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
 sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 sys-devel/llvmgold # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
 sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt,sanitize], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
-=virtual/cargo-1.37.0 ~amd64  # required by dev-util/cbindgen-0.9.0, www-client/firefox-69.0
-=virtual/rust-1.37.0 ~amd64 # required by www-client/firefox-69.0
+#=virtual/cargo-1.37.0 ~amd64  # required by dev-util/cbindgen-0.9.0, www-client/firefox-69.0
+#=virtual/rust-1.37.0 ~amd64 # required by www-client/firefox-69.0
 =www-client/firefox-69.0.2 ~amd64 # stabilizing version
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
