@@ -3,4 +3,4 @@
 #
 #set -x
 
-amixer sset Master 65% && cvlc --play-and-exit ~/Audio/Sounds/sun.flac
+amixer sset Master 65% && play ~/Audio/Sounds/sun.flac
