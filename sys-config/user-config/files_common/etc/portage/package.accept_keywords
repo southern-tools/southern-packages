@@ -19,6 +19,7 @@ dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
 #dev-libs/ocl-icd ~amd64
+dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
@@ -48,7 +49,7 @@ sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-devel/binutils ~amd64 # required for lto
 sys-devel/clang ~amd64 # required by dev-libs/intel-neo
-#sys-devel/clang-common  ~amd64 # just in case
+sys-devel/clang-common  ~amd64 # just in case
 sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 sys-devel/gcc ~amd64 # required for lto
 sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
@@ -97,6 +98,7 @@ x11-wm/i3-gaps ~amd64
 #=dev-tex/biber-2.12 ~amd64 # required by dev-tex/biblatex
 #=dev-tex/biblatex-3.12 ~amd64 # required by biber
 =dev-tex/biblatex-apa-7.5 ~amd64
+#=dev-util/ninja-1.9.0 ~amd64
 #=media-libs/harfbuzz-2.6.1 ~amd64  # required by www-client/chromium-76.0.3809.100::gentoo
 #=media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
 sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
