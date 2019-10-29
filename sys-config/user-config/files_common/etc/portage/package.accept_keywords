@@ -49,10 +49,11 @@ sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-devel/binutils ~amd64 # required for lto
 sys-devel/clang ~amd64 # required by dev-libs/intel-neo
-sys-devel/clang-common  ~amd64 # just in case
+sys-devel/clang-common ~amd64 # just in case
 sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 sys-devel/gcc ~amd64 # required for lto
 sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
+sys-devel/llvm-common ~amd64
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
