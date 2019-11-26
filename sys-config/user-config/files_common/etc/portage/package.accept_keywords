@@ -101,7 +101,6 @@ x11-wm/i3-gaps ~amd64
 #=dev-tex/biblatex-3.12 ~amd64 # required by biber
 =dev-tex/biblatex-apa-7.5 ~amd64
 #=dev-util/ninja-1.9.0 ~amd64
-#=media-libs/harfbuzz-2.6.1 ~amd64  # required by www-client/chromium-76.0.3809.100::gentoo
 #=media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
 sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
@@ -112,6 +111,6 @@ sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime-9.0
 #=virtual/rust-1.37.0 ~amd64 # required by www-client/firefox-69.0
 #=www-client/firefox-69.0.2 ~amd64 # stabilizing version
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
-=x11-libs/libdrm-2.4.100 ~amd64 # required by media-libs/mesa-19.3.0_rc2::gentoo[-video_cards_r300,-video_cards_r200,video_cards_radeonsi,-video_cards_r100,-video_cards_radeon,-video_cards_r600]
+=x11-libs/libdrm-2.4.100 ~amd64 # required by media-libs/mesa
 
 # autounmask
