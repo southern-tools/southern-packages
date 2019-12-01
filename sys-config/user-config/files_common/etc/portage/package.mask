@@ -5,4 +5,4 @@
 >sys-kernel/gentoo-sources-5.4.0 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 =x11-misc/i3status-2.13 # skip pulseaudio dependency
-=dev-libs/intel-neo-19.38.14237
+>=dev-libs/intel-neo-19.38.14237
