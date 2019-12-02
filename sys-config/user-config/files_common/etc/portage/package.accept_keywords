@@ -18,7 +18,7 @@ dev-java/icedtea ~amd64
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
-#dev-libs/ocl-icd ~amd64
+dev-libs/ocl-icd ~amd64
 dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo

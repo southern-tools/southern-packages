@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_{5,6,7}} )
+PYTHON_COMPAT=( python{2_7,3_{5,6,7,8}} )
 
 CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
@@ -725,6 +725,10 @@ src_configure() {
 			append-ldflags "-stdlib=libstdc++"
 		fi
 	fi
+
+	# 'gcc_s' is still required if 'compiler-rt' is Clang's default rtlib
+	has_version 'sys-devel/clang[default-compiler-rt]' && \
+		append-ldflags "-Wl,-lgcc_s"
 
 	if use thinlto; then
 		# We need to change the default value of import-instr-limit in
