@@ -84,6 +84,7 @@ x11-wm/i3-gaps ~amd64
 =app-text/hunspell-1.7.0-r1 ~amd64 # required by app-text/calibre-4.1.0::gentoo
 =dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
 =dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
+=dev-lang/python-3.7*::southern-packages ~amd64 # python with lto
 #=dev-lang/rust-1.37.0 ~amd64 # required by virtual/rust-1.37.0, www-client/firefox-69.0
 #dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 #=dev-libs/openssl-1.1.1d-r1 ~amd64 # compile error on version 1.0.2t with lto
