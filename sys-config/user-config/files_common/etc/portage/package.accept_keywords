@@ -13,8 +13,8 @@ app-portage/showem::southern-packages ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/calibre ~amd64
 dev-java/icedtea ~amd64
-#dev-java/openjdk ~amd64
-#dev-java/openjdk-bin ~amd64
+dev-java/openjdk ~amd64
+dev-java/openjdk-bin ~amd64
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
