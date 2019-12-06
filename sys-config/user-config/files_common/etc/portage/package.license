@@ -4,6 +4,7 @@ app-arch/unrar unRAR
 app-editors/sublime-text Sublime
 app-text/calibre unRAR
 dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
+dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
 dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
 dev-util/intel-ocl-sdk Intel-SDP
 media-fonts/corefonts MSttfEULA
@@ -15,3 +16,8 @@ www-plugins/chrome-binary-plugins google-chrome
 www-plugins/google-talkplugin Google-TOS
 
 # autounmask
+# required by virtual/jdk-1.8.0-r4::gentoo
+# required by app-office/libreoffice-6.2.8.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-java/oracle-jdk-bin-1.8.0.202:1.8 Oracle-BCLA-JavaSE
