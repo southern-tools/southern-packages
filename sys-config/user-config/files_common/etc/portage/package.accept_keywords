@@ -79,8 +79,8 @@ x11-misc/xkblayout-state ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-=app-office/libreoffice-6.3.2.2 ~amd64 # hunspell problem between libreoffice, texstudio and calibre
-=app-office/libreoffice-l10n-6.3.2.2 ~amd64 # required by libreoffice-6.3.2.2
+#=app-office/libreoffice-6.3.2.2 ~amd64 # hunspell problem between libreoffice, texstudio and calibre
+#=app-office/libreoffice-l10n-6.3.2.2 ~amd64 # required by libreoffice-6.3.2.2
 =app-portage/portage-utils-0.80 ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 =app-text/hunspell-1.7.0-r1 ~amd64 # required by app-text/calibre-4.1.0::gentoo
 =dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
