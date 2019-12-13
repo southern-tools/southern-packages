@@ -1,6 +1,7 @@
 # Southern Tools "package.mask"
 
 */*::southern-packages
+dev-lang/python::gentoo
 <sys-kernel/gentoo-sources-5.4.2 # block upgrades
 >sys-kernel/gentoo-sources-5.4.2 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
