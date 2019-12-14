@@ -19,13 +19,12 @@ DESCRIPTION="Modifications to Chromium for removing Google integration and enhan
 HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chromium"
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
+	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
 "
-#	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
-#"
 
 LICENSE="BSD"
 SLOT="0"
-#KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="
 	cfi +clang closure-compile convert-dict cups custom-cflags disable-perfetto
 	disable-tracing enable-driver gnome gnome-keyring hangouts jumbo-build
@@ -227,6 +226,14 @@ pkg_pretend() {
 		ewarn "Expect build failures. Don't file bugs using that unsupported USE flag!"
 		ewarn
 	fi
+
+	if use disable-perfetto || use disable-tracing; then
+		ewarn
+		ewarn "disable-perfetto and disable-tracing patches are not yet updated to this"
+		ewarn "version of chromium. Their effect is temporarily disabled."
+		ewarn
+	fi
+
 	pre_build_checks
 }
 
@@ -246,8 +253,8 @@ src_prepare() {
 	fi
 
 	use convert-dict && eapply "${FILESDIR}/chromium-ucf-dict-utility.patch"
-	use disable-perfetto && eapply "${FILESDIR}/chromium-disable-perfetto.patch" #FAILS
-	use disable-tracing && eapply "${FILESDIR}/chromium-disable-tracing.patch" #FAILS
+	#use disable-perfetto && eapply "${FILESDIR}/chromium-disable-perfetto.patch" #FAILS
+	#use disable-tracing && eapply "${FILESDIR}/chromium-disable-tracing.patch" #FAILS
 	use system-harfbuzz && eapply "${FILESDIR}/chromium-79-system-hb.patch"
 
 	if use system-icu
@@ -258,8 +265,13 @@ src_prepare() {
 	fi
 
 	use system-jsoncpp && eapply "${FILESDIR}/chromium-system-jsoncpp-r1.patch"
-	use system-libvpx && eapply "${FILESDIR}/chromium-system-vpx-r1.patch"
-	has_version "=media-libs/libvpx-1.7*" && eapply "${FILESDIR}/chromium-vpx-1.7-compatibility-r1.patch"
+
+	if use system-libvpx
+	then
+		eapply "${FILESDIR}/chromium-system-vpx-r1.patch"
+		has_version "=media-libs/libvpx-1.7*" && eapply "${FILESDIR}/chromium-vpx-1.7-compatibility-r1.patch"
+	fi
+
 	use system-openjpeg && eapply "${FILESDIR}/chromium-system-openjpeg-r2.patch"
 	use vaapi && eapply "${FILESDIR}/chromium-enable-vaapi-r1.patch"
 	use vaapi && eapply "${FILESDIR}/chromium-fix-vaapi-r1.patch"
@@ -463,9 +475,11 @@ src_prepare() {
 		third_party/libusb
 	)
 
-	use disable-perfetto || keeplibs+=( third_party/perfetto )
+	#use disable-perfetto ||
+	keeplibs+=( third_party/perfetto )
 
-	use disable-tracing || keeplibs+=(
+	#use disable-tracing ||
+	keeplibs+=(
 		third_party/catapult/tracing/third_party/d3
 		third_party/catapult/tracing/third_party/gl-matrix
 		third_party/catapult/tracing/third_party/jpeg-js
