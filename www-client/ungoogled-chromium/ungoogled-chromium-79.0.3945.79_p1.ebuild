@@ -195,7 +195,6 @@ PATCHES=(
 	"${FILESDIR}/chromium-disable-swiftshader.patch"
 	"${FILESDIR}/chromium-disable-third-party-lzma-sdk-r0.patch"
 	"${FILESDIR}/chromium-system-libusb-r0.patch"
-	"${FILESDIR}/chromium-system-nspr-r1.patch"
 	"${FILESDIR}/chromium-system-fix-shim-headers-r0.patch"
 	"${FILESDIR}/chromium-skia-harmony.patch"
 )
@@ -231,6 +230,13 @@ pkg_pretend() {
 		ewarn
 		ewarn "disable-perfetto and disable-tracing patches are not yet updated to this"
 		ewarn "version of chromium. Their effect is temporarily disabled."
+		ewarn
+	fi
+
+	if ! has_version ">=sys-devel/lld-9.0.0" && use thinlto; then
+		ewarn
+		ewarn "thinlto fails compilation on clang/lld 8,"
+		ewarn "therefore it is only enabled on >8"
 		ewarn
 	fi
 
@@ -318,11 +324,14 @@ src_prepare() {
 		base/third_party/double_conversion
 		base/third_party/dynamic_annotations
 		base/third_party/icu
+		base/third_party/nspr
 		base/third_party/superfasthash
 		base/third_party/symbolize
 		base/third_party/valgrind
 		base/third_party/xdg_mime
 		base/third_party/xdg_user_dirs
+		buildtools/third_party/libc++
+		buildtools/third_party/libc++abi
 		chrome/third_party/mozilla_security_manager
 		courgette/third_party
 		net/third_party/mozilla_security_manager
@@ -631,14 +640,19 @@ src_configure() {
 	myconf_gn+=" link_pulseaudio=$(usex pulseaudio true false)"
 
 	myconf_gn+=" is_cfi=$(usex cfi true false)"
+
 	if use cfi
 	then
 		myconf_gn+=" use_cfi_icall=true"
 		myconf_gn+=" use_cfi_cast=true"
 	fi
 
-	myconf_gn+=" use_thin_lto=$(usex thinlto true false)"
-	myconf_gn+=" thin_lto_enable_optimizations=$(usex optimize-thinlto true false)"
+	if has_version ">=sys-devel/lld-9.0.0"
+	then
+		myconf_gn+=" use_thin_lto=$(usex thinlto true false)"
+		myconf_gn+=" thin_lto_enable_optimizations=$(usex optimize-thinlto true false)"
+	fi
+
 	myconf_gn+=" optimize_webui=$(usex optimize-webui true false)"
 	myconf_gn+=" use_gio=$(usex gnome true false)"
 	myconf_gn+=" use_openh264=$(usex system-openh264 false true)"
@@ -650,7 +664,6 @@ src_configure() {
 	myconf_gn+=" enable_print_preview=$(usex pdf true false)"
 
 	# Ungoogled flags
-	myconf_gn+=" enable_hevc_demuxing=true"
 	myconf_gn+=" enable_mdns=false"
 	myconf_gn+=" enable_mse_mpeg2ts_stream_parser=true"
 	myconf_gn+=" enable_nacl_nonsfi=false"
@@ -668,7 +681,6 @@ src_configure() {
 	myconf_gn+=" use_unofficial_version_number=false"
 	myconf_gn+=" blink_symbol_level=0"
 	myconf_gn+=" symbol_level=0"
-	myconf_gn+=" enable_ac3_eac3_audio_demuxing=true"
 	myconf_gn+=" enable_iterator_debugging=false"
 	myconf_gn+=" enable_swiftshader=false"
 	myconf_gn+=" is_official_build=true"
@@ -730,7 +742,7 @@ src_configure() {
 		die "Failed to determine target arch, got '$myarch'."
 	fi
 
-	if use thinlto; then
+	if has_version ">=sys-devel/lld-9.0.0" && use thinlto; then
 		# We need to change the default value of import-instr-limit in
 		# LLVM to limit the text size increase. The default value is
 		# 100, and we change it to 30 to reduce the text size increase
@@ -871,7 +883,7 @@ src_install() {
 	# keep the old symlink around for consistency
 	dosym "${CHROMIUM_HOME}/chromium-launcher.sh" /usr/bin/chromium
 
-	dosym "${CHROMIUM_HOME}/chromedriver" /usr/bin/chromedriver
+	use enable-driver && dosym "${CHROMIUM_HOME}/chromedriver" /usr/bin/chromedriver
 
 	# Allow users to override command-line options, bug #357629.
 	insinto /etc/chromium

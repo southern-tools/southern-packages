@@ -306,6 +306,8 @@ src_prepare() {
 		base/third_party/valgrind
 		base/third_party/xdg_mime
 		base/third_party/xdg_user_dirs
+		buildtools/third_party/libc++
+		buildtools/third_party/libc++abi
 		chrome/third_party/mozilla_security_manager
 		courgette/third_party
 		net/third_party/mozilla_security_manager
@@ -632,7 +634,6 @@ src_configure() {
 	myconf_gn+=" enable_print_preview=$(usex pdf true false)"
 
 	# Ungoogled flags
-	myconf_gn+=" enable_hevc_demuxing=true"
 	myconf_gn+=" enable_mdns=false"
 	myconf_gn+=" enable_mse_mpeg2ts_stream_parser=true"
 	myconf_gn+=" enable_nacl_nonsfi=false"
