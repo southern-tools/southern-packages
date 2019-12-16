@@ -91,6 +91,7 @@ x11-wm/i3-gaps ~amd64
 #=dev-libs/openssl-1.1.1d-r1 ~amd64 # compile error on version 1.0.2t with lto
 #=dev-libs/nspr-4.22 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
 =dev-libs/nss-3.46 ~amd64 # required by www-client/chromium-76.0.3809.100::gentoo
+=dev-libs/icu-65.1 ~amd64 # required by Chromium
 #=dev-python/css-parser-1.0.4-r1 ~amd64 # required by app-text/calibre
 =dev-python/html2text-2019.8.11 ~amd64 # required by app-text/calibre
 =dev-python/icalendar-4.0.3 ~amd64 # required by app-misc/khal-0.9.10::gentoo
