@@ -105,6 +105,7 @@ x11-wm/i3-gaps ~amd64
 =dev-tex/biblatex-apa-7.5 ~amd64
 #=dev-util/ninja-1.9.0 ~amd64
 #=media-libs/libvpx-1.7.0 ~amd64 # required by www-client/firefox-68.0.2::gentoo[system-libvpx]
+=mail-mta/postfix-3.4.8 ~amd64 # current don't build
 =media-libs/lv2-1.16.0 ~amd64 # required by ??
 sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
