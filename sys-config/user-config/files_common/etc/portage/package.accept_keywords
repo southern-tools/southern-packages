@@ -83,6 +83,8 @@ x11-misc/xkblayout-state ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
+=app-office/libreoffice-6.3.3.2 ~amd64 # openjdk 11 compatibility
+=app-office/libreoffice-l10n-6.3.3.2 ~amd64 # openjdk 11 compatibility
 =dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
 =dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
 =dev-lang/python-3.7*::southern-packages ~amd64 # python with lto
