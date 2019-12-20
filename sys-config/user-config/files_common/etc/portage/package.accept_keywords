@@ -16,6 +16,7 @@ dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
 dev-java/openjdk-bin ~amd64
 dev-java/oracle-jdk-bin ~amd64
+dev-lang/python::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
@@ -83,12 +84,12 @@ x11-misc/xkblayout-state ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-=app-office/libreoffice-6.3.3.2 ~amd64 # openjdk 11 compatibility
-=app-office/libreoffice-l10n-6.3.3.2 ~amd64 # openjdk 11 compatibility
-=dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
-=dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
-=dev-lang/python-3.7*::southern-packages ~amd64 # python with lto
-=dev-lang/python-3.8*::southern-packages ~amd64 # python with lto
+#=app-office/libreoffice-6.3.3.2 ~amd64 # openjdk 11 compatibility
+#=app-office/libreoffice-l10n-6.3.3.2 ~amd64 # openjdk 11 compatibility
+#=dev-lang/python-2.7*::southern-packages ~amd64 # python with lto
+#=dev-lang/python-3.6*::southern-packages ~amd64 # python with lto
+#=dev-lang/python-3.7*::southern-packages ~amd64 # python with lto
+#=dev-lang/python-3.8*::southern-packages ~amd64 # python with lto
 =dev-python/html2text-2019.9.26 ~amd64 # required by app-text/calibre
 =dev-python/icalendar-4.0.3 ~amd64 # required by app-misc/khal-0.9.10::gentoo
 =dev-python/PyQt5-5.13.2 ~amd64 # required by app-text/calibre-4.1.0-r1::gentoo
