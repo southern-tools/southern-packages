@@ -101,3 +101,4 @@ x11-wm/i3-gaps ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
+media-libs/shaderc ~amd64
