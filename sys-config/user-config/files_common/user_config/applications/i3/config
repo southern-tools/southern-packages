@@ -222,7 +222,7 @@ mode "$mode_system" {
 
 # Floating windows
 for_window [class="URxvt" title="alsamixer"] floating enable
-for_window [class="URxvt" title="wicd-curses"] floating enable
+#for_window [class="URxvt" title="wicd-curses"] floating enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 for_window [instance="copyq" class="copyq"] floating enable
 
@@ -354,7 +354,10 @@ bindsym Ctrl+Escape exec --no-startup-id urxvtc -e htop
 bindsym $mod+Mod1+z exec --no-startup-id zotero
 
 # Wicd
-bindsym Ctrl+1 exec --no-startup-id urxvtc -name floating -e wicd-curses
+#bindsym Ctrl+1 exec --no-startup-id urxvtc -name floating -e wicd-curses
+
+# Wpa_gui
+bindsym Ctrl+1 exec --no-startup-id wpa_gui
 
 # Alsamixer
 bindsym Ctrl+2 exec --no-startup-id urxvtc -name floating -e alsamixer
