@@ -6,3 +6,5 @@ dev-lang/python::gentoo
 >sys-kernel/gentoo-sources-5.5.2-r1 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 =x11-misc/i3status-2.13 # skip pulseaudio dependency
+www-client/ungoogled-chromium
+app-office/libreoffice
