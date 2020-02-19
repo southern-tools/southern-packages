@@ -1,7 +1,7 @@
 #!/bin/bash
 # Southern Tools
 #
-set -x
+#set -x
 
 # Source repo names
 source ~/.user_config/no_share/github_repos
