@@ -6,6 +6,7 @@ app-portage/genup::southern-packages
 app-portage/showem::southern-packages
 app-shells/runtitle::southern-packages # required by app-portage/portage-bashrc-mv-17.3::mv[title], sys-config/ltoize-0.9.4-r1::southern-packages
 dev-lang/python::southern-packages
+games-util/steam-launcher::southern-packages
 sci-misc/zotero-bin::southern-packages
 sys-config/ltoize::southern-packages
 sys-kernel/buildkernel::southern-packages
