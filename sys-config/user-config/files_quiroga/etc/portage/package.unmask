@@ -6,8 +6,12 @@ app-portage/genup::southern-packages
 app-portage/showem::southern-packages
 app-shells/runtitle::southern-packages # required by app-portage/portage-bashrc-mv-17.3::mv[title], sys-config/ltoize-0.9.4-r1::southern-packages
 dev-lang/python::southern-packages
+games-util/steam-client-meta::southern-packages
+games-util/steam-games-meta::southern-packages
+games-util/steam-launcher::southern-packages
+games-util/steam-meta::southern-packages
 sci-misc/zotero-bin::southern-packages
 sys-config/ltoize::southern-packages
 sys-kernel/buildkernel::southern-packages
-=www-client/ungoogled-chromium-76.0.3809.132_p1::southern-packages
+www-client/ungoogled-chromium::southern-packages
 x11-libs/gtk+::southern-packages
