@@ -60,7 +60,7 @@ sys-devel/clang ~amd64 # required by dev-libs/intel-neo
 sys-devel/clang-common ~amd64 # just in case
 sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 sys-devel/gcc ~amd64 # required for lto
-sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
+#sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
 sys-devel/llvm-common ~amd64
 sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
