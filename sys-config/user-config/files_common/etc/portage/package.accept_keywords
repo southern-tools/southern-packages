@@ -34,7 +34,10 @@ dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 dev-util/intel-ocl-sdk ~amd64
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
 #dev-util/vulkan-headers ~amd64
-games-util/steam-launcher ~amd64
+games-util/steam-client-meta::southern-packages ~amd64
+games-util/steam-games-meta::southern-packages ~amd64
+games-util/steam-launcher::southern-packages ~amd64
+games-util/steam-meta::southern-packages ~amd64
 gui-apps/swaybg ~amd64
 gui-apps/swayidle ~amd64
 gui-apps/swaylock ~amd64
