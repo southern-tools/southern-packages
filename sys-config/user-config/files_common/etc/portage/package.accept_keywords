@@ -71,7 +71,7 @@ sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[
 sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 sys-libs/glibc ~amd64 # required for lto
 sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
-www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
+#www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
 #www-client/ungoogled-chromium-bin ~amd64 # required by ungoogled-chromium-bin (argument)
 www-plugins/chrome-binary-plugins ~amd64
 www-plugins/google-talkplugin ~amd64
