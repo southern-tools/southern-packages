@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=rtorrent-magnet
+Exec=urxvtc -name rtorrent -e rtorrent %U
+MimeType=x-scheme-handler/magnet;
+NoDisplay=true
+

@@ -1,0 +1,125 @@
+;; Southern Tools
+;;
+;;======================
+;; AUTOMATICALLY EDITED
+;;======================
+;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+'(package-selected-packages (quote (general avy deft))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+;;
+;;==========================
+;; END OF AUTOMATIC EDITION
+;;==========================
+;;
+;;
+;;=======
+;; REPOS 
+;;=======
+;;
+;; add melpa stable repo
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(package-initialize)
+;;
+;;
+;;==========
+;; PACKAGES
+;;==========
+;;
+;; deft config
+(setq deft-extensions '("md" "txt" "tex" "org"))
+(setq deft-directory "~/Remotes/dropbox_sync/Zettelkasten/")
+(setq deft-recursive t)
+(global-set-key [f8] 'deft)
+;;
+;; Open a file in the other window and shifting focus to it
+(defun efls/deft-open-other ()
+ (interactive)
+ (deft-open-file-other-window t))
+;;
+;; To select results from the item list without leaving the insert state
+(with-eval-after-load 'deft
+  (define-key deft-mode-map
+    (kbd "<tab>") 'efls/deft-open-preview)
+  (define-key deft-mode-map
+    (kbd "<s-return>") 'efls/deft-open-other)
+  (define-key deft-mode-map
+    (kbd "s-j") 'evil-next-line)
+  (define-key deft-mode-map (kbd "s-k") 'evil-previous-line))
+;;
+;; Ignore more org-mode metadata
+(setq deft-strip-summary-regexp
+ (concat "\\("
+         "[\n\t]" ;; blank
+         "\\|^#\\+[a-zA-Z_]+:.*$" ;;org-mode metadata
+         "\\)"))
+;;
+;;
+;;
+;; zetteldeft config
+(add-to-list 'load-path "~/Remotes/zetteldeft/")
+(setq zd-id-format "%Y%m%d%H%M")
+(setq deft-new-file-format zd-id-format)
+(setq zd-id-regex "20[0-9]\\{10\\}")
+(setq zd-link-indicator "[[")
+(setq zd-title-prefix "---\nNote ID: '")
+(setq zd-title-suffix "'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n")
+(require 'zetteldeft)
+;;
+;;
+;;
+;; general config
+(general-define-key
+  :prefix "SPC"
+  :non-normal-prefix "C-SPC"
+  :states '(normal visual motion emacs)
+  :keymaps 'override
+  "d"  '(nil :wk "deft")
+  "dd" '(deft :wk "deft")
+  "dD" '(zd-deft-new-search :wk "new search")
+  "dR" '(deft-refresh :wk "refresh")
+  "ds" '(zd-search-at-point :wk "search at point")
+  "dc" '(zd-search-current-id :wk "search current id")
+  "df" '(zd-follow-link :wk "follow link")
+  "dF" '(zd-avy-file-search-ace-window :wk "avy file other window")
+  "dl" '(zd-avy-link-search :wk "avy link search")
+  "dt" '(zd-avy-tag-search :wk "avy tag search")
+  "dT" '(zd-tag-buffer :wk "tag list")
+  "di" '(zd-find-file-id-insert :wk "insert id")
+  "dI" '(zd-find-file-full-title-insert :wk "insert full title")
+  "do" '(zd-find-file :wk "find file")
+  "dn" '(zd-new-file :wk "new file")
+  "dN" '(zd-new-file-and-link :wk "new file & link")
+  "dr" '(zd-file-rename :wk "rename"))
+(require 'general)
+;;
+;;
+;;
+;;==========
+;; SETTINGS
+;;==========
+;;
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.saves/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+;;
+;;
+;;
+;;
