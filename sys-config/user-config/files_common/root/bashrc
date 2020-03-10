@@ -1,4 +1,4 @@
-# Southern Tools 
+# Southern Tools
 #
 export NUMCPUS=$(nproc)
 export NUMCPUSPLUSONE=$(( NUMCPUS + 1 ))
@@ -6,6 +6,7 @@ export MAKEOPTS="-j${NUMCPUSPLUSONE} -l${NUMCPUS}"
 export EMERGE_DEFAULT_OPTS="--jobs=${NUMCPUSPLUSONE} --load-average=${NUMCPUS} --keep-going=y"
 
 # Aliases
+alias up='emerge -av --deep --with-bdeps=y --changed-use --update --backtrack=50 @world'
 alias make.conf='nano /etc/portage/make.conf'
 alias use='nano /etc/portage/package.use'
 alias mask='nano /etc/portage/package.mask'
