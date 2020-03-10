@@ -56,21 +56,21 @@ sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-devel/binutils ~amd64 # required for lto
-sys-devel/clang ~amd64 # required by dev-libs/intel-neo
-sys-devel/clang-common ~amd64 # just in case
-sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
+#sys-devel/clang ~amd64 # required by dev-libs/intel-neo
+#sys-devel/clang-common ~amd64 # just in case
+#sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 sys-devel/gcc ~amd64 # required for lto
 #sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
-sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
-sys-devel/llvm-common ~amd64
-sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
+#sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
+#sys-devel/llvm-common ~amd64
+#sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
-sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
-sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
+#sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
+#sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 sys-libs/glibc ~amd64 # required for lto
-sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
+#sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
 #www-client/ungoogled-chromium-bin ~amd64 # required by ungoogled-chromium-bin (argument)
 www-plugins/chrome-binary-plugins ~amd64
