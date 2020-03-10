@@ -41,4 +41,4 @@ for repo in "$repo_11" "$repo_12" "$repo_13" "$repo_14" "$repo_15" "$repo_16" "$
 
 done
 
-echo "* ALL TASKS DONE ;)"
+echo "* ALL REPOS PULLED ;)"
