@@ -18,6 +18,7 @@ dev-java/openjdk ~amd64
 #dev-java/oracle-jdk-bin ~amd64
 dev-lang/python::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
+dev-libs/bemenu ~amd64
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
 dev-libs/ocl-icd ~amd64
@@ -38,6 +39,8 @@ games-util/steam-client-meta::southern-packages ~amd64
 games-util/steam-games-meta::southern-packages ~amd64
 games-util/steam-launcher::southern-packages ~amd64
 games-util/steam-meta::southern-packages ~amd64
+gui-apps/grim ~amd64
+gui-apps/slurp ~amd64
 gui-apps/swaybg ~amd64
 gui-apps/swayidle ~amd64
 gui-apps/swaylock ~amd64

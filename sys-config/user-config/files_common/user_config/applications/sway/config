@@ -49,7 +49,7 @@ set $term urxvtc
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="dmenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '#032C36' -nf '#9ED9D8' -sb '#9ED9D8' -sf '#032C36'" | xargs swaymsg exec
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '#032C36' -nf '#9ED9D8' -sb '#9ED9D8' -sf '#032C36'" | xargs swaymsg exec
 
 ### Output configuration
 #
@@ -376,6 +376,7 @@ bindsym $mod+Mod1+l exec xlock -mode blank -mousemotion
 
 # Capturas
 bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
+#bindsym --release Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
 
 # Web Browser
 bindsym $mod+Mod1+b exec chromium
@@ -406,14 +407,14 @@ bindsym $mod+Mod1+z exec --no-startup-id zotero
 # Htop
 bindsym Ctrl+Escape exec urxvtc -e htop
 
-# Wicd
-bindsym Ctrl+1 exec urxvtc -name floating -e wicd-curses
+# Wpa_gui
+bindsym Ctrl+1 exec --no-startup-id wpa_gui
 
 # Alsamixer
 bindsym Ctrl+2 exec urxvtc -name floating -e alsamixer
 
 # Clear the clipboard
-bindsym Ctrl+3 exec xsel --clear
+#bindsym Ctrl+3 exec xsel --clear
 
 # Hotspot
 bindsym Ctrl+4 exec urxvtc -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
@@ -442,5 +443,5 @@ exec_always {
 exec xrdb -merge ~/.Xresources
 exec urxvtd --quiet --opendisplay --fork
 exec light -S 90
-exec redshift -l geoclue2
+exec redshift -l 49.59:17.25
 
