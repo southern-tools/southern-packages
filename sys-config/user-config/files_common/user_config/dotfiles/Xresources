@@ -42,7 +42,7 @@ Emacs.font: Hack-10
 
 ! Colors
 
-*cursorColor:	#E8DFD6
+!*cursorColor:	#E8DFD6
 *transparent:	#80000000
 
 ! Gentoo

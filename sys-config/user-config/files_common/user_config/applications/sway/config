@@ -14,12 +14,35 @@ smart_borders on
 # ASPECT
 #====================
 
-# Class                     Border      Backgr.		Text		Indicator	Child_Border
-client.focused              #44B5B1     #44B5B1		#44B5B1		#44B5B1		#44B5B1
-client.focused_inactive     #80000000	#80000000	#80000000	#80000000	#80000000
-client.unfocused            #80000000   #80000000	#80000000	#80000000	#80000000
-client.urgent               #EF5847     #EF5847		#80000000	#F2F1B9		#EF5847
-client.background           #80000000   #80000000	#80000000	#80000000	#80000000
+# Colors
+
+set $color0 #032C36
+set $color1 #C2454E
+set $color2 #7CBF9E
+set $color3 #8A7A63
+set $color4 #2E3340
+set $color5 #FF5879
+set $color6 #44B5B1
+set $color7 #F2F1B9
+set $color8 #065F73
+set $color9 #EF5847
+set $color10 #A2D9B1
+set $color11 #BEB090
+set $color12 #61778D
+set $color13 #FF99A1
+set $color14 #9ED9D8
+set $color15 #F6F6C9
+set $color16 #
+set $background #032C36
+set $foreground #F2F1B9
+set $transparent #80000000
+
+# Class                 Border          Backgr.         Text            Indicator       Child_Border
+client.focused          $color6         $color6         $color6         $color6         $color6
+client.focused_inactive $transparent    $transparent    $transparent    $transparent    $transparent 
+client.unfocused        $transparent    $transparent    $transparent    $transparent    $transparent
+client.urgent           $color9         $color9         $transparent    $foreground     $color9
+client.background       $transparent    $transparent    $transparent    $transparent    $transparent
 
 # Borders 
 default_border pixel 1
@@ -47,13 +70,13 @@ set $mod Mod4
 #set $right l
 
 # Your preferred terminal emulator
-set $term urxvtc
+set $term alacritty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '#032C36' -nf '#9ED9D8' -sb '#9ED9D8' -sf '#032C36'" | xargs swaymsg exec
+#set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '#032C36' -nf '#9ED9D8' -sb '#9ED9D8' -sf '#032C36'" | xargs swaymsg exec --
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=18' -nb '#032C36' -nf #9ED9D8 -sb #9ED9D8 -sf #032C36 --term='urxvtc'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --tb '#032C36' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#032C36' --ff '#9ED9D8' --nb '#032C36' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#032C36' --sb '#9ED9D8' --sf '#032C36'" | xargs swaymsg exec --
 
 
 
@@ -240,31 +263,6 @@ bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+plus scratchpad show
 
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    #bindsym $left resize shrink width 10px
-    #bindsym $down resize grow height 10px
-    #bindsym $up resize shrink height 10px
-    #bindsym $right resize grow width 10px
-
-    # ditto, with arrow keys
-    bindsym Left resize shrink width 20px
-    bindsym Down resize grow height 20px
-    bindsym Up resize shrink height 20px
-    bindsym Right resize grow width 20px
-
-    # return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
 
 #====================
 # MODES
@@ -330,19 +328,21 @@ bar {
 	strip_workspace_numbers yes
     separator_symbol " | "
     colors {
-            background		#80000000
-            separator		#EF5847
-            statusline		#F2F1B9
+            background      $transparent
+            separator       $color9
+            statusline      $foreground
 
-
-#                               <border>	<background>	<text>
-            focused_workspace   #80000000	#80000000	    #44B5B1
-            active_workspace    #80000000	#80000000	    #F2F1B9
-            inactive_workspace  #80000000	#80000000	    #F2F1B9
-            urgent_workspace    #F2F1B9		#EF5847		    #F2F1B9
-            binding_mode        #80000000	#80000000	    #F2F1B9
+#                               <border>        <background>      <text>
+            focused_workspace   $transparent     $transparent     $color6
+            active_workspace    $transparent     $transparent     $foreground
+            inactive_workspace  $transparent     $transparent     $foreground
+            urgent_workspace    $foreground      $transparent     $color9
+            binding_mode        $transparent     $transparent     $foreground
     }
 }
+
+
+
 
 include /etc/sway/config.d/*
 
@@ -452,7 +452,7 @@ exec_always {
 #====================
 
 exec xrdb -merge ~/.Xresources
-exec urxvtd --quiet --opendisplay --fork
+#exec urxvtd --quiet --opendisplay --fork
 exec light -S 90
 exec redshift -l 49.59:17.25
-
+exec copyq
