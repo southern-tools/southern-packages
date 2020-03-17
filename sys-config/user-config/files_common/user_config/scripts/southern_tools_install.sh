@@ -74,9 +74,12 @@ sed -i "s/USER_FULL_NAME/'$user_full_name'/g" ~/.user_config/no_share/neomutt_gm
 sed -i "s/USER_EMAIL/'$user_email'/g" ~/.user_config/no_share/neomutt_gmail
 sed -i "s/USER_EMAIL_PASSWORD/'$user_email_password'/g" ~/.user_config/no_share/neomutt_gmail
 
+# Setting up Alacritty
+
+
 # Setting up zathura
-mkdir -p ~/.config/zathura/zathurarc
-ln -vsf ~/.user_config/applications/zathura/zathurarc ~/.config/zathura/zathurarc
+mkdir -p ~/.config/alacritty/
+ln -vsf ~/.user_config/applications/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 # Rtorrent session folder
 mkdir -p ~/.config/rtorrent/.session/

@@ -10,6 +10,7 @@ app-misc/nnn ~amd64
 app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-portage/showem::southern-packages ~amd64
+#app-shells/powerline ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/calibre ~amd64
 dev-java/icedtea ~amd64
@@ -44,9 +45,11 @@ gui-apps/slurp ~amd64
 gui-apps/swaybg ~amd64
 gui-apps/swayidle ~amd64
 gui-apps/swaylock ~amd64
+gui-apps/wl-clipboard ~amd64
 gui-libs/wlroots ~amd64
 gui-wm/sway ~amd64
 media-fonts/fontawesome ~amd64
+#media-fonts/powerline-symbols ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 media-libs/mesa ~amd64
 #media-libs/suil ~amd64 # required by media-sound/ardour
@@ -90,6 +93,7 @@ x11-misc/redshift ~amd64
 x11-misc/spacefm ~amd64
 x11-misc/xautolock ~amd64
 x11-misc/xkblayout-state ~amd64
+x11-terms/alacritty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version

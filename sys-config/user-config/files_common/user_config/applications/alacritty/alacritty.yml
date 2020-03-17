@@ -1,0 +1,54 @@
+# Southern Tools
+#
+# Fonts
+font:
+  normal:
+    family: hack
+    style: Regular
+  bold:
+    family: hack
+    style: Bold
+  italic:
+    family: hack
+    style: Italic
+  bold_italic:
+    family: hack
+    style: Bold Italic
+  size: 8
+
+
+# Transparence
+background_opacity: 0.1
+
+
+# Clipboard
+selection:
+  save_to_clipboard: true
+
+
+# Southern Tools Colors
+colors:
+  # Default colors
+  primary:
+    background: '#032C36'
+    foreground: '#F2F1B9'
+  # Normal colors
+  normal:
+    black:    '#032C36'
+    red:      '#C2454E'
+    green:    '#7CBF9E'
+    yellow:   '#8A7A63'
+    blue:     '#2E3340'
+    magenta:  '#FF5879'
+    cyan:     '#44B5B1'
+    white:    '#F2F1B9'
+    # Bright colors
+  bright:
+    black:    '#065F73'
+    red:      '#EF5847'
+    green:    '#A2D9B1'
+    yellow:   '#BEB090'
+    blue:     '#61778D'
+    magenta:  '#FF99A1'
+    cyan:     '#9ED9D8'
+    white:    '#F6F6C9'

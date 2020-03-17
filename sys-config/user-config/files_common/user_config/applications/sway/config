@@ -54,7 +54,7 @@ for_window [class="^.*"] border pixel 1
 font pango:Hack 8
 
 # Cursor
-seat seat0 xcursor_theme default 24
+seat seat0 xcursor_theme gentoo-silver 24
 
 #====================
 # VARIABLES
@@ -290,15 +290,15 @@ bindsym $mod+Delete mode "$mode_system"
 #====================
 
 # Floating windows
-for_window [class="URxvt" title="alsamixer"] floating enable
-for_window [class="URxvt" title="wicd-curses"] floating enable
+for_window [class="Alacritty" title="alsamixer"] floating enable
+for_window [class="Alacritty" title="wicd-curses"] floating enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 
 # General rules for floating windows
 for_window [window_type="notification"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
-for_window [class="URxvt" instance="floating"] floating enable
+for_window [class="Alacritty" instance="floating"] floating enable
 for_window [class="mpv"] floating enable
 
 # Rules for Hangouts and Facebook call
@@ -380,7 +380,7 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #====================
 
 # Floating terminal
-#bindsym $mod+asterisk exec urxvtc -name floating
+#bindsym $mod+asterisk exec Alacritty -name floating
 
 # Screen lock
 bindsym $mod+Mod1+l exec xlock -mode blank -mousemotion
@@ -393,13 +393,13 @@ bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec --no-startup-id urxvtc -e mpsyt; workspace $ws10
+bindsym $mod+Mod1+y exec --no-startup-id Alacritty -e mpsyt; workspace $ws10
 
 # Neomutt
-bindsym $mod+Mod1+n exec urxvtc -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
+bindsym $mod+Mod1+n exec Alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
 
 # File Managers
-bindsym $mod+Mod1+f exec urxvtc -e ranger -r ~/.user_config/applications/ranger/
+bindsym $mod+Mod1+f exec Alacritty -e ranger -r ~/.user_config/applications/ranger/
 bindsym $mod+Mod1+p exec pcmanfm-qt
 bindsym $mod+Mod1+s exec spacefm
 
@@ -416,22 +416,22 @@ bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10
 bindsym $mod+Mod1+z exec --no-startup-id zotero
 
 # Htop
-bindsym Ctrl+Escape exec urxvtc -e htop
+bindsym Ctrl+Escape exec Alacritty -e htop
 
 # Wpa_gui
 bindsym Ctrl+1 exec --no-startup-id wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec urxvtc -name floating -e alsamixer
+bindsym Ctrl+2 exec Alacritty -name floating -e alsamixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
 
 # Hotspot
-bindsym Ctrl+4 exec urxvtc -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
+bindsym Ctrl+4 exec Alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
 
 # SSH
-bindsym Ctrl+5 exec urxvtc -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
+bindsym Ctrl+5 exec Alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 
 
 #====================
@@ -452,7 +452,6 @@ exec_always {
 #====================
 
 exec xrdb -merge ~/.Xresources
-#exec urxvtd --quiet --opendisplay --fork
+#exec Alacritty --quiet --opendisplay --fork
 exec light -S 90
 exec redshift -l 49.59:17.25
-exec copyq
