@@ -6,7 +6,7 @@ Name=Genlop
 
 Comment=Emerge ETA
 
-Exec=i3-msg "exec --no-startup-id urxvtc -name floating -e watch -cn 10 genlop -ci"
+Exec=swaymsg "exec urxvtc -e watch -cn 10 genlop -ci"
 
 Icon=utilities-terminal
 

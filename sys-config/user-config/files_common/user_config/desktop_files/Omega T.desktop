@@ -6,7 +6,7 @@ Name=Omega T
 
 Comment=Translation software
 
-Exec=i3-msg "exec --no-startup-id ~/Software/Omega_T/jre/bin/java -jar ~/Software/Omega_T/OmegaT.jar"
+Exec=swaymsg "exec ~/Software/Omega_T/jre/bin/java -jar ~/Software/Omega_T/OmegaT.jar"
 
 Icon=utilities-terminal
 

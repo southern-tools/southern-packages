@@ -6,7 +6,7 @@ Name=NCMPCPP
 
 Comment=Music server control
 
-Exec=i3-msg "exec --no-startup-id ~/.user_config/scripts/mpd.sh"
+Exec=swaymsg "exec ~/.user_config/scripts/mpd.sh"
 
 Icon=utilities-terminal
 

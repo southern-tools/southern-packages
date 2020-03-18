@@ -6,7 +6,7 @@ Name=Weechat
 
 Comment=IRC client
 
-Exec=i3-msg "exec --no-startup-id urxvtc -e weechat"
+Exec=swaymsg "exec urxvtc -e weechat"
 
 Icon=utilities-terminal
 

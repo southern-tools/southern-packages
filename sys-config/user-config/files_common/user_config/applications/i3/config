@@ -64,17 +64,17 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id urxvtc
-bindsym $mod+asterisk exec --no-startup-id urxvtc -name floating
+bindsym $mod+Return exec urxvtc
+bindsym $mod+asterisk exec urxvtc -name floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start j4-dmenu-desktop
-bindsym $mod+d exec --no-startup-id j4-dmenu-desktop --dmenu="dmenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '$background' -nf '$color14' -sb '$color14' -sf '$background'"
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '$background' -nf '$color14' -sb '$color14' -sf '$background'"
 
 # Start Rofi
-# bindsym $mod+d exec --no-startup-id "rofi -show drun \
+# bindsym $mod+d exec "rofi -show drun \
 # -modi drun#ssh \
 # -lines 5 \
 # -eh 3 \
@@ -178,7 +178,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+plus scratchpad show
 
 # Rename Workspaces
-# bindsym $mod+n exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'Rename Workspace: '
+# bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'Rename Workspace: '
 
 
 #====================
@@ -192,7 +192,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 #====================
@@ -201,18 +201,18 @@ bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you want 
 
 # Set shut down, restart and locking features
 bindsym $mod+Delete mode "$mode_system"
-set $mode_system [  (l)ock  |  (e)xit  |  (r)eboot  |  (S)hutdown  ]
+set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown ]
 mode "$mode_system" {
-   
-    bindsym --release l exec --no-startup-id ~/.user_config/scripts/locker.sh, mode "default"
-    #bindsym s exec --no-startup-id sudo /usr/sbin/pm-suspend, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    #bindsym h exec --no-startup-id sudo /usr/sbin/pm-hibernate, mode "default"
-    bindsym r exec --no-startup-id bash -c 'pkill -HUP X && sudo /sbin/reboot', mode "default"
-	bindsym Shift+s exec --no-startup-id bash -c 'pkill -HUP X && sudo /sbin/halt', mode "default"
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+  
+  bindsym --release l exec ~/.user_config/scripts/locker.sh, mode "default"
+  #bindsym s exec sudo /usr/sbin/pm-suspend, mode "default"
+  bindsym e exec i3-msg exit, mode "default"
+  #bindsym h exec sudo /usr/sbin/pm-hibernate, mode "default"
+  bindsym r exec bash -c 'pkill -HUP X && sudo /sbin/reboot', mode "default"
+	bindsym Shift+s exec bash -c 'pkill -HUP X && sudo /sbin/halt', mode "default"
+  # exit system mode: "Enter" or "Escape"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 
@@ -256,7 +256,7 @@ assign [title="ncmpcpp*"] $ws10
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 
 bar {
-    i3bar_command i3bar -t
+  i3bar_command i3bar -t
 	output primary
 	tray_output primary
 	#status_command i3blocks -c ~/.user_config/applications/i3blocks/i3blocks.conf
@@ -267,17 +267,17 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-            background		$transparent
-            separator       $color9
-            statusline		$foreground
+      background		$transparent
+      separator    $color9
+      statusline		$foreground
 
-#                               <border>        <background>      <text>
-            focused_workspace   $transparent     $transparent     $color6
-            active_workspace    $transparent     $transparent     $foreground
-            inactive_workspace  $transparent     $transparent     $foreground
-            urgent_workspace    $foreground      $transparent     $color9
-            binding_mode        $transparent     $transparent     $foreground
-    }
+#                <border>    <background>   <text>
+      focused_workspace  $transparent   $transparent   $color6
+      active_workspace  $transparent   $transparent   $foreground
+      inactive_workspace $transparent   $transparent   $foreground
+      urgent_workspace  $foreground   $transparent   $color9
+      binding_mode    $transparent   $transparent   $foreground
+  }
 }
 
 
@@ -287,21 +287,21 @@ bar {
 
 # Caps indicator
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Num_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 # Teclas de volumen
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+; exec pkill  -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%-; exec pkill  -RTMIN+10 i3blocks
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle; exec pkill  -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+; exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-; exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q set Master toggle; exec pkill -RTMIN+10 i3blocks
 
 # Teclas de reproduccion (requires playerctl and probably dbus)
-# bindsym XF86AudioPlay exec --no-startup-id playerctl play
-# bindsym XF86AudioNext exec --no-startup-id playerctl next
-# bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# bindsym XF86AudioPlay exec playerctl play
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 # Brillo de pantalla
-bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 10"
-bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 10"
+bindsym XF86MonBrightnessUp exec "light -A 10"
+bindsym XF86MonBrightnessDown exec "light -U 10"
 
 # Resize
 bindsym $mod+u resize grow height 10 px or 10 ppt
@@ -315,58 +315,59 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #====================
 
 # Screen lock
-bindsym --release $mod+Mod1+l exec --no-startup-id ~/.user_config/scripts/locker.sh
+bindsym --release $mod+Mod1+l exec ~/.user_config/scripts/locker.sh
 
 # Snapshots
-bindsym --release Print exec --no-startup-id scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
+#bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
+bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
 
 # Pop-up copyq
-bindsym $mod+x exec --no-startup-id copyq show
+bindsym $mod+x exec copyq show
 
 # Web Browser
-bindsym $mod+Mod1+b exec --no-startup-id chromium
+bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec --no-startup-id urxvtc -e mpsyt; workspace $ws10
+bindsym $mod+Mod1+y exec urxvtc -e mpsyt; workspace $ws10
 
 # Neomutt
-bindsym $mod+Mod1+n exec --no-startup-id urxvtc -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
+bindsym $mod+Mod1+n exec urxvtc -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
 
 # File Managers
-bindsym $mod+Mod1+f exec --no-startup-id urxvtc -e ranger -r ~/.user_config/applications/ranger/
-bindsym $mod+Mod1+p exec --no-startup-id pcmanfm-qt
-bindsym $mod+Mod1+s exec --no-startup-id spacefm
+bindsym $mod+Mod1+f exec urxvtc -e ranger -r ~/.user_config/applications/ranger/
+bindsym $mod+Mod1+p exec pcmanfm-qt
+bindsym $mod+Mod1+s exec spacefm
 
 # Text Edit
-bindsym $mod+Mod1+t exec --no-startup-id subl
-bindsym $mod+Mod1+e exec --no-startup-id emacs
+bindsym $mod+Mod1+t exec subl
+bindsym $mod+Mod1+e exec emacs
 
 # Multimedia
-bindsym $mod+Mod1+v exec --no-startup-id vlc
+bindsym $mod+Mod1+v exec vlc
 
 # Ncmpcpp con mi script
-bindsym $mod+Mod1+m exec --no-startup-id ~/.user_config/scripts/mpd.sh; workspace $ws10
+bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10
 
 # Htop
-bindsym Ctrl+Escape exec --no-startup-id urxvtc -e htop
+bindsym Ctrl+Escape exec urxvtc -e htop
 
 # Zotero
-bindsym $mod+Mod1+z exec --no-startup-id zotero
+bindsym $mod+Mod1+z exec zotero
 
 # Wpa_gui
-bindsym Ctrl+1 exec --no-startup-id wpa_gui
+bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec --no-startup-id urxvtc -name floating -e alsamixer
+bindsym Ctrl+2 exec urxvtc -name floating -e alsamixer
 
 # Clear the clipboard
-bindsym Ctrl+3 exec --no-startup-id xsel --clear
+#bindsym Ctrl+3 exec xsel --clear
 
 # Hotspot
-bindsym Ctrl+4 exec --no-startup-id urxvtc -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
+bindsym Ctrl+4 exec urxvtc -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
 
 # SSH
-bindsym Ctrl+5 exec --no-startup-id urxvtc -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
+bindsym Ctrl+5 exec urxvtc -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 
 
 #====================

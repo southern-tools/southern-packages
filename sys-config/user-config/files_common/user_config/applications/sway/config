@@ -290,25 +290,25 @@ bindsym $mod+Delete mode "$mode_system"
 #====================
 
 # Floating windows
-for_window [class="Alacritty" title="alsamixer"] floating enable
-for_window [class="Alacritty" title="wicd-curses"] floating enable
+#for_window [class="alacritty" title="alsamixer"] floating enable
+for_window [app_id="wpa_gui"] floating enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 
 # General rules for floating windows
-for_window [window_type="notification"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [class="Alacritty" instance="floating"] floating enable
-for_window [class="mpv"] floating enable
+#for_window [window_type="notification"] floating enable
+#for_window [window_role="pop-up"] floating enable
+#for_window [window_role="task_dialog"] floating enable
+#for_window [class="alacritty" instance="floating"] floating enable
+#for_window [class="mpv"] floating enable
 
 # Rules for Hangouts and Facebook call
-for_window [title="Hangouts"] floating disable
-for_window [title="Llamada de Facebook - Chromium"] floating disable
+#for_window [title="Hangouts"] floating disable
+#for_window [title="Llamada de Facebook - Chromium"] floating disable
 
  # Assign applications to specific workspaces
-assign [title="mpsyt"] $ws10
-assign [class="mpv"] $ws10
-assign [title="ncmpcpp*"] $ws10
+#assign [title="mpsyt"] $ws10
+#assign [class="mpv"] $ws10
+#assign [title="ncmpcpp*"] $ws10
 
 
 #====================
@@ -380,26 +380,28 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #====================
 
 # Floating terminal
-#bindsym $mod+asterisk exec Alacritty -name floating
+#bindsym $mod+asterisk exec alacritty -name floating
 
 # Screen lock
 bindsym $mod+Mod1+l exec xlock -mode blank -mousemotion
 
 # Capturas
-bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
-#bindsym --release Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+#bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
+#bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
+bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
+
 
 # Web Browser
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec --no-startup-id Alacritty -e mpsyt; workspace $ws10
+bindsym $mod+Mod1+y exec alacritty -e mpsyt; workspace $ws10
 
 # Neomutt
-bindsym $mod+Mod1+n exec Alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
+bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
 
 # File Managers
-bindsym $mod+Mod1+f exec Alacritty -e ranger -r ~/.user_config/applications/ranger/
+bindsym $mod+Mod1+f exec alacritty -e ranger -r ~/.user_config/applications/ranger/
 bindsym $mod+Mod1+p exec pcmanfm-qt
 bindsym $mod+Mod1+s exec spacefm
 
@@ -413,25 +415,25 @@ bindsym $mod+Mod1+v exec vlc
 bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10
 
 # Zotero
-bindsym $mod+Mod1+z exec --no-startup-id zotero
+bindsym $mod+Mod1+z exec zotero
 
 # Htop
-bindsym Ctrl+Escape exec Alacritty -e htop
+bindsym Ctrl+Escape exec alacritty -e htop
 
 # Wpa_gui
-bindsym Ctrl+1 exec --no-startup-id wpa_gui
+bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec Alacritty -name floating -e alsamixer
+bindsym Ctrl+2 exec alacritty -e alsamixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
 
 # Hotspot
-bindsym Ctrl+4 exec Alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
+bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
 
 # SSH
-bindsym Ctrl+5 exec Alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
+bindsym Ctrl+5 exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 
 
 #====================
@@ -452,6 +454,5 @@ exec_always {
 #====================
 
 exec xrdb -merge ~/.Xresources
-#exec Alacritty --quiet --opendisplay --fork
 exec light -S 90
-exec redshift -l 49.59:17.25
+#exec redshift -l 49.59:17.25

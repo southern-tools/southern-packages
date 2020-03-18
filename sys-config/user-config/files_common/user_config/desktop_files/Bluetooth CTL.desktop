@@ -6,7 +6,7 @@ Name=Bluetooth CTL
 
 Comment=Bluetooth CLI tool
 
-Exec=i3-msg "exec --no-startup-id urxvtc -e sudo ~/.user_config/scripts/bluetooth_ctl.sh"
+Exec=swaymsg "exec urxvtc -e sudo ~/.user_config/scripts/bluetooth_ctl.sh"
 
 Icon=utilities-terminal
 

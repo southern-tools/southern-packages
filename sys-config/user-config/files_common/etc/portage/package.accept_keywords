@@ -94,6 +94,7 @@ x11-misc/spacefm ~amd64
 x11-misc/xautolock ~amd64
 x11-misc/xkblayout-state ~amd64
 x11-terms/alacritty ~amd64
+x11-terms/kitty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version

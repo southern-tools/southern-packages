@@ -6,7 +6,7 @@ Name=Public Ip Gmail
 
 Comment=Obtain public IP and e-mail it
 
-Exec=i3-msg "exec --no-startup-id urxvtc -e ~/.user_config/scripts/public_ip_gmail.sh"
+Exec=swaymsg "exec urxvtc -e ~/.user_config/scripts/public_ip_gmail.sh"
 
 Icon=utilities-terminal
 

@@ -6,7 +6,7 @@ Name=MPS Youtube
 
 Comment=CLI Youtube player
 
-Exec=i3-msg "exec --no-startup-id urxvtc -e mpsyt"
+Exec=swaymsg "exec urxvtc -e mpsyt"
 
 Icon=utilities-terminal
 

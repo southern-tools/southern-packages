@@ -6,7 +6,7 @@ Name=Khal
 
 Comment=CLI Calendar
 
-Exec=i3-msg "exec --no-startup-id urxvtc -e ikhal"
+Exec=swaymsg "exec urxvtc -e ikhal"
 
 Icon=utilities-terminal
 

@@ -6,7 +6,7 @@ Name=Chromium Incognito
 
 Comment=Incognito version of Chromium
 
-Exec=i3-msg "exec --no-startup-id chromium-browser --incognito %U"
+Exec=swaymsg "exec chromium-browser --incognito %U"
 
 Icon=chromium-browser
 
