@@ -290,7 +290,7 @@ bindsym $mod+Delete mode "$mode_system"
 #====================
 
 # Floating windows
-#for_window [class="alacritty" title="alsamixer"] floating enable
+for_window [title="alsamixer"] floating enable
 for_window [app_id="wpa_gui"] floating enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 
