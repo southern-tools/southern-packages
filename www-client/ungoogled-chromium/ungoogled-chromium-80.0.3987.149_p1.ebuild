@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python{2_7,3_{6,7,8}} )
+PYTHON_COMPAT=( python{2_7,3_{7,8}} )
 
 CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
 	hi hr hu id it ja kn ko lt lv ml mr ms nb nl pl pt-BR pt-PT ro ru sk sl sr
@@ -19,15 +19,16 @@ DESCRIPTION="Modifications to Chromium for removing Google integration and enhan
 HOMEPAGE="https://www.chromium.org/Home https://github.com/Eloston/ungoogled-chromium"
 SRC_URI="
 	https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
-	https://github.com/Eloston/ungoogled-chromium/archive/9ec24e7652e8be46f44e879bbbf8b894d5ce957b.tar.gz
+	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
 "
-UGC_WD="${WORKDIR}/ungoogled-chromium-9ec24e7652e8be46f44e879bbbf8b894d5ce957b"
 
-#	https://github.com/Eloston/${PN}/archive/${UGC_PV}.tar.gz -> ${UGC_P}.tar.gz
+#	https://github.com/Eloston/ungoogled-chromium/archive/9ec24e7652e8be46f44e879bbbf8b894d5ce957b.tar.gz
 #"
+#UGC_WD="${WORKDIR}/ungoogled-chromium-9ec24e7652e8be46f44e879bbbf8b894d5ce957b"
+
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="amd64 ~x86"
 IUSE="
 	cfi +clang closure-compile convert-dict cups custom-cflags
 	enable-driver gnome gnome-keyring hangouts kerberos
