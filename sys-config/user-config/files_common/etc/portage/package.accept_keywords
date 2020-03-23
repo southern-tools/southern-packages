@@ -24,6 +24,8 @@ dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
 dev-libs/ocl-icd ~amd64
 dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
+dev-libs/wayland ~amd64
+dev-libs/wayland-protocols ~amd64
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/icalendar ~amd64 # required by dev-python/icalendar
