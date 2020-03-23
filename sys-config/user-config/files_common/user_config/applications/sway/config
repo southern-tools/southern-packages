@@ -74,11 +74,8 @@ set $term alacritty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-#set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -p 'Gentoo Linux' -fn 'Hack:bold:size=10' -nb '#032C36' -nf '#9ED9D8' -sb '#9ED9D8' -sf '#032C36'" | xargs swaymsg exec --
 
 set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --tb '#032C36' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#032C36' --ff '#9ED9D8' --nb '#032C36' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#032C36' --sb '#9ED9D8' --sf '#032C36'" | xargs swaymsg exec --
-
-
 
 ### Output configuration
 #

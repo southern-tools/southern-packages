@@ -112,6 +112,8 @@ mkdir -p ~/.local/share/fonts
 
 # GTK settings
 sudo ln -vsf /usr/share/cursors/xorg-x11 ~/.icons
+# Sway cursors
+sudo ln -vsf /usr/share/cursors/xorg-x11/gentoo-silver /usr/share/icons
 
 # GTK2 cursor silver
 touch ~/.gtkrc-2.0

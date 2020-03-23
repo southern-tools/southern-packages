@@ -1,7 +1,7 @@
 {
 	"color_scheme": "Packages/sublime_zk/Monokai Extended-zk.tmTheme",
 	"font_face": "Hack",
-	"font_size": 11,
+	"font_size": 13,
 	"ignored_packages":
 	[
 		"Vintage"
