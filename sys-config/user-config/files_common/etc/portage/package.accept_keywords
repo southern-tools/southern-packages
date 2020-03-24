@@ -100,7 +100,6 @@ x11-terms/kitty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-=mail-mta/postfix-3.4.8 ~amd64 # current don't build
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
