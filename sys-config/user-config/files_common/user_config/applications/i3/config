@@ -359,6 +359,7 @@ bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
 bindsym Ctrl+2 exec urxvtc -name floating -e alsamixer
+#bindsym Ctrl+2 exec alacritty -e alsamixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
