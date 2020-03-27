@@ -318,8 +318,8 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 bindsym --release $mod+Mod1+l exec ~/.user_config/scripts/locker.sh
 
 # Snapshots
-#bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
-bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
+bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
+#bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
 
 # Pop-up copyq
 bindsym $mod+x exec copyq show

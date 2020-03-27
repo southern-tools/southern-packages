@@ -7,3 +7,5 @@ dev-lang/python::gentoo
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 x11-libs/gtk+::gentoo
 =x11-misc/i3status-2.13 # skip pulseaudio dependency
+=www-client/ungoogled-chromium-80.0.3987.149_p2
+=www-client/ungoogled-chromium-80.0.3987.132_p1
