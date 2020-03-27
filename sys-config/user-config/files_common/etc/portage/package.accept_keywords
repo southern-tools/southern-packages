@@ -96,10 +96,22 @@ x11-misc/spacefm ~amd64
 x11-misc/xautolock ~amd64
 x11-misc/xkblayout-state ~amd64
 x11-terms/alacritty ~amd64
-x11-terms/kitty ~amd64
+#x11-terms/kitty ~amd64
+#x11-terms/kitty-terminfo ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
+#=sys-devel/llvm-10.0.0
+#=sys-devel/llvm-common-10.0.0
+#=sys-devel/clang-10.0.0
+#=sys-devel/clang-common-10.0.0
+#=sys-devel/clang-runtime-10.0.0
+#=sys-libs/compiler-rt-10.0.0
+#=sys-libs/compiler-rt-sanitizers-10.0.0
+#=sys-libs/libomp-10.0.0
+#=sys-devel/llvm-10.0.0
+#=sys-devel/llvmgold-10
+
