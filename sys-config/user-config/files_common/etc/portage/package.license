@@ -8,6 +8,7 @@ app-text/calibre unRAR
 dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
 dev-util/intel-ocl-sdk Intel-SDP
 media-fonts/corefonts MSttfEULA
+net-misc/teamviewer TeamViewer
 sys-firmware/intel-microcode intel-ucode intel-ucode-20180807
 sys-kernel/gentoo-sources linux-firmware
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code

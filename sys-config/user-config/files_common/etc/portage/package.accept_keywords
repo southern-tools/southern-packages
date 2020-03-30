@@ -58,6 +58,7 @@ media-libs/mesa ~amd64
 #media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
+net-misc/teamviewer ~amd64
 net-misc/youtube-dl ~amd64
 net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
@@ -85,6 +86,7 @@ www-plugins/chrome-binary-plugins ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-apps/copyq ~amd64
 x11-libs/gtk+::southern-packages # required by mv repo
+x11-libs/libva-intel-media-driver ~amd64
 x11-misc/dmenu ~amd64
 x11-misc/i3status ~amd64
 x11-misc/j4-dmenu-desktop ~amd64
