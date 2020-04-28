@@ -59,6 +59,7 @@ media-libs/mesa ~amd64
 #media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
+net-im/zoom ~amd64
 net-misc/teamviewer ~amd64
 net-misc/youtube-dl ~amd64
 net-wireless/iw ~amd64
@@ -106,6 +107,7 @@ x11-wm/i3-gaps ~amd64
 
 # specific version
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
+=dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
 
 # autounmask
 #=sys-devel/llvm-10.0.0
@@ -118,4 +120,3 @@ x11-wm/i3-gaps ~amd64
 #=sys-libs/libomp-10.0.0
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvmgold-10
-

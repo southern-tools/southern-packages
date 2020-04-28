@@ -19,3 +19,7 @@ www-plugins/google-talkplugin Google-TOS
 # autounmask
 # required by games-util/steam-launcher (argument)
 >=games-util/steam-launcher-1.0.0.59-r3 ValveSteamLicense
+# required by net-im/zoom (argument)
+>=net-im/zoom-3.5.392530.0421 all-rights-reserved
+# required by net-im/zoom (argument)
+=net-im/zoom-3.5.385850.0413 all-rights-reserved
