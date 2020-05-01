@@ -1,0 +1,148 @@
+# Southern Tools "package.use"
+
+# prefered
+app-admin/keepassxc autotype
+app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
+app-editors/nano -minimal
+app-office/libreoffice -bluetooth gtk java
+#app-text/calibre PYTHON_TARGETS: -* python2_7 PYTHON_SINGLE_TARGET: -* python2_7
+app-text/texlive extra humanities publishers # extra packages for humanities
+app-text/texlive-core xetex # required by dev-texlive/texlive-xetex and dev-texlive/texlive-formatsextra
+app-text/xmlto text # required by app-office/libreoffice, x11-misc/xdg-utils
+dev-db/sqlite:3 secure-delete # required by firefox
+dev-java/icedtea gtk # add gtk visual aspect
+dev-java/openjdk gentoo-vm
+dev-java/openjdk-bin gentoo-vm
+dev-java/oracle-jdk-bin gentoo-vm gtk3
+dev-lang/python sqlite # required by bleachbit, firefox, calibre
+dev-lang/ruby -berkdb -gdbm -ncurses -readline
+dev-libs/boost nls # required by ncmpcpp
+dev-libs/elfutils static-libs # required by prelink (argument)
+dev-libs/glib dbus # required by meld
+dev-libs/light udev # required to run
+dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
+dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile
+dev-qt/qtmultimedia widgets # required by openshot (argument)
+dev-qt/qtwebengine widgets # required by app-text/calibre
+dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine-5.12.3::gentoo, app-text/calibre-4.1.0::gentoo
+dev-qt/qtwidgets gtk # gtk theme on qtwidgets
+mail-client/neomutt sasl # required for gmail account
+mail-mta/postfix sasl berkdb # required for public-ip-gmail
+media-fonts/font-misc-misc nls # required by net-misc/x2goserver-4.1.0.2::gentoo
+media-gfx/imagemagick jpeg
+media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
+media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
+media-libs/libsdl2 gles # Required by Wayland
+media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
+media-libs/mesa gles2 -opencl xa # "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
+media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
+media-sound/sox flac
+media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
+media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
+media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
+net-dns/dnsmasq auth-dns dhcp-tools # script required by app-emulation/libvirt-4.9.0::gentoo[virt-network]
+net-firewall/iptables conntrack # required by Southern Tools hotspot
+net-libs/glib-networking -libproxy
+net-libs/zeromq drafts # required by media-video/openshot (argument)
+net-vpn/openvpn examples
+net-libs/nodejs inspector # required by www-client/chromium
+net-libs/zeromq drafts # required by media-video/openshot (argument)
+net-mail/mailutils berkdb sasl # required for Southern Tools public-ip-gmail
+net-misc/iputils -caps -filecaps
+net-nds/openldap -berkdb
+net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
+sys-apps/bleachbit gtk # required for gui
+sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
+sys-boot/plymouth gdm # required by Sakaki
+sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
+#sys-firmware/intel-microcode initramfs # only for x86
+sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
+sys-kernel/gentoo-sources experimental symlink
+sys-libs/gdbm berkdb # Required by python
+sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
+app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
+#www-client/chromium -custom-cflags jumbo-build system-libvpx
+www-client/firefox clang geckodriver hwaccel
+www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui pdf system-openjpeg thinlto -vaapi -vdpau -wayland #PYTHON_TARGETS: python3_8
+www-client/w3m imlib # required by neofetch
+www-plugins/chrome-binary-plugins -widevine
+x11-base/xorg-server -minimal glamor xvfb # "xvfb" required by firefox
+x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
+x11-libs/gtk+ adwaita-icon-theme -atk-bridge
+x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
+x11-libs/libfm -automount
+#x11-misc/i3status -pulseaudio
+x11-misc/redshift geoclue
+x11-misc/spacefm video-thumbnails
+x11-terms/rxvt-unicode gdk-pixbuf xft
+
+# base profile adjustments
+app-text/poppler cairo qt5 # required by base profile
+dev-libs/libpcre2 pcre16 # required by base profile
+dev-libs/libxml2 python # required by base profile
+dev-libs/xmlsec nss # required by base profile
+dev-qt/qtgui dbus jpeg # "dbus" required by qtwidgets "jpeg" required by profile
+media-libs/imlib2 gif jpeg png # required by base profile
+media-libs/libpng apng # required by base profile
+media-libs/opencv qt5 # required by base profile
+media-sound/mpd flac # required by base profile
+x11-libs/cairo xcb # required by base profile
+x11-libs/libxcb xkb # required by base profile
+
+# steam
+
+games-util/steam-games-meta steamgames_witcher2
+>=x11-libs/libX11-1.6.9 abi_x86_32
+>=x11-libs/libXau-1.0.9 abi_x86_32
+>=x11-libs/libxcb-1.13.1 abi_x86_32
+>=x11-libs/libXdmcp-1.1.3 abi_x86_32
+>=dev-libs/libpthread-stubs-0.4-r1 abi_x86_32
+>=virtual/pkgconfig-1 abi_x86_32
+>=dev-util/pkgconfig-0.29.2 abi_x86_32
+>=dev-libs/glib-2.60.7-r2 abi_x86_32
+>=dev-libs/libpcre-8.42 abi_x86_32
+>=sys-libs/zlib-1.2.11-r2 abi_x86_32
+>=sys-apps/util-linux-2.33.2 abi_x86_32
+>=virtual/libiconv-0-r2 abi_x86_32
+>=virtual/libffi-3.3_rc0 abi_x86_32
+>=virtual/libintl-0-r2 abi_x86_32
+>=dev-libs/libffi-3.3-r1 abi_x86_32
+>=x11-base/xcb-proto-1.13 abi_x86_32
+>=virtual/opengl-7.0-r2 abi_x86_32
+>=media-libs/mesa-20.0.1 abi_x86_32
+>=dev-libs/expat-2.2.8 abi_x86_32
+>=media-libs/libglvnd-1.3.1 abi_x86_32
+>=sys-apps/lm-sensors-3.5.0 abi_x86_32
+>=x11-libs/libva-2.5.0-r1 abi_x86_32
+>=x11-libs/libvdpau-1.3 abi_x86_32
+>=dev-libs/wayland-1.17.0 abi_x86_32
+>=x11-libs/libdrm-2.4.100 abi_x86_32
+>=x11-libs/libxshmfence-1.3-r1 abi_x86_32
+>=x11-libs/libXdamage-1.1.5 abi_x86_32
+>=x11-libs/libXext-1.3.4 abi_x86_32
+>=x11-libs/libXxf86vm-1.1.4-r1 abi_x86_32
+>=x11-libs/libXfixes-5.0.3-r1 abi_x86_32
+>=app-arch/zstd-1.3.7-r1 abi_x86_32
+>=sys-devel/llvm-10.0.0_rc3 abi_x86_32
+>=x11-libs/libXrandr-1.5.2 abi_x86_32
+>=x11-libs/libXrender-0.9.10-r1 abi_x86_32
+>=sys-libs/ncurses-6.1_p20190609 abi_x86_32
+>=sys-devel/llvm-9.0.1:9 abi_x86_32
+>=x11-libs/libpciaccess-0.16 abi_x86_32
+>=x11-libs/libva-vdpau-driver-0.7.4-r5 abi_x86_32
+>=x11-libs/libva-intel-driver-2.3.0 abi_x86_32
+>=virtual/libelf-3 abi_x86_32
+>=dev-libs/elfutils-0.177 abi_x86_32
+>=app-arch/bzip2-1.0.6-r11 abi_x86_32
+>=dev-util/pkgconf-1.6.3 abi_x86_32
+#dev-util/pkgconfig internal-glib
+#media-libs/mesa -vaapi
+
+# autounmask
+# required by app-text/tesseract-4.1.1::gentoo[opencl]
+# required by tesseract (argument)
+>=media-libs/leptonica-1.74.4 tiff
+app-text/tesseract jpeg
+# required by app-text/tesseract-4.1.1::gentoo
+# required by tesseract (argument)
+>=media-libs/leptonica-1.74.4 jpeg
