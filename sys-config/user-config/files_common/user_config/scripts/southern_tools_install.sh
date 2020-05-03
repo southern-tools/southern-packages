@@ -93,6 +93,10 @@ echo -n "# Southern Tools\n#\nuser			"$USER_NAME"\ngroup			"$USER_NAME"" > ~/.us
 mkdir -p ~/.config/ranger
 ranger --copy-config=all
 
+# Redshift
+#mkdir -p ~/.config/redshift
+#ln -vsf ~/.user_config/applications/redshift/redshift.conf ~/.config/redshift/redshift.conf
+
 # Texstudio (monokai theme and hidpi config)
 mkdir -p ~/.config/texstudio
 ln -vsf ~/.user_config/applications/texstudio/texstudio.ini ~/.config/texstudio/texstudio.ini
