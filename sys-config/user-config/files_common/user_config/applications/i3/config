@@ -35,12 +35,12 @@ set_from_resource $background i3wm.background
 set_from_resource $foreground i3wm.foreground
 set_from_resource $transparent i3wm.transparent
 
-# Class				Border		Backgr.		Text		Indicator	Child_Border
-client.focused			$color6		$color6		$color6		$color6		$color6
-client.focused_inactive		$transparent	$transparent	$transparent	$transparent	$transparent 
-client.unfocused		$transparent	$transparent	$transparent	$transparent	$transparent
-client.urgent			$color9		$color9		$transparent	$foreground	$color9
-client.background		$transparent	$transparent	$transparent	$transparent	$transparent
+# class                   Border	     	 Backgr.		  Text	      	Indicator	     Child_Border
+client.focused		        $color6		     $color6	  	$color6		    $color6		     $color6
+client.focused_inactive		$transparent   $transparent	$transparent	$transparent	 $transparent 
+client.unfocused		      $transparent	 $transparent	$transparent	$transparent	 $transparent
+client.urgent		         	$color9		     $color9		  $transparent	$foreground	   $color9
+client.background		      $transparent   $transparent	$transparent	$transparent	 $transparent
 
 # Borders 
 new_window pixel 1
@@ -266,16 +266,16 @@ bar {
 	strip_workspace_numbers yes
 
 	colors {
-      background		$transparent
-      separator    $color9
-      statusline		$foreground
+      background    $transparent
+      separator     $color9
+      statusline    $foreground
 
-#                <border>    <background>   <text>
-      focused_workspace  $transparent   $transparent   $color6
-      active_workspace  $transparent   $transparent   $foreground
-      inactive_workspace $transparent   $transparent   $foreground
-      urgent_workspace  $foreground   $transparent   $color9
-      binding_mode    $transparent   $transparent   $foreground
+#                            <border>       <background>   <text>
+      focused_workspace      $transparent   $transparent   $color6
+      active_workspace       $transparent   $transparent   $foreground
+      inactive_workspace     $transparent   $transparent   $foreground
+      urgent_workspace       $foreground    $transparent   $color9
+      binding_mode           $transparent   $transparent   $foreground
   }
 }
 
