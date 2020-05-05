@@ -83,9 +83,8 @@ sys-kernel/gentoo-sources ~amd64
 sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 virtual/opencl ~amd64
-www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
-#www-client/ungoogled-chromium-bin ~amd64 # required by ungoogled-chromium-bin (argument)
-www-plugins/chrome-binary-plugins ~amd64
+#www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
+#www-plugins/chrome-binary-plugins ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-apps/copyq ~amd64
 x11-libs/gtk+::southern-packages # required by mv repo

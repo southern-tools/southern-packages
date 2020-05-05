@@ -37,7 +37,7 @@ media-libs/libvpx postproc svc # "postproc" required by firefox, required by www
 media-libs/mesa gles2 -opencl xa # "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
-media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
+media-video/ffmpeg chromium openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
 media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
 media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
 net-dns/dnsmasq auth-dns dhcp-tools # script required by app-emulation/libvirt-4.9.0::gentoo[virt-network]
