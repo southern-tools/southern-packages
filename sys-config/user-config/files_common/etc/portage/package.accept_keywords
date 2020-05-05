@@ -120,3 +120,5 @@ x11-wm/i3-gaps ~amd64
 #=sys-libs/libomp-10.0.0
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvmgold-10
+x11-libs/libva-intel-media-driver ~amd64
+x11-libs/libva ~amd64
