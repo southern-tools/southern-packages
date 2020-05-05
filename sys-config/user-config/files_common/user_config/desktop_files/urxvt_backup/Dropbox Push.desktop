@@ -6,7 +6,7 @@ Name=Dropbox push
 
 Comment=Push files to Dropbox
 
-Exec=swaymsg "exec alacritty -e rclone sync -v ~/Remotes/rclone/dropbox_sync/ dropbox:"
+Exec=swaymsg "exec urxvtc -hold -e rclone sync -v ~/Remotes/rclone/dropbox_sync/ dropbox:"
 
 Icon=utilities-terminal
 

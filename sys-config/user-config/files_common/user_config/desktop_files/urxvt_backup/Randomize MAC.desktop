@@ -6,7 +6,7 @@ Name=Randomize MAC
 
 Comment=Change network adapter card's MAC address
 
-Exec=swaymsg "exec alacritty -e sudo ~/.user_config/scripts/randomize_mac.sh"
+Exec=swaymsg "exec urxvtc -e sudo ~/.user_config/scripts/randomize_mac.sh"
 
 Icon=utilities-terminal
 

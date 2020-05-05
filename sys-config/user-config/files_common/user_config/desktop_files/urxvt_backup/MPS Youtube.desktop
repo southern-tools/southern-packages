@@ -2,11 +2,11 @@
 
 Type=Application
 
-Name=Mount
+Name=MPS Youtube
 
-Comment=Mount devices
+Comment=CLI Youtube player
 
-Exec=swaymsg "exec alacritty -e devmon"
+Exec=swaymsg "exec urxvtc -e mpsyt"
 
 Icon=utilities-terminal
 

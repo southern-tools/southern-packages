@@ -2,11 +2,11 @@
 
 Type=Application
 
-Name=Git Pull Only
+Name=Git Pull Push
 
 Comment=Git multiple pull and pushes
 
-Exec=swaymsg "exec alacritty -hold -e ~/.user_config/scripts/git_pull.sh"
+Exec=swaymsg "exec urxvtc -hold -e ~/.user_config/scripts/git_pull_push.sh"
 
 Icon=utilities-terminal
 

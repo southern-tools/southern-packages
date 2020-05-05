@@ -6,7 +6,7 @@ Name=Mount
 
 Comment=Mount devices
 
-Exec=swaymsg "exec alacritty -e devmon"
+Exec=swaymsg "exec urxvtc -e devmon"
 
 Icon=utilities-terminal
 

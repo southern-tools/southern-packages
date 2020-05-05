@@ -6,7 +6,7 @@ Name=Wake Remotes
 
 Comment=Wake remote computers
 
-Exec=swaymsg "exec alacritty -e ~/.user_config/scripts/wake_remotes.sh"
+Exec=swaymsg "exec urxvtc -e ~/.user_config/scripts/wake_remotes.sh"
 
 Icon=utilities-terminal
 

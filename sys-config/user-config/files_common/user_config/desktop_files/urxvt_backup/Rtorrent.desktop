@@ -2,12 +2,13 @@
 
 Type=Application
 
-Name=Weechat
+Name=Rtorrent
 
-Comment=IRC client
+Comment=Torrent client
 
-Exec=swaymsg "exec alacritty -e weechat"
+Exec=swaymsg "exec urxvtc -e rtorrent"
 
 Icon=utilities-terminal
 
 Categories=Network;
+

@@ -2,11 +2,11 @@
 
 Type=Application
 
-Name=Mount
+Name=Khal
 
-Comment=Mount devices
+Comment=CLI Calendar
 
-Exec=swaymsg "exec alacritty -e devmon"
+Exec=swaymsg "exec urxvtc -e ikhal"
 
 Icon=utilities-terminal
 

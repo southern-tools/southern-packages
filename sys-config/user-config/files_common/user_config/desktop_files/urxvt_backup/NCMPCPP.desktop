@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=NCMPCPP
+
+Comment=Music server control
+
+Exec=swaymsg "exec ~/.user_config/scripts/mpd.sh"
+
+Icon=utilities-terminal
+
+Categories=AudioVideo;
