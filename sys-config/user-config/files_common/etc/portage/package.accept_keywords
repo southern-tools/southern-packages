@@ -111,9 +111,10 @@ x11-wm/i3-gaps ~amd64
 =dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
-=media-libs/libwebp-1.1.0 ~amd64
+=media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
 
 # autounmask
+
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvm-common-10.0.0
 #=sys-devel/clang-10.0.0
@@ -125,5 +126,5 @@ x11-wm/i3-gaps ~amd64
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvmgold-10
 
-#x11-libs/libva-intel-media-driver ~amd64
+x11-libs/libva-intel-media-driver ~amd64
 #x11-libs/libva ~amd64
