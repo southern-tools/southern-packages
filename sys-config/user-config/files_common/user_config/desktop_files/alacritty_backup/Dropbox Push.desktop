@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Dropbox push
+
+Comment=Push files to Dropbox
+
+Exec=swaymsg "exec alacritty -e rclone sync -v ~/Remotes/rclone/dropbox_sync/ dropbox:"
+
+Icon=utilities-terminal
+
+Categories=Network;

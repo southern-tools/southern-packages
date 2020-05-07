@@ -16,19 +16,21 @@ export VDPAU_DRIVER="i965"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
 
 # X variables
-#export GDK_SCALE="2"
-#export GDK_DPI_SCALE="0.5"
+export GDK_SCALE="2"
+export GDK_DPI_SCALE="0.5"
+
+# deprecated
 #export CALIBRE_USE_SYSTEM_THEME=1
 #export QT_AUTO_SCREEN_SCALE_FACTOR="1"
 
 # Wayland variables
-export WINIT_HIDPI_FACTOR=1
-export QT_QPA_PLATFORM=wayland-egl
-export QT_WAYLAND_FORCE_DPI=physical
-export MOZ_ENABLE_WAYLAND=1
-export BEMENU_BACKEND=wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
+#export WINIT_HIDPI_FACTOR=1
+#export QT_QPA_PLATFORM=wayland-egl
+#export QT_WAYLAND_FORCE_DPI=physical
+#export MOZ_ENABLE_WAYLAND=1
+#export BEMENU_BACKEND=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
 
 # Set XDG_RUNTIME_DIR for Sway to work
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -41,7 +43,7 @@ fi
 
 
 ## Autologin to Sway
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec sway -c ~/.user_config/applications/sway/config; fi
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec sway -c ~/.user_config/applications/sway/config; fi
 
 
 ## Autologin to Sway with log
@@ -49,4 +51,4 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec sway -c ~/.user_conf
 
 
 ## Auto-login to i3wm
-#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi

@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Mount
+
+Comment=Mount devices
+
+Exec=swaymsg "exec alacritty -e devmon"
+
+Icon=utilities-terminal
+
+Categories=System;

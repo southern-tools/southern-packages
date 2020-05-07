@@ -5,7 +5,7 @@
 xrdb ~/.Xresources
 ~/.user_config/scripts/displays.sh
 #xinput map-to-output 19 eDP-1
-feh --bg-fill ~/.user_config/backgrounds/forest.jpg &
+feh --bg-fill ~/.user_config/backgrounds/forest_3.jpg &
 light -S 80
 #compton -bcCGfz
 compton --config ~/.user_config/applications/compton/config -b
@@ -13,7 +13,7 @@ xautolock -time 7 -corners 0-00 -cornersize 40 -locker "~/.user_config/scripts/l
 redshift -l 49.59:17.25 &
 # dunst -config ~/.user_config/applications/dunst/dunstrc
 # spacefm -d
-urxvtd --quiet --opendisplay --fork
+# urxvtd --quiet --opendisplay --fork
 copyq &
 # Start i3
 exec i3 -c ~/.user_config/applications/i3/config

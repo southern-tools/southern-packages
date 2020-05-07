@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=MPS Youtube
+
+Comment=CLI Youtube player
+
+Exec=swaymsg "exec alacritty -e mpsyt"
+
+Icon=utilities-terminal
+
+Categories=System;

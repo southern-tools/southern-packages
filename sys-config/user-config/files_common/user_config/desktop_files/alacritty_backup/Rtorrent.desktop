@@ -1,0 +1,14 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Rtorrent
+
+Comment=Torrent client
+
+Exec=swaymsg "exec alacritty -e rtorrent"
+
+Icon=utilities-terminal
+
+Categories=Network;
+

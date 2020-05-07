@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Weechat
+
+Comment=IRC client
+
+Exec=swaymsg "exec alacritty -e weechat"
+
+Icon=utilities-terminal
+
+Categories=Network;

@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Rsnapshot Daily
+
+Comment=System backup
+
+Exec=swaymsg "exec alacritty -e sudo /etc/cron.daily/rsnapshot.daily"
+
+Icon=utilities-terminal
+
+Categories=System;
