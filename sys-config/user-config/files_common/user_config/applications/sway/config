@@ -82,7 +82,7 @@ set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 scale 2 pos 0 0
 #output HDMI-A-1 scale 0.5 pos 3840 0
-output * bg ~/.user_config/backgrounds/overlock_carpet.jpg fill
+output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
 #
@@ -94,11 +94,11 @@ output * bg ~/.user_config/backgrounds/overlock_carpet.jpg fill
 #
 # Example configuration:
 #
-exec swayidle \
+exec swayidle -w \
     timeout 300 'swaylock -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -c 000000'
+#    before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -389,7 +389,7 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #bindsym $mod+asterisk exec alacritty -name floating
 
 # Screen lock
-bindsym $mod+Mod1+l exec xlock -mode blank -mousemotion
+bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
 
 # Capturas
 #bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
@@ -430,7 +430,7 @@ bindsym Ctrl+Escape exec alacritty -e htop
 bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec alacritty -e alsamixer
+bindsym Ctrl+2 exec alacritty -t alsamixer-floating -e alsamixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
