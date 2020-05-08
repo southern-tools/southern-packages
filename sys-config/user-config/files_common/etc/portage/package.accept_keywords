@@ -5,7 +5,6 @@
 app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
-app-misc/cmatrix ~amd64
 app-misc/nnn ~amd64
 app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
