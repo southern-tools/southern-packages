@@ -47,8 +47,8 @@ Emacs.font: Hack-10
 
 ! Custom
 
-*background:	#000000
-*foreground:	#F2F1B9
+*background:	#021B21
+*foreground:	#E8DFD6
 
 ! black
 *color0:     #032C36

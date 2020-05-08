@@ -18,7 +18,7 @@ font:
 
 
 # Transparence
-background_opacity: 0.7
+background_opacity: 0.1
 
 
 # Clipboard
@@ -31,8 +31,11 @@ schemes:
   southern_colors: &southern
     # Default colors
     primary:
-      background: '#000000'
-      foreground: '#F2F1B9'
+      background: '#021B21'
+      foreground: '#E8DFD6'
+    # cursor:
+     # text:     '#F6F6C9'
+     # cursor:   '#2E3340'
     # Normal colors
     normal:
       black:    '#032C36'
@@ -53,5 +56,43 @@ schemes:
       magenta:  '#FF99A1'
       cyan:     '#9ED9D8'
       white:    '#F6F6C9'
+
+
+  test_colors: &breeze
+    # Default colors
+    primary:
+      background: '#232627'
+      foreground: '#fcfcfc'
+    # Normal colors
+    normal:
+      black:    '#232627'
+      red:      '#ed1515'
+      green:    '#11d116'
+      yellow:   '#f67400'
+      blue:     '#1d99f3'
+      magenta:  '#9b59b6'
+      cyan:     '#1abc9c'
+      white:    '#fcfcfc'
+    # Bright colors
+    bright:
+      black:    '#7f8c8d'
+      red:      '#c0392b'
+      green:    '#1cdc9a'
+      yellow:   '#fdbc4b'
+      blue:     '#3daee9'
+      magenta:  '#8e44ad'
+      cyan:     '#16a085'
+      white:    '#ffffff'
+    dim:
+      black:    '#31363b'
+      red:      '#783228'
+      green:    '#17a262'
+      yellow:   '#b65619'
+      blue:     '#1b668f'
+      magenta:  '#614a73'
+      cyan:     '#186c60'
+      white:    '#63686d'
+
+
 
 colors: *southern

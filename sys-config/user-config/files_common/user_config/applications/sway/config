@@ -33,8 +33,8 @@ set $color13 #FF99A1
 set $color14 #9ED9D8
 set $color15 #F6F6C9
 set $color16 #
-set $background #032C36
-set $foreground #F2F1B9
+set $background #021B21
+set $foreground #E8DFD6
 set $transparent #80000000
 
 # Class                 Border          Backgr.         Text            Indicator       Child_Border
@@ -75,7 +75,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --tb '#032C36' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#032C36' --ff '#9ED9D8' --nb '#032C36' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#032C36' --sb '#9ED9D8' --sf '#032C36'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
 
 ### Output configuration
 #
