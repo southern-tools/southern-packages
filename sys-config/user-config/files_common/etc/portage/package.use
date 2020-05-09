@@ -4,7 +4,7 @@
 app-admin/keepassxc autotype
 app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
-app-office/libreoffice -bluetooth gtk java
+app-office/libreoffice -bluetooth googledrive gtk java
 #app-text/calibre PYTHON_TARGETS: -* python2_7 PYTHON_SINGLE_TARGET: -* python2_7
 app-text/texlive extra humanities publishers # extra packages for humanities
 app-text/texlive-core xetex # required by dev-texlive/texlive-xetex and dev-texlive/texlive-formatsextra
