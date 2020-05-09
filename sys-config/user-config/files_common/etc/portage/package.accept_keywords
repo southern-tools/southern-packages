@@ -6,6 +6,8 @@ app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
 app-misc/nnn ~amd64
+#app-office/libreoffice ~amd64
+#app-office/libreoffice-l10n ~amd64
 app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-portage/showem::southern-packages ~amd64
@@ -106,14 +108,17 @@ x11-terms/alacritty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-=www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
-=dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
+#=app-text/libetonyek-0.1.9-r1 ~amd64 # required by latest libreoffice
+#=dev-libs/liborcus-0.15.4 ~amd64 # required by last libreoffice
+#=dev-libs/libixion-0.15.0 # required by last libreoffice
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
+#=dev-util/mdds-1.6.0 ~amd64 # required by last libreoffice
+#=dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
+=www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
-
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvm-common-10.0.0
 #=sys-devel/clang-10.0.0
@@ -124,6 +129,3 @@ x11-wm/i3-gaps ~amd64
 #=sys-libs/libomp-10.0.0
 #=sys-devel/llvm-10.0.0
 #=sys-devel/llvmgold-10
-
-x11-libs/libva-intel-media-driver ~amd64
-#x11-libs/libva ~amd64
