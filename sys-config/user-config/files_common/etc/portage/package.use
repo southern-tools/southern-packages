@@ -6,6 +6,7 @@ app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
 app-office/libreoffice -bluetooth googledrive gtk java
 #app-text/calibre PYTHON_TARGETS: -* python2_7 PYTHON_SINGLE_TARGET: -* python2_7
+app-text/tesseract jpeg # "jpeg" required by teseract
 app-text/texlive extra humanities publishers # extra packages for humanities
 app-text/texlive-core xetex # required by dev-texlive/texlive-xetex and dev-texlive/texlive-formatsextra
 app-text/xmlto text # required by app-office/libreoffice, x11-misc/xdg-utils
@@ -32,6 +33,7 @@ media-fonts/font-misc-misc nls # required by net-misc/x2goserver-4.1.0.2::gentoo
 media-gfx/imagemagick jpeg
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
+media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
 media-libs/libsdl2 gles # Required by Wayland
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
 media-libs/mesa gles2 -opencl xa # "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
@@ -137,11 +139,8 @@ games-util/steam-games-meta steamgames_witcher2
 #dev-util/pkgconfig internal-glib
 #media-libs/mesa -vaapi
 
+# python stabilization
+*/* PYTHON_TARGETS: python3_6 python3_7
+*/* PYTHON_SINGLE_TARGET: -* python3_6
+
 # autounmask
-# required by app-text/tesseract-4.1.1::gentoo[opencl]
-# required by tesseract (argument)
->=media-libs/leptonica-1.74.4 tiff
-app-text/tesseract jpeg
-# required by app-text/tesseract-4.1.1::gentoo
-# required by tesseract (argument)
->=media-libs/leptonica-1.74.4 jpeg
