@@ -21,7 +21,7 @@ fi
 # Include "alias"
 . ~/.user_config/no_share/alias
 # General
-alias genup='sudo genup -p'
+alias genup='sudo genup -n -p'
 alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
