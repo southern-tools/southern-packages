@@ -204,7 +204,7 @@ bindsym $mod+Delete mode "$mode_system"
 set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown ]
 mode "$mode_system" {
   
-  bindsym --release l exec ~/.user_config/scripts/locker.sh, mode "default"
+  bindsym --release l exec ~/.user_config/scripts/i3_locker.sh, mode "default"
   #bindsym s exec sudo /usr/sbin/pm-suspend, mode "default"
   bindsym e exec i3-msg exit, mode "default"
   #bindsym h exec sudo /usr/sbin/pm-hibernate, mode "default"
@@ -316,7 +316,7 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #====================
 
 # Screen lock
-bindsym --release $mod+Mod1+l exec ~/.user_config/scripts/locker.sh
+bindsym --release $mod+Mod1+l exec ~/.user_config/scripts/i3_locker.sh
 
 # Snapshots
 bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
