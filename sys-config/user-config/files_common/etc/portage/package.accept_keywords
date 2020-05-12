@@ -39,7 +39,7 @@ dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 dev-util/intel-ocl-sdk ~amd64
 dev-util/opencl-headers ~amd64 # required by dev-libs/ocl-icd
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
-#dev-util/vulkan-headers ~amd64
+dev-util/vulkan-headers ~amd64
 games-util/steam-client-meta::southern-packages ~amd64
 games-util/steam-games-meta::southern-packages ~amd64
 games-util/steam-launcher::southern-packages ~amd64
@@ -57,7 +57,7 @@ media-fonts/fontawesome ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 media-libs/mesa ~amd64
 #media-libs/suil ~amd64 # required by media-sound/ardour
-#media-libs/vulkan-loader ~amd64
+media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
 #net-im/zoom ~amd64
