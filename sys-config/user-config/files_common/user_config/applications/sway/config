@@ -95,10 +95,10 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-    timeout 300 'swaylock -c 000000' \
+#    timeout 300 'swaylock -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -c 000000'
+#    before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -389,7 +389,10 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #bindsym $mod+asterisk exec alacritty -name floating
 
 # Screen lock
-bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
+#bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
+bindsym $mod+Mod1+l exec swaymsg "output * dpms off"
+bindsym $mod+Mod1+u exec swaymsg "output * dpms on"
+
 
 # Capturas
 #bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
