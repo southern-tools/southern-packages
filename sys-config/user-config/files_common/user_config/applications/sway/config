@@ -97,7 +97,7 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 exec swayidle -w \
 #    timeout 300 'swaylock -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"' \
+       resume 'swaymsg "output * dpms on"; pkill -n swayidle' \
 #    before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
