@@ -2,8 +2,8 @@
 
 */*::southern-packages
 dev-lang/python::gentoo
-<sys-kernel/gentoo-sources-5.4.38 # block upgrades
->sys-kernel/gentoo-sources-5.4.38 # block upgrades
+<sys-kernel/gentoo-sources-4.19.120 # block upgrades
+>sys-kernel/gentoo-sources-4.19.120 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 x11-libs/gtk+::gentoo
 =x11-misc/i3status-2.13 # skip pulseaudio dependency
