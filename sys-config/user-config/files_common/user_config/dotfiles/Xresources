@@ -2,7 +2,7 @@
 
 ! Hidpi and effects
 
-!Xft.dpi:	282
+Xft.dpi:	282
 Xft.antialias:	true
 Xft.hinting:	true
 Xft.rgba:	rgb
