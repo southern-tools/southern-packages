@@ -23,7 +23,7 @@ dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/light ~amd64
-dev-libs/ocl-icd ~amd64
+#dev-libs/ocl-icd ~amd64
 dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 dev-libs/wayland ~amd64
 dev-libs/wayland-protocols ~amd64
@@ -37,7 +37,7 @@ dev-util/cbindgen ~amd64 # required by www-client/firefox-68.0.2::gentoo
 dev-util/clinfo ~amd64 # required by clinfo
 dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 dev-util/intel-ocl-sdk ~amd64
-dev-util/opencl-headers ~amd64 # required by dev-libs/ocl-icd
+#dev-util/opencl-headers ~amd64 # required by dev-libs/ocl-icd
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
 dev-util/vulkan-headers ~amd64
 games-util/steam-client-meta::southern-packages ~amd64
@@ -55,7 +55,7 @@ gui-wm/sway ~amd64
 media-fonts/fontawesome ~amd64
 #media-fonts/powerline-symbols ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
-media-libs/mesa ~amd64
+#media-libs/mesa ~amd64
 #media-libs/suil ~amd64 # required by media-sound/ardour
 media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
@@ -63,7 +63,7 @@ media-sound/mps-youtube ~amd64
 #net-im/zoom ~amd64
 #net-misc/teamviewer ~amd64
 net-misc/youtube-dl ~amd64
-net-wireless/iw ~amd64
+#net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
@@ -79,18 +79,19 @@ sys-devel/gcc ~amd64 # required for lto
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
+sys-kernel/linux-firmware ** # iwlwifi problem
 #sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
-virtual/opencl ~amd64
-www-client/firefox ~amd64
+#virtual/opencl ~amd64
+#www-client/firefox ~amd64
 www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
 www-plugins/chrome-binary-plugins ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-apps/copyq ~amd64
-x11-base/xorg-server ~amd64
-x11-libs/gtk+::southern-packages # required by mv repo
+#x11-base/xorg-server ~amd64
+x11-libs/gtk+::southern-packages ~amd64 # required by mv repo
 x11-libs/libva-intel-media-driver ~amd64
 x11-misc/dmenu ~amd64
 x11-misc/i3status ~amd64
@@ -116,6 +117,7 @@ x11-wm/i3-gaps ~amd64
 #=dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
+=www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
