@@ -10,7 +10,8 @@ light -S 80
 #compton -bcCGfz
 compton --config ~/.user_config/applications/compton/config -b
 xautolock -time 7 -corners 0-00 -cornersize 40 -locker "~/.user_config/scripts/i3_locker.sh" -notify 7 -notifier "sleep 1; xset dpms force off" &
-redshift -l 49.59:17.25 &
+redshift -l geoclue2 &
+# redshift -l 49.59:17.25 &
 # dunst -config ~/.user_config/applications/dunst/dunstrc
 # spacefm -d
 # urxvtd --quiet --opendisplay --fork
