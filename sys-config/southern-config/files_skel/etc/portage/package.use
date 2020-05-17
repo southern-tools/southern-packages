@@ -62,6 +62,7 @@ sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
 sys-kernel/gentoo-sources experimental symlink
 sys-libs/gdbm berkdb # Required by python
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
+#www-client/chromium -custom-cflags jumbo-build system-libvpx
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 www-client/firefox clang geckodriver hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg vaapi thinlto -wayland
@@ -90,8 +91,7 @@ media-sound/mpd flac # required by base profile
 x11-libs/cairo xcb # required by base profile
 x11-libs/libxcb xkb # required by base profile
 
-# steam
-
+# Steam
 >=x11-libs/libX11-1.6.9 abi_x86_32
 >=x11-libs/libXau-1.0.9 abi_x86_32
 >=x11-libs/libxcb-1.13.1 abi_x86_32
@@ -135,45 +135,6 @@ x11-libs/libxcb xkb # required by base profile
 >=dev-libs/elfutils-0.177 abi_x86_32
 >=app-arch/bzip2-1.0.6-r11 abi_x86_32
 >=dev-util/pkgconf-1.6.3 abi_x86_32
-
-# protontricks
-
-#media-libs/libsdl2 gles2
-#>=x11-libs/libXcursor-1.2.0 abi_x86_32
-#>=x11-libs/libXi-1.7.10 abi_x86_32
-#>=media-libs/alsa-lib-1.2.2-r1 abi_x86_32
-#>=net-print/cups-2.3.3-r1 abi_x86_32
-#>=media-libs/fontconfig-2.13.0-r4 abi_x86_32
-#>=media-libs/lcms-2.9 abi_x86_32
-#>=media-libs/libpng-1.6.37 abi_x86_32
-#>=net-libs/gnutls-3.6.13 abi_x86_32
-#>=media-libs/freetype-2.9.1-r3 abi_x86_32
-#>=media-libs/libv4l-1.16.6 abi_x86_32
-#>=media-libs/vulkan-loader-1.1.125 abi_x86_32
-#>=x11-libs/libXcomposite-0.4.5 abi_x86_32
-#>=x11-libs/libXinerama-1.1.4 abi_x86_32
-#>=dev-libs/libxml2-2.9.9-r3 abi_x86_32
-#>=dev-libs/libxslt-1.1.33-r1 abi_x86_32
-#>=app-emulation/wine-gecko-2.47.1 abi_x86_32
-#>=dev-libs/libgcrypt-1.8.5 abi_x86_32
-#>=dev-libs/libgpg-error-1.36 abi_x86_32
-#>=dev-libs/icu-65.1-r1 abi_x86_32
-#>=dev-libs/libtasn1-4.13 abi_x86_32
-#>=dev-libs/libunistring-0.9.10 abi_x86_32
-#>=dev-libs/nettle-3.5.1-r1 abi_x86_32
-#>=dev-libs/gmp-6.2.0-r1 abi_x86_32
-#>=net-dns/libidn2-2.3.0 abi_x86_32
-#>=media-libs/libsdl2-2.0.10-r1 abi_x86_32
-#>=x11-libs/libxkbcommon-0.10.0 abi_x86_32
-#>=virtual/glu-9.0-r2 abi_x86_32
-#>=media-libs/glu-9.0.1 abi_x86_32
-#>=virtual/libudev-232-r3 abi_x86_32
-#>=sys-fs/eudev-3.2.9 abi_x86_32
-#>=virtual/jpeg-0-r3 abi_x86_32
-#>=virtual/opencl-3-r1 abi_x86_32
-#>=media-libs/libjpeg-turbo-2.0.4 abi_x86_32
-#>=dev-libs/ocl-icd-2.2.12-r3 abi_x86_32
-#>=app-emulation/winetricks-20190912 gtk
 
 # python stabilization
 */* PYTHON_TARGETS: python3_6 python3_7

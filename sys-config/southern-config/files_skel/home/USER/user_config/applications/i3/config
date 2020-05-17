@@ -253,8 +253,8 @@ for_window [class="Alacritty" title="terminal_genlop"] resize set 1920 1080
 for_window [class="Alacritty" title="terminal_hotspot"] floating enable
 for_window [class="Alacritty" title="terminal_hotspot"] resize set 1920 1080
 
-for_window [class="Alacritty" title="terminal_mount"] floating enable
-for_window [class="Alacritty" title="terminal_mount"] resize set 1920 1080
+#for_window [class="Alacritty" title="terminal_mount"] floating enable
+#for_window [class="Alacritty" title="terminal_mount"] resize set 1920 1080
 
 for_window [class="Alacritty" title="terminal_randomize_mac"] floating enable
 for_window [class="Alacritty" title="terminal_randomize_mac"] resize set 1920 1080

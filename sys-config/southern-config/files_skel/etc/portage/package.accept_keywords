@@ -5,7 +5,6 @@
 app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
-app-misc/nnn ~amd64
 #app-office/libreoffice ~amd64
 #app-office/libreoffice-l10n ~amd64
 app-portage/genup::southern-packages ~amd64
@@ -60,8 +59,6 @@ media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
-#net-im/zoom ~amd64
-#net-misc/teamviewer ~amd64
 net-misc/youtube-dl ~amd64
 #net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
@@ -79,7 +76,6 @@ sys-devel/gcc ~amd64 # required for lto
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
-#sys-kernel/linux-firmware ** # iwlwifi problem
 #sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 sys-libs/glibc ~amd64 # required for lto
@@ -104,30 +100,13 @@ x11-misc/spacefm ~amd64
 x11-misc/xautolock ~amd64
 x11-misc/xkblayout-state ~amd64
 x11-terms/alacritty ~amd64
-#x11-terms/kitty ~amd64
-#x11-terms/kitty-terminfo ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-#=app-text/libetonyek-0.1.9-r1 ~amd64 # required by latest libreoffice
-#=dev-libs/liborcus-0.15.4 ~amd64 # required by last libreoffice
-#=dev-libs/libixion-0.15.0 # required by last libreoffice
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
-#=dev-util/mdds-1.6.0 ~amd64 # required by last libreoffice
-#=dev-qt/qtdiag-5.14.1 ~amd64 # required by im-net/zoom
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
 =www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
 # autounmask
-#=sys-devel/llvm-10.0.0
-#=sys-devel/llvm-common-10.0.0
-#=sys-devel/clang-10.0.0
-#=sys-devel/clang-common-10.0.0
-#=sys-devel/clang-runtime-10.0.0
-#=sys-libs/compiler-rt-10.0.0
-#=sys-libs/compiler-rt-sanitizers-10.0.0
-#=sys-libs/libomp-10.0.0
-#=sys-devel/llvm-10.0.0
-#=sys-devel/llvmgold-10

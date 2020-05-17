@@ -6,7 +6,7 @@ Name=Mount
 
 Comment=Mount devices
 
-Exec=swaymsg "exec alacritty --title terminal_mount -e devmon"
+Exec=swaymsg "exec alacritty --title terminal_mount --hold -e devmon"
 
 Icon=utilities-terminal
 
