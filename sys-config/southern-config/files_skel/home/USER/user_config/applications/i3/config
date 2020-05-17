@@ -65,7 +65,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
-bindsym $mod+asterisk exec alacritty --title alacritty-floating
+bindsym $mod+asterisk exec alacritty --title terminal_floating
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -234,11 +234,35 @@ for_window [class="(?i)blueman"] floating enable
 for_window [class="(?i)pinentry"] floating enable
 for_window [instance="__scratchpad"] floating enable
 
-# Rules specific programs
-for_window [class="Alacritty" title="alsamixer-floating"] floating enable
-for_window [class="Alacritty" title="alsamixer-floating"] resize set 1920 1080
-for_window [class="Alacritty" title="alacritty-floating"] floating enable
-for_window [class="Alacritty" title="alacritty-floating"] resize set 1920 1080
+# Rules for specific programs
+for_window [class="Alacritty" title="terminal_alsamixer"] floating enable
+for_window [class="Alacritty" title="terminal_alsamixer"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_bluetooth_ctl"] floating enable
+for_window [class="Alacritty" title="terminal_bluetooth_ctl"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_ccache_stats"] floating enable
+for_window [class="Alacritty" title="terminal_ccache_stats"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_floating"] floating enable
+for_window [class="Alacritty" title="terminal_floating"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_genlop"] floating enable
+for_window [class="Alacritty" title="terminal_genlop"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_hotspot"] floating enable
+for_window [class="Alacritty" title="terminal_hotspot"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_mount"] floating enable
+for_window [class="Alacritty" title="terminal_mount"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_randomize_mac"] floating enable
+for_window [class="Alacritty" title="terminal_randomize_mac"] resize set 1920 1080
+
+for_window [class="Alacritty" title="terminal_wake_remotes"] floating enable
+for_window [class="Alacritty" title="terminal_wake_remotes"] resize set 1920 1080
+
+
 for_window [title="Hangouts"] floating disable
 for_window [title="Llamada de Facebook - Chromium"] floating disable
 for_window [class="mpv"] floating enable
@@ -359,7 +383,7 @@ bindsym $mod+Mod1+z exec zotero
 bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec alacritty --title alsamixer-floating -e alsamixer
+bindsym Ctrl+2 exec alacritty --title terminal_alsamixer -e alsamixer
 #bindsym Ctrl+2 exec alacritty -e alsamixer
 
 # Clear the clipboard
