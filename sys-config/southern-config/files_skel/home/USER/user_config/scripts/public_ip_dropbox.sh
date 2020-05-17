@@ -22,7 +22,7 @@ if [ -f $ip_file ];	then
 		known_user=$(cat $ip_file | cut -d "@" -f 1) && \
 		known_ip=$(cat $ip_file | cut -d "@" -f 2) && \
 		# Sincronizar
-		urxvtc -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
+		alacritty -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
 fi
 
 # Detectar el cambio de ip o de usuario
@@ -32,5 +32,5 @@ if [ $current_ip != $known_ip -o $known_user != $USER ]; then
 		# Copiar a dropbox
 		cp $ip_file $shared_ip_file && \
 		# Sincronizar
-		urxvtc -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
+		alacritty -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
 fi
