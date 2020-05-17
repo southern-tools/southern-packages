@@ -1,7 +1,0 @@
-#!/bin/sh
-# Southern Tools
-#
-echo "### RSNAPSHOT MONTHLY ###"
-mount -L BACKUP /mnt/backup && rsnapshot -V monthly || echo "Backup failure"
-umount /mnt/backup
-echo ""

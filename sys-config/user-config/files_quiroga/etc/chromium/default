@@ -1,5 +1,0 @@
-
-
-# Southern Tools
-#
-CHROMIUM_FLAGS="--disk-cache-dir=/tmp/cache"
