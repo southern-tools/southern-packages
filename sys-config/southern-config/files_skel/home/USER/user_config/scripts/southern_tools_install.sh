@@ -1,4 +1,3 @@
-#!/bin/bash
 # Southern Tools
 #
 set -x
@@ -11,6 +10,7 @@ link="https://github.com/southern-tools/user_config.git"
 wireless_card="$(ls /sys/class/net | grep wl | cut -d ":" -f1)"
 ethernet_card="$(ls /sys/class/net | grep en | cut -d ":" -f1)"
 hostname="$(hostname)"
+files_skel=$"/var/db/repos/southern-packages/sys-config/southern-config/files_skel"
 
 ##### Script #####
 
@@ -86,8 +86,8 @@ mkdir -p ~/.config/rtorrent/.session/
 
 # Mpd and ncmpcpp
 mkdir -p ~/.config/mpd/playlist
-#ln -vsf ~/.user_config/applications/mpd/mpd.conf ~/.config/mpd/
-echo -n "# Southern Tools\n#\nuser			"$USER_NAME"\ngroup			"$USER_NAME"" > ~/.user_config/no_share/mpd.conf
+ln -vsf ~/.user_config/applications/mpd/mpd.conf ~/.config/mpd/
+#echo -n "# Southern Tools\n#\nuser			"$USER_NAME"\ngroup			"$USER_NAME"" > ~/.user_config/no_share/mpd.conf
 
 # Ranger
 mkdir -p ~/.config/ranger
@@ -159,9 +159,9 @@ sudo sed -i 's/^rc_logger=".*$/rc_logger="YES"/' /etc/rc.conf
 
 #####################
 # set ccache
-mkdir -p /var/cache/ccache
-chown root:portage /var/cache/ccache
-chmod 2775 /var/cache/ccache
+sudo mkdir -p /var/cache/ccache
+sudo chown root:portage /var/cache/ccache
+sudo chmod 2775 /var/cache/ccache
 sudo rsync -a /usr/local/portage/southern-packages/sys-config/user-config/files/var/cache/ccache/ccache.conf /var/cache/ccache/ccache.conf
 
 # Coloring dispatch-conf
@@ -179,7 +179,7 @@ sudo chmod u+s,go-s,ugo+x /usr/bin/udevil
 
 # Setting post boot script
 sudo rsync -a /home/$user_name/.user_config/etc/local.d/postboot.start /etc/local.d/
-sudo chmod +x /etc/local.d/postboot.start
+sudo chmod -v 755 /etc/local.d/postboot.start
 
 # Setting nano colors
 # User
@@ -214,16 +214,16 @@ sudo prelink -amR
 # Setting special paths
 
 # Setting keyboard on the xorg server for spanish
-#sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/
+sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/
 
 # Setting libinput ONLY MY DELL, REPLACE THE "INDENTIFIER"
-#sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
 
 # Setting intel driver tune up as per Sabayon reccomendation
-#sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
+sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
 
 # Setting secure values for the screen locker
-#sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/30-secure-locker.conf /etc/X11/xorg.conf.d/
+sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/30-secure-locker.conf /etc/X11/xorg.conf.d/
 
 # Taking the cache to /tmp for SSD performance
 sudo rsync -a /home/$user_name/.user_config/etc/profile.d/xdg_cache_home.sh /etc/profile.d/
@@ -301,6 +301,29 @@ sudo chmod +x /etc/cron.weekly/rsnapshot.weekly
 
 sudo rsync -a /home/$user_name/etc/cron.monthly/rsnapshot.monthly /etc/cron.monthly/
 sudo chmod +x /etc/cron.monthly/rsnapshot.monthly
+
+# Setting external drive mounting
+sudo mkdir -p /mnt/encrypted_unit_1
+sudo mkdir -p /mnt/encrypted_unit_2
+sudo mkdir -p /mnt/encrypted_unit_3
+
+
+
+sudo mkdir -p /root/.user_config/no_share/luks/
+sudo touch /root/.user_config/no_share/luks/encrypted_drive.key
+dd if=/dev/urandom bs=8388607 count=1 of=/root/.user_config/no_share/luks/encrypted_drive.key
+
+read -p '* Please, enter the UUID for your external drive: ' external_drive_uuid
+# mount script
+sudo rsync -a /$files_skel/etc/local.d/mount_external_drive.start /etc/local.d/
+sudo sed -i "s/EXTERNAL_DRIVE_UUID/'$external_drive_uuid'/g" /etc/local.d/mount_external_drive.start
+sudo chmod -v 755 /etc/local.d/mount_external_drive.start
+
+# unmount script
+sudo rsync -a /$files_skel/etc/local.d/umount_external_drive.start /etc/local.d/
+sudo chmod -v 755 /etc/local.d/unmount_external_drive.stop
+
+
 
 # Setting defragmentation monthly script
 sudo rsync -a /home/$user_name/etc/cron.monthly/defrag.monthly /etc/cron.monthly/
