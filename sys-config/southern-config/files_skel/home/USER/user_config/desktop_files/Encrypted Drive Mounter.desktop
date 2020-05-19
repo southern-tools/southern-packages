@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Encrypted Drive Mounter
+
+Comment=Mount an external encrypted drive
+
+Exec=swaymsg "exec alacritty -e sudo ~/.user_config/scripts/encrypted_drive_mounter.sh"
+
+Icon=utilities-terminal
+
+Categories=System;

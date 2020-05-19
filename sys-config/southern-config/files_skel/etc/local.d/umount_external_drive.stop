@@ -1,8 +1,0 @@
-#!/bin/bash
-# Southern Tools
-#
-umount /mnt/encrypted_unit_1
-umount /mnt/encrypted_unit_2
-umount /mnt/encrypted_unit_3
-vgchange --available n vg_encrypted
-cryptsetup luksClose encrypted_drive

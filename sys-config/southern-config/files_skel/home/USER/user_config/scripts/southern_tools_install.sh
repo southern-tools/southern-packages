@@ -24,7 +24,7 @@ read -p '* Please, enter your email password ' user_email_password
 
 
 # sudoers instructions
-echo -e "* This script needs "sudo", so before starting, open a new shell, login as root with \"su -\",\n* Execute the command \"visudo\"\n* and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
+echo -e "* The window manager needs "sudo" for power management so before starting, open a new shell, login as root with \"su -\", execute the command \"visudo\" and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
 
 read -rsp $'\n\n\n* Press any key to continue...\n' -n1 key
 
@@ -162,23 +162,23 @@ sudo sed -i 's/^rc_logger=".*$/rc_logger="YES"/' /etc/rc.conf
 sudo mkdir -p /var/cache/ccache
 sudo chown root:portage /var/cache/ccache
 sudo chmod 2775 /var/cache/ccache
-sudo rsync -a /usr/local/portage/southern-packages/sys-config/user-config/files/var/cache/ccache/ccache.conf /var/cache/ccache/ccache.conf
+sudo rsync -a $files_skel/var/cache/ccache/ccache.conf /var/cache/ccache/ccache.conf
 
 # Coloring dispatch-conf
 sudo sed -i 's/^diff=".*$/diff="colordiff -Nu '%s' '%s'"/' /etc/dispatch-conf.conf
 
 # Set things at "/etc/portage"
-sudo rsync -a --delete ~/.user_config/etc/portage/ /etc/portage/
+sudo rsync -a --delete $files_skel/etc/portage/ /etc/portage/
 
 # fstab
-sudo cat ~/.user_config/etc/fstab >> /etc/fstab
+sudo cat $files_skel/etc/fstab >> /etc/fstab
 
 # Making udevil able to mount devices
 sudo chown root:root /usr/bin/udevil
 sudo chmod u+s,go-s,ugo+x /usr/bin/udevil
 
 # Setting post boot script
-sudo rsync -a /home/$user_name/.user_config/etc/local.d/postboot.start /etc/local.d/
+sudo rsync -a $files_skel/local.d/postboot.start /etc/local.d/
 sudo chmod -v 755 /etc/local.d/postboot.start
 
 # Setting nano colors
@@ -214,26 +214,26 @@ sudo prelink -amR
 # Setting special paths
 
 # Setting keyboard on the xorg server for spanish
-sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/
+sudo rsync -a $files_skel/etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.conf.d/
 
 # Setting libinput ONLY MY DELL, REPLACE THE "INDENTIFIER"
-sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
+sudo rsync -a $files_skel/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
 
 # Setting intel driver tune up as per Sabayon reccomendation
-sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
+sudo rsync -a $files_skel/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
 
 # Setting secure values for the screen locker
-sudo rsync -a /home/$user_name/.user_config/etc/X11/xorg.conf.d/30-secure-locker.conf /etc/X11/xorg.conf.d/
+sudo rsync -a $files_skel/etc/X11/xorg.conf.d/30-secure-locker.conf /etc/X11/xorg.conf.d/
 
 # Taking the cache to /tmp for SSD performance
-sudo rsync -a /home/$user_name/.user_config/etc/profile.d/xdg_cache_home.sh /etc/profile.d/
+sudo rsync -a $files_skel/etc/profile.d/xdg_cache_home.sh /etc/profile.d/
 sudo chmod +x /etc/profile.d/xdg_cache_home.sh
 
 # Disable some D-BUS stuff
-sudo rsync -a /home/$user_name/.user_config/etc/env.d/99user_config /etc/env.d/
+sudo rsync -a $files_skel/etc/env.d/99user_config /etc/env.d/
 
 # Setting microcode
-sudo cat /home/$user_name/.user_config/etc/genkernel.conf >> /etc/genkernel.conf
+sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
 
 # Setting up configurations for hotspot.sh
 # User interaction
@@ -246,12 +246,12 @@ echo '* You can modify this configuration editing the files: "/etc/hostapd/user_
 sudo ln -vsf /etc/init.d/net.lo /etc/init.d/net.$ethernet_card
 sudo ln -vsf /etc/init.d/net.lo /etc/init.d/net.$wireless_card
 # telling openrc how to configure the interface for the hotspot
-sudo cat /home/$user_name/.user_config/etc/conf.d/net > /etc/conf.d/net
+sudo cat $files_skel/etc/conf.d/net > /etc/conf.d/net
 sudo sed -i 's/WIRELESS_CARD=/'$wireless_card='/g' /etc/conf.d/net
 
 # Creating Hostapd files
-sudo cat /home/$user_name/.user_config/etc/dnsmasq.conf >> /etc/dnsmasq.conf
-sudo cat /home/$user_name/.user_config/etc/hostapd/user_config.conf > /etc/hostapd/user_config.conf
+sudo cat $files_skel/etc/dnsmasq.conf >> /etc/dnsmasq.conf
+sudo cat $files_skel/etc/hostapd/user_config.conf > /etc/hostapd/user_config.conf
 # Setting variables
 sudo sed -i 's/^INTERFACES=".*$/INTERFACES="'"$wireless_card"'"/' /etc/conf.d/hostapd
 sudo sed -i "s/WIRELESS_CARD/'$wireless_card'/g" /etc/dnsmasq.conf
@@ -266,8 +266,8 @@ sudo sed -i 's/^wpa_driver =.*$/wpa_driver = nl80211/' /etc/wicd/manager-setting
 
 # Setting up configurations for "public_ip_gmail.sh"
 echo "* Setting up "public_ip_gmail.sh""
-sudo cat /home/$user_name/.user_config/etc/postfix/main.cf >> /etc/postfix/main.cf
-sudo rsync -a /home/$user_name/.user_config/etc/postfix/sasl_passwd /etc/postfix/
+sudo cat $files_skel/etc/postfix/main.cf >> /etc/postfix/main.cf
+sudo rsync -a $files_skel/etc/postfix/sasl_passwd /etc/postfix/
 sudo sed -i "s/USER_EMAIL/'$user_email'/g" /etc/postfix/sasl_passwd
 sudo sed -i "s/USER_EMAIL_PASSWORD/'$user_email_password'/g" /etc/postfix/sasl_passwd
 # Make some security adjustments
@@ -276,70 +276,69 @@ sudo chmod 0600 /etc/postfix/sasl_passwd
 sudo chmod 0600 /etc/postfix/sasl_passwd.db
 
 # Some settings for bluetooth
-sudo cat /home/$user_name/.user_config/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
+sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
 
 # Installing multi_updater.sh script
 sudo mkdir -p /etc/genup/updaters.d/
-sudo rsync -a /home/$user_name/etc/genup/updaters.d/multi_updater.sh /etc/genup/updaters.d/
+sudo rsync -a $files_skel/etc/genup/updaters.d/multi_updater.sh /etc/genup/updaters.d/
 sudo chmod +x /etc/genup/updaters.d/multi_updater.sh
 
 # Automating "genup"
-sudo rsync -a /home/$user_name/etc/cron.daily/genup /etc/cron.daily/
+sudo rsync -a $files_skel/etc/cron.daily/genup /etc/cron.daily/
 sudo chmod +x /etc/cron.daily/genup
 
 # Setting up "rsnapshot"
 sudo mkdir -p /mnt/backup
-sudo rsync -a /home/$user_name/etc/rsnapshot.conf /etc/
+sudo rsync -a $files_skel/etc/rsnapshot.conf /etc/
 #sed -i 's/USER_NAME/'$user_name'/g' ~/rsnapshot.conf
 sed -i 's/HOSTNAME/'$hostname'/g' ~/rsnapshot.conf
 
-sudo rsync -a /home/$user_name/etc/cron.daily/rsnapshot.daily /etc/cron.daily/
+sudo rsync -a $files_skel/etc/cron.daily/rsnapshot.daily /etc/cron.daily/
 sudo chmod +x /etc/cron.daily/rsnapshot.daily
 
-sudo rsync -a /home/$user_name/etc/cron.weekly/rsnapshot.weekly /etc/cron.weekly/
+sudo rsync -a $files_skel/etc/cron.weekly/rsnapshot.weekly /etc/cron.weekly/
 sudo chmod +x /etc/cron.weekly/rsnapshot.weekly
 
-sudo rsync -a /home/$user_name/etc/cron.monthly/rsnapshot.monthly /etc/cron.monthly/
+sudo rsync -a $files_skel/etc/cron.monthly/rsnapshot.monthly /etc/cron.monthly/
 sudo chmod +x /etc/cron.monthly/rsnapshot.monthly
 
 # Setting external drive mounting
 sudo mkdir -p /mnt/encrypted_unit_1
 sudo mkdir -p /mnt/encrypted_unit_2
 sudo mkdir -p /mnt/encrypted_unit_3
-
-
+# set permissions for the USER on the encrypted drive (DEPRECATED)
+#sudo chown $user_name:$user_name /mnt/encrypted_unit_*
 
 sudo mkdir -p /root/.user_config/no_share/luks/
 sudo touch /root/.user_config/no_share/luks/encrypted_drive.key
 dd if=/dev/urandom bs=8388607 count=1 of=/root/.user_config/no_share/luks/encrypted_drive.key
 
-read -p '* Please, enter the UUID for your external drive: ' external_drive_uuid
+read -p '* Please, enter the UUID for your encrypted drive: ' encrypted_drive_uuid
 # mount script
-sudo rsync -a /$files_skel/etc/local.d/mount_external_drive.start /etc/local.d/
-sudo sed -i "s/EXTERNAL_DRIVE_UUID/'$external_drive_uuid'/g" /etc/local.d/mount_external_drive.start
-sudo chmod -v 755 /etc/local.d/mount_external_drive.start
+#sudo rsync -a $files_skel/etc/local.d/mount_external_drive.start /etc/local.d/
+sudo sed -i "s/ENCRYPTED_DRIVE_UUID/$encrypted_drive_uuid/g" /etc/{cron.daily/rsnapshot.daily,cron.weekly/rsnapshot.weekly,cron.monthly/rsnapshot.monthly}
+#sudo chmod -v 755 /etc/local.d/mount_external_drive.start
 
 # unmount script
-sudo rsync -a /$files_skel/etc/local.d/umount_external_drive.start /etc/local.d/
-sudo chmod -v 755 /etc/local.d/unmount_external_drive.stop
+#sudo rsync -a /$files_skel/etc/local.d/umount_external_drive.start /etc/local.d/
+#sudo chmod -v 755 /etc/local.d/unmount_external_drive.stop
 
 
 
 # Setting defragmentation monthly script
-sudo rsync -a /home/$user_name/etc/cron.monthly/defrag.monthly /etc/cron.monthly/
+sudo rsync -a $files_skel/etc/cron.monthly/defrag.monthly /etc/cron.monthly/
 sudo chmod +x /etc/cron.monthly/defrag.monthly
 
 # modprobe.d contents
 # ONLY FOR MY DELL
-sudo rsync -a /home/$user_name/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
+sudo rsync -a $files_skel/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
 
 # Sound card
-sudo cat /home/$user_name/etc/modprobe.d/alsa.conf >> /etc/modprobe.d/alsa.conf
+sudo cat $files_skel/etc/modprobe.d/alsa.conf >> /etc/modprobe.d/alsa.conf
 
-# strip down some services
-rc-update del binfmt boot
-rc-update del opentmpfiles-dev sysinit
-rc-update del opentmpfiles-setup boot
+# strip down some services (DEPRECATED)
+#rc-update del binfmt boot
+#rc-update del opentmpfiles-dev sysinit
 
 
 ##### Final message #####

@@ -11,5 +11,4 @@ dpms_loop() {
 	fi
 }
 
-
 slock & sleep 0.1 && dpms_loop
