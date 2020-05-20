@@ -4,65 +4,65 @@
 #set -x
 
 # Variables
-encrypted_drive_uuid=1d468191-9e63-4527-966f-ad6ffdad1db0
-lsblk &&
-
+source ~/.user_config/no_share/encrypted_drive_variables
+mountpoint_1=/mnt/encrypted_unit_1
+mountpoint_2=/mnt/encrypted_unit_2
+mountpoint_3=/mnt/encrypted_unit_3
+luks_container=encrypted_drive
+vg_name=vg_encrypted
+volume_1=/dev/mapper/vg_encrypted-unit_1
+volume_2=/dev/mapper/vg_encrypted-unit_2
+volume_3=/dev/mapper/vg_encrypted-unit_3
 
 menu_loop (){
+	lsblk
 	PS3='Please enter your choice: '
-	options=("Open LUKS container" "Close LUKS container" "Mount unit_1" "Unmount unit_1" "Mount unit_2" "Unmount unit_2" "Mount unit_3" "Unmount unit_3" "Quit")
+	options=("Unit_1" "Unit_2" "Unit_3" "Quit")
 	select opt in "${options[@]}"
 	do
 		case $opt in
-			"Open LUKS container")
-			sudo cryptsetup --key-file /root/.user_config/no_share/luks/encrypted_drive.key luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid encrypted_drive ;
-			sudo vgchange --available y vg_encrypted ;
-			lsblk
+			"Unit_1")
+			clear
+			if cat /proc/mounts | grep $mountpoint_1 > /dev/null; 
+			then
+				sudo umount $mountpoint_1
+				echo "*** Unit_1 is now UNMOUNTED ***\n\n\n"
+			else
+				sudo mount $volume_1 $mountpoint_1
+				echo "*** Unit_1 is now MOUNTED ***"
+			fi
 			menu_loop
 			;;
-			"Close LUKS container")
-			sudo vgchange --available n vg_encrypted ;
-			sudo cryptsetup luksClose encrypted_drive ;
-			lsblk
+			"Unit_2")
+			clear
+			if cat /proc/mounts | grep $mountpoint_2 > /dev/null; 
+			then
+				sudo umount $mountpoint_2
+				echo "*** Unit_2 is now UNMOUNTED ***"
+			else
+				sudo mount $volume_2 $mountpoint_2
+				echo "*** Unit_2 is now MOUNTED ***"
+			fi
 			menu_loop
 			;;
-			"Mount unit_1")
-			sudo mount -t ext4 /dev/mapper/vg_encrypted-unit_1 /mnt/encrypted_unit_1 ;
-			lsblk
-			menu_loop
-			;;
-			"Unmount unit_1")
-			sudo umount /mnt/encrypted_unit_1 ;
-			lsblk
-			menu_loop
-			;;
-			"Mount unit_2")
-			sudo mount -t ext4 /dev/mapper/vg_encrypted-unit_2 /mnt/encrypted_unit_2 ;
-			lsblk
-			menu_loop
-			;;
-			"Unmount unit_2")
-			sudo umount /mnt/encrypted_unit_2 ;
-			lsblk
-			menu_loop
-			;;
-			"Mount unit_3")
-			sudo mount -t ext4 /dev/mapper/vg_encrypted-unit_3 /mnt/encrypted_unit_3 ;
-			lsblk
-			menu_loop
-			;;
-			"Unmount unit_3")
-			sudo umount /mnt/encrypted_unit_3 ;
-			lsblk
+			"Unit_3")
+			clear
+			if cat /proc/mounts | grep $mountpoint_3 > /dev/null; 
+			then
+				sudo umount $mountpoint_3
+				echo "*** Unit_3 is now UNMOUNTED ***"
+			else
+				sudo mount $volume_3 $mountpoint_3
+				echo "*** Unit_3 is now MOUNTED ***"
+			fi
 			menu_loop
 			;;
 			"Quit")
-			sudo umount /mnt/encrypted_unit_1 ;
-			sudo umount /mnt/encrypted_unit_2 ;
-			sudo umount /mnt/encrypted_unit_3 ;
-			sudo vgchange --available n vg_encrypted ;
-			sudo cryptsetup luksClose encrypted_drive ;
-			lsblk
+			sudo umount $mountpoint_1 ;
+			sudo umount $mountpoint_2 ;
+			sudo umount $mountpoint_3 ;
+			sudo vgchange --available n $vg_name ;
+			sudo cryptsetup luksClose $luks_container ;
 			exit
 			;;
 			*) echo invalid option
@@ -71,4 +71,9 @@ menu_loop (){
 	done
 }
 
+# Open LUKS and make LVM available
+sudo cryptsetup --key-file $encrypted_drive_key_file luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid $luks_container ;
+sudo vgchange --available y $vg_name ;
+
+# Start menu
 menu_loop

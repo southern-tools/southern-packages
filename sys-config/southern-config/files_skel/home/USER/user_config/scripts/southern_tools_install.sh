@@ -303,6 +303,7 @@ sudo rsync -a $files_skel/etc/cron.monthly/rsnapshot.monthly /etc/cron.monthly/
 sudo chmod +x /etc/cron.monthly/rsnapshot.monthly
 
 # Setting external drive mounting
+sudo mkdir -p /mnt/backup
 sudo mkdir -p /mnt/encrypted_unit_1
 sudo mkdir -p /mnt/encrypted_unit_2
 sudo mkdir -p /mnt/encrypted_unit_3
@@ -316,13 +317,12 @@ dd if=/dev/urandom bs=8388607 count=1 of=/root/.user_config/no_share/luks/encryp
 read -p '* Please, enter the UUID for your encrypted drive: ' encrypted_drive_uuid
 # mount script
 #sudo rsync -a $files_skel/etc/local.d/mount_external_drive.start /etc/local.d/
+# Set proper UUID for the user's drive on the Rsnapshot cron-jobs
 sudo sed -i "s/ENCRYPTED_DRIVE_UUID/$encrypted_drive_uuid/g" /etc/{cron.daily/rsnapshot.daily,cron.weekly/rsnapshot.weekly,cron.monthly/rsnapshot.monthly}
-#sudo chmod -v 755 /etc/local.d/mount_external_drive.start
-
-# unmount script
-#sudo rsync -a /$files_skel/etc/local.d/umount_external_drive.start /etc/local.d/
-#sudo chmod -v 755 /etc/local.d/unmount_external_drive.stop
-
+# Set the proper UUID for the user's drive on the mounter script
+touch ~/.user_config/no_share/encrypted_drive_variables
+echo -e "# Southern Tools\n#\n#\nencrypted_drive_uuid=ENCRYPTED_DRIVE_UUID\nencrypted_drive_key_file=/root/.user_config/no_share/luks/encrypted_drive.key" | tee ~/.user_config/no_share/encrypted_drive_variables
+sed -i "s/ENCRYPTED_DRIVE_UUID/$encrypted_drive_uuid/g" ~/.user_config/no_share/encrypted_drive_variables
 
 
 # Setting defragmentation monthly script
