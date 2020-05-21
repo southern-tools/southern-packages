@@ -61,7 +61,7 @@ menu_loop (){
 			sudo umount $mountpoint_1 ;
 			sudo umount $mountpoint_2 ;
 			sudo umount $mountpoint_3 ;
-			sudo vgchange --available n $vg_name ;
+			sudo vgchange --activate n $vg_name ;
 			sudo cryptsetup luksClose $luks_container ;
 			exit
 			;;
@@ -73,7 +73,7 @@ menu_loop (){
 
 # Open LUKS and make LVM available
 sudo cryptsetup --key-file $encrypted_drive_key_file luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid $luks_container ;
-sudo vgchange --available y $vg_name ;
+sudo vgchange --activate y $vg_name ;
 
 # Start menu
 menu_loop
