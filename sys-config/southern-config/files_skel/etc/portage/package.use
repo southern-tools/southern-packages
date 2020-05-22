@@ -74,6 +74,7 @@ x11-libs/gtk+ adwaita-icon-theme -atk-bridge
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
 x11-libs/libfm -automount
 #x11-misc/i3status -pulseaudio
+#x11-misc/polybar i3wm ipc mpd network
 x11-misc/redshift geoclue
 x11-misc/spacefm video-thumbnails
 x11-terms/rxvt-unicode gdk-pixbuf xft
