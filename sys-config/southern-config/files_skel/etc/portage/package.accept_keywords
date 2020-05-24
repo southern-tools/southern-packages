@@ -64,11 +64,11 @@ net-misc/youtube-dl ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
-sys-devel/binutils ~amd64 # required for lto
+#sys-devel/binutils ~amd64 # required for lto
 #sys-devel/clang ~amd64 # required by dev-libs/intel-neo
 #sys-devel/clang-common ~amd64 # just in case
 #sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
-sys-devel/gcc ~amd64 # required for lto
+#sys-devel/gcc ~amd64 # required for lto
 #sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 #sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
 #sys-devel/llvm-common ~amd64
@@ -78,7 +78,7 @@ sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
 #sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
-sys-libs/glibc ~amd64 # required for lto
+#sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 #virtual/opencl ~amd64
 #www-client/firefox ~amd64
@@ -107,6 +107,9 @@ x11-wm/i3-gaps ~amd64
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
+=sys-devel/binutils-2.34-r1  ~amd64 # required by lto
+=sys-devel/gcc-10.1.0 ~amd64 # required by lto
+=sys-libs/glibc-2.31-r3 ~amd64 # required by lto
 =www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 
