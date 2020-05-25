@@ -4,7 +4,7 @@
 #[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 xrdb ~/.Xresources
 ~/.user_config/scripts/displays.sh
-#xinput map-to-output "ELAN Touchscreen" "eDP-1"
+xinput map-to-output "ELAN Touchscreen" "eDP1"
 feh --bg-fill ~/.user_config/backgrounds/forest_3.jpg &
 light -S 80
 #compton -bcCGfz
@@ -14,7 +14,7 @@ redshift -l geoclue2 &
 # redshift -l 49.59:17.25 &
 # dunst -config ~/.user_config/applications/dunst/dunstrc
 # spacefm -d
-# urxvtd --quiet --opendisplay --fork
+urxvtd --quiet --opendisplay --fork
 copyq &
 # Start i3
 exec i3 -c ~/.user_config/applications/i3/config

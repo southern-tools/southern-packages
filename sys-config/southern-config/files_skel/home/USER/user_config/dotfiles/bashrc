@@ -28,6 +28,5 @@ alias ln='ln -i'
 alias rm='rm -i'
 alias colors='~/.user_config/scripts/colors.sh'
 alias world='column /var/lib/portage/world'
-alias wicd='wicd-curses'
 alias calfix='. .user_config/scripts/calibre_fix.sh & calibre'
 neofetch --config ~/.user_config/applications/neofetch/neofetch.conf

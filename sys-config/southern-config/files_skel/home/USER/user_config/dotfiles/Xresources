@@ -2,10 +2,10 @@
 
 ! Hidpi and effects
 
-Xft.dpi:	282
+Xft.dpi:		282
 Xft.antialias:	true
 Xft.hinting:	true
-Xft.rgba:	rgb
+Xft.rgba:		rgb
 Xft.autohint:	false
 Xft.hintstyle:	hintfull
 Xft.lcdfilter:	lcddefault
@@ -15,25 +15,31 @@ Xcursor.theme:	gentoo-silver
 Xcursor.size:	48
 
 ! URxvt font settings
-URxvt.font:		xft:Hack:size=8
-URxvt.boldFont:		xft:Hack:size=8:style=bold
-URxvt.italicFont:	xft:Hack:size=8:style=italic
+URxvt.font:				xft:Hack:size=8
+URxvt.boldFont:			xft:Hack:size=8:style=bold
+URxvt.italicFont:		xft:Hack:size=8:style=italic
 URxvt.boldItalicFont:	xft:Hack:size=8:style=bold italic
 
 ! URxvt general settings
-URxvt*depth:			32
-URxvt*background:		rgba:0000/0000/0200/c800
 URxvt*cursorBlink:		true
 URxvt*saveLines:		10000
+URxvt*background:		[25]#021B21
+
+! True transparency (with composition)
+URxvt*depth:			32
+
+! Native transparency (less resources)
+! URxvt*inheritPixmap:		true
+! URxvt*transparent:		true
 
 ! URxvt scroll settings
-URxvt*scrollBar:		false
-URxvt*jumpScroll:		true
+URxvt*scrollBar:			false
+URxvt*jumpScroll:			true
 URxvt*mouseWheelScrollPage:	true
 
 ! Perl extensions
 URxvt.perl-ext-common:		default,matcher,selection-to-clipboard
-URxvt.url-launcher:		/usr/bin/xdg-open
+URxvt.url-launcher:			/usr/bin/xdg-open
 URxvt.matcher.button:		1
 
 

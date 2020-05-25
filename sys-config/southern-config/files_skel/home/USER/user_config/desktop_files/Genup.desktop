@@ -6,7 +6,7 @@ Name=Genup
 
 Comment=System update
 
-Exec=swaymsg "exec alacritty -e sudo genup"
+Exec=swaymsg "exec urxvtc -e sudo genup"
 
 Icon=utilities-terminal
 

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=rtorrent-magnet
-Exec=alacritty -t rtorrent -e rtorrent %U
-MimeType=x-scheme-handler/magnet;
-NoDisplay=true
-

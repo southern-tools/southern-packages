@@ -6,7 +6,7 @@ Name=Genlop
 
 Comment=Emerge ETA
 
-Exec=swaymsg "exec alacritty --title terminal_genlop -e watch -cn 10 genlop -ci"
+Exec=swaymsg "exec urxvtc --title terminal_genlop -e watch -cn 10 genlop -ci"
 
 Icon=utilities-terminal
 

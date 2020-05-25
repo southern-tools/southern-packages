@@ -20,6 +20,7 @@ dev-lang/ruby -berkdb -gdbm -ncurses -readline
 dev-libs/boost nls # required by ncmpcpp
 dev-libs/elfutils static-libs # required by prelink (argument)
 dev-libs/glib dbus # required by meld
+dev-libs/intel-neo l0 # level zero driver
 dev-libs/light udev # required to run
 dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
 dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile

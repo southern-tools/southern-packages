@@ -6,7 +6,7 @@ Name=SSH Reverse Tunnel
 
 Comment=SSH remote assistance
 
-Exec=swaymsg "exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh"
+Exec=swaymsg "exec urxvtc -e ~/.user_config/scripts/ssh_reverse_tunnel.sh"
 
 Icon=utilities-terminal
 
