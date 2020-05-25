@@ -21,6 +21,7 @@ dev-lang/python::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
 dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
+dev-libs/level-zero ~amd64
 dev-libs/light ~amd64
 #dev-libs/ocl-icd ~amd64
 dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo

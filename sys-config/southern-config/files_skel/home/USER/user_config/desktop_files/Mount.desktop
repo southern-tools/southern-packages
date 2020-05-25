@@ -6,7 +6,7 @@ Name=Mount
 
 Comment=Mount devices
 
-Exec=swaymsg "exec urxvtc --title terminal_mount --hold -e devmon"
+Exec=swaymsg "exec urxvtc --title terminal_mount -hold -e devmon"
 
 Icon=utilities-terminal
 
