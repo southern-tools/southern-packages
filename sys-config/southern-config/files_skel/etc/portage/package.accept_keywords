@@ -112,5 +112,6 @@ x11-wm/i3-gaps ~amd64
 =sys-libs/glibc-2.31-r3 ~amd64 # required by lto
 =www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
+=x11-libs/libva-2.7.1 ~amd64 # required by x11-libs/libva-intel-media-driver
 
 # autounmask
