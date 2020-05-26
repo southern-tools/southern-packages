@@ -13,6 +13,7 @@ app-portage/showem::southern-packages ~amd64
 #app-shells/powerline ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/calibre ~amd64
+app-text/pandoc ~amd64
 dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
 #dev-java/openjdk-bin ~amd64
@@ -115,5 +116,10 @@ x11-wm/i3-gaps ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-libs/libva-2.7.1 ~amd64 # required by x11-libs/libva-intel-media-driver
 =media-libs/mesa-20.1.0_rc4 ~amd64 # stable doesn´t build
+
+# haskell packages for pandoc and pandoc-citeproc
+app-admin/haskell-updater ~amd64
+dev-haskell/* ~amd64
+dev-lang/ghc ~amd64
 
 # autounmask
