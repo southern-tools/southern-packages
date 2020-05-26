@@ -6,9 +6,10 @@ app-text/calibre unRAR
 #dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
 #dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
 dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
-dev-util/intel-ocl-sdk Intel-SDP
+#dev-util/intel-ocl-sdk Intel-SDP
+games-util/steam-launcher ValveSteamLicense
 media-fonts/corefonts MSttfEULA
-net-misc/teamviewer TeamViewer
+#net-misc/teamviewer TeamViewer
 sys-firmware/intel-microcode intel-ucode intel-ucode-20180807
 sys-kernel/gentoo-sources linux-firmware
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code
@@ -17,9 +18,3 @@ www-plugins/chrome-binary-plugins google-chrome
 www-plugins/google-talkplugin Google-TOS
 
 # autounmask
-# required by games-util/steam-launcher (argument)
->=games-util/steam-launcher-1.0.0.59-r3 ValveSteamLicense
-# required by net-im/zoom (argument)
->=net-im/zoom-3.5.392530.0421 all-rights-reserved
-# required by net-im/zoom (argument)
-=net-im/zoom-3.5.385850.0413 all-rights-reserved
