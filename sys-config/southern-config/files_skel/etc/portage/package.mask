@@ -2,8 +2,8 @@
 
 */*::southern-packages
 dev-lang/python::gentoo
-<sys-kernel/gentoo-sources-5.4.42 # block upgrades
->sys-kernel/gentoo-sources-5.4.42 # block upgrades
+<sys-kernel/gentoo-sources-5.4.43 # block upgrades
+>sys-kernel/gentoo-sources-5.4.43 # block upgrades
 #>sys-kernel/linux-firmware-20191215 # iwlwifi issue
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 x11-libs/gtk+::gentoo
