@@ -28,5 +28,6 @@ alias genup='sudo genup -n -p'
 alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -i'
+#alias steam='DRI_PRIME=1 steam'
 alias world='column /var/lib/portage/world'
 neofetch --config ~/.user_config/applications/neofetch/neofetch.conf
