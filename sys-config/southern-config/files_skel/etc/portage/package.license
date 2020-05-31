@@ -6,6 +6,7 @@ app-text/calibre unRAR
 #dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
 #dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
 dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
+dev-libs/hsa-ext-rocr AMD-GPU-PRO-EULA
 #dev-util/intel-ocl-sdk Intel-SDP
 games-util/steam-launcher ValveSteamLicense
 media-fonts/corefonts MSttfEULA
