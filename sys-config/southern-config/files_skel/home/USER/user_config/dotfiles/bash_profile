@@ -18,6 +18,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 export GDK_SCALE="2"
 export GDK_DPI_SCALE="0.5"
 export RXVT_SOCKET="/tmp/urxvt-socket"
+#export DRI_PRIME=1
 
 # deprecated
 #export CALIBRE_USE_SYSTEM_THEME=1
