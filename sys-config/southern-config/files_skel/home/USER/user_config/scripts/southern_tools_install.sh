@@ -329,9 +329,12 @@ sed -i "s/ENCRYPTED_DRIVE_UUID/$encrypted_drive_uuid/g" ~/.user_config/no_share/
 sudo rsync -a $files_skel/etc/cron.monthly/defrag.monthly /etc/cron.monthly/
 sudo chmod +x /etc/cron.monthly/defrag.monthly
 
+#
+sudo sed -i "s/# periodic_e2scrub=1/periodic_e2scrub=1/g" /etc/e2scrub.conf
+
 # modprobe.d contents
 # ONLY FOR MY DELL
-sudo rsync -a $files_skel/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
+#sudo rsync -a $files_skel/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
 
 # Sound card
 sudo cat $files_skel/etc/modprobe.d/alsa.conf >> /etc/modprobe.d/alsa.conf

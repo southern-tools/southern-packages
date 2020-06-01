@@ -59,6 +59,7 @@ sys-apps/bleachbit gtk # required for gui
 sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
 sys-boot/plymouth gdm # required by Sakaki
 sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
+sys-fs/e2fsprogs cron # check automatically LVM's
 #sys-firmware/intel-microcode initramfs # only for x86
 sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
 sys-kernel/gentoo-sources experimental symlink

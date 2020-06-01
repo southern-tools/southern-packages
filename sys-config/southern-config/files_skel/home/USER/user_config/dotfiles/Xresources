@@ -2,23 +2,23 @@
 
 ! Hidpi and effects
 
-Xft.dpi:		282
-Xft.antialias:	true
-Xft.hinting:	true
-Xft.rgba:		rgb
-Xft.autohint:	false
-Xft.hintstyle:	hintfull
-Xft.lcdfilter:	lcddefault
+Xft.dpi:			282
+Xft.antialias:			true
+Xft.hinting:			true
+Xft.rgba:			rgb
+Xft.autohint:			false
+Xft.hintstyle:			hintfull
+Xft.lcdfilter:			lcddefault
 
 ! Cursor
-Xcursor.theme:	gentoo-silver
-Xcursor.size:	48
+Xcursor.theme:			gentoo-silver
+Xcursor.size:			48
 
 ! URxvt font settings
-URxvt.font:				xft:Hack:size=8
+URxvt.font:			xft:Hack:size=8
 URxvt.boldFont:			xft:Hack:size=8:style=bold
 URxvt.italicFont:		xft:Hack:size=8:style=italic
-URxvt.boldItalicFont:	xft:Hack:size=8:style=bold italic
+URxvt.boldItalicFont:		xft:Hack:size=8:style=bold italic
 
 ! URxvt general settings
 URxvt*cursorBlink:		true
@@ -33,13 +33,13 @@ URxvt*depth:			32
 ! URxvt*transparent:		true
 
 ! URxvt scroll settings
-URxvt*scrollBar:			false
-URxvt*jumpScroll:			true
+URxvt*scrollBar:		false
+URxvt*jumpScroll:		true
 URxvt*mouseWheelScrollPage:	true
 
 ! Perl extensions
 URxvt.perl-ext-common:		default,matcher,selection-to-clipboard
-URxvt.url-launcher:			/usr/bin/xdg-open
+URxvt.url-launcher:		/usr/bin/xdg-open
 URxvt.matcher.button:		1
 
 
@@ -48,42 +48,39 @@ Emacs.font: Hack-10
 
 ! Colors
 
-!*cursorColor:	#E8DFD6
 *transparent:	#80000000
-
-! Custom
-
+*foreground:    #E8DFD6
 *background:	#021B21
-*foreground:	#E8DFD6
+*cursorColor:   #E8DFD6
 
 ! black
-*color0:     #032C36
-*color8:     #065F73
+*color0:	#032C36
+*color8:	#065F73
 
 ! red
-*color1:     #C2454E
-*color9:     #EF5847
+*color1:	#C2454E
+*color9:	#EF5847
 
 ! green
-*color2:     #7CBF9E
-*color10:    #A2D9B1
+*color2:	#7CBF9E
+*color10:	#A2D9B1
 
 ! yellow
-*color3:     #8A7A63
-*color11:    #BEB090
+*color3:	#8A7A63
+*color11:	#BEB090
 
 ! blue
-*color4:     #2E3340
-*color12:    #61778D
+*color4:	#2E3340
+*color12:	#61778D
 
 ! magenta
-*color5:     #FF5879
-*color13:    #FF99A1
+*color5:	#FF5879
+*color13:	#FF99A1
 
 ! cyan
-*color6:     #44B5B1
-*color14:    #9ED9D8
+*color6:	#44B5B1
+*color14:	#9ED9D8
 
 ! white
-*color7:     #F2F1B9
-*color15:    #F6F6C9
+*color7:	#F2F1B9
+*color15:	#F6F6C9

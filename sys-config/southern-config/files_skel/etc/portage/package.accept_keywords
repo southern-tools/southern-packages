@@ -117,7 +117,6 @@ x11-wm/i3-gaps ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-base/xorg-server-1.20.8 ~amd64
 =x11-libs/libva-2.7.1 ~amd64 # required by x11-libs/libva-intel-media-driver
-=x11-libs/libva-intel-driver-2.4.0_pre1 ~amd64
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
