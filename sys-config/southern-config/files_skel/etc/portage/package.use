@@ -140,6 +140,9 @@ x11-libs/libxcb xkb # required by base profile
 >=dev-libs/elfutils-0.177 abi_x86_32
 >=app-arch/bzip2-1.0.6-r11 abi_x86_32
 >=dev-util/pkgconf-1.6.3 abi_x86_32
+#x11-libs/libXtst abi_x86_32
+#x11-libs/gtk+ abi_x86_32
+#x11-libs/gdk-pixbuf abi_x86_32
 
 # python stabilization
 */* PYTHON_TARGETS: python3_6 python3_7

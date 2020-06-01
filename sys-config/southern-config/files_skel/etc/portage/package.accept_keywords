@@ -1,7 +1,6 @@
 # Southern Tools "package.accept_keywords"
 
 # prefer latest version
-#app-crypt/libb2 ~amd64 # required by app-portage/portage-utils, app-portage/portage-bashrc-mv, sys-config/ltoize
 app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
@@ -10,7 +9,6 @@ app-misc/khal ~amd64  # required by khal (argument)
 app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-portage/showem::southern-packages ~amd64
-#app-shells/powerline ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/calibre ~amd64
 app-text/pandoc ~amd64
@@ -35,21 +33,18 @@ dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev
 #dev-libs/roct-thunk-interface ~amd64
 dev-libs/wayland ~amd64
 dev-libs/wayland-protocols ~amd64
-#dev-util/intel-ocl-sdk ~amd64
-dev-util/vulkan-tools ~amd64
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
-dev-python/icalendar ~amd64 # required by dev-python/icalendar
 dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
 dev-tex/biblatex-apa ~amd64
-dev-util/cbindgen ~amd64 # required by www-client/firefox-68.0.2::gentoo
 dev-util/clinfo ~amd64 # required by clinfo
 dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 #dev-util/intel-ocl-sdk ~amd64
 #dev-util/opencl-headers ~amd64 # required by dev-libs/ocl-icd
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
 dev-util/vulkan-headers ~amd64
+dev-util/vulkan-tools ~amd64
 games-util/steam-client-meta::southern-packages ~amd64
 games-util/steam-games-meta::southern-packages ~amd64
 games-util/steam-launcher::southern-packages ~amd64
@@ -63,28 +58,25 @@ gui-apps/wl-clipboard ~amd64
 gui-libs/wlroots ~amd64
 gui-wm/sway ~amd64
 media-fonts/fontawesome ~amd64
-#media-fonts/powerline-symbols ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 #media-libs/mesa ~amd64
-#media-libs/suil ~amd64 # required by media-sound/ardour
 media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
 net-misc/youtube-dl ~amd64
-#net-wireless/iw ~amd64
+net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 #sys-devel/binutils ~amd64 # required for lto
 #sys-devel/clang ~amd64 # required by dev-libs/intel-neo
-#sys-devel/clang-common ~amd64 # just in case
 #sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
 #sys-devel/gcc ~amd64 # required for lto
 #sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 #sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
 #sys-devel/llvm-common ~amd64
 #sys-devel/llvmgold ~amd64 # required by sys-devel/llvm-9.0.0::gentoo[gold], media-libs/mesa-19.1.7::gentoo[-video_cards_r600,-opencl,llvm,-video_cards_radeon,video_cards_radeonsi]
-sys-devel/llvm-roc ~amd64
+#sys-devel/llvm-roc ~amd64
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
@@ -92,7 +84,6 @@ sys-kernel/gentoo-sources ~amd64
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 #sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
-#virtual/opencl ~amd64
 #www-client/firefox ~amd64
 www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
 www-plugins/chrome-binary-plugins ~amd64
@@ -118,7 +109,6 @@ x11-wm/i3-gaps ~amd64
 # specific version
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
-=media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
 =media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =sys-devel/binutils-2.34-r1  ~amd64 # required by lto
 =sys-devel/gcc-10.1.0 ~amd64 # required by lto
@@ -127,6 +117,7 @@ x11-wm/i3-gaps ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-base/xorg-server-1.20.8 ~amd64
 =x11-libs/libva-2.7.1 ~amd64 # required by x11-libs/libva-intel-media-driver
+=x11-libs/libva-intel-driver-2.4.0_pre1 ~amd64
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
