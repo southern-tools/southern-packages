@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Sensors
+
+Comment=Check the temperature of the system
+
+Exec=swaymsg "exec urxvtc --title terminal_sensors -e watch -cn 1 sensors"
+
+Icon=utilities-terminal
+
+Categories=System;

@@ -119,12 +119,13 @@ x11-wm/i3-gaps ~amd64
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/libwebp-1.1.0 ~amd64 # required by new firefox
-=media-libs/mesa-20.1.0_rc4 ~amd64 # stable doesn´t build
+=media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =sys-devel/binutils-2.34-r1  ~amd64 # required by lto
 =sys-devel/gcc-10.1.0 ~amd64 # required by lto
 =sys-libs/glibc-2.31-r3 ~amd64 # required by lto
 =www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
+=x11-base/xorg-server-1.20.8 ~amd64
 =x11-libs/libva-2.7.1 ~amd64 # required by x11-libs/libva-intel-media-driver
 
 # haskell packages for pandoc and pandoc-citeproc
