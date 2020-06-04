@@ -38,7 +38,7 @@ media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontu
 media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
 media-libs/libsdl2 gles # Required by Wayland
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
-media-libs/mesa -classic gles2 -opencl -video_cards_intel xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
+media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
@@ -71,7 +71,7 @@ www-client/firefox clang geckodriver hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg vaapi thinlto -wayland
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
-x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting
+#x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting
 x11-base/xorg-server -minimal glamor xvfb # "xvfb" required by firefox
 x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge
