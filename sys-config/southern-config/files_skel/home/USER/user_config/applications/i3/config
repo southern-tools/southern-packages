@@ -134,16 +134,16 @@ set $ws9 "9:《𝟵》"
 set $ws10 "10:《𝟭𝟬》"
 
 # Which workspace on which screen
-workspace $ws1 output eDP1
-workspace $ws2 output eDP1
-workspace $ws3 output eDP1
-workspace $ws4 output eDP1
-workspace $ws5 output eDP1
-workspace $ws6 output eDP1
-workspace $ws7 output eDP1
-workspace $ws8 output eDP1
-workspace $ws9 output eDP1
-workspace $ws10 output HDMI1
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output eDP-1
+workspace $ws6 output eDP-1
+workspace $ws7 output eDP-1
+workspace $ws8 output eDP-1
+workspace $ws9 output eDP-1
+workspace $ws10 output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -269,8 +269,8 @@ assign [title="ncmpcpp*"] $ws10
 
 bar {
   i3bar_command i3bar -t
-	output eDP1
-	tray_output eDP1
+	output eDP-1
+	tray_output eDP-1
 	status_command py3status --config ~/.user_config/applications/py3status/py3status.conf
 	#status_command i3blocks -c ~/.user_config/applications/i3blocks/i3blocks.conf
   font pango:Font Awesome 5 Free Solid 8
