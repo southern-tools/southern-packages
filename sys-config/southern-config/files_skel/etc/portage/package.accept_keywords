@@ -108,6 +108,9 @@ x11-terms/alacritty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
+#=app-emulation/protontricks-1.4.1-r1 ~amd64 # last version
+#=app-emulation/wine-mono-5.0.0 ~amd64 # required for the last wine
+#=app-emulation/winetricks-20200412 ~amd64 # last version
 =dev-libs/nss-3.52 ~amd64 # required by new firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
@@ -126,3 +129,4 @@ dev-lang/ghc ~amd64
 
 # autounmask
 
+#app-emulation/wine-vanilla ~amd64
