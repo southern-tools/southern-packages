@@ -36,7 +36,7 @@ media-gfx/imagemagick jpeg
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
 media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
-media-libs/libsdl2 gles # Required by Wayland
+media-libs/libsdl2 gles2 # Required by Wayland
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
 media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
@@ -151,3 +151,234 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
+# required by app-emulation/wine-vanilla-5.0::gentoo[X]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=x11-libs/libXcursor-1.2.0 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[X]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=x11-libs/libXi-1.7.10 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[alsa]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/alsa-lib-1.2.2-r1 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[cups]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=net-print/cups-2.3.3-r1 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[fontconfig]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/fontconfig-2.13.0-r4 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[lcms]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/lcms-2.9 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[png]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/libpng-1.6.37 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=net-libs/gnutls-3.6.14 abi_x86_32
+# required by media-libs/fontconfig-2.13.0-r4::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[fontconfig]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/freetype-2.9.1-r3 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[v4l]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/libv4l-1.16.6 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[vulkan]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/vulkan-loader-1.2.137 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[xcomposite]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=x11-libs/libXcomposite-0.4.5 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[xinerama]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=x11-libs/libXinerama-1.1.4 abi_x86_32
+# required by dev-libs/libxslt-1.1.33-r1::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[xml]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libxml2-2.9.9-r3 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[xml]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libxslt-1.1.33-r1 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[gecko]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=app-emulation/wine-gecko-2.47.1 abi_x86_32
+# required by dev-libs/libxslt-1.1.33-r1::gentoo[crypt]
+# required by app-emulation/wine-vanilla-5.0::gentoo[xml]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libgcrypt-1.8.5 abi_x86_32
+# required by dev-libs/libgcrypt-1.8.5::gentoo
+# required by dev-libs/libxslt-1.1.33-r1::gentoo[crypt]
+# required by app-emulation/wine-vanilla-5.0::gentoo[xml]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libgpg-error-1.36 abi_x86_32
+# required by dev-libs/libxml2-2.9.9-r3::gentoo[icu]
+# required by dev-libs/libxslt-1.1.33-r1::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[xml]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/icu-67.1 abi_x86_32
+# required by net-libs/gnutls-3.6.14::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libtasn1-4.13 abi_x86_32
+# required by net-libs/gnutls-3.6.14::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/libunistring-0.9.10 abi_x86_32
+# required by net-libs/gnutls-3.6.14::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/nettle-3.5.1-r1 abi_x86_32
+# required by dev-libs/nettle-3.5.1-r1::gentoo[gmp]
+# required by net-libs/gnutls-3.6.14::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=dev-libs/gmp-6.2.0-r1 abi_x86_32
+# required by net-libs/gnutls-3.6.14::gentoo[idn]
+# required by app-emulation/wine-vanilla-5.0::gentoo[ssl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=net-dns/libidn2-2.3.0 abi_x86_32
+# required by app-emulation/faudio-20.02::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[faudio]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo
+# required by protontricks (argument)
+>=media-libs/libsdl2-2.0.10-r1 abi_x86_32
+# required by media-libs/libsdl2-2.0.10-r1::gentoo[wayland]
+# required by app-emulation/faudio-20.02::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[faudio]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=x11-libs/libxkbcommon-0.10.0 abi_x86_32
+# required by media-libs/libsdl2-2.0.10-r1::gentoo[opengl]
+# required by app-emulation/faudio-20.02::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[faudio]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=virtual/glu-9.0-r2 abi_x86_32
+# required by virtual/glu-9.0-r2::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[opengl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=media-libs/glu-9.0.1 abi_x86_32
+# required by media-libs/libv4l-1.16.6::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[v4l]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=virtual/libudev-232-r3 abi_x86_32
+# required by virtual/libudev-232-r3::gentoo[-systemd]
+# required by media-libs/libv4l-1.16.6::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[v4l]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=sys-fs/eudev-3.2.9 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[jpeg]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=virtual/jpeg-0-r3 abi_x86_32
+# required by app-emulation/wine-vanilla-5.0::gentoo[opencl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=virtual/opencl-3-r1 abi_x86_32
+# required by virtual/jpeg-0-r3::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[jpeg]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=media-libs/libjpeg-turbo-2.0.4 abi_x86_32
+# required by virtual/opencl-3-r1::gentoo
+# required by app-emulation/wine-vanilla-5.0::gentoo[opencl]
+# required by virtual/wine-0-r7::gentoo
+# required by app-emulation/winetricks-20190912::gentoo
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=dev-libs/ocl-icd-2.2.12-r3 abi_x86_32
+# required by app-emulation/protontricks-1.4.1::gentoo[gui]
+# required by protontricks (argument)
+>=app-emulation/winetricks-20190912 gtk
