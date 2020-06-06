@@ -41,7 +41,6 @@ dev-tex/biblatex-apa ~amd64
 dev-util/clinfo ~amd64 # required by clinfo
 dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 #dev-util/intel-ocl-sdk ~amd64
-#dev-util/opencl-headers ~amd64 # required by dev-libs/ocl-icd
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
 dev-util/vulkan-headers ~amd64
 dev-util/vulkan-tools ~amd64
