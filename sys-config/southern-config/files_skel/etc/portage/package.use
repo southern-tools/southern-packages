@@ -56,6 +56,7 @@ net-misc/iputils -caps -filecaps
 net-nds/openldap -berkdb
 net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
 sys-apps/bleachbit gtk # required for gui
+#sys-apps/fwupd dell uefi
 sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
 sys-boot/plymouth gdm # required by Sakaki
 sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
