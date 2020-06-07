@@ -1,0 +1,8 @@
+{
+    "file_format_version" : "1.0.0",
+    "ICD" : {
+        "library_path" : "/opt/amdgpu-pro/lib/x86_64-linux-gnu/amdvlk64.so",
+        "api_version" : "1.2.131"
+    }
+}
+

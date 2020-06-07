@@ -332,6 +332,9 @@ sudo chmod +x /etc/cron.monthly/defrag.monthly
 #
 sudo sed -i "s/# periodic_e2scrub=1/periodic_e2scrub=1/g" /etc/e2scrub.conf
 
+# Vulkan driver for amdgpu-pro
+sudo rsync -a $files_skel/opt/ /opt/
+
 # modprobe.d contents
 # ONLY FOR MY DELL
 #sudo rsync -a $files_skel/etc/modprobe.d/blacklist.conf /etc/modprobe.d/
