@@ -26,11 +26,11 @@ URxvt*saveLines:		10000
 URxvt*background:		[25]#021B21
 
 ! True transparency (with composition)
-URxvt*depth:			32
+!URxvt*depth:			32
 
 ! Native transparency (less resources)
-! URxvt*inheritPixmap:		true
-! URxvt*transparent:		true
+URxvt*inheritPixmap:		true
+URxvt*transparent:		true
 
 ! URxvt scroll settings
 URxvt*scrollBar:		false
