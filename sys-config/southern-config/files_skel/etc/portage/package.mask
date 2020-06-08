@@ -3,6 +3,7 @@
 */*::southern-packages
 dev-lang/python::gentoo
 media-sound/pulseaudio
+=sys-apps/iproute2-5.4.0
 sys-apps/systemd
 sys-auth/consolekit
 sys-auth/polkit
