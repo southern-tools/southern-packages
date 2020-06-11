@@ -52,12 +52,12 @@ games-util/steam-launcher::southern-packages ~amd64
 games-util/steam-meta::southern-packages ~amd64
 gui-apps/grim ~amd64
 gui-apps/slurp ~amd64
-gui-apps/swaybg ~amd64
-gui-apps/swayidle ~amd64
-gui-apps/swaylock ~amd64
-gui-apps/wl-clipboard ~amd64
-gui-libs/wlroots ~amd64
-gui-wm/sway ~amd64
+#gui-apps/swaybg ~amd64
+#gui-apps/swayidle ~amd64
+#gui-apps/swaylock ~amd64
+#gui-apps/wl-clipboard ~amd64
+#gui-libs/wlroots ~amd64
+#gui-wm/sway ~amd64
 media-fonts/fontawesome ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 #media-libs/mesa ~amd64
@@ -117,7 +117,7 @@ x11-wm/i3-gaps ~amd64
 =media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =sys-devel/binutils-2.34-r1  ~amd64 # required by lto
 =sys-devel/gcc-10.1.0 ~amd64 # required by lto
-=sys-libs/glibc-2.31-r3 ~amd64 # required by lto
+=sys-libs/glibc-2.31-r4 ~amd64 # required by lto
 =www-client/firefox-76.0-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-base/xorg-server-1.20.8 ~amd64
@@ -129,3 +129,4 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
+=gui-wm/sway-1.4-r2 ~amd64

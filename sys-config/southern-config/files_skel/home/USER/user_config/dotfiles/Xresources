@@ -34,7 +34,7 @@ URxvt*transparent:		true
 
 ! URxvt scroll settings
 URxvt*scrollBar:		false
-URxvt*jumpScroll:		true
+!URxvt*jumpScroll:		true
 URxvt*mouseWheelScrollPage:	true
 
 ! Perl extensions
