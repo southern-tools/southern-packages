@@ -220,7 +220,7 @@ sudo rsync -a $files_skel/etc/X11/xorg.conf.d/00-keyboard.conf /etc/X11/xorg.con
 sudo rsync -a $files_skel/etc/X11/xorg.conf.d/40-libinput.conf /etc/X11/xorg.conf.d/
 
 # Setting intel driver tune up as per Sabayon reccomendation
-sudo rsync -a $files_skel/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
+#sudo rsync -a $files_skel/etc/X11/xorg.conf.d/10-intel.conf /etc/X11/xorg.conf.d/
 
 # Setting secure values for the screen locker
 sudo rsync -a $files_skel/etc/X11/xorg.conf.d/30-secure-locker.conf /etc/X11/xorg.conf.d/
