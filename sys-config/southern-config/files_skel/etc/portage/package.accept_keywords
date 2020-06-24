@@ -44,7 +44,6 @@ dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
 dev-util/vulkan-headers ~amd64
 dev-util/vulkan-tools ~amd64
-#games-util/esteam ~amd64
 games-util/lutris ~amd64
 games-util/steam-client-meta::southern-packages ~amd64
 games-util/steam-games-meta::southern-packages ~amd64
@@ -131,4 +130,3 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
-=gui-wm/sway-1.4-r2 ~amd64
