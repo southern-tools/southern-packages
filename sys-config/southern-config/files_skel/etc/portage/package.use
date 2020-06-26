@@ -73,7 +73,7 @@ www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-w
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
 x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting
-x11-base/xorg-server -minimal glamor xvfb # "xvfb" required by firefox
+x11-base/xorg-server -minimal glamor suid xvfb # "xvfb" required by firefox, "suid" required for login
 x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
