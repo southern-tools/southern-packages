@@ -16,7 +16,10 @@ dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
 #dev-java/openjdk-bin ~amd64
 #dev-java/oracle-jdk-bin ~amd64
-dev-lang/python::southern-packages ~amd64 # python with lto
+dev-lang/python:2.7::southern-packages ~amd64 # python with lto
+dev-lang/python:3.6::southern-packages ~amd64 # python with lto
+dev-lang/python:3.7::southern-packages ~amd64 # python with lto
+dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
 #dev-libs/hsa-ext-rocr ~amd64 # required by dev-libs/rocr-runtime [non-free]

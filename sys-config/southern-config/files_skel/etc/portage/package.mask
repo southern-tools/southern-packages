@@ -10,7 +10,6 @@ sys-fs/udev
 x11-libs/gtk+::gentoo
 
 # specific versions
-=dev-lang/python-3.9.0_beta3-r1 # doesn't build
 =sys-apps/iproute2-5.4.0 # doesn't build
 <sys-kernel/gentoo-sources-5.4.49 # block upgrades
 >sys-kernel/gentoo-sources-5.4.49 # block upgrades
