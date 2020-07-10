@@ -120,7 +120,7 @@ x11-wm/i3-gaps ~amd64
 =media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =media-libs/shaderc-2020.1 ~amd64 # required by vdirsyncer
 =sys-devel/binutils-2.34-r1  ~amd64 # required by lto
-=sys-devel/gcc-10.1.0 ~amd64 # required by lto
+=sys-devel/gcc-10.1.0-r2 ~amd64 # required by lto
 =sys-libs/glibc-2.31-r4 ~amd64 # required by lto
 =www-client/firefox-77.0.1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
