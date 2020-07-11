@@ -152,3 +152,6 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
+# required by x11-misc/i3status-2.13::gentoo
+# required by i3status (argument)
+>=media-sound/apulse-0.1.12-r4 sdk

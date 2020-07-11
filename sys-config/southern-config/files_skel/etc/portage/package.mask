@@ -14,4 +14,4 @@ x11-libs/gtk+::gentoo
 <sys-kernel/gentoo-sources-5.4.50 # block upgrades
 >sys-kernel/gentoo-sources-5.4.50 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
-=x11-misc/i3status-2.13 # skip pulseaudio dependency
+#=x11-misc/i3status-2.13 # skip pulseaudio dependency
