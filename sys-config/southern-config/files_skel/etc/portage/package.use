@@ -22,7 +22,6 @@ dev-libs/elfutils static-libs # required by prelink (argument)
 dev-libs/glib dbus # required by meld
 dev-libs/intel-neo l0 # level zero driver
 dev-libs/light udev # required to run
-#dev-libs/rocr-runtime non-free # recomended at "gentoo opencl" wiki
 dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
 dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile
 dev-qt/qtmultimedia widgets # required by openshot (argument)
@@ -39,6 +38,7 @@ media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
 media-libs/libsdl2 gles2 # Required by Wayland
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
 media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
+media-sound/apulse sdk # required by i3status (argument)
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
@@ -152,6 +152,4 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
-# required by x11-misc/i3status-2.13::gentoo
-# required by i3status (argument)
->=media-sound/apulse-0.1.12-r4 sdk
+media-sound/apulse sdk # required by i3status (argument)
