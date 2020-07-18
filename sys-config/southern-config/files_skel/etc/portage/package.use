@@ -69,7 +69,7 @@ sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip;
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 www-client/firefox clang geckodriver hwaccel
-www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg vaapi thinlto -wayland
+www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg thinlto vaapi -vdpau -wayland
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
 #x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting

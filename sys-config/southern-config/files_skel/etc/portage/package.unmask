@@ -16,3 +16,4 @@ sys-kernel/buildkernel::southern-packages
 www-client/ungoogled-chromium::southern-packages
 x11-libs/gtk+::southern-packages
 
+~sys-kernel/genkernel-next-69
