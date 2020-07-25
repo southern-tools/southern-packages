@@ -2,6 +2,7 @@
 
 # prefered
 app-admin/keepassxc autotype
+app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
 app-office/libreoffice -bluetooth googledrive gtk java
@@ -67,7 +68,6 @@ sys-kernel/gentoo-sources experimental symlink
 sys-libs/gdbm berkdb # Required by python
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
-app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 www-client/firefox clang geckodriver hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg thinlto vaapi -vdpau -wayland
 www-client/w3m imlib # required by neofetch
@@ -93,6 +93,7 @@ dev-qt/qtgui dbus jpeg # "dbus" required by qtwidgets "jpeg" required by profile
 media-libs/imlib2 gif jpeg png # required by base profile
 media-libs/libpng apng # required by base profile
 media-libs/opencv qt5 # required by base profile
+media-sound/apulse sdk # required by i3status (argument)
 media-sound/mpd flac # required by base profile
 x11-libs/cairo xcb # required by base profile
 x11-libs/libxcb xkb # required by base profile
@@ -152,4 +153,3 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
-media-sound/apulse sdk # required by i3status (argument)

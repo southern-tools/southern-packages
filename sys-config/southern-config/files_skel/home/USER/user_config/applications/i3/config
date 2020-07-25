@@ -240,7 +240,8 @@ for_window [instance="__scratchpad"] floating enable
 # (Personal)
 for_window [title="Hangouts"] floating disable
 for_window [title="Llamada de Facebook - Chromium"] floating disable
-for_window [class="mpv"] floating enable
+for_window [class="mpv"] fullscreen enable
+#for_window [class="vlc"] fullscreen enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 for_window [instance="copyq" class="copyq"] floating enable
 
@@ -258,6 +259,7 @@ for_window [class="URxvt" title="terminal_wake_remotes"] floating enable
 # Assign applications to specific workspaces
 assign [title="mpsyt"] $ws10
 assign [class="mpv"] $ws10
+#assign [class="vlc"] $ws10
 assign [title="ncmpcpp*"] $ws10
 
 
