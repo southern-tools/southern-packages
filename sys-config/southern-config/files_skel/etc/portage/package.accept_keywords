@@ -71,10 +71,10 @@ net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
-#sys-devel/binutils ~amd64 # required for lto
+sys-devel/binutils ~amd64 # required for lto
 #sys-devel/clang ~amd64 # required by dev-libs/intel-neo
 #sys-devel/clang-runtime ~amd64 # required by sys-devel/clang, compiler-rt
-#sys-devel/gcc ~amd64 # required for lto
+sys-devel/gcc ~amd64 # required for lto
 #sys-devel/lld ~amd64 # solving ungoogled-chromium compilation error
 #sys-devel/llvm ~amd64 # required by sys-devel/clang, sys-libs/compiler, sys-devel/clang-runtime
 #sys-devel/llvm-common ~amd64
@@ -86,7 +86,7 @@ sys-kernel/gentoo-sources ~amd64
 sys-kernel/zen-sources ~amd64
 #sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
-#sys-libs/glibc ~amd64 # required for lto
+sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 #www-client/firefox ~amd64
 www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
@@ -119,9 +119,9 @@ x11-wm/i3-gaps ~amd64
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 #=media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =media-libs/shaderc-2020.1 ~amd64 # required by vdirsyncer
-=sys-devel/binutils-2.34-r1  ~amd64 # required by lto
-=sys-devel/gcc-10.2.0 ~amd64 # required by lto
-=sys-libs/glibc-2.31-r4 ~amd64 # required by lto
+#=sys-devel/binutils-2.34-r1  ~amd64 # required by lto
+#=sys-devel/gcc-10.2.0 ~amd64 # required by lto
+#=sys-libs/glibc-2.31-r6 ~amd64 # required by lto
 =www-client/firefox-78.0.2 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-base/xorg-server-1.20.8 ~amd64
