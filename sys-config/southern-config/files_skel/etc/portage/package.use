@@ -32,7 +32,7 @@ dev-qt/qtwidgets gtk # gtk theme on qtwidgets
 mail-client/neomutt sasl # required for gmail account
 mail-mta/postfix sasl berkdb # required for public-ip-gmail
 media-fonts/font-misc-misc nls # required by net-misc/x2goserver-4.1.0.2::gentoo
-media-gfx/imagemagick jpeg
+media-gfx/imagemagick jpeg png # "png" required by net-misc/electrum [qrcode]
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
 media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
@@ -49,6 +49,7 @@ net-dns/dnsmasq auth-dns dhcp-tools # script required by app-emulation/libvirt-4
 net-firewall/iptables conntrack # required by Southern Tools hotspot
 net-libs/glib-networking -libproxy
 net-libs/zeromq drafts # required by media-video/openshot (argument)
+net-misc/electrum qrcode
 net-vpn/openvpn examples
 net-libs/nodejs inspector # required by www-client/chromium
 net-libs/zeromq drafts # required by media-video/openshot (argument)
@@ -153,3 +154,7 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
+# required by media-gfx/zbar-0.23-r1::gentoo[-graphicsmagick,imagemagick]
+# required by net-misc/electrum-3.3.8::gentoo[qrcode]
+# required by electrum (argument)
+>=media-gfx/imagemagick-7.0.10.23 png # required by net-misc/electrum-3.3.8::gentoo[qrcode]
