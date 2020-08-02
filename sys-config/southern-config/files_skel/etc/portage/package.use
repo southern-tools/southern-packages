@@ -67,6 +67,7 @@ sys-fs/e2fsprogs cron # check automatically LVM's
 sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
 sys-kernel/gentoo-sources experimental symlink
 sys-libs/gdbm berkdb # Required by python
+sys-libs/gwenhywfar gtk # required by gnucash (argument)
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 www-client/firefox clang geckodriver hwaccel
@@ -154,7 +155,3 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
-# required by media-gfx/zbar-0.23-r1::gentoo[-graphicsmagick,imagemagick]
-# required by net-misc/electrum-3.3.8::gentoo[qrcode]
-# required by electrum (argument)
->=media-gfx/imagemagick-7.0.10.23 png # required by net-misc/electrum-3.3.8::gentoo[qrcode]
