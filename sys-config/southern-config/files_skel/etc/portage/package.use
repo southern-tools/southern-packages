@@ -5,6 +5,7 @@ app-admin/keepassxc autotype
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
+app-office/gnucash ofx
 app-office/libreoffice -bluetooth googledrive gtk java
 #app-text/calibre PYTHON_TARGETS: -* python2_7 PYTHON_SINGLE_TARGET: -* python2_7
 app-text/tesseract jpeg # "jpeg" required by teseract
