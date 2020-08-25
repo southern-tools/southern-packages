@@ -157,3 +157,4 @@ x11-libs/libxcb xkb # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
+dev-libs/openssl rfc3779
