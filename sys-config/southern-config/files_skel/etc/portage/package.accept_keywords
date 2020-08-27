@@ -122,7 +122,7 @@ x11-wm/i3-gaps ~amd64
 #=media-sound/mps-youtube-9999 **
 =sys-devel/binutils-2.34-r1  ~amd64 # required by lto
 =sys-devel/gcc-10.2.0 ~amd64 # required by lto
-#=sys-libs/glibc-2.31-r6 ~amd64 # required by lto
+=sys-libs/glibc-2.32 ~amd64 # required by lto
 #=www-client/firefox-79.0 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 #=x11-base/xorg-server-1.20.8 ~amd64
