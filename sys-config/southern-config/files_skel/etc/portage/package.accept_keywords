@@ -120,8 +120,8 @@ x11-wm/i3-gaps ~amd64
 #=media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =media-libs/shaderc-2020.1 ~amd64 # required by vdirsyncer
 #=media-sound/mps-youtube-9999 **
-=sys-devel/binutils-2.34-r1  ~amd64 # required by lto
-=sys-devel/gcc-10.2.0 ~amd64 # required by lto
+=sys-devel/binutils-2.34-r2  ~amd64 # required by lto
+=sys-devel/gcc-10.2.0-r1 ~amd64 # required by lto
 =sys-libs/glibc-2.32 ~amd64 # required by lto
 #=www-client/firefox-79.0 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
