@@ -122,6 +122,8 @@ x11-wm/i3-gaps ~amd64
 #=media-sound/mps-youtube-9999 **
 =sys-devel/binutils-2.34-r2  ~amd64 # required by lto
 =sys-devel/gcc-10.2.0-r1 ~amd64 # required by lto
+=sys-devel/lld-10.0.1 ~amd64 # ungoogled-chromium compilation error
+=sys-devel/llvm-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-libs/glibc-2.32 ~amd64 # required by lto
 #=www-client/firefox-79.0 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
@@ -134,4 +136,3 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
-=sys-devel/lld-10.0.1
