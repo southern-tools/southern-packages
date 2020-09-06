@@ -154,3 +154,8 @@ x11-libs/libxcb xkb # required by base profile
 #*/* PYTHON_SINGLE_TARGET: -* python3_6
 
 # autounmask
+# required by dev-python/pafy-0.5.5::gentoo
+# required by media-sound/mps-youtube-9999::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-misc/youtube-dl-2020.09.06 python_targets_python3_6
