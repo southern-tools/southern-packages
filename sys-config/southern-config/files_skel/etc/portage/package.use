@@ -43,6 +43,8 @@ media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required 
 media-sound/apulse sdk # required by i3status (argument)
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
+media-video/avidemux qt5
+media-libs/avidemux-plugins qt5
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
 media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
 media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc

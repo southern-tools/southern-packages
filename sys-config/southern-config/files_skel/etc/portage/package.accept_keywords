@@ -141,3 +141,11 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
+=media-libs/libopenshot-0.2.5 ~amd64
+=media-libs/libopenshot-audio-0.2.0 ~amd64
+=media-video/openshot-2.5.1 ~amd64
+=media-video/avidemux-2.7.6-r1 ~amd64
+=media-libs/avidemux-core-2.7.6 ~amd64
+=media-libs/avidemux-plugins-2.7.6 ~amd64
+=media-video/shotcut-20.07.11 ~amd64
+=media-libs/webvfx-1.2.0 ~amd64
