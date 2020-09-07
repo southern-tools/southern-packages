@@ -34,8 +34,8 @@ dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev
 #dev-libs/rocm-opencl-runtime ~amd64
 #dev-libs/rocr-runtime ~amd64
 #dev-libs/roct-thunk-interface ~amd64
-dev-libs/wayland ~amd64
-dev-libs/wayland-protocols ~amd64
+#dev-libs/wayland ~amd64
+#dev-libs/wayland-protocols ~amd64
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
@@ -45,15 +45,15 @@ dev-util/clinfo ~amd64 # required by clinfo
 dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 #dev-util/intel-ocl-sdk ~amd64
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
-dev-util/vulkan-headers ~amd64
-dev-util/vulkan-tools ~amd64
-games-util/lutris ~amd64
+#dev-util/vulkan-headers ~amd64
+#dev-util/vulkan-tools ~amd64
+#games-util/lutris ~amd64
 games-util/steam-client-meta::southern-packages ~amd64
 games-util/steam-games-meta::southern-packages ~amd64
 games-util/steam-launcher::southern-packages ~amd64
 games-util/steam-meta::southern-packages ~amd64
-gui-apps/grim ~amd64
-gui-apps/slurp ~amd64
+#gui-apps/grim ~amd64
+#gui-apps/slurp ~amd64
 #gui-apps/swaybg ~amd64
 #gui-apps/swayidle ~amd64
 #gui-apps/swaylock ~amd64
@@ -63,13 +63,13 @@ gui-apps/slurp ~amd64
 media-fonts/fontawesome ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 #media-libs/mesa ~amd64
-media-libs/vulkan-loader ~amd64
+#media-libs/vulkan-loader ~amd64
 media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
-net-misc/youtube-dl ~amd64
-net-wireless/iw ~amd64
+#net-misc/youtube-dl ~amd64
+#net-wireless/iw ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
-sys-apps/bleachbit ~amd64
+#sys-apps/bleachbit ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 #sys-devel/binutils ~amd64 # required for lto
 #sys-devel/clang ~amd64 # required by dev-libs/intel-neo
@@ -82,15 +82,15 @@ sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (ar
 #sys-devel/llvm-roc ~amd64
 sys-devel/prelink ~amd64
 sys-kernel/buildkernel::southern-packages ~amd64
-sys-kernel/gentoo-sources ~amd64
-sys-kernel/zen-sources ~amd64
+#sys-kernel/gentoo-sources ~amd64
+#sys-kernel/zen-sources ~amd64
 #sys-libs/compiler-rt ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[compiler-rt], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-sanitizers-9.0.0::gentoo[clang]
 #sys-libs/compiler-rt-sanitizers ~amd64 # required by sys-devel/clang-runtime, sys-devel/clang, sys-libs/compiler-rt-sanitizers
 #sys-libs/glibc ~amd64 # required for lto
 #sys-libs/libomp ~amd64 # required by sys-devel/clang-runtime-9.0.0::gentoo[openmp], sys-devel/clang-9.0.0::gentoo, sys-libs/compiler-rt-9.0.0::gentoo[clang]
 #www-client/firefox ~amd64
 #www-client/ungoogled-chromium ~amd64 # required by ungoogled-chromium (argument)
-www-plugins/chrome-binary-plugins ~amd64
+#www-plugins/chrome-binary-plugins ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-apps/copyq ~amd64
 #x11-base/xorg-server ~amd64
@@ -99,15 +99,15 @@ x11-libs/libva-intel-media-driver ~amd64
 x11-misc/dmenu ~amd64
 x11-misc/i3blocks ~amd64
 x11-misc/i3status ~amd64
-x11-misc/j4-dmenu-desktop ~amd64
+#x11-misc/j4-dmenu-desktop ~amd64
 x11-misc/libinput-gestures ~amd64
 x11-misc/py3status ~amd64
 x11-misc/qt5ct ~amd64
-x11-misc/redshift ~amd64
-x11-misc/spacefm ~amd64
+#x11-misc/redshift ~amd64
+#x11-misc/spacefm ~amd64
 x11-misc/xautolock ~amd64
 x11-misc/xkblayout-state ~amd64
-x11-terms/alacritty ~amd64
+#x11-terms/alacritty ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
@@ -121,13 +121,16 @@ x11-wm/i3-gaps ~amd64
 =sys-apps/busybox-1.32.0 ~amd64 # Required by sakaki Tools
 =sys-devel/binutils-2.34-r2  ~amd64 # required by lto
 =sys-devel/clang-10.0.1 ~amd64 # ungoogled-chromium
+=sys-devel/clang-common-10.0.1 ~amd64 # ungoogled-chromium compilation error
+=sys-devel/clang-runtime-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-devel/gcc-10.2.0-r1 ~amd64 # required by lto
 =sys-devel/lld-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-devel/llvm-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-libs/compiler-rt-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-libs/compiler-rt-sanitizers-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =sys-libs/glibc-2.32 ~amd64 # required by lto
-#=www-client/firefox-80.0.1-r1 ~amd64
+=sys-libs/libomp-10.0.1 ~amd64 # ungoogled-chromium compilation error
+=www-client/firefox-80.0.1-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 #=x11-base/xorg-server-1.20.8 ~amd64
 =x11-libs/libva-2.8.0 ~amd64 # required by x11-libs/libva-intel-media-driver
