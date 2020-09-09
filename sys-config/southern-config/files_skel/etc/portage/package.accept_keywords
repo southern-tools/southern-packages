@@ -117,6 +117,7 @@ x11-wm/i3-gaps ~amd64
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 #=media-libs/mesa-20.1.0 ~amd64 # stable doesn´t build
 =media-libs/shaderc-2020.1 ~amd64 # required by vdirsyncer
+#=media-libs/libvpx-1.9.0 ~amd64 # Required by ungoogled-chromium
 #=media-sound/mps-youtube-9999 **
 =sys-apps/busybox-1.32.0 ~amd64 # Required by sakaki Tools
 =sys-devel/binutils-2.34-r2  ~amd64 # required by lto
