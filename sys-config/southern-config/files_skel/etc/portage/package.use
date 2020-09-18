@@ -164,3 +164,4 @@ x11-libs/libxcb xkb # required by base profile
 =www-client/ungoogled-chromium-85.0.4183.83_p1 python_targets_python3_6
 
 # autounmask
+>=net-misc/youtube-dl-2020.09.14 python_targets_python3_6
