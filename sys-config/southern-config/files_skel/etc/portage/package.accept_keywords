@@ -151,4 +151,5 @@ dev-lang/ghc ~amd64
 =media-video/shotcut-20.07.11 ~amd64
 =media-libs/webvfx-1.2.0 ~amd64
 #=dev-util/re2c-2.0.3 ~amd64
-=dev-libs/re2-0.2020.08.01 ~amd64
+#=dev-libs/re2-0.2020.08.01 ~amd64
+=dev-libs/libevent-2.1.12 ~amd64
