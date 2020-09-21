@@ -17,4 +17,6 @@ ext_h=`xrandr | sed 's/^'"${EXT}"' [^0-9]* [0-9]\+x\([0-9]\+\).*$/\1/p;d'`
 int_w=`xrandr | sed 's/^'"${INT}"' [^0-9]* \([0-9]\+\)x.*$/\1/p;d'`
 off_w=`echo $(( ($int_w-$ext_w)/2 )) | sed 's/^-//'`
 
-xrandr --noprimary --output "${INT}" --auto --pos ${off_w}x${ext_h} --scale 1x1  --output "${EXT}" --auto --right-of "${INT}" --scale 2x2 --pos 0x0
+#xrandr --noprimary --output "${INT}" --auto --pos ${off_w}x${ext_h} --scale 1x1  --output "${EXT}" --auto --right-of "${INT}" --scale 2x2 --pos 0x0
+
+xrandr --noprimary --output "${INT}" --auto --pos ${off_w}x${ext_h} --scale 1x1 --refresh 60 --output "${EXT}" --auto --right-of "${INT}" --scale 2x2 --pos 0x0 --refresh 60

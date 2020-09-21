@@ -74,7 +74,7 @@ sys-libs/gwenhywfar gtk # required by gnucash (argument)
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 www-client/firefox clang geckodriver hwaccel
-www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg thinlto vaapi -vdpau -wayland
+www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg thinlto vaapi vdpau -wayland
 #www-client/ungoogled-chromium -wayland -vdpau
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
@@ -157,7 +157,7 @@ x11-libs/libxcb xkb # required by base profile
 =dev-python/setuptools-46.4.0-r2 python_targets_python3_6
 =dev-python/setuptools_scm-4.1.2 python_targets_python3_6
 =dev-python/certifi-10001 python_targets_python3_6
-=net-misc/youtube-dl-2020.09.06 python_targets_python3_6
+=net-misc/youtube-dl-2020.09.14 python_targets_python3_6
 =dev-python/pycryptodome-3.9.8 python_targets_python3_6
 =dev-python/cffi-1.14.0-r2 python_targets_python3_6
 =dev-python/pycparser-2.20 python_targets_python3_6
@@ -165,4 +165,3 @@ x11-libs/libxcb xkb # required by base profile
 =www-client/ungoogled-chromium-85.0.4183.83_p1 python_targets_python3_6
 
 # autounmask
->=net-misc/youtube-dl-2020.09.14 python_targets_python3_6
