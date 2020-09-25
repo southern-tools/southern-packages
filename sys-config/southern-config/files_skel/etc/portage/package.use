@@ -1,7 +1,7 @@
 # Southern Tools "package.use"
 
 # prefered
-app-admin/keepassxc autotype
+app-admin/keepassxc autotype browser
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
