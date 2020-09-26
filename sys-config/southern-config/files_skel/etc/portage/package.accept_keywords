@@ -129,7 +129,7 @@ x11-wm/i3-gaps ~amd64
 #=sys-devel/llvm-10.0.1 ~amd64 # ungoogled-chromium compilation error
 #=sys-libs/compiler-rt-10.0.1 ~amd64 # ungoogled-chromium compilation error
 #=sys-libs/compiler-rt-sanitizers-10.0.1 ~amd64 # ungoogled-chromium compilation error
-=sys-libs/glibc-2.32 ~amd64 # required by lto
+=sys-libs/glibc-2.32-r1 ~amd64 # required by lto
 #=sys-libs/libomp-10.0.1 ~amd64 # ungoogled-chromium compilation error
 =www-client/firefox-80.0.1-r1 ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
