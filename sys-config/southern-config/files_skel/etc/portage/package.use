@@ -7,7 +7,6 @@ app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
 app-office/gnucash ofx
 app-office/libreoffice -bluetooth googledrive gtk java
-#app-text/calibre PYTHON_TARGETS: -* python2_7 PYTHON_SINGLE_TARGET: -* python2_7
 app-text/tesseract jpeg # "jpeg" required by teseract
 app-text/texlive extra humanities publishers # extra packages for humanities
 app-text/texlive-core xetex # required by dev-texlive/texlive-xetex and dev-texlive/texlive-formatsextra
@@ -37,7 +36,6 @@ media-gfx/imagemagick jpeg png # "png" required by net-misc/electrum [qrcode]
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
 media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
-#media-libs/libsdl2 gles2 # Required by Wayland
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
 media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
 media-sound/apulse sdk # required by i3status (argument)
@@ -75,7 +73,6 @@ sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip;
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 www-client/firefox clang geckodriver hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg thinlto vaapi vdpau -wayland
-#www-client/ungoogled-chromium -wayland -vdpau
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
 #x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting
@@ -103,53 +100,6 @@ media-sound/apulse sdk # required by i3status (argument)
 media-sound/mpd flac # required by base profile
 x11-libs/cairo xcb # required by base profile
 x11-libs/libxcb xkb # required by base profile
-
-# Steam
->=x11-libs/libX11-1.6.9 abi_x86_32
->=x11-libs/libXau-1.0.9 abi_x86_32
->=x11-libs/libxcb-1.13.1 abi_x86_32
->=x11-libs/libXdmcp-1.1.3 abi_x86_32
->=dev-libs/libpthread-stubs-0.4-r1 abi_x86_32
->=virtual/pkgconfig-1 abi_x86_32
->=dev-util/pkgconfig-0.29.2 abi_x86_32
->=dev-libs/glib-2.60.7-r2 abi_x86_32
->=dev-libs/libpcre-8.42 abi_x86_32
->=sys-libs/zlib-1.2.11-r2 abi_x86_32
->=sys-apps/util-linux-2.33.2 abi_x86_32
->=virtual/libiconv-0-r2 abi_x86_32
->=virtual/libffi-3.3_rc0 abi_x86_32
->=virtual/libintl-0-r2 abi_x86_32
->=dev-libs/libffi-3.3-r1 abi_x86_32
->=x11-base/xcb-proto-1.13 abi_x86_32
->=virtual/opengl-7.0-r2 abi_x86_32
->=media-libs/mesa-19.3.5 abi_x86_32
->=dev-libs/expat-2.2.8 abi_x86_32
->=media-libs/libglvnd-1.3.1 abi_x86_32
->=sys-apps/lm-sensors-3.5.0 abi_x86_32
->=x11-libs/libva-2.5.0-r1 abi_x86_32
->=x11-libs/libvdpau-1.3 abi_x86_32
->=dev-libs/wayland-1.17.0 abi_x86_32
->=x11-libs/libdrm-2.4.100 abi_x86_32
->=x11-libs/libxshmfence-1.3-r1 abi_x86_32
->=x11-libs/libXdamage-1.1.5 abi_x86_32
->=x11-libs/libXext-1.3.4 abi_x86_32
->=x11-libs/libXxf86vm-1.1.4-r1 abi_x86_32
->=x11-libs/libXfixes-5.0.3-r1 abi_x86_32
->=x11-libs/libXv-1.0.11-r1 abi_x86_32
->=x11-libs/libXvMC-1.0.12 abi_x86_32
->=app-arch/zstd-1.3.7-r1 abi_x86_32
->=sys-devel/llvm-10.0.0_rc3 abi_x86_32
->=x11-libs/libXrandr-1.5.2 abi_x86_32
->=x11-libs/libXrender-0.9.10-r1 abi_x86_32
->=sys-libs/ncurses-6.1_p20190609 abi_x86_32
->=sys-devel/llvm-9.0.1:9 abi_x86_32
->=x11-libs/libpciaccess-0.16 abi_x86_32
->=x11-libs/libva-vdpau-driver-0.7.4-r5 abi_x86_32
->=x11-libs/libva-intel-driver-2.3.0 abi_x86_32
->=virtual/libelf-3 abi_x86_32
->=dev-libs/elfutils-0.177 abi_x86_32
->=app-arch/bzip2-1.0.6-r11 abi_x86_32
->=dev-util/pkgconf-1.6.3 abi_x86_32
 
 # python stabilization
 #*/* PYTHON_TARGETS: python3_6 python3_7
