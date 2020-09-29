@@ -44,8 +44,11 @@ sys-kernel/buildkernel::southern-packages ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-libs/libva-intel-media-driver ~amd64
 x11-misc/libinput-gestures ~amd64
+x11-misc/i3blocks ~amd64
+x11-misc/i3status ~amd64
 x11-misc/py3status ~amd64
 x11-misc/xkblayout-state ~amd64
+x11-wm/i3-gaps ~amd64
 
 # specific version
 =dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
@@ -59,7 +62,6 @@ x11-misc/xkblayout-state ~amd64
 =www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-libs/libva-2.8.0 ~amd64 # required by x11-libs/libva-intel-media-driver
 =x11-libs/libva-intel-driver-2.4.1 ~amd64 # Compilation problem
-=x11-wm/i3-gaps-4.18.1 ~amd64 # Compilation problem
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
