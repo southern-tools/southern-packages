@@ -44,7 +44,6 @@ sys-kernel/buildkernel::southern-packages ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-libs/libva-intel-media-driver ~amd64
 x11-misc/libinput-gestures ~amd64
-#x11-misc/i3blocks ~amd64
 #x11-misc/i3status ~amd64
 x11-misc/py3status ~amd64
 x11-misc/xkblayout-state ~amd64
