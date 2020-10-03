@@ -31,9 +31,9 @@ dev-tex/biblatex-apa ~amd64
 dev-util/clinfo ~amd64 # required by clinfo
 dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
-media-fonts/fontawesome ~amd64
+#media-fonts/fontawesome ~amd64
 media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
-media-sound/ardour ~amd64
+#media-sound/ardour ~amd64
 media-sound/mps-youtube ~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
@@ -54,11 +54,11 @@ x11-wm/i3-gaps ~amd64
 =media-libs/harfbuzz-2.6.8 ~amd64 # Required by firefox
 =media-libs/libvpx-1.8.2 ~amd64 # required by new firefox
 =sys-apps/busybox-1.32.0 ~amd64 # Required by sakaki Tools
-=sys-devel/binutils-2.34-r2  ~amd64 # required by lto
+#=sys-devel/binutils-2.34-r2  ~amd64 # required by lto
 =sys-devel/gcc-10.2.0-r1 ~amd64 # required by lto
 =sys-libs/glibc-2.32-r1 ~amd64 # required by lto
 =www-client/firefox-80.0.1-r1 ~amd64
-=www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
+#=www-misc/profile-sync-daemon-5.75 ~amd64 # last version without systemd
 =x11-libs/libva-2.8.0 ~amd64 # required by x11-libs/libva-intel-media-driver
 =x11-libs/libva-intel-driver-2.4.1 ~amd64 # Compilation problem
 
