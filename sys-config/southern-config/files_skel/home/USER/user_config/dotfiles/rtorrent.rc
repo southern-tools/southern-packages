@@ -5,7 +5,7 @@
 throttle.global_up.max_rate.set_kb = 75
 
 # Default directory to save the downloaded torrents.
-directory.default.set = ~/Downloads/rtorrent/
+directory.default.set = ~/Downloads/
 
 # Default session directory. When restarting rtorrent, the torrents from this directory will be restarted.
 session.path.set = ~/.config/rtorrent/.session/
