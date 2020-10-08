@@ -1,7 +1,7 @@
 #!/bin/bash
 # Southern Tools
 #
-set -x
+#set -x
 
 swaymsg 'exec urxvt -e ~/.user_config/no_share/overlay_update.sh && \
 vdirsyncer sync user_contacts && \
