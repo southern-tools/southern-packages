@@ -7,5 +7,4 @@
 vdirsyncer sync user_contacts ;
 vdirsyncer sync user_calendar ;
 sudo genup -n -p;
-sudo /etc/cron.daily/rsnapshot.daily ;
-pkill -HUP X && sudo /sbin/halt
+sudo /etc/cron.daily/rsnapshot.daily
