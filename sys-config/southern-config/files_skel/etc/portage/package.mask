@@ -16,3 +16,7 @@ x11-libs/gtk+::gentoo
 <sys-kernel/gentoo-sources-5.4.66 # block upgrades
 >sys-kernel/gentoo-sources-5.4.66 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
+
+# Rolling back to stable
+<sys-devel/gcc-10.2.0-r1
+<sys-libs/glibc-2.32-r1
