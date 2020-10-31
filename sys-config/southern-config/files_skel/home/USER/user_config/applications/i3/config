@@ -244,7 +244,9 @@ for_window [title="Llamada de Facebook - Chromium"] floating disable
 for_window [class="mpv"] fullscreen enable
 #for_window [class="vlc"] fullscreen enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
-for_window [instance="copyq" class="copyq"] floating enable
+#for_window [instance="copyq" class="copyq"] floating enable
+for_window [title="SpeedCrunch"] floating enable
+
 
 # Rules for specific programs
 for_window [class="URxvt" title="terminal_alsamixer"] floating enable
