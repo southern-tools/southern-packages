@@ -10,7 +10,7 @@ dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
 #dev-util/intel-ocl-sdk Intel-SDP
 games-util/steam-launcher ValveSteamLicense
 media-fonts/corefonts MSttfEULA
-#net-misc/teamviewer TeamViewer
+net-im/discord-bin all-rights-reserved
 sys-firmware/intel-microcode intel-ucode intel-ucode-20180807
 sys-kernel/gentoo-sources linux-firmware
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code

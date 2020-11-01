@@ -36,6 +36,7 @@ media-sound/mps-youtube ~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
 media-libs/avidemux-plugins ~amd64
+net-im/discord-bin ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-kernel/buildkernel::southern-packages ~amd64
