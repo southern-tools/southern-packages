@@ -152,6 +152,10 @@ ln -vsf ~/.user_config/applications/khal/config ~/.config/khal/
 
 ##### Changes to the system #####
 
+
+
+
+
 #####################
 
 # INCORPORATING INSTALL STUFF FROM SAKAKI
@@ -279,6 +283,19 @@ sudo chmod 0600 /etc/postfix/sasl_passwd.db
 
 # Some settings for bluetooth
 sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
+
+# Setting Grub
+sudo mkdir -p /etc/default
+sudo cat $files_skel/etc/default/grub >> /etc/default/grub
+
+#Setting Genkernel
+sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
+
+# Installing Showem
+sudo rsync -a $files_skel/usr/sbin/showem /usr/sbin/showem
+
+#Installing Genup script
+sudo rsync -a $files_skel/usr/sbin/genup /usr/sbin/genup
 
 # Installing multi_updater.sh script
 sudo mkdir -p /etc/genup/updaters.d/

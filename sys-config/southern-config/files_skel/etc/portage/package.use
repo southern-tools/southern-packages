@@ -61,6 +61,7 @@ net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hot
 sys-apps/bleachbit gtk # required for gui
 #sys-apps/fwupd dell uefi
 sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
+sys-boot/grub:2 device-mapper
 sys-boot/plymouth gdm # required by Sakaki
 sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
 sys-fs/e2fsprogs cron # check automatically LVM's
