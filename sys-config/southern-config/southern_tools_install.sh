@@ -24,7 +24,7 @@ read -p '* Please, enter your email password ' user_email_password
 
 
 # sudoers instructions
-echo -e "* The window manager needs "sudo" for power management so before starting, open a new shell, login as root with \"su -\", execute the command \"visudo\" and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
+echo -e "* The window manager needs "sudo" for power management so before starting, open a new shell, login as root with \"su -\", execute the command \"visudo\" and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n$user_name ALL=(ALL) NOPASSWD: /usr/sbin/genup, /etc/cron.daily/rsnapshot.daily\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
 
 read -rsp $'\n\n\n* Press any key to continue...\n' -n1 key
 
@@ -285,11 +285,12 @@ sudo chmod 0600 /etc/postfix/sasl_passwd.db
 sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
 
 # Setting Grub
-sudo mkdir -p /etc/default
-sudo cat $files_skel/etc/default/grub >> /etc/default/grub
+#sudo mkdir -p /etc/default
+#sudo cat $files_skel/etc/default/grub >> /etc/default/grub
 
 #Setting Genkernel
 sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
+sudo rsync -a $files_skel/usr/sbin/kernel_update_hook /usr/sbin/kernel_update_hook
 
 # Installing Showem
 sudo rsync -a $files_skel/usr/sbin/showem /usr/sbin/showem

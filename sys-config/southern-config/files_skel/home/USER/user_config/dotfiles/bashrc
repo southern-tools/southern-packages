@@ -24,7 +24,7 @@ fi
 #alias calfix='. .user_config/scripts/calibre_fix.sh & calibre'
 alias colors='~/.user_config/scripts/colors.sh'
 alias cp='cp -i'
-alias genup='sudo genup -n -p'
+alias genup='sudo genup'
 alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -i'
