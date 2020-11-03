@@ -49,7 +49,7 @@ x11-wm/i3-gaps ~amd64
 
 # specific version
 =dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
-=sys-apps/busybox-1.32.0 ~amd64 # Required by sakaki Tools
+#=sys-apps/busybox-1.32.0 ~amd64 # Required by sakaki Tools
 =sys-devel/gcc-10.2.0-r2 ~amd64 # required by lto
 =sys-libs/glibc-2.32-r2 ~amd64 # required by lto
 =x11-libs/libva-2.8.0 ~amd64 # required by x11-libs/libva-intel-media-driver
