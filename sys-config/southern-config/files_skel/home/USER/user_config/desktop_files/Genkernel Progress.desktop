@@ -1,0 +1,13 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Genkernel Progress
+
+Comment=Genkernel Progress
+
+Exec=swaymsg "exec urxvtc --title terminal_genkernel_progress -e watch -cn 1 tail -n 50 /var/log/genkernel.log"
+
+Icon=utilities-terminal
+
+Categories=System;

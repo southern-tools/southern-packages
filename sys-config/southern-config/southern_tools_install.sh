@@ -239,7 +239,7 @@ sudo chmod +x /etc/profile.d/xdg_cache_home.sh
 sudo rsync -a $files_skel/etc/env.d/99user_config /etc/env.d/
 
 # Setting microcode
-sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
+#sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
 
 # Setting up configurations for hotspot.sh
 # User interaction
@@ -289,8 +289,8 @@ sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
 #sudo cat $files_skel/etc/default/grub >> /etc/default/grub
 
 #Setting Genkernel
-sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
-sudo rsync -a $files_skel/usr/sbin/kernel_update_hook /usr/sbin/kernel_update_hook
+#sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
+sudo rsync -a $files_skel/usr/sbin/kernel_update /usr/sbin/kernel_update
 
 # Installing Showem
 sudo rsync -a $files_skel/usr/sbin/showem /usr/sbin/showem

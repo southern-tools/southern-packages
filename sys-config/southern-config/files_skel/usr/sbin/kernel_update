@@ -1,0 +1,21 @@
+#!/bin/bash
+# Southern Tools
+#
+set -x
+set -e
+set -u
+
+firmware_files=$"iwlwifi-7265D-* amdgpu/oland_* intel/ibt-hw-* regulatory.*"
+kernel_config=$"/etc/kernels/last_good_kernel.config"
+
+zcat /proc/config.gz > /etc/kernels/last_good_kernel.config
+
+genkernel --save-config --microcode=all --clean --mrproper --no-install --all-ramdisk-modules --module-rebuild --kernel-config=$kernel_config --no-mountboot --lvm --luks --gpg --busybox --firmware --firmware-files="$firmware_files" --integrated-initramfs --menuconfig all
+
+sbsign --key /etc/efikeys/db.key --cert /etc/efikeys/db.crt --output /var/tmp/genkernel/kernel* /var/tmp/genkernel/kernel*
+
+mount /boot
+cp /var/tmp/genkernel/kernel* /boot/EFI/Boot/gentoo.efi
+efibootmgr -c -L "Gentoo" -l 'EFI\Boot\gentoo.efi'
+efibootmgr -D
+umount /boot
