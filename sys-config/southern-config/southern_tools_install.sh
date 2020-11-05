@@ -290,7 +290,7 @@ sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
 
 #Setting Genkernel
 #sudo cat $files_skel/etc/genkernel.conf >> /etc/genkernel.conf
-sudo rsync -a $files_skel/usr/sbin/kernel_update /usr/sbin/kernel_update
+sudo rsync -a $files_skel/usr/sbin/kernup /usr/sbin/kernup
 
 # Installing Showem
 sudo rsync -a $files_skel/usr/sbin/showem /usr/sbin/showem
