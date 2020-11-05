@@ -40,6 +40,7 @@ net-im/discord-bin ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-kernel/buildkernel::southern-packages ~amd64
+www-client/ungoogled-chromium ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-libs/libva-intel-media-driver ~amd64
 x11-misc/libinput-gestures ~amd64
