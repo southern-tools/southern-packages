@@ -75,13 +75,14 @@ set $term urxvtc
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -ni -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -ni -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 scale 2 pos 0 0
-#output HDMI-A-1 scale 0.5 pos 3840 0
+output eDP-1 pos 0 0 res 3840x2160
+#output eDP-1 scale 2 pos 0 0
+#output HDMI-A-1 pos 3840 0 res 1920x1080
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
