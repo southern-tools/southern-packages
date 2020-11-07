@@ -205,7 +205,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit i3? This
 
 # Set shut down, restart and locking features
 bindsym $mod+Delete mode "$mode_system"
-set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown]
+set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown ]
 mode "$mode_system" {
   
   bindsym --release l exec ~/.user_config/scripts/i3_locker.sh, mode "default"
@@ -246,7 +246,6 @@ for_window [class="mpv"] fullscreen enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [instance="copyq" class="copyq"] floating enable
 for_window [title="SpeedCrunch"] floating enable
-
 
 # Rules for specific programs
 for_window [class="URxvt" title="terminal_alsamixer"] floating enable
