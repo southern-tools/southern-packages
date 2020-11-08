@@ -1,0 +1,61 @@
+# Southern Tools
+# Creation of encrypted drive (3 partitions)
+
+# As root
+su -
+
+# Create Key
+mkdir -p /root/.user_config/no_share/luks
+touch /root/.user_config/no_share/luks/encrypted_drive.key
+dd if=/dev/urandom bs=8388607 count=1 of=/root/.user_config/no_share/luks/encrypted_drive.key
+
+# Rewrite the drive/partition with random data
+dd if=/dev/urandom of=/dev/sdZn bs=1M status=progress && sync
+
+# Format with Luks
+cryptsetup --cipher serpent-xts-plain64 --key-size 512 --hash whirlpool --key-file /root/.user_config/no_share/luks/encrypted_drive.key luksFormat /dev/sdN
+
+# Check the key slot
+cryptsetup luksDump /dev/sdN
+
+# Check uuid
+blkid
+
+# Open LUKS container
+cryptsetup --key-file /root/.user_config/no_share/luks/encrypted_drive.key luksOpen /dev/disk/by-uuid/ENCRYPTED_DRIVE_UUID encrypted_drive
+
+# Check Luks was opened
+ls /dev/mapper
+
+# Create LVM
+pvcreate /dev/mapper/encrypted_drive
+vgcreate vg_encrypted /dev/mapper/encrypted_drive
+lvcreate --extents 33%VG --name unit_1 vg_encrypted
+lvcreate --extents 33%VG --name unit_2 vg_encrypted
+lvcreate --extents 100%FREE --name unit_3 vg_encrypted
+vgchange --available y vg_encrypted
+
+# Format partitions
+mkfs.ext4 -L "backup" /dev/mapper/vg_encrypted-unit_1
+mkfs.ext4 -L "storage_1" /dev/mapper/vg_encrypted-unit_2
+mkfs.ext4 -L "storage_2" /dev/mapper/vg_encrypted-unit_3
+
+# Mounting
+cryptsetup --key-file /root/.user_config/no_share/luks/encrypted_drive.key luksOpen /dev/disk/by-uuid/ENCRYPTED_DRIVE_UUID encrypted_drive
+vgchange --available y vg_encrypted
+mount -t ext4 /dev/mapper/vg_encrypted-unit_1 /mnt/encrypted_unit_1
+mount -t ext4 /dev/mapper/vg_encrypted-unit_2 /mnt/encrypted_unit_2
+mount -t ext4 /dev/mapper/vg_encrypted-unit_3 /mnt/encrypted_unit_3
+
+# Unmounting
+umount /mnt/encrypted_unit_1
+umount /mnt/encrypted_unit_2
+umount /mnt/encrypted_unit_3
+vgchange --available n vg_encrypted
+cryptsetup luksClose encrypted_drive
+
+
+# Other notes
+
+# Pipe a gpg passphrase to open a LUKS container
+cat /root/.user_config/no_share/luks/encrypted_drive_passphrase.gpg | gpg --batch --passphrase-fd 0 --decrypt /home/USER/.user_config/no_share/luks/encrypted_drive.key | cryptsetup --key-file - luksOpen /dev/sdZn encrypted_drive

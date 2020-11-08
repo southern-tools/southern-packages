@@ -2,6 +2,7 @@
 # Southern Tools
 #
 #set -x
+
 # Times the screen off and puts it to background
 swayidle \
     timeout 10 'swaymsg "output * dpms off"' \

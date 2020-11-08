@@ -1,0 +1,8 @@
+# Southern Tools
+#
+After install, set the following flags in "about:flags":
+
+--enable-vulkan
+--enable-gpu-rasterization
+--ignore-gpu-blacklist
+--enable-zero-copy
