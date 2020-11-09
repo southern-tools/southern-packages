@@ -2,6 +2,7 @@
 # Southern Tools
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+numlockx &
 ~/.user_config/scripts/displays.sh
 xinput map-to-output "ELAN Touchscreen" "eDP1"
 feh --bg-fill ~/.user_config/backgrounds/forest_5.jpg &
