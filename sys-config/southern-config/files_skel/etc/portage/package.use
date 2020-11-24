@@ -73,7 +73,8 @@ sys-libs/gdbm berkdb # Required by python
 sys-libs/gwenhywfar gtk # required by gnucash (argument)
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
-www-client/firefox clang geckodriver hwaccel
+#www-client/firefox clang geckodriver hwaccel
+www-client/firefox hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg -system-libvpx thinlto vaapi vdpau -wayland
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
