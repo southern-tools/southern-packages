@@ -22,7 +22,7 @@ prompt pure
 
 # History
 export HISTSIZE=10000
-export HISTFILE="/tmp/.zsh_history"
+export HISTFILE="/tmp/zsh_history"
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
