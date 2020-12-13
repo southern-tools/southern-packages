@@ -12,10 +12,13 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 # Correction
 setopt correctall
 
+# Load Pure
+fpath+=$HOME/Remotes/git_only_pull/pure_zsh
+
 # Prompt
 autoload -U promptinit
 promptinit
-prompt gentoo
+prompt pure
 
 # History
 export HISTSIZE=10000
@@ -23,7 +26,10 @@ export HISTFILE="/tmp/.zsh_history"
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
+
+# Misc
 setopt autocd
+setopt extendedglob
 
 # Put your fun stuff here.
 # Include "alias"
@@ -34,8 +40,6 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 alias rm='rm -i'
-alias colors='~/.user_config/scripts/colors.sh'
 alias world='column /var/lib/portage/world'
-alias wicd='wicd-curses'
 neofetch --config ~/.user_config/applications/neofetch/neofetch.conf
 

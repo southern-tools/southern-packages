@@ -55,6 +55,7 @@ ln -vsf ~/.user_config/dotfiles/Xresources ~/.Xdefaults
 ln -vsf ~/.user_config/dotfiles/bash_profile ~/.bash_profile
 ln -vsf ~/.user_config/dotfiles/bashrc ~/.bashrc
 ln -vsf ~/.user_config/dotfiles/zshrc ~/.zshrc
+ln -vsf ~/.user_config/dotfiles/zprofile ~/.zprofile
 ln -vsf ~/.user_config/dotfiles/emacs ~/.emacs
 ln -vsf ~/.user_config/dotfiles/rtorrent.rc ~/.rtorrent.rc
 ln -vsf ~/.user_config/dotfiles/xinitrc ~/.xinitrc
