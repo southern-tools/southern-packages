@@ -6,8 +6,10 @@ autoload -U compinit
 compinit
 
 # Default completion style is quite plain and ugly.
-zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+#zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*' menu select
+#zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+zstyle ':completion:*:warnings' format '%BSorry, no matches'
 
 # Correction
 setopt correctall
@@ -29,6 +31,7 @@ setopt hist_ignore_space
 
 # Modules
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(brackets cursor line main pattern regexp root)
 
 # Misc
 setopt autocd
@@ -43,6 +46,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias ln='ln -i'
 alias rm='rm -i'
+alias ls='ls --color=auto'
 alias world='column /var/lib/portage/world'
 neofetch --config ~/.user_config/applications/neofetch/neofetch.conf
 
