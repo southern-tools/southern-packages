@@ -43,6 +43,7 @@ media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
 media-video/avidemux qt5
 media-libs/avidemux-plugins qt5
+media-libs/freetype png # required by x11-libs/cairo, app-arch/file-roller
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
 media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
 media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
@@ -84,7 +85,6 @@ x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
 x11-libs/libfm -automount
-#x11-misc/i3status -pulseaudio
 #x11-misc/polybar i3wm ipc mpd network
 x11-misc/redshift geoclue
 x11-misc/spacefm video-thumbnails
@@ -92,30 +92,20 @@ x11-terms/rxvt-unicode gdk-pixbuf xft
 
 # base profile adjustments
 app-text/poppler cairo qt5 # required by base profile
-dev-libs/libpcre2 pcre16 # required by base profile
-dev-libs/libxml2 python # required by base profile
-dev-libs/xmlsec nss # required by base profile
-dev-qt/qtgui dbus jpeg # "dbus" required by qtwidgets "jpeg" required by profile
-media-libs/imlib2 gif jpeg png # required by base profile
+#dev-libs/libpcre2 pcre16 # required by base profile
+#dev-libs/libxml2 python # required by base profile
+#dev-libs/xmlsec nss # required by base profile
+dev-qt/qtgui jpeg # "dbus" required by qtwidgets "jpeg" required by profile
+#media-libs/imlib2 gif jpeg png # required by base profile
 media-libs/libpng apng # required by base profile
 media-libs/opencv qt5 # required by base profile
-media-sound/apulse sdk # required by i3status (argument)
+#media-sound/apulse sdk # required by i3status (argument)
 media-sound/mpd flac # required by base profile
-x11-libs/cairo xcb # required by base profile
-x11-libs/libxcb xkb # required by base profile
+#x11-libs/cairo xcb # required by base profile
+#x11-libs/libxcb xkb # required by base profile
 
 # python stabilization
 #*/* PYTHON_TARGETS: python3_6 python3_7
 #*/* PYTHON_SINGLE_TARGET: -* python3_7
-#>=dev-python/setuptools-46.4.0-r3 python_targets_python3_6
-#>=dev-python/setuptools_scm-4.1.2-r1 python_targets_python3_6
-#>=dev-python/certifi-10001 python_targets_python3_6
-#>=net-misc/youtube-dl-2020.09.14 python_targets_python3_6
-#>=dev-python/pycryptodome-3.9.8-r1 python_targets_python3_6
-#>=dev-python/cffi-1.14.0-r3 python_targets_python3_6
-#>=dev-python/pycparser-2.20 python_targets_python3_6
-#>=dev-python/ply-3.11 python_targets_python3_6
-#>=virtual/python-cffi-1 python_targets_python3_6
-#>=www-client/ungoogled-chromium-85.0.4183.83_p1 python_targets_python3_6
 
 # autounmask
