@@ -22,6 +22,8 @@ dev-libs/boost nls # required by ncmpcpp
 dev-libs/elfutils static-libs # required by prelink (argument)
 dev-libs/glib dbus # required by meld
 dev-libs/intel-neo l0 # level zero driver
+dev-libs/libjcat pkcs7 gpg # required by sys-apps/fwupd
+dev-libs/libusb udev # required by sys-apps/fwupd
 dev-libs/light udev # required to run
 dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
 dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile
@@ -61,7 +63,7 @@ net-nds/openldap -berkdb
 net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
 sys-apps/bleachbit gtk # required for gui
 #sys-apps/busybox mdev
-#sys-apps/fwupd dell uefi
+sys-apps/fwupd dell uefi
 sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
 sys-boot/grub:2 device-mapper
 sys-boot/plymouth gdm # required by Sakaki
@@ -73,6 +75,7 @@ sys-kernel/gentoo-sources experimental symlink
 sys-libs/gdbm berkdb # Required by python
 sys-libs/gwenhywfar gtk # required by gnucash (argument)
 sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
+virtual/libusb udev # required by sys-apps/fwup
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 #www-client/firefox clang geckodriver hwaccel
 www-client/firefox hwaccel
@@ -85,27 +88,22 @@ x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
 x11-libs/libfm -automount
-#x11-misc/polybar i3wm ipc mpd network
 x11-misc/redshift geoclue
 x11-misc/spacefm video-thumbnails
 x11-terms/rxvt-unicode gdk-pixbuf xft
 
 # base profile adjustments
 app-text/poppler cairo qt5 # required by base profile
-#dev-libs/libpcre2 pcre16 # required by base profile
-#dev-libs/libxml2 python # required by base profile
-#dev-libs/xmlsec nss # required by base profile
+dev-libs/libpcre2 pcre16 # required by base profile
+dev-libs/xmlsec nss # required by base profile
 dev-qt/qtgui jpeg # "dbus" required by qtwidgets "jpeg" required by profile
-#media-libs/imlib2 gif jpeg png # required by base profile
 media-libs/libpng apng # required by base profile
 media-libs/opencv qt5 # required by base profile
-#media-sound/apulse sdk # required by i3status (argument)
 media-sound/mpd flac # required by base profile
-#x11-libs/cairo xcb # required by base profile
-#x11-libs/libxcb xkb # required by base profile
 
 # python stabilization
 #*/* PYTHON_TARGETS: python3_6 python3_7
 #*/* PYTHON_SINGLE_TARGET: -* python3_7
 
 # autounmask
+media-libs/libsdl2 gles2 # required by wayland use flag
