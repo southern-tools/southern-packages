@@ -63,4 +63,5 @@ dev-lang/ghc ~amd64
 
 # autounmask
 sci-libs/ta-lib ~amd64
+dev-python/pandas ~amd64
 dev-python/pandas-datareader ~amd64
