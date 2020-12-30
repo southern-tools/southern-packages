@@ -25,7 +25,9 @@ dev-libs/intel-neo l0 # level zero driver
 dev-libs/libjcat pkcs7 gpg # required by sys-apps/fwupd
 dev-libs/libusb udev # required by sys-apps/fwupd
 dev-libs/light udev # required to run
+dev-python/pillow jpeg # required by dev-python/matplotlib
 dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
+dev-python/QtPy printsupport gui svg # required by dev-python/jupyter
 dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile
 dev-qt/qtmultimedia widgets # required by openshot (argument)
 dev-qt/qtwebengine widgets # required by app-text/calibre
@@ -46,6 +48,7 @@ media-sound/sox flac
 media-video/avidemux qt5
 media-libs/avidemux-plugins qt5
 media-libs/freetype png # required by x11-libs/cairo, app-arch/file-roller
+media-libs/libsdl2 gles2 # required by wayland use flag
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
 media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
 media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
@@ -102,15 +105,15 @@ media-libs/opencv qt5 # required by base profile
 media-sound/mpd flac # required by base profile
 
 # python stabilization
-#*/* PYTHON_TARGETS: python3_6 python3_7
-#*/* PYTHON_SINGLE_TARGET: -* python3_7
+*/* PYTHON_TARGETS: python3_7 python3_8
+*/* PYTHON_SINGLE_TARGET: -* python3_8
+x11-misc/libinput-gestures python_single_target_python3_7
 
 # autounmask
-media-libs/libsdl2 gles2 # required by wayland use flag
-# required by dev-python/qtconsole-5.0.1::gentoo
-# required by dev-python/jupyter-1.0.0-r3::gentoo
-# required by dev-python/jupyter (argument)
->=dev-python/QtPy-1.9.0-r2 printsupport gui svg
-# required by dev-python/matplotlib-3.3.2::gentoo[-test]
-# required by dev-python/matplotlib (argument)
->=dev-python/pillow-8.0.1 jpeg
+#>=dev-python/setuptools-50.3.0 python_targets_python3_7
+#>=dev-python/certifi-10001-r1 python_targets_python3_7
+#>=dev-python/setuptools_scm-4.1.2-r1 python_targets_python3_7
+#>=virtual/python-cffi-1 python_targets_python3_7
+#>=dev-python/cffi-1.14.0-r3 python_targets_python3_7
+#>=dev-python/pycparser-2.20-r1 python_targets_python3_7
+#>=dev-python/ply-3.11-r1 python_targets_python3_7
