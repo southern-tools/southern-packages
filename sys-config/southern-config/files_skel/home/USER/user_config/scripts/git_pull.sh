@@ -21,7 +21,7 @@ git config --global credential.helper store && \
 parse_git_branch=$(git symbolic-ref HEAD 2>/dev/null | cut -d "/" -f 3)
 
 # Loop with different repos
-for repo in "$repo_1" "$repo_2" "$repo_3" "$repo_4" "$repo_5" "$repo_6" #"$repo_7" "$repo_8" "$repo_9" "$repo_10"
+for repo in "$repo_1" "$repo_2" "$repo_3" "$repo_4" "$repo_5" "$repo_6" #"$repo_7" #"$repo_8" "$repo_9" "$repo_10"
 	do
 		if [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == $USER ]]
 			then
