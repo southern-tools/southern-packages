@@ -3,6 +3,7 @@
 # prefer latest version
 app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
+app-editors/vscodium-bin ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
 app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize

@@ -117,3 +117,15 @@ x11-misc/libinput-gestures python_single_target_python3_7
 #>=dev-python/cffi-1.14.0-r3 python_targets_python3_7
 #>=dev-python/pycparser-2.20-r1 python_targets_python3_7
 #>=dev-python/ply-3.11-r1 python_targets_python3_7
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.3::gentoo
+# required by app-crypt/pinentry-1.1.0-r3::gentoo[gnome-keyring]
+# required by app-crypt/gnupg-2.2.20-r2::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-crypt/gcr-3.36.0 gtk
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.3::gentoo
+# required by app-editors/vscodium-bin-1.52.1::southern-packages
+# required by vscodium-bin (argument)
+>=app-crypt/pinentry-1.1.0-r3 gnome-keyring
