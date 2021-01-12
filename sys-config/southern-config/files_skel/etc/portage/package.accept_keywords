@@ -55,7 +55,7 @@ x11-wm/i3-gaps ~amd64
 =dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
 =net-misc/youtube-dl-2020.11.26 # mps-youtube does not work without it
 =sys-devel/gcc-10.2.0-r3 ~amd64 # required by lto
-=x11-libs/libva-2.8.0 ~amd64 # required by x11-libs/libva-intel-media-driver
+=x11-libs/libva-2.10.0 ~amd64 # required by x11-libs/libva-intel-media-driver
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
