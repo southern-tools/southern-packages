@@ -12,8 +12,8 @@ x11-libs/gtk+::gentoo
 
 # specific versions
 =media-sound/mps-youtube-0.2.8-r2 # Bloquing live version
-<sys-kernel/gentoo-sources-5.4.88 # block upgrades
->sys-kernel/gentoo-sources-5.4.88 # block upgrades
+<sys-kernel/gentoo-sources-5.4.89 # block upgrades
+>sys-kernel/gentoo-sources-5.4.89 # block upgrades
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 
 # Rolling back to stable
