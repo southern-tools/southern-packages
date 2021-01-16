@@ -63,5 +63,3 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
-=dev-ruby/rdoc-6.3.0 ~amd64
-#=dev-ruby/bundler-2.2.0 ~amd64
