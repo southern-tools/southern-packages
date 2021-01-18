@@ -107,7 +107,7 @@ media-sound/mpd flac # required by base profile
 # python stabilization
 */* PYTHON_TARGETS: python3_7 python3_8
 */* PYTHON_SINGLE_TARGET: -* python3_8
-x11-misc/libinput-gestures python_single_target_python3_7
+#x11-misc/libinput-gestures python_single_target_python3_7
 
 # autounmask
 #>=dev-python/setuptools-50.3.0 python_targets_python3_7
