@@ -264,6 +264,8 @@ assign [class="mpv"] $ws10
 #assign [class="vlc"] $ws10
 assign [title="ncmpcpp*"] $ws10
 
+#  KeepassXC to scratchpad
+for_window [title="keepassxc_database.kdbx - KeePassXC"] move scratchpad
 
 #====================
 # I3BAR
