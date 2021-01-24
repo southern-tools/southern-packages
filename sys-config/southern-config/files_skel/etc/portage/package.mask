@@ -17,4 +17,4 @@ x11-libs/gtk+::gentoo
 >www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 
 # Rolling back to stable
->sys-devel/gcc-10.2.0-r3
+>sys-devel/gcc-10.2.0-r5
