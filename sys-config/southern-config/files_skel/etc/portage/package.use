@@ -113,5 +113,6 @@ media-sound/mpd flac # required by base profile
 # required by net-libs/libnma-1.8.30::gentoo
 # required by gnome-extra/nm-applet-1.18.0::gentoo
 # required by nm-applet (argument)
->=net-wireless/wpa_supplicant-2.9-r2 dbus
-#net-vpn/networkmanager-pptp gtk
+#>=net-wireless/wpa_supplicant-2.9-r2 dbus
+
+net-dialup/ppp eap-tls dhcp
