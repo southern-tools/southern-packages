@@ -64,3 +64,4 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
+net-vpn/networkmanager-l2tp ~amd64
