@@ -109,3 +109,8 @@ media-sound/mpd flac # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_8
 
 # autounmask
+# required by net-misc/networkmanager-1.26.4::gentoo[-iwd,wifi]
+# required by net-vpn/networkmanager-pptp-1.2.8-r2::gentoo
+# required by net-vpn/networkmanager-pptp (argument)
+>=net-wireless/wpa_supplicant-2.9-r2 dbus
+net-vpn/networkmanager-pptp gtk
