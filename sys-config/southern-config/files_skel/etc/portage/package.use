@@ -3,6 +3,7 @@
 # prefered
 app-admin/keepassxc autotype browser
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
+app-crypt/gcr gtk # Required by slot collision
 app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
 app-office/gnucash ofx
