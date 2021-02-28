@@ -64,3 +64,4 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
+=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by dev-libs/intel-neo
