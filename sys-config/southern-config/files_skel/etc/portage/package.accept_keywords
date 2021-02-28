@@ -20,19 +20,19 @@ dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-lang/python:3.9::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
-dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
+#dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
 dev-libs/level-zero ~amd64
 dev-libs/light ~amd64
-dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
+#dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
 dev-tex/biblatex-apa ~amd64
 dev-util/clinfo ~amd64 # required by clinfo
-dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
-dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
-media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
+#dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
+#dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
+#media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 media-sound/mps-youtube ~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
@@ -64,4 +64,3 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
-net-vpn/networkmanager-l2tp ~amd64
