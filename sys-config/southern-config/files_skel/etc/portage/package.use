@@ -16,7 +16,7 @@ dev-db/sqlite:3 secure-delete # required by firefox
 dev-java/icedtea gtk # add gtk visual aspect
 dev-java/openjdk gentoo-vm
 dev-java/openjdk-bin gentoo-vm
-dev-java/oracle-jdk-bin gentoo-vm gtk3
+#dev-java/oracle-jdk-bin gentoo-vm gtk3
 dev-lang/python sqlite # required by bleachbit, firefox, calibre
 dev-lang/ruby -berkdb -gdbm -ncurses -readline
 dev-libs/boost nls # required by ncmpcpp
@@ -74,7 +74,7 @@ sys-boot/plymouth gdm # required by Sakaki
 sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
 sys-fs/e2fsprogs cron # check automatically LVM's
 #sys-firmware/intel-microcode initramfs # only for x86
-sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
+#sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
 sys-kernel/gentoo-sources experimental symlink
 sys-libs/gdbm berkdb # Required by python
 sys-libs/gwenhywfar gtk # required by gnucash (argument)

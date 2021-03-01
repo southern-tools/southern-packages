@@ -1,13 +1,13 @@
 # Southern Tools "package.accept_keywords"
 
 # prefer latest version
-app-crypt/staticgpg::southern-packages ~amd64
+#app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-editors/vscodium-bin ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
-app-portage/genup::southern-packages ~amd64
+#app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
-app-portage/showem::southern-packages ~amd64
+#app-portage/showem::southern-packages ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 #app-text/calibre ~amd64
 app-text/pandoc ~amd64
@@ -28,7 +28,7 @@ dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
-dev-tex/biblatex-apa ~amd64
+#dev-tex/biblatex-apa ~amd64
 dev-util/clinfo ~amd64 # required by clinfo
 #dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
 #dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
@@ -40,7 +40,7 @@ media-libs/avidemux-plugins ~amd64
 net-im/discord-bin ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
-sys-kernel/buildkernel::southern-packages ~amd64
+#sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
 www-client/ungoogled-chromium ~amd64
 www-plugins/google-talkplugin ~amd64
@@ -54,6 +54,10 @@ x11-wm/i3-gaps ~amd64
 # specific version
 =app-text/calibre-5.4.2-r1 ~amd64
 =dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
+=dev-libs/opencl-clang-11.0.0 ~amd64 # required by intel-neo
+=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
+=dev-util/spirv-llvm-translator-11.0.0 ~amd64 # required by intel-neo
+=media-libs/gmmlib-20.4.1 ~amd64 # required by intel-neo
 =net-misc/youtube-dl-2020.11.26 # mps-youtube does not work without it
 =sys-devel/gcc-10.2.0-r5 ~amd64 # required by lto
 =x11-libs/libva-2.10.0 ~amd64 # required by x11-libs/libva-intel-media-driver
@@ -64,4 +68,4 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # autounmask
-=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by dev-libs/intel-neo
+#=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by dev-libs/intel-neo

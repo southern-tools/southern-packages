@@ -4,7 +4,6 @@
 dev-lang/python::gentoo
 media-sound/pulseaudio
 sys-apps/systemd
-sys-auth/consolekit
 sys-auth/pambase
 sys-auth/polkit
 sys-fs/udev

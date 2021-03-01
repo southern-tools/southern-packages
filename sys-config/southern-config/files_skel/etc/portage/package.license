@@ -8,7 +8,7 @@ app-text/calibre unRAR
 dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
 #dev-libs/hsa-ext-rocr AMD-GPU-PRO-EULA
 #dev-util/intel-ocl-sdk Intel-SDP
-games-util/steam-launcher ValveSteamLicense
+#games-util/steam-launcher ValveSteamLicense
 media-fonts/corefonts MSttfEULA
 media-libs/faac MPEG-4
 net-im/discord-bin all-rights-reserved
