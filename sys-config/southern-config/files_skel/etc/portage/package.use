@@ -38,18 +38,18 @@ mail-client/neomutt sasl # required for gmail account
 mail-mta/postfix sasl berkdb # required for public-ip-gmail
 media-fonts/font-misc-misc nls # required by net-misc/x2goserver-4.1.0.2::gentoo
 media-gfx/imagemagick jpeg png # "png" required by net-misc/electrum [qrcode]
+media-libs/avidemux-plugins qt5
+media-libs/freetype png # required by x11-libs/cairo, app-arch/file-roller
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
 media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
+media-libs/libsdl2 gles2 # required by wayland use flag
 media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
-media-libs/mesa gles2 -opencl xa # "-classic" and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
-media-sound/apulse sdk # required by i3status (argument)
+media-libs/mesa gles2 -opencl xa # -classic -video_cards_i965 -video_cards_intel # "-classic" "-video_cards_i965", and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
+#media-sound/apulse sdk # required by i3status (argument)
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
 media-sound/sox flac
 media-video/avidemux qt5
-media-libs/avidemux-plugins qt5
-media-libs/freetype png # required by x11-libs/cairo, app-arch/file-roller
-media-libs/libsdl2 gles2 # required by wayland use flag
 media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
 media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
 media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
@@ -69,7 +69,7 @@ sys-apps/bleachbit gtk # required for gui
 #sys-apps/busybox mdev
 sys-apps/fwupd dell uefi
 sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
-sys-boot/grub:2 device-mapper
+#sys-boot/grub:2 device-mapper
 sys-boot/plymouth gdm # required by Sakaki
 sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
 sys-fs/e2fsprogs cron # check automatically LVM's
@@ -86,12 +86,14 @@ www-client/firefox hwaccel
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg -system-libvpx thinlto vaapi vdpau -wayland
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
-#x11-base/xorg-drivers video_cards_i965 # prevents pulling xf86-video-intel and allows modsetting
+#x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
 x11-base/xorg-server -elogind glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login
 x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
 x11-libs/libfm -automount
+#x11-libs/libva -video_cards_i965 -video_cards_intel # forcing modesetting
+x11-libs/libva-intel-media-driver set-as-default # self-evident
 x11-misc/redshift geoclue
 x11-misc/spacefm video-thumbnails
 x11-terms/rxvt-unicode gdk-pixbuf xft
