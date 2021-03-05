@@ -23,8 +23,11 @@ off_w=`echo $(( ($int_w-$ext_w)/2 )) | sed 's/^-//'`
 # Manual
 #xrandr --output "eDP1" --noprimary --mode 3840x2160 --pos 0x0 --output "HDMI1" --mode 1920x1080 --pos 3840x0 --scale 2x2 --right-of "eDP1"
 
+# Intel DDX
 xrandr --output "eDP1" --noprimary --mode 3840x2160 --pos 0x0 --output "HDMI1" --mode 1280x720 --pos 3840x0 --scale 2x2 --right-of "eDP1"
 
+# Modesetting DDX
+#xrandr --output "eDP-1" --noprimary --mode 3840x2160 --pos 0x0 --output "HDMI-1" --mode 1280x720 --pos 3840x0 --scale 2x2 --right-of "eDP-1"
 
 # Arandr result
 #xrandr --output eDP1 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI1 --mode 1920x1080 --pos 3840x0 --rotate normal --output VIRTUAL1 --off
