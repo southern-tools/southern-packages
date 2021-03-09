@@ -9,7 +9,6 @@ app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 #app-portage/showem::southern-packages ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
-#app-text/calibre ~amd64
 app-text/pandoc ~amd64
 dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
@@ -20,19 +19,12 @@ dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-lang/python:3.9::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
-#dev-libs/intel-neo ~amd64 # required by dev-libs/intel-neo
-#dev-libs/level-zero ~amd64
 dev-libs/light ~amd64
-#dev-libs/opencl-clang ~amd64 # required by dev-util/intel-graphics-compiler, dev-libs/intel-neo, # required by intel-neo
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
-#dev-tex/biblatex-apa ~amd64
 dev-util/clinfo ~amd64 # required by clinfo
-#dev-util/intel-graphics-compiler ~amd64 # required by dev-libs/intel-neo
-#dev-util/spirv-llvm-translator ~amd64 # required by dev-libs/opencl-clang, dev-util/intel-graphics-compiler, dev-libs/intel-neo
-#media-libs/gmmlib ~amd64 # required by dev-libs/intel-neo
 media-sound/mps-youtube ~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
@@ -46,7 +38,6 @@ sys-kernel/gentoo-sources ~amd64
 www-client/ungoogled-chromium ~amd64
 www-plugins/google-talkplugin ~amd64
 x11-libs/gtk+ ~amd64 # from Vaeth, without "atk-bridge"
-#x11-libs/libva-intel-media-driver ~amd64
 x11-misc/libinput-gestures ~amd64
 x11-misc/py3status ~amd64
 x11-misc/xkblayout-state ~amd64
@@ -54,12 +45,19 @@ x11-wm/i3-gaps ~amd64
 
 # specific version
 =app-text/calibre-5.4.2-r1 ~amd64
-=dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
-=dev-libs/opencl-clang-11.0.0 ~amd64 # required by intel-neo
+#=dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
+=dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 =dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
-=dev-util/spirv-llvm-translator-11.0.0 ~amd64 # required by intel-neo
-=net-misc/youtube-dl-2020.11.26 # mps-youtube does not work without it
-=sys-devel/gcc-10.2.0-r5 ~amd64 # required by lto
+=dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
+#=net-misc/youtube-dl-2020.11.26 # mps-youtube does not work without it
+=sys-devel/clang-11.1.0 ~amd64 # ungoogled-chromium build failure
+#=sys-devel/clang-common-11.1.0 ~amd64 # ungoogled-chromium build failure
+=sys-devel/clang-runtime-11.1.0 ~amd64 # ungoogled-chromium build failure
+=sys-devel/lld-11.1.0 ~amd64 # ungoogled-chromium build failure
+=sys-devel/llvm-11.1.0 ~amd64 # ungoogled-chromium build failure
+#=sys-libs/compiler-rt-11.1.0 ~amd64 # ungoogled-chromium build failure
+#=sys-libs/compiler-rt-sanitizers-11.1.0 ~amd64 # ungoogled-chromium build failure
+=sys-libs/libomp-11.1.0 ~amd64 # ungoogled-chromium build failure
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
