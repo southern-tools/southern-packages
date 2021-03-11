@@ -83,7 +83,7 @@ virtual/libusb udev # required by sys-apps/fwup
 #www-client/chromium -custom-cflags jumbo-build system-libvpx
 #www-client/firefox clang geckodriver hwaccel
 www-client/firefox hwaccel
-www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui -ozone pdf system-openjpeg -system-libvpx thinlto vaapi vdpau -wayland
+www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui pdf -pgo system-openjpeg thinlto vaapi vdpau -wayland
 www-client/w3m imlib # required by neofetch
 www-plugins/chrome-binary-plugins -widevine
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
