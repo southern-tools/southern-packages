@@ -15,11 +15,11 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches'
 setopt correctall
 
 # Load Pure
-fpath+=$HOME/Remotes/git_only_pull/sindresorhus/pure/
+#fpath+=$HOME/Remotes/git_only_pull/sindresorhus/pure/
 # Prompt
 autoload -U promptinit
 promptinit
-prompt pure
+prompt gentoo
 
 # History
 export HISTSIZE=10000
