@@ -1,32 +1,7 @@
 ;; Southern Tools
 ;;
-;;======================
-;; AUTOMATICALLY EDITED
-;;======================
 ;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
-'(package-selected-packages (quote (general avy deft))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-;;
-;;==========================
-;; END OF AUTOMATIC EDITION
-;;==========================
-;;
-;;
-;;=======
-;; REPOS 
-;;=======
-;;
-;; add melpa stable repo
+;; Repos
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
@@ -34,21 +9,16 @@
 (package-initialize)
 ;;
 ;;
-;;==========
-;; PACKAGES
-;;==========
-;;
-;; deft config
-(setq deft-extensions '("md" "txt" "tex" "org"))
-(setq deft-directory "~/Remotes/dropbox_sync/Zettelkasten/")
+;; Deft package
+(setq deft-extensions '("md" "txt" "org"))
+(setq deft-directory "~/Library/Zettelkasten/")
+(setq deft-use-filename-as-title t)
 (setq deft-recursive t)
 (global-set-key [f8] 'deft)
-;;
 ;; Open a file in the other window and shifting focus to it
 (defun efls/deft-open-other ()
  (interactive)
  (deft-open-file-other-window t))
-;;
 ;; To select results from the item list without leaving the insert state
 (with-eval-after-load 'deft
   (define-key deft-mode-map
@@ -58,7 +28,6 @@
   (define-key deft-mode-map
     (kbd "s-j") 'evil-next-line)
   (define-key deft-mode-map (kbd "s-k") 'evil-previous-line))
-;;
 ;; Ignore more org-mode metadata
 (setq deft-strip-summary-regexp
  (concat "\\("
@@ -66,10 +35,9 @@
          "\\|^#\\+[a-zA-Z_]+:.*$" ;;org-mode metadata
          "\\)"))
 ;;
-;;
-;;
-;; zetteldeft config
-(add-to-list 'load-path "~/Remotes/zetteldeft/")
+;; Zetteldeft package
+;; Requires "general", "deft", "avy", "ace-window", "use-package"
+(add-to-list 'load-path "~/Remotes/git_only_pull/EFLS/zetteldeft/")
 (setq zd-id-format "%Y%m%d%H%M")
 (setq deft-new-file-format zd-id-format)
 (setq zd-id-regex "20[0-9]\\{10\\}")
@@ -78,9 +46,7 @@
 (setq zd-title-suffix "'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n")
 (require 'zetteldeft)
 ;;
-;;
-;;
-;; general config
+;; General package
 (general-define-key
   :prefix "SPC"
   :non-normal-prefix "C-SPC"
@@ -107,10 +73,7 @@
 ;;
 ;;
 ;;
-;;==========
-;; SETTINGS
-;;==========
-;;
+;; Global settings
 (setq
    backup-by-copying t      ; don't clobber symlinks
    backup-directory-alist
@@ -121,5 +84,13 @@
    version-control t)       ; use versioned backups
 ;;
 ;;
+;;======================
+;; AUTOMATICALLY EDITED
+;;======================
+;;
+;;
+;;==========================
+;; END OF AUTOMATIC EDITION
+;;==========================
 ;;
 ;;

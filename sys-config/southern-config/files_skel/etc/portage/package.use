@@ -4,8 +4,9 @@
 app-admin/keepassxc autotype browser
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 app-crypt/gcr gtk # Required by slot collision
-app-editors/emacs gtk imagemagick libxml2 toolkit-scroll-bars xft
+app-editors/emacs gtk gui imagemagick libxml2 toolkit-scroll-bars xft
 app-editors/nano -minimal
+app-emacs/emacs-common gui # required by emcas with gui
 app-office/gnucash ofx
 app-office/libreoffice -bluetooth googledrive dbus gtk java
 app-text/tesseract jpeg # "jpeg" required by teseract
