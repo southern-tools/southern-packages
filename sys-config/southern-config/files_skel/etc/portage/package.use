@@ -18,7 +18,7 @@ dev-java/icedtea gtk # add gtk visual aspect
 dev-java/openjdk gentoo-vm
 dev-java/openjdk-bin gentoo-vm
 #dev-java/oracle-jdk-bin gentoo-vm gtk3
-dev-lang/python sqlite # required by bleachbit, firefox, calibre
+dev-lang/python sqlite tk # "sqlite" required by bleachbit, firefox, calibre. "tk" required for work
 dev-lang/ruby -berkdb -gdbm -ncurses -readline
 dev-libs/boost nls # required by ncmpcpp
 dev-libs/elfutils static-libs # required by prelink (argument)
