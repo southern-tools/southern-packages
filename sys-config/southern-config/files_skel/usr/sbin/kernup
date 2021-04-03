@@ -7,7 +7,7 @@ set -u
 shopt -s nullglob
 
 # ********************** variables ********************* 
-firmware_files=$"iwlwifi-7265D-* amdgpu/oland_* intel/ibt-hw-* regulatory.*"
+firmware_files=$(iwlwifi-7265D-*,amdgpu/oland_*,intel/ibt-hw-*,regulatory.*)
 new_kernel=$(ls -tr /boot/ | tail -n 1)
 # ***************** functions ****************** 
 generate_kernel() {
