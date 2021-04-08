@@ -1,13 +1,14 @@
 #!/bin/bash
 # Southern Tools
 #
-set -x
+#set -x
 set -e
 set -u
 shopt -s nullglob
 
 # ********************** source repos and local operations ********************* 
 source ~/.user_config/no_share/git_repos
+
 # ********************** variables ********************* 
 ParseGitBranch=$(git symbolic-ref HEAD 2>/dev/null | cut -d "/" -f 3)
 ReposToPull=$repo_1\ $repo_2\ $repo_3\ $repo_4\ $repo_5\ $repo_6\ $repo_7\ $repo_8
