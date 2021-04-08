@@ -21,11 +21,6 @@ UserCredentials(){
 	git config --global user.email
 	git config --global credential.helper store
 }
-RootCredentials(){
-	sudo git config --global user.name
-	sudo git config --global user.email
-	sudo git config --global credential.helper store
-}
 PullRepos(){
 	for repo in $ReposToPull
 		do
@@ -34,37 +29,25 @@ PullRepos(){
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
 					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  		elif [[ $(sudo stat -c '%U' $repo) == root ]]
-	  			then
-	  				# For system repos
-	  				GitBranch=$(sudo git -C $repo branch --show-current)
-	  				sudo git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  			else
-	  				echo "The repo/s you are trying to Pull do not belong to the current user nor to root. Exiting..."
-					exit
+	  		else
+	  			echo -e "*** ERROR: One or more of repo/s you are trying to Pull do not belong to the current user.\n*** Exiting..."
+				exit
 			fi
 	done
 }
 PushRepos(){
 	for repo in $ReposToPush
 		do
-			if [[ $(sudo stat -c '%U' $repo) == $USER ]]
+			if [[ $(stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
 	  				git -C $repo add . && echo -e "*** Added files to $repo"
 					git -C $repo commit -a -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
-			elif [[ $(sudo stat -c '%U' $repo) == root ]]
-				then
-	  				# For system repos
-	  				GitBranch=$(sudo git -C $repo branch --show-current)
-	  				sudo git -C $repo add . && echo -e "*** Added files to $repo"
-					sudo git -C $repo commit -m "Automatic Update" && echo -e "*** Changes commited to $repo"
-					sudo git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
-	  			else
-	  				echo "The repos you are trying to Push do not belong to the current user nor to root. Exiting..."
-	  				exit
+	  		else
+	  			echo -e "*** ERROR: One or more of repos you are trying to Push do not belong to the current user.\n*** Exiting..."
+	  			exit
 			fi
 	done
 }
@@ -73,7 +56,6 @@ PushRepos(){
 
 # Update credentials
 UserCredentials
-#RootCredentials
 # Pull remotes
 PullRepos
 
@@ -92,5 +74,5 @@ Merge7
 # Push repos
 PushRepos
 
-echo "*** All repos updated"
+echo "*** All repos updated."
 # **************** end of script proper ****************
