@@ -29,15 +29,15 @@ RootCredentials(){
 PullRepos(){
 	for repo in $ReposToPull
 		do
-			if [[ $(ls -ld $repo | cut -d ' ' -f4) == $USER ]]
+			if [[ $(stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
-					GitBranch=$(git -C $repo branch --show-current 2>/dev/null )
+					GitBranch=$(git -C $repo branch --show-current)
 					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  		elif [[ $(ls -ld $repo | cut -d ' ' -f4) == root ]]
+	  		elif [[ $(stat -c '%U' $repo) == root ]]
 	  			then
 	  				# For system repos
-	  				GitBranch=$(git -C $repo branch --show-current 2>/dev/null )
+	  				GitBranch=$(git -C $repo branch --show-current)
 	  				sudo git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
 	  			else
 	  				echo "The repo/s you are trying to Pull do not belong to the current user nor to root. Exiting..."
@@ -48,17 +48,17 @@ PullRepos(){
 PushRepos(){
 	for repo in $ReposToPush
 		do
-			if [[ $(ls -ld | cut -d ' ' -f4) == $USER ]]
+			if [[ $(stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
-					GitBranch=$(git -C $repo branch --show-current 2>/dev/null )
+					GitBranch=$(git -C $repo branch --show-current)
 	  				git -C $repo add . && echo -e "*** Added files to $repo"
 					git -C $repo commit -a -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
-			elif [[ $(ls -ld $repo | cut -d ' ' -f4) == root ]]
+			elif [[ $(stat -c '%U' $repo) == root ]]
 				then
 	  				# For system repos
-	  				GitBranch=$(git -C $repo branch --show-current 2>/dev/null )
+	  				GitBranch=$(git -C $repo branch --show-current)
 	  				sudo git -C $repo add . && echo -e "*** Added files to $repo"
 					sudo git -C $repo commit -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					sudo git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
