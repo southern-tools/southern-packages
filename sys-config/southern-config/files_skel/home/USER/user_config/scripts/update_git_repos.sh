@@ -34,10 +34,12 @@ PullRepos(){
 				then
 					# For repos owned by user
 					git -C $repo pull origin $ParseGitBranch
+					break
 	  		elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
 	  			then
 	  				# For system repos
 	  				sudo git -C $repo pull origin $ParseGitBranch
+	  				break
 	  			else
 	  				echo "The repo/s you are trying to Pull do not belong to the current user nor to root. Exiting..."
 					exit
