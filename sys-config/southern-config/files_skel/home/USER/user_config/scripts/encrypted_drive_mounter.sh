@@ -2,8 +2,11 @@
 # Southern Tools
 #
 #set -x
+set -e
+set -u
+shopt -s nullglob
 
-# Variables
+# ********************** variables ********************* 
 source ~/.user_config/no_share/encrypted_drive_variables
 mountpoint_1=/mnt/encrypted_unit_1
 mountpoint_2=/mnt/encrypted_unit_2
@@ -14,6 +17,7 @@ volume_1=/dev/mapper/vg_encrypted-unit_1
 volume_2=/dev/mapper/vg_encrypted-unit_2
 volume_3=/dev/mapper/vg_encrypted-unit_3
 
+# ***************** functions ****************** 
 menu_loop (){
 	lsblk
 	PS3='Please enter your choice: '
@@ -71,9 +75,12 @@ menu_loop (){
 	done
 }
 
+# *************** start of script proper ***************
 # Open LUKS and make LVM available
 sudo cryptsetup --key-file $encrypted_drive_key_file luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid $luks_container ;
 sudo vgchange --activate y $vg_name ;
 
 # Start menu
 menu_loop
+
+# **************** end of script proper ****************

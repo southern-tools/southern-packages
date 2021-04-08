@@ -6,7 +6,7 @@ Name=MPS Youtube
 
 Comment=CLI Youtube player
 
-Exec=swaymsg "exec urxvtc -hold -e mpsyt"
+Exec=swaymsg "exec urxvtc -e mpsyt"
 
 Icon=utilities-terminal
 

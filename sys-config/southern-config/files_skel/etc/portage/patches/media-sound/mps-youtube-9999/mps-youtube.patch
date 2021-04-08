@@ -1,0 +1,44 @@
+--- a/mps_youtube/mpris.py
++++ b/mps_youtube/mpris.py
+@@ -223,8 +223,9 @@ class Mpris2MediaPlayer(dbus.service.Object):
+                     self._sendcommand(["observe_property", 4, "seeking"])
+                     observe_full = True
+ 
+-                if resp.get('event') == 'property-change':
+-                    self.setproperty(resp['name'], resp['data'])
++                if 'data' in resp:
++	                if resp.get('event') == 'property-change':
++	                    self.setproperty(resp['name'], resp['data'])
+ 
+         except socket.error:
+             self.socket = None
+--- a/mps_youtube/players/mpv.py
++++ b/mps_youtube/players/mpv.py
+@@ -130,7 +130,7 @@ class mpv(CmdPlayer):
+                 g.mprisctl.send(('mpv-fifo', self.fifopath))
+ 
+             self.p = subprocess.Popen(cmd, shell=False, stderr=subprocess.PIPE,
+-                                      bufsize=1)
++                                      bufsize=0)
+ 
+         self._player_status(self.songdata + "; ", self.song.length)
+         returncode = self.p.wait()
+@@ -184,12 +184,12 @@ class mpv(CmdPlayer):
+                         s.send(json.dumps(cmd).encode() + b'\n')
+                         observe_full = True
+ 
+-                    if resp.get('event') == 'property-change' and resp['id'] == 1:
+-                        if resp['data'] is not None:
+-                            elapsed_s = int(resp['data'])
+-
+-                    elif resp.get('event') == 'property-change' and resp['id'] == 2:
+-                        volume_level = int(resp['data'])
++                    if 'data' in resp:
++                        if resp.get('event') == 'property-change' and resp['id'] == 1:
++                            if resp['data'] is not None:
++                                elapsed_s = int(resp['data'])
++                        elif resp.get('event') == 'property-change' and resp['id'] == 2:
++                            volume_level = int(resp['data'])
+ 
+                     if(volume_level and volume_level != g.volume):
+                         g.volume = volume_level

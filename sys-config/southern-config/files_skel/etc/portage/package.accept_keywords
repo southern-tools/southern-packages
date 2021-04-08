@@ -26,7 +26,7 @@ dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
 dev-util/clinfo ~amd64 # required by clinfo
 lxde-base/lxappearance ~amd64 # required by lxde-base/lxappearance
-media-sound/mps-youtube ~amd64
+media-sound/mps-youtube ** #~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
 media-libs/avidemux-plugins ~amd64

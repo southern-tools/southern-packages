@@ -6,7 +6,11 @@ Name=Omega T
 
 Comment=Translation software
 
-Exec=swaymsg "exec ~/Software/Omega_T/jre/bin/java -jar ~/Software/Omega_T/OmegaT.jar"
+# Provided java (no hidpi)
+#Exec=swaymsg "exec ~/Software/Omega_T/jre/bin/java -Dsun.java2d.uiScale=3 -jar ~/Software/Omega_T/OmegaT.jar"
+
+# System Java
+Exec=swaymsg "exec java -Dsun.java2d.uiScale=3 -jar ~/Software/Omega_T/OmegaT.jar"
 
 Icon=utilities-terminal
 
