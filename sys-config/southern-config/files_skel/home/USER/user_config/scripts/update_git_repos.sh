@@ -48,7 +48,7 @@ PullRepos(){
 PushRepos(){
 	for repo in $ReposToPush
 		do
-			if [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == $USER ]]
+			if [[ $(ls -ld | cut -d ' ' -f4) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
