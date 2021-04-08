@@ -24,7 +24,7 @@ UserCredentials(){
 PullRepos(){
 	for repo in $ReposToPull
 		do
-			if [[ $(sudo stat -c '%U' $repo) == $USER ]]
+			if [[ $(stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
