@@ -33,7 +33,6 @@ PullRepos(){
 			if [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == $USER ]]
 				then
 					# For repos owned by user
-					ParseGitBranch=$(git symbolic-ref HEAD 2>/dev/null | cut -d "/" -f 3)
 					git -C $repo pull origin $ParseGitBranch
 					break
 	  		elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
@@ -76,6 +75,7 @@ PushRepos(){
 
 # Update credentials
 UserCredentials
+ParseGitBranch=$(git symbolic-ref HEAD 2>/dev/null | cut -d "/" -f 3)
 #RootCredentials
 # Pull remotes
 PullRepos
