@@ -10,6 +10,7 @@ shopt -s nullglob
 source ~/.user_config/no_share/git_repos
 
 # ********************** variables ********************* 
+#ParseGitBranch=$(git branch --show-current)
 ReposToPull=$repo_1\ $repo_2\ $repo_3\ $repo_4\ $repo_5\ $repo_6\ $repo_7\ $repo_8
 ReposToPush=$repo_16
 
@@ -29,11 +30,10 @@ RootCredentials(){
 PullRepos(){
 	for repo in $ReposToPull
 		do
-			ParseGitBranch=$(git -C $repo branch --show-current)
 			if [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == $USER ]]
 				then
 					# For repos owned by user
-					git -C $repo pull origin $ParseGitBranch
+					git -C $repo pull origin $(git branch --show-current)
 					break
 	  		elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
 	  			then
