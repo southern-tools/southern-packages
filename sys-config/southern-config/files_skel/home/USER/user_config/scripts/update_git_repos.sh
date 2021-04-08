@@ -1,7 +1,7 @@
 #!/bin/bash
 # Southern Tools
 #
-set -x
+#set -x
 set -e
 set -u
 shopt -s nullglob
