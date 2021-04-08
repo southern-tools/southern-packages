@@ -55,7 +55,7 @@ PushRepos(){
 	  				git -C $repo add . && echo -e "*** Added files to $repo"
 					git -C $repo commit -a -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
-			elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
+			elif [[ $(ls -ld $repo | cut -d ' ' -f4) == root ]]
 				then
 	  				# For system repos
 	  				GitBranch=$(git -C $repo branch --show-current)
