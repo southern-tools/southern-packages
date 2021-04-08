@@ -29,7 +29,7 @@ RootCredentials(){
 PullRepos(){
 	for repo in $ReposToPull
 		do
-			if [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == $USER ]]
+			if [[ $(ls -ld $repo | cut -d ' ' -f4) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
