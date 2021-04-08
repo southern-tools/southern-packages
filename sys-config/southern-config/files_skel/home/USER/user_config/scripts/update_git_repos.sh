@@ -10,7 +10,7 @@ shopt -s nullglob
 source ~/.user_config/no_share/git_repos
 
 # ********************** variables ********************* 
-ReposToPull=$repo_1\ $repo_2\ $repo_3\ $repo_4\ $repo_5\ $repo_6\ $repo_7\ $repo_8
+ReposToPull=$repo_1\ $repo_2\ $repo_3\ $repo_4\ $repo_5\ $repo_6\ $repo_7\ $repo_8\ $repo_9
 ReposToPush=$repo_16
 
 # ***************** functions ****************** 
@@ -34,10 +34,10 @@ PullRepos(){
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
 					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  		elif [[ $(stat -c '%U' $repo) == root ]]
+	  		elif [[ $(sudo stat -c '%U' $repo) == root ]]
 	  			then
 	  				# For system repos
-	  				GitBranch=$(git -C $repo branch --show-current)
+	  				GitBranch=$(sudo git -C $repo branch --show-current)
 	  				sudo git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
 	  			else
 	  				echo "The repo/s you are trying to Pull do not belong to the current user nor to root. Exiting..."
@@ -55,15 +55,15 @@ PushRepos(){
 	  				git -C $repo add . && echo -e "*** Added files to $repo"
 					git -C $repo commit -a -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
-			elif [[ $(stat -c '%U' $repo) == root ]]
+			elif [[ $(sudo stat -c '%U' $repo) == root ]]
 				then
 	  				# For system repos
-	  				GitBranch=$(git -C $repo branch --show-current)
+	  				GitBranch=$(sudo git -C $repo branch --show-current)
 	  				sudo git -C $repo add . && echo -e "*** Added files to $repo"
 					sudo git -C $repo commit -m "Automatic Update" && echo -e "*** Changes commited to $repo"
 					sudo git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
 	  			else
-	  				echo "The repos you are trying to Push do not belong to the user nor root. Exiting..."
+	  				echo "The repos you are trying to Push do not belong to the current user nor to root. Exiting..."
 	  				exit
 			fi
 	done
