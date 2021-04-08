@@ -52,15 +52,15 @@ PushRepos(){
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
-	  				git -C $repo add . && echo -e "* Added files to $repo" >&2 && \
-					git -C $repo commit -a -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2 && \
+	  				git -C $repo add . && echo -e "* Added files to $repo" >&2
+					git -C $repo commit -a -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2
 					git -C $repo push -u origin $GitBranch && echo -e "* $repo pushed (origin master)"
 			elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
 				then
 	  				# For system repos
 	  				GitBranch=$(git -C $repo branch --show-current)
-	  				sudo git -C $repo add . && echo -e "* Added files to $repo" && \
-					sudo git -C $repo commit -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2 && \
+	  				sudo git -C $repo add . && echo -e "* Added files to $repo"
+					sudo git -C $repo commit -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2
 					sudo git -C $repo push -u origin $GitBranch && echo -e "* $repo pushed (origin master)" >&2
 	  			else
 	  				echo "The repos you are trying to Push do not belong to the user nor root. Exiting..."
@@ -94,4 +94,3 @@ PushRepos
 
 echo "*** All repos updated"
 # **************** end of script proper ****************
-
