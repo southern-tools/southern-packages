@@ -29,7 +29,7 @@ RootCredentials(){
 PullRepos(){
 	for repo in $ReposToPull
 		do
-			if [[ $(stat -c '%U' $repo) == $USER ]]
+			if [[ $(sudo stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
@@ -48,7 +48,7 @@ PullRepos(){
 PushRepos(){
 	for repo in $ReposToPush
 		do
-			if [[ $(stat -c '%U' $repo) == $USER ]]
+			if [[ $(sudo stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
