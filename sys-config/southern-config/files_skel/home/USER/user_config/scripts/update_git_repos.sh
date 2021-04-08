@@ -55,12 +55,14 @@ PushRepos(){
 	  				git -C $repo add . && echo -e "* Added files to $repo" >&2 && \
 					git -C $repo commit -a -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2 && \
 					git -C $repo push -u origin $ParseGitBranch && echo -e "* $repo pushed (origin master)"
+					break
 			elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
 				then
 	  				# For system repos
 	  				sudo git -C $repo add . && echo -e "* Added files to $repo" && \
 					sudo git -C $repo commit -m "Automatic Update" && echo -e "* Changes commited to $repo" >&2 && \
-					sudo git -C $repo push -u origin $ParseGitBranch && echo -e "* $repo pushed (origin master)" >&2					
+					sudo git -C $repo push -u origin $ParseGitBranch && echo -e "* $repo pushed (origin master)" >&2
+					break				
 	  			else
 	  				echo "The repos you are trying to Push do not belong to the user nor root. Exiting..."
 	  				exit
