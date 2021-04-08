@@ -34,7 +34,7 @@ PullRepos(){
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
 					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  		elif [[ $(ls -ld $repo 2>/dev/null | cut -d ' ' -f4) == root ]]
+	  		elif [[ $(ls -ld $repo | cut -d ' ' -f4) == root ]]
 	  			then
 	  				# For system repos
 	  				GitBranch=$(git -C $repo branch --show-current)
