@@ -7,45 +7,43 @@ set -u
 shopt -s nullglob
 
 # ********************** variables ********************* 
-source ~/.user_config/no_share/public_ip_gmail_variables
-to="$email"
-from="$email"
-ip_file=~/.user_config/no_share/ip_file
-current_ip=$(curl https://api.ipify.org/)
+To=$(neomutt -F ~/.user_config/no_share/neomutt_gmail -Q from | cut -d \" -f 2 | cut -d " " -f 3)
+UserIp=~/.user_config/no_share/UserIp
+CurrentIp=$(curl -s https://api.ipify.org/)
 
 # ***************** functions ****************** 
-ManageIpFile(){
-	if [ -f $ip_file ];	then
-			# Si el archivo $ip_file existe, se definen las variables $known_user y known_ip
-			known_user=$(cat $ip_file | cut -d "@" -f 1) && \
-			known_ip=$(cat $ip_file | cut -d "@" -f 2)
+CheckUserIp(){
+	echo -e "*** Checking stored data..."
+	if [ -f $UserIp ]
+		then
+			StoredUser=$(cat $UserIp | cut -d "@" -f 1)
+			StoredIp=$(cat $UserIp | cut -d "@" -f 2)
+			echo -e "*** Previous User and IP: $StoredUser"@"$StoredIp"
 		else
-			# Si no existe $ip_file, crearlo
-			echo -e $USER"@"$current_ip > $ip_file && \
-			# Definir variables
-			known_user=$(cat $ip_file | cut -d "@" -f 1) && \
-			known_ip=$(cat $ip_file | cut -d "@" -f 2)
+			echo -e "*** No previous data found.\n *** Storing the variables now..."
+			echo -e $USER"@"$CurrentIp > $UserIp
+			StoredUser=$(cat $UserIp | cut -d "@" -f 1)
+			StoredIp=$(cat $UserIp | cut -d "@" -f 2)
+			echo -e "*** New User and IP: $StoredUser"@"$StoredIp"
 	fi
 }
-
-DetectChanges(){
-	# Detectar el cambio de IP o Usuario
-	if [ $current_ip != $known_ip -o $known_user != $USER ]; then
-		# Iniciar el servicio Postfix
-		sudo rc-service postfix start && \
-		# Sobreescribir $ip_file
-		echo -e $USER"@"$current_ip > $ip_file && \
-		# Notificar el cambio por correo
-		echo "The User or the IP Address at $HOSTNAME has changed:
-		$USER"@"$current_ip" | sudo mail -s "SOUTHERN TOOLS NOTIFICATION" ${from} ${to} && \
-		logger -t ipcheck -- IP changed to $current_ip && \
-		# Detener el servicio Postfix
-		sleep 10 && sudo rc-service postfix stop
+DetectChangesUserIp(){
+	echo -e "*** Detecting changes..."
+	if [ $CurrentIp != $StoredIp -o $StoredUser != $USER ]
+		then
+			echo -e $USER"@"$CurrentIp > $UserIp
+			echo -e "*** New User and IP detected: $USER"@"$CurrentIp\n*** Sending email notification..."
+			echo "The User and/or the IP Address at $HOSTNAME has changed:
+			$USER"@"$CurrentIp" | neomutt -F "~/.user_config/no_share/neomutt_gmail" -s "Public IP Gmail Notification" ${To}
+			logger -t ipcheck -- IP changed to $CurrentIp
+		else
+			echo -e "*** No changes detected."
 	fi
 }
 
 # *************** start of script proper ***************
-ManageIpFile
-DetectChanges
-
+echo -e "*** Starting Public IP Dropbox..."
+CheckUserIp
+DetectChangesUserIp
+echo -e "*** All tasks accomplished.\n*** Exiting..."
 # **************** end of script proper ****************

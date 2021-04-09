@@ -53,7 +53,7 @@ PushRepos(){
 }
 
 # *************** start of script proper ***************
-
+echo -e "*** Starting Update Git Repos."
 # Update credentials
 UserCredentials
 # Pull remotes
@@ -74,5 +74,5 @@ Merge7
 # Push repos
 PushRepos
 
-echo "*** All repos updated."
+echo -e "*** All tasks accomplished.\n*** Exiting..."
 # **************** end of script proper ****************

@@ -7,44 +7,73 @@ set -u
 shopt -s nullglob
 
 # ********************** variables ********************* 
-ip_file=~/.user_config/no_share/ip_file
-shared_ip_file=~/Remotes/rclone/dropbox_sync/.synchronize/shared_ip_file
-current_ip=$(curl https://api.ipify.org/)
+UserIp=~/.user_config/no_share/UserIp
+DropboxFile=~/Remotes/rclone/dropbox_sync/.synchronize/UserIp
+CurrentIp=$(curl -s https://api.ipify.org/)
 
 # ***************** functions ****************** 
-ManageIpFile(){
-	if [ -f $ip_file ]
+CheckDropboxFile(){
+	echo -e "*** Checking Dropbox data..."
+	if [ -f $DropboxFile ]
 		then
-			# Si el archivo $ip_file existe, se definen las variables $known_user y known_ip
-			known_user=$(cat $ip_file | cut -d "@" -f 1)
-			known_ip=$(cat $ip_file | cut -d "@" -f 2)
+			ReadDropboxValues
+			echo -e "*** Checking local values against Dropbox..."
+			if [ $DropboxIp != $StoredIp -o $StoredUser != $DropboxUser ]
+				then
+					echo -e "*** Local values differ from Dropbox copy."
+					PushToDropbox
+				else
+					echo -e "*** Local values are consistent with Dropbox copy."
+			fi
 		else
-			# Si no existe $ip_file, crearlo
-			echo -e $USER"@"$current_ip > $ip_file
-			# Copiar a Dropbox
-			cp $ip_file $shared_ip_file
-			# Definir variables
-			known_user=$(cat $ip_file | cut -d "@" -f 1)
-			known_ip=$(cat $ip_file | cut -d "@" -f 2)
-			# Sincronizar
-			urxvtc -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
+			echo -e "*** Dropbox copy not present."
+			PushToDropbox
 	fi
 }
-DetectChanges(){
-	# Detectar el cambio de ip o de usuario
-	if [ $current_ip != $known_ip -o $known_user != $USER ]
+NewUserIp(){
+	echo -e "*** Storing new values..."
+	echo -e $USER"@"$CurrentIp > $UserIp
+	ReadUserIpValues
+}
+PushToDropbox(){
+	echo -e "*** Pushing to Dropbox: "
+	cp -v $UserIp $DropboxFile
+	rclone sync -v ~/Remotes/rclone/dropbox_sync/ dropbox:
+}
+ReadUserIpValues(){
+	StoredUser=$(cat $UserIp | cut -d "@" -f 1)
+	StoredIp=$(cat $UserIp | cut -d "@" -f 2)
+}
+ReadDropboxValues(){
+	DropboxUser=$(cat $DropboxFile | cut -d "@" -f 1)
+	DropboxIp=$(cat $DropboxFile | cut -d "@" -f 2)
+}
+Wrapper(){
+	echo -e "*** Checking previous values..."
+	if [ -f $UserIp ]
 		then
-			# Sobreescribir $ip_file
-			echo -e $USER"@"$current_ip > $ip_file
-			# Copiar a dropbox
-			cp $ip_file $shared_ip_file
-			# Sincronizar
-			urxvtc -e rclone sync -v ~/Remotes/dropbox_sync/ dropbox:
+			ReadUserIpValues
+			echo -e "*** Previous User and IP: $StoredUser"@"$StoredIp"
+			echo -e "*** Detecting changes..."
+			if [ $CurrentIp != $StoredIp -o $StoredUser != $USER ]
+				then
+					echo -e "*** New User and IP detected: $USER"@"$CurrentIp"
+					NewUserIp
+					CheckDropboxFile
+			else
+				echo -e "*** No changes detected."
+				CheckDropboxFile
+			fi
+		else
+			echo -e "*** No previous values found."
+			NewUserIp
+			echo -e "*** New User and IP: $StoredUser"@"$StoredIp"
+			CheckDropboxFile
 	fi
 }
 
 # *************** start of script proper ***************
-ManageIpFile
-DetectChanges
-
+echo -e "*** Starting Public IP Dropbox..."
+Wrapper
+echo -e "*** All tasks accomplished.\n*** Exiting..."
 # **************** end of script proper ****************

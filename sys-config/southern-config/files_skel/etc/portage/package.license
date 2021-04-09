@@ -10,7 +10,7 @@ dev-libs/amdgpu-pro-opencl AMD-GPU-PRO-EULA
 #dev-util/intel-ocl-sdk Intel-SDP
 #games-util/steam-launcher ValveSteamLicense
 media-fonts/corefonts MSttfEULA
-media-libs/faac MPEG-4
+#media-libs/faac MPEG-4
 net-im/discord-bin all-rights-reserved
 net-im/zoom all-rights-reserved
 sys-firmware/intel-microcode intel-ucode intel-ucode-20180807

@@ -274,16 +274,16 @@ echo "$accept_mac" | sudo tee -a /etc/hostapd/user_config.accept
 # Config wicd nl80211 driver
 sudo sed -i 's/^wpa_driver =.*$/wpa_driver = nl80211/' /etc/wicd/manager-settings.conf
 
-# Setting up configurations for "public_ip_gmail.sh"
-echo "* Setting up "public_ip_gmail.sh""
-sudo cat $files_skel/etc/postfix/main.cf >> /etc/postfix/main.cf
-sudo rsync -a $files_skel/etc/postfix/sasl_passwd /etc/postfix/
-sudo sed -i "s/USER_EMAIL/'$user_email'/g" /etc/postfix/sasl_passwd
-sudo sed -i "s/USER_EMAIL_PASSWORD/'$user_email_password'/g" /etc/postfix/sasl_passwd
+# Setting up configurations for "public_ip_gmail.sh" DEPRECATED, USING NEOMUTT NOW
+#echo "* Setting up "public_ip_gmail.sh""
+#sudo cat $files_skel/etc/postfix/main.cf >> /etc/postfix/main.cf
+#sudo rsync -a $files_skel/etc/postfix/sasl_passwd /etc/postfix/
+#sudo sed -i "s/USER_EMAIL/'$user_email'/g" /etc/postfix/sasl_passwd
+#sudo sed -i "s/USER_EMAIL_PASSWORD/'$user_email_password'/g" /etc/postfix/sasl_passwd
 # Make some security adjustments
-sudo postmap /etc/postfix/sasl/sasl_passwd
-sudo chmod 0600 /etc/postfix/sasl_passwd
-sudo chmod 0600 /etc/postfix/sasl_passwd.db
+#sudo postmap /etc/postfix/sasl/sasl_passwd
+#sudo chmod 0600 /etc/postfix/sasl_passwd
+#sudo chmod 0600 /etc/postfix/sasl_passwd.db
 
 # Some settings for bluetooth
 sudo cat $files_skel/etc/bluetooth/main.conf >> /etc/bluetooth/main.conf
