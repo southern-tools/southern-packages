@@ -75,5 +75,5 @@ Wrapper(){
 # *************** start of script proper ***************
 echo -e "*** Starting Public IP Dropbox..."
 Wrapper
-echo -e "*** All tasks accomplished.\n*** Exiting..."
+echo -e "*** All tasks accomplished."
 # **************** end of script proper ****************

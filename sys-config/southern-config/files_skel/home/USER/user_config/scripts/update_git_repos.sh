@@ -74,5 +74,5 @@ Merge7
 # Push repos
 PushRepos
 
-echo -e "*** All tasks accomplished.\n*** Exiting..."
+echo -e "*** All tasks accomplished.\n*** Exiting Update Git Repos..."
 # **************** end of script proper ****************

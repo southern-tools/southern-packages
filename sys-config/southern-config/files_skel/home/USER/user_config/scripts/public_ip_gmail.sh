@@ -42,8 +42,8 @@ DetectChangesUserIp(){
 }
 
 # *************** start of script proper ***************
-echo -e "*** Starting Public IP Dropbox..."
+echo -e "*** Starting Public IP Gmail..."
 CheckUserIp
 DetectChangesUserIp
-echo -e "*** All tasks accomplished.\n*** Exiting..."
+echo -e "*** All tasks accomplished."
 # **************** end of script proper ****************
