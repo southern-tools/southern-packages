@@ -109,7 +109,7 @@ media-libs/opencv qt5 # required by base profile
 media-sound/mpd flac # required by base profile
 
 # python stabilization
-*/* PYTHON_TARGETS: python3_7 python3_8
-*/* PYTHON_SINGLE_TARGET: -* python3_8
+#*/* PYTHON_TARGETS: python3_7 python3_8
+#*/* PYTHON_SINGLE_TARGET: -* python3_8
 
 # autounmask

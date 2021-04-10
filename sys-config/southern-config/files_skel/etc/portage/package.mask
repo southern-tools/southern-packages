@@ -11,6 +11,8 @@ x11-libs/gtk+::gentoo
 
 # specific versions
 #=app-office/gnucash-4.4 # Does not build
+dev-lang/python:3.4
+dev-lang/python:3.5
 =media-sound/mps-youtube-0.2.8-r2 # Bloquing live version
 <sys-kernel/gentoo-sources-5.4.109 # block upgrades
 >sys-kernel/gentoo-sources-5.4.109 # block upgrades
