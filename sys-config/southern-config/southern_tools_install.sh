@@ -24,7 +24,7 @@ read -p '* Please, enter your email password ' user_email_password
 
 
 # sudoers instructions
-echo -e "* The window manager needs "sudo" for power management so before starting, open a new shell, login as root with \"su -\", execute the command \"visudo\" and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n$user_name ALL=(ALL) NOPASSWD: /usr/sbin/genup, /etc/cron.daily/rsnapshot.daily\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
+echo -e "* The window manager needs "sudo" for power management so before starting, open a new shell, login as root with \"su -\", execute the command \"visudo\" and append the following lines at the end of the file:\n\n\n\n# Southern Tools\n#\n$user_name ALL=(ALL) ALL\n$user_name ALL=(ALL) NOPASSWD: /etc/cron.daily/genup, /etc/cron.daily/rsnapshot.daily\n%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown\n\n\n\n"
 
 read -rsp $'\n\n\n* Press any key to continue...\n' -n1 key
 
