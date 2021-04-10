@@ -11,8 +11,6 @@ link="https://www.dropbox.com/s/34jbyd1ru10ijsi/UserIp?dl=0"
 ServerInfo=~/.user_config/no_share/ServerInfo
 
 # ***************** functions ****************** 
-
-
 GetServerInfo(){
 	wget -O $ServerInfo $link
 	user=$(cat $ServerInfo | cut -d "@" -f 1)

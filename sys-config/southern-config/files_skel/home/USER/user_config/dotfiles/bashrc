@@ -21,7 +21,6 @@ fi
 # Include "alias"
 . ~/.user_config/no_share/alias
 # General
-alias genup='sudo genup'
 alias cp='cp -i'
 alias ln='ln -i'
 alias mv='mv -i'
@@ -29,8 +28,8 @@ alias rm='rm -i'
 alias ls='ls --color=auto'
 alias world='column /var/lib/portage/world'
 alias repos='~/.user_config/scripts/update_git_repos.sh'
-alias mupdate='repos && genup'
-alias colors='. ~/.user_config/scripts/colors.sh'
+alias mupdate='~/.user_config/scripts/multi_updater.sh'
+alias colors='~/.user_config/scripts/colors.sh'
 alias myip='curl https://api.ipify.org/'
 #alias calfix='. .user_config/scripts/calibre_fix.sh & calibre'
 #alias steam='DRI_PRIME=1 steam'
