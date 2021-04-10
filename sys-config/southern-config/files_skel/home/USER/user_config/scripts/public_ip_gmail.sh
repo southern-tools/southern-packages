@@ -20,7 +20,7 @@ CheckUserIp(){
 			StoredIp=$(cat $UserIp | cut -d "@" -f 2)
 			echo -e "*** Previous User and IP: $StoredUser"@"$StoredIp"
 		else
-			echo -e "*** No previous data found.\n *** Storing the variables now..."
+			echo -e "*** No previous data found.\n*** Storing the variables now..."
 			echo -e $USER"@"$CurrentIp > $UserIp
 			StoredUser=$(cat $UserIp | cut -d "@" -f 1)
 			StoredIp=$(cat $UserIp | cut -d "@" -f 2)
