@@ -2,7 +2,7 @@
 # Southern Tools
 #
 #set -x
-set -e
+#set -e
 set -u
 shopt -s nullglob
 
@@ -18,55 +18,89 @@ volume_2=/dev/mapper/vg_encrypted-unit_2
 volume_3=/dev/mapper/vg_encrypted-unit_3
 
 # ***************** functions ****************** 
+OpenAll(){
+	echo -e "*** Opening Luks Container..."
+	sudo cryptsetup --key-file $encrypted_drive_key_file luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid $luks_container ;
+	echo -e "*** Activating Volume Group..."
+	sudo vgchange --activate y $vg_name;
+	clear
+}
+CloseAll(){
+	clear
+	echo -e "*** Unmounting devices..."
+	if CheckMounted $volume_1 "$mountpoint_1"; 
+		then
+			echo -e "*** Unmounting 1st Device..."
+			sudo umount $mountpoint_1;
+	fi
+	if CheckMounted $volume_2 "$mountpoint_2"; 
+		then
+			echo -e "*** Unmounting 2nd Device..."
+			sudo umount $mountpoint_2;
+	fi
+	if CheckMounted $volume_3 "$mountpoint_3"; 
+		then
+			echo -e "*** Unmounting 3rd Device..."
+			sudo umount $mountpoint_3;
+	fi
+	echo -e "*** Deactivating Volume Group..."
+	sudo vgchange --activate n $vg_name;
+	echo -e "*** Closing Luks Container and exiting..."
+	sudo cryptsetup luksClose $luks_container;
+}
+CheckMounted(){
+	findmnt -rno SOURCE,TARGET "$1" >/dev/null;
+}
+
+
 menu_loop (){
+	echo -e "*** Block devices infromation:"
 	lsblk
+	echo -e "\n"
 	PS3='Please enter your choice: '
-	options=("Unit_1" "Unit_2" "Unit_3" "Quit")
+	options=("(un)Mount 1st Device" "(un)Mount 2nd Device" "(un)Mount 3rd Device" "Quit")
 	select opt in "${options[@]}"
 	do
 		case $opt in
-			"Unit_1")
+			"(un)Mount 1st Device")
 			clear
-			if cat /proc/mounts | grep $mountpoint_1 > /dev/null; 
+			if CheckMounted $volume_1 "$mountpoint_1"; 
 			then
 				sudo umount $mountpoint_1
-				echo "*** Unit_1 is now UNMOUNTED ***\n\n\n"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 1st Device is now UNMOUNTED.\n"
 			else
 				sudo mount $volume_1 $mountpoint_1
-				echo "*** Unit_1 is now MOUNTED ***"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 1st Device is now MOUNTED.\n"
 			fi
 			menu_loop
 			;;
-			"Unit_2")
+			"(un)Mount 2nd Device")
 			clear
-			if cat /proc/mounts | grep $mountpoint_2 > /dev/null; 
+			if CheckMounted $volume_2 "$mountpoint_2"; 
 			then
 				sudo umount $mountpoint_2
-				echo "*** Unit_2 is now UNMOUNTED ***"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 2nd Device is now UNMOUNTED.\n"
 			else
 				sudo mount $volume_2 $mountpoint_2
-				echo "*** Unit_2 is now MOUNTED ***"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 2nd Device is now MOUNTED.\n"
 			fi
 			menu_loop
 			;;
-			"Unit_3")
+			"(un)Mount 3rd Device")
 			clear
-			if cat /proc/mounts | grep $mountpoint_3 > /dev/null; 
+			if CheckMounted $volume_3 "$mountpoint_3"; 
 			then
 				sudo umount $mountpoint_3
-				echo "*** Unit_3 is now UNMOUNTED ***"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 3rd Device is now UNMOUNTED.\n"
 			else
 				sudo mount $volume_3 $mountpoint_3
-				echo "*** Unit_3 is now MOUNTED ***"
+				echo -e "*** Encrypted Drive Mounter ***\n*** 3rd Device is now MOUNTED.\n"
 			fi
 			menu_loop
 			;;
 			"Quit")
-			sudo umount $mountpoint_1 ;
-			sudo umount $mountpoint_2 ;
-			sudo umount $mountpoint_3 ;
-			sudo vgchange --activate n $vg_name ;
-			sudo cryptsetup luksClose $luks_container ;
+			CloseAll
+			sleep 3 && 
 			exit
 			;;
 			*) echo invalid option
@@ -76,11 +110,9 @@ menu_loop (){
 }
 
 # *************** start of script proper ***************
-# Open LUKS and make LVM available
-sudo cryptsetup --key-file $encrypted_drive_key_file luksOpen /dev/disk/by-uuid/$encrypted_drive_uuid $luks_container ;
-sudo vgchange --activate y $vg_name ;
-
-# Start menu
+echo -e "*** Encrypted Drive Mounter ***"
+OpenAll
+echo -e "*** Encrypted Drive Mounter ***\n***Ready...\n"
 menu_loop
 
 # **************** end of script proper ****************
