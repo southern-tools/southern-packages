@@ -6,7 +6,7 @@ Name=Genup Log
 
 Comment=Read latest system Genup log
 
-Exec=swaymsg "exec urxvtc -hold -e cat /var/log/latest-genup-run.log"
+Exec=swaymsg "exec urxvtc --title terminal_genup_log -hold -e cat /var/log/latest_genup_run.log"
 
 Icon=utilities-terminal
 
