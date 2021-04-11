@@ -24,6 +24,7 @@
 set -e
 set -u
 shopt -s nullglob
+exec &> >(tee /var/log/latest_genup_run.log 2>&1)
 
 # Scroll to the bottom of this script to follow the main program flow.
 
