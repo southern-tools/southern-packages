@@ -3,110 +3,79 @@
 # prefered
 app-admin/keepassxc autotype browser
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
-app-crypt/gcr gtk # Required by slot collision
-app-editors/emacs gtk gui imagemagick libxml2 toolkit-scroll-bars xft
-app-editors/nano -minimal
-app-emacs/emacs-common gui # required by emcas with gui
-app-office/gnucash ofx
-app-office/libreoffice -bluetooth googledrive dbus gtk java
+app-crypt/gcr gtk # Required by gnome-keyring
+app-editors/emacs gtk gui imagemagick libxml2 toolkit-scroll-bars xft # preferences
+app-editors/nano -minimal # preferences
+app-emacs/emacs-common gui # preferences
+app-office/gnucash ofx # preferences
+app-office/libreoffice googledrive gtk java # preferences
 app-text/tesseract jpeg # "jpeg" required by teseract
-app-text/texlive extra humanities publishers # extra packages for humanities
+app-text/texlive extra humanities publishers # preferences
 app-text/texlive-core xetex # required by dev-texlive/texlive-xetex and dev-texlive/texlive-formatsextra
-app-text/xmlto text # required by app-office/libreoffice, x11-misc/xdg-utils
-dev-db/sqlite:3 secure-delete # required by firefox
-dev-java/icedtea gtk # add gtk visual aspect
-dev-java/openjdk gentoo-vm
-dev-java/openjdk-bin gentoo-vm
-#dev-java/oracle-jdk-bin gentoo-vm gtk3
-dev-lang/python sqlite tk # "sqlite" required by bleachbit, firefox, calibre. "tk" required for work
-dev-lang/ruby -berkdb -gdbm -ncurses -readline
-dev-libs/boost nls # required by ncmpcpp
-dev-libs/elfutils static-libs # required by prelink (argument)
-dev-libs/glib dbus # required by meld
-dev-libs/intel-neo l0 # level zero driver
-dev-libs/libjcat pkcs7 gpg # required by sys-apps/fwupd
-dev-libs/libusb udev # required by sys-apps/fwupd
-dev-libs/light udev # required to run
-dev-python/pillow jpeg # required by dev-python/matplotlib
-dev-python/PyQt5 network gui webchannel printsupport svg webkit widgets # required by app-text/calibre
-dev-python/QtPy printsupport gui svg # required by dev-python/jupyter
-dev-qt/qtgui dbus # jpeg # "dbus" required by qtwidgets "jpeg" required by base profile
-dev-qt/qtmultimedia widgets # required by openshot (argument)
-dev-qt/qtwebengine widgets # required by app-text/calibre
-dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine-5.12.3::gentoo, app-text/calibre-4.1.0::gentoo
-dev-qt/qtwidgets gtk # gtk theme on qtwidgets
+app-text/xmlto text # required by x11-misc/xdg-utils
+dev-java/icedtea gtk # preferences
+dev-java/openjdk gentoo-vm # preferences
+dev-java/openjdk-bin gentoo-vm # preferences
+dev-lang/python sqlite tk # "sqlite" required by dev-python/ipython, dev-python/nbformat, app-misc/khal, sys-apps/bleachbit, dev-python/vdirsyncer, app-text/calibre, "tk" preferences
+dev-lang/ruby -berkdb -gdbm -ncurses -readline # preferences
+dev-libs/boost nls # "nls" required by ncmpcpp, gnucash, libreoffice
+dev-libs/intel-neo l0 # preferences
+dev-python/PyQt5 gui network printsupport svg webchannel widgets # "gui widgets" required by "opengl", "network, printsupport svg webchannel" required by calibre, PyQtWebEngine, QtPy
+dev-python/QtPy printsupport gui svg # required by dev-python/qtconsole
+dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
+dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
+dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
+dev-qt/qtwidgets gtk # gtk preferences
 mail-client/neomutt sasl # required for gmail account
-mail-mta/postfix sasl berkdb # required for public-ip-gmail
-media-fonts/font-misc-misc nls # required by net-misc/x2goserver-4.1.0.2::gentoo
-media-gfx/imagemagick jpeg png # "png" required by net-misc/electrum [qrcode]
-media-libs/avidemux-plugins qt5
-media-libs/freetype png # required by x11-libs/cairo, app-arch/file-roller
+media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
+media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
-media-libs/gd png # required by app-text/texlive-core, dev-texlive/texlive-fontutils, app-text/texlive
-media-libs/leptonica jpeg tiff # "jpeng and tiff" required by teseract
-media-libs/libsdl2 gles2 # required by wayland use flag
-media-libs/libvpx postproc svc # "postproc" required by firefox, required by www-client/ungoogled-chromium-75.0.3770.144_p1::pg_overlay[system-libvpx]
-media-libs/mesa gles2 -opencl xa # -classic -video_cards_i965 -video_cards_intel # "-classic" "-video_cards_i965", and "-video_cards_intel" required for iris "gles2" required by Sakaki "-opencl" required by amdgpu-pro-opencl
-#media-sound/apulse sdk # required by i3status (argument)
+media-libs/leptonica jpeg tiff # "jpeg, tiff" required by teseract
+media-libs/libsdl2 gles2 # required by "wayland"
+media-libs/libvpx postproc svc # "postproc" required by firefox, ungoogled-chromium "svc" required by dev-qt/qtwebengine
+media-libs/mesa gles2 -opencl xa -classic -video_cards_i965 -video_cards_intel # "-classic, -video_cards_i965, -video_cards_intel" required for iris "gles2" preferences (sakaki)
+media-sound/mpd flac # required for functionality
 media-sound/ncmpcpp -icu # solving segfault on version 0.8.2-r1
-media-sound/sox flac
-media-video/avidemux qt5
-media-video/ffmpeg openssl theora vpx x264 mp3 xvid # x264 mp3 xvid required by media-video/openshot # "openssl" required by mps-youtube "theora vpx" required by openshot (argument)
-media-video/ffmpegthumbnailer jpeg png # required for thumbnails in spacefm
-media-video/vlc live lua matroska theora upnp vorbis vpx # minimal configuration for vlc
-net-dns/dnsmasq auth-dns dhcp-tools # script required by app-emulation/libvirt-4.9.0::gentoo[virt-network]
+media-video/avidemux qt5 # preferences
+#media-video/ffmpeg openssl theora vpx x264 mp3 xvid # "theora vpx x264 mp3 xvid" required by media-video/openshot, "openssl" required by mps-youtube
+media-video/ffmpegthumbnailer jpeg png # "jpeg, png" preferences (thumbnails in spacefm)
 net-firewall/iptables conntrack # required by Southern Tools hotspot
-net-libs/glib-networking -libproxy
-net-libs/zeromq drafts # required by media-video/openshot (argument)
-net-misc/electrum qrcode
-net-vpn/openvpn examples
-net-libs/nodejs inspector # required by www-client/chromium
-net-libs/zeromq drafts # required by media-video/openshot (argument)
+net-libs/glib-networking -libproxy # preferences
+net-misc/electrum qrcode # preferences
 net-mail/mailutils berkdb sasl # required for Southern Tools public-ip-gmail
-net-misc/iputils -caps -filecaps
-net-nds/openldap -berkdb
+net-misc/iputils -caps -filecaps # preferences
+net-nds/openldap -berkdb # preferences
 net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
-sys-apps/bleachbit gtk # required for gui
-#sys-apps/busybox mdev
-sys-apps/fwupd dell uefi
-sys-apps/util-linux caps # required by app-portage/pfl-3.0.1-r3::gentoo[network-cron]
+sys-apps/bleachbit gtk # preferences
+sys-apps/util-linux caps # "caps" required by app-portage/pfl
 #sys-boot/grub:2 device-mapper
-sys-boot/plymouth gdm # required by Sakaki
-sys-devel/llvm gold # required by www-client/firefox-60.8.0::gentoo[clang]
-sys-fs/e2fsprogs cron # check automatically LVM's
+sys-fs/e2fsprogs cron # preferences (check automatically LVM's)
 #sys-firmware/intel-microcode initramfs # only for x86
-#sys-kernel/genkernel-next plymouth cryptsetup gpg # required by sakaki
-sys-kernel/gentoo-sources experimental symlink
-sys-libs/gdbm berkdb # Required by python
-sys-libs/gwenhywfar gtk # required by gnucash (argument)
-sys-libs/zlib minizip static-libs # "minizip" required by vlc, chromium, quazip; "static-libs" required by elfutils, libelf, glib, etc
-virtual/libusb udev # required by sys-apps/fwup
-#www-client/chromium -custom-cflags jumbo-build system-libvpx
-#www-client/firefox clang geckodriver hwaccel
-www-client/firefox hwaccel
+sys-kernel/gentoo-sources experimental symlink # preferences
+sys-libs/gdbm berkdb # "berkdb" required by dev-lang/python
+sys-libs/zlib minizip static-libs # "minizip" required by ungoogled-chromium, dev-qt/qtwebengine-, dev-libs/quazip,  "static-libs" required by elfutils
+www-client/firefox hwaccel # preferences
 www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui pdf -pgo system-openjpeg thinlto vaapi vdpau -wayland
 www-client/w3m imlib # required by neofetch
-www-plugins/chrome-binary-plugins -widevine
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
-x11-base/xorg-server -elogind glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login
-x11-libs/gdk-pixbuf jpeg # "jpeg" required for walpaper under sway
-x11-libs/gtk+ adwaita-icon-theme -atk-bridge
-x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati, media-libs/mesa
-x11-libs/libfm -automount
+x11-base/xorg-server glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references
+x11-libs/gdk-pixbuf jpeg # "jpeg" preferences (walpaper under sway)
+x11-libs/gtk+ adwaita-icon-theme -atk-bridge # preferences
+x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati
+x11-libs/libfm -automount # preferences
 #x11-libs/libva -video_cards_i965 -video_cards_intel # forcing modesetting
 x11-libs/libva-intel-media-driver set-as-default # self-evident
-x11-misc/redshift geoclue
-x11-misc/spacefm video-thumbnails
-x11-terms/rxvt-unicode gdk-pixbuf xft
+x11-misc/redshift geoclue # preferences
+x11-misc/spacefm video-thumbnails # preferences
+x11-terms/rxvt-unicode gdk-pixbuf xft # preferences
 
 # base profile adjustments
-app-text/poppler cairo qt5 # required by base profile
-dev-libs/libpcre2 pcre16 # required by base profile
-dev-libs/xmlsec nss # required by base profile
-dev-qt/qtgui jpeg # "dbus" required by qtwidgets "jpeg" required by profile
-media-libs/libpng apng # required by base profile
+app-text/poppler cairo qt5 # required by base profile (texstudio, zathura-pdf-poppler, gimp, qpdfview)
+dev-libs/libpcre2 pcre16 # required by base profile (qtcore)
+dev-libs/xmlsec nss # required by base profile (libreoffice)
+dev-qt/qtgui jpeg # "jpeg" required by profile (nomacs, calibre)
+media-libs/libpng apng # "apng" required by base profile (firefox)
 media-libs/opencv qt5 # required by base profile
-media-sound/mpd flac # required by base profile
 
 # python stabilization
 #*/* PYTHON_TARGETS: python3_7 python3_8
