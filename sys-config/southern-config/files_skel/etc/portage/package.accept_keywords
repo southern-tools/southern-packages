@@ -1,13 +1,10 @@
 # Southern Tools "package.accept_keywords"
 
 # prefer latest version
-#app-crypt/staticgpg::southern-packages ~amd64
 app-editors/sublime-text ~amd64
 app-editors/vscodium-bin ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
-#app-portage/genup::southern-packages ~amd64
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
-#app-portage/showem::southern-packages ~amd64
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/pandoc ~amd64
 dev-java/icedtea ~amd64
@@ -34,7 +31,6 @@ net-im/discord-bin ~amd64
 net-im/zoom ~amd64
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
-#sys-kernel/buildkernel::southern-packages ~amd64
 sys-kernel/gentoo-sources ~amd64
 #www-client/ungoogled-chromium ~amd64
 www-plugins/google-talkplugin ~amd64
@@ -46,19 +42,9 @@ x11-wm/i3-gaps ~amd64
 
 # specific version
 =app-text/calibre-5.4.2-r1 ~amd64
-#=dev-libs/libevent-2.1.12 ~amd64 # ungoogled-chromium compilation problem
 =dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 =dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 =dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
-#=net-misc/youtube-dl-2020.11.26 # mps-youtube does not work without it
-#=sys-devel/clang-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-devel/clang-common-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-devel/clang-runtime-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-devel/lld-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-devel/llvm-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-libs/compiler-rt-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-libs/compiler-rt-sanitizers-11.1.0 ~amd64 # ungoogled-chromium build failure
-#=sys-libs/libomp-11.1.0 ~amd64 # ungoogled-chromium build failure
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
