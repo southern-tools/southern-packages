@@ -27,7 +27,7 @@ dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
 dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
 dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
 dev-qt/qtwidgets gtk # gtk preferences
-#dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto
+dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto -vaapi
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
 media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
