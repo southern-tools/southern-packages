@@ -26,10 +26,10 @@ UserCredentials(){
 ReposCheckCloned(){
 	for repo in $ReposToCheck
 		do
-			if [[ ! -d $(echo $repo | cut -d " " -f 2) ]]
+			if [[ ! -d repo ]]
 				then
-					echo -e "*************************************echo $(echo $repo | cut -d " " -f 2)"
-					
+					echo -e "*************************************echo $repo | cut -d " " -f 2"
+
 					#echo -e "*** Repository $repo not present, attempting to clone it..."
 					#git clone $(echo $repo | cut -d " " -f 1) $(echo $repo | cut -d " " -f 2)  && echo -e "*** Repository $repo succesfully cloned"
 			else
@@ -45,8 +45,8 @@ PullRepos(){
 					# For repos owned by user
 					GitBranch=$(git -C $repo branch --show-current)
 					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
-	  		else
-	  			echo -e "*** ERROR: One or more of repo/s you are trying to Pull do not belong to the current user.\n*** Exiting..."
+			else
+				echo -e "*** ERROR: One or more of repo/s you are trying to Pull do not belong to the current user.\n*** Exiting..."
 				exit
 			fi
 	done
