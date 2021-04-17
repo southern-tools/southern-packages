@@ -6,6 +6,7 @@ app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, e
 app-crypt/gcr gtk # Required by gnome-keyring
 app-editors/emacs gtk gui imagemagick libxml2 toolkit-scroll-bars xft # preferences
 app-editors/nano -minimal # preferences
+app-editors/vscode substitute-urls
 app-emacs/emacs-common gui # preferences
 app-office/gnucash ofx # preferences
 app-office/libreoffice googledrive gtk java # preferences
@@ -26,6 +27,7 @@ dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
 dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
 dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
 dev-qt/qtwidgets gtk # gtk preferences
+#dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
 media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
@@ -55,7 +57,7 @@ sys-kernel/gentoo-sources experimental symlink # preferences
 sys-libs/gdbm berkdb # "berkdb" required by dev-lang/python
 sys-libs/zlib minizip static-libs # "minizip" required by ungoogled-chromium, dev-qt/qtwebengine-, dev-libs/quazip,  "static-libs" required by elfutils
 www-client/firefox hwaccel # preferences
-www-client/ungoogled-chromium custom-cflags hangouts optimize-thinlto optimize-webui pdf -pgo system-openjpeg thinlto vaapi vdpau -wayland
+www-client/ungoogled-chromium hangouts optimize-thinlto optimize-webui -pgo system-openjpeg thinlto -wayland
 www-client/w3m imlib # required by neofetch
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
 x11-base/xorg-server glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references
