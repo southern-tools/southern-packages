@@ -17,7 +17,7 @@ app-text/xmlto text # required by x11-misc/xdg-utils
 dev-java/icedtea gtk # preferences
 dev-java/openjdk gentoo-vm # preferences
 dev-java/openjdk-bin gentoo-vm # preferences
-dev-lang/python sqlite tk # "sqlite" required by dev-python/ipython, dev-python/nbformat, app-misc/khal, sys-apps/bleachbit, dev-python/vdirsyncer, app-text/calibre, "tk" preferences
+dev-lang/python sqlite # tk # "sqlite" required by dev-python/ipython, dev-python/nbformat, app-misc/khal, sys-apps/bleachbit, dev-python/vdirsyncer, app-text/calibre, "tk" preferences
 dev-lang/ruby -berkdb -gdbm -ncurses -readline # preferences
 dev-libs/boost nls # "nls" required by ncmpcpp, gnucash, libreoffice
 dev-libs/intel-neo l0 # preferences
@@ -27,7 +27,7 @@ dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
 dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
 dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
 dev-qt/qtwidgets gtk # gtk preferences
-dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto -vaapi
+#dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto -vaapi
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
 media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
