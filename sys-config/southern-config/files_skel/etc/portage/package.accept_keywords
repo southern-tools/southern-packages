@@ -2,6 +2,7 @@
 
 # prefer latest version
 app-editors/sublime-text ~amd64
+app-editors/vscode **
 app-editors/vscodium-bin ~amd64
 app-editors/visual-studio-code-bin ~amd64
 app-misc/khal ~amd64  # required by khal (argument)

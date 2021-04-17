@@ -1,6 +1,7 @@
 # Southern Tools "package.unmask"
 
 #app-crypt/staticgpg::southern-packages
+app-editors/vscode::southern-packages
 app-editors/vscodium-bin::southern-packages
 app-editors/visual-studio-code-bin::southern-packages
 #app-eselect/eselect-electron::southern-packages # required by app-editors/vscode
