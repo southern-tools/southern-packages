@@ -64,6 +64,8 @@ ln -vsf ~/.user_config/dotfiles/xserverrc ~/.xserverrc
 
 ##### Applications #####
 
+
+
 # Setting up configurations for "public_ip_dropbox.sh", rclone need to be configured by the user
 mkdir -p ~/Remotes/dropbox_sync
 echo -e "* Please, remember to configure 'rclone' with the path '/home/$user_name/Remotes/dropbox_sync'"
@@ -79,6 +81,8 @@ sed -i "s/USER_EMAIL_PASSWORD/'$user_email_password'/g" ~/.user_config/no_share/
 mkdir -p ~/.config/alacritty/
 ln -vsf ~/.user_config/applications/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
+# Extensions for vscodium
+ln -vsf ~/.user_config/applications/vscodium/product.json ~/.config/VSCodium/product.json
 
 # Setting up zathura
 mkdir -p ~/.config/zathura

@@ -428,9 +428,11 @@ bindsym $mod+Mod1+s exec spacefm
 
 # Text Edit
 bindsym $mod+Mod1+t exec subl
+bindsym $mod+Mod1+e exec emacs
+bindsym $mod+Mod1+c exec codium
 
 # Multimedia
-bindsym $mod+Mod1+v exec vlc
+# bindsym $mod+Mod1+v exec vlc
 	
 # Ncmpcpp con mi script
 bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10

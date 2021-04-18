@@ -37,7 +37,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 LICENSE="BSD"
 SLOT="0"
 # KEYWORDS="~amd64 ~x86"
-IUSE="cfi +clang closure-compile convert-dict cups custom-cflags enable-driver hangouts headless kerberos +official optimize-thinlto optimize-webui pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 +tcmalloc thinlto vaapi vdpau wayland widevine"
+IUSE="cfi +clang convert-dict cups custom-cflags enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 +tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
 	!system-openh264? ( bindist )
@@ -161,7 +161,7 @@ BDEPEND="
 	>=sys-devel/bison-2.4.3
 	sys-devel/flex
 	virtual/pkgconfig
-	closure-compile? ( virtual/jre )
+	js-type-check? ( virtual/jre )
 	clang? ( sys-devel/clang sys-devel/lld )
 	cfi? ( sys-devel/clang-runtime[sanitize] )
 "
@@ -179,7 +179,6 @@ are not displayed properly:
 - media-fonts/droid
 - media-fonts/ipamonafont
 - media-fonts/noto
-- media-fonts/noto-emoji
 - media-fonts/ja-ipafonts
 - media-fonts/takao-fonts
 - media-fonts/wqy-microhei
@@ -206,7 +205,10 @@ pre_build_checks() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
 		local -x CPP="$(tc-getCXX) -E"
 		if tc-is-gcc && ! ver_test "$(gcc-version)" -ge 9.2; then
-			die "At least gcc 9.2 is required"
+			[[ -z "${NODIE}" ]] && die "At least gcc 9.2 is required"
+		fi
+		if tc-is-clang && ! ver_test "$(clang-major-version)" -ge 12; then
+			[[ -z "${NODIE}" ]] && die "At least clang 12 is required"
 		fi
 	fi
 
@@ -220,12 +222,6 @@ pre_build_checks() {
 }
 
 pkg_pretend() {
-	if use custom-cflags && [[ "${MERGE_TYPE}" != binary ]]; then
-		ewarn
-		ewarn "USE=custom-cflags bypasses strip-flags"
-		ewarn "Consider disabling this USE flag if something breaks"
-		ewarn
-	fi
 	if has_version "sys-libs/libcxx"; then
 		ewarn
 		ewarn "You have sys-libs/libcxx, please make sure that"
@@ -252,6 +248,8 @@ pkg_pretend() {
 }
 
 pkg_setup() {
+	pre_build_checks
+
 	chromium_suid_sandbox_check_kernel_config
 
 	# nvidia-drivers does not work correctly with Wayland due to unsupported EGLStreams
@@ -270,6 +268,17 @@ src_prepare() {
 		"${FILESDIR}/chromium-89-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 	)
+
+	# seccomp sandbox is broken if compiled against >=sys-libs/glibc-2.33, bug #769989
+	if has_version -d ">=sys-libs/glibc-2.33"; then
+		ewarn "Adding experimental glibc-2.33 sandbox patch. Seccomp sandbox might"
+		ewarn "still not work correctly. In case of issues, try to disable seccomp"
+		ewarn "sandbox by adding --disable-seccomp-filter-sandbox to CHROMIUM_FLAGS"
+		ewarn "in /etc/chromium/default."
+		PATCHES+=(
+			"${FILESDIR}/chromium-glibc-2.33.patch"
+		)
+	fi
 
 	default
 
@@ -304,8 +313,8 @@ src_prepare() {
 		sed -i "\!${p}.patch!d" "${ugc_patch_series}" || die
 	done
 
-	if use closure-compile; then
-		ewarn "Keeping binary compiler.jar in source tree for closure-compile"
+	if use js-type-check; then
+		ewarn "Keeping binary compiler.jar in source tree for js-type-check"
 		sed -i '\!third_party/closure_compiler/compiler/compiler.jar!d' "${ugc_pruning_list}" || die
 	fi
 	if use pgo; then
@@ -612,14 +621,12 @@ src_configure() {
 	tc-export AR CC CXX NM
 
 	if use clang && ! tc-is-clang ; then
-		# Force clang
 		einfo "Enforcing the use of clang due to USE=clang ..."
 		CC=${CHOST}-clang
 		CXX=${CHOST}-clang++
 		AR=llvm-ar #thinlto fails otherwise
 		strip-unsupported-flags
 	elif ! use clang && ! tc-is-gcc ; then
-		# Force gcc
 		einfo "Enforcing the use of gcc due to USE=-clang ..."
 		CC=${CHOST}-gcc
 		CXX=${CHOST}-g++
@@ -697,7 +704,7 @@ src_configure() {
 	myconf_gn+=" use_gnome_keyring=false"
 
 	# Optional dependencies.
-	myconf_gn+=" enable_js_type_check=$(usex closure-compile true false)"
+	myconf_gn+=" enable_js_type_check=$(usex js-type-check true false)"
 	myconf_gn+=" enable_hangout_services_extension=$(usex hangouts true false)"
 	myconf_gn+=" enable_widevine=$(usex widevine true false)"
 	myconf_gn+=" use_cups=$(usex cups true false)"
@@ -723,7 +730,6 @@ src_configure() {
 	myconf_gn+=" use_thin_lto=$(usex thinlto true false)"
 	myconf_gn+=" thin_lto_enable_optimizations=$(usex optimize-thinlto true false)"
 	myconf_gn+=" optimize_webui=$(usex optimize-webui true false)"
-	myconf_gn+=" use_openh264=$(usex system-openh264 false true)"
 	myconf_gn+=" use_system_freetype=$(usex system-harfbuzz true false)"
 	myconf_gn+=" use_system_libopenjpeg2=$(usex system-openjpeg true false)"
 	myconf_gn+=" enable_pdf=true"
@@ -914,7 +920,9 @@ src_configure() {
 	echo "$@"
 	"$@" || die
 
-	# Quick compiler check for tests // needs clang-12 anyway
+	# List all args
+	# [[ -z "${NODIE}" ]] || gn args --list out/Release
+	# Quick compiler check for tests // needs clang-12
 	# [[ -z "${NODIE}" ]] || eninja -C out/Release convert_dict
 }
 
