@@ -36,6 +36,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(brackets cursor line main pattern regexp root)
 setopt autocd
 setopt extendedglob
 
+# Python virtual environment
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Development
+source /usr/bin/virtualenvwrapper.sh
+
 # Put your fun stuff here.
 # Include "alias"
 . ~/.user_config/no_share/alias

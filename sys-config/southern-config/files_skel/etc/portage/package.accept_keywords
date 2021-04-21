@@ -47,7 +47,7 @@ x11-wm/i3-gaps ~amd64
 =dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 =dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 =dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
-=sys-apps/yarn-1.22.10 ~amd64 # trying to install electron for vscode
+#=sys-apps/yarn-1.22.10 ~amd64 # trying to install electron for vscode
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64
