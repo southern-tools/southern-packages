@@ -38,7 +38,7 @@ setopt extendedglob
 
 # Python virtual environment
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Development
+export PROJECT_HOME=$HOME/Software/python_devel
 source /usr/bin/virtualenvwrapper.sh
 
 # Put your fun stuff here.
