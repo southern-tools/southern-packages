@@ -43,6 +43,7 @@ media-video/avidemux qt5 # preferences
 media-video/ffmpegthumbnailer jpeg png # "jpeg, png" preferences (thumbnails in spacefm)
 net-firewall/iptables conntrack # required by Southern Tools hotspot
 net-libs/glib-networking -libproxy # preferences
+net-libs/nodejs inspector # required by www-client/ungoogled-chromium
 net-misc/electrum qrcode # preferences
 net-mail/mailutils berkdb sasl # required for Southern Tools public-ip-gmail
 net-misc/iputils -caps -filecaps # preferences
