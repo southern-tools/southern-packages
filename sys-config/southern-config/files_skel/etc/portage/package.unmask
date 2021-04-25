@@ -19,5 +19,5 @@ sci-misc/zotero-bin::southern-packages
 sys-config/ltoize::southern-packages
 #sys-kernel/buildkernel::southern-packages
 #sys-kernel/genkernel-next::southern-packages
-www-client/ungoogled-chromium::southern-packages
+#www-client/ungoogled-chromium::southern-packages
 x11-libs/gtk+::southern-packages

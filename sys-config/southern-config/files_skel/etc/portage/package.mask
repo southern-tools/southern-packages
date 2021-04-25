@@ -16,6 +16,5 @@ x11-libs/gtk+::gentoo
 =media-sound/mps-youtube-0.2.8-r2 # Bloquing live version
 <sys-kernel/gentoo-sources-5.4.109 # block upgrades
 >sys-kernel/gentoo-sources-5.4.109 # block upgrades
-=www-client/ungoogled-chromium-90.0.4430.85-r1 # does not build, check after clang update
 #>www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 #=sys-kernel/genkernel-4.2.1-r1
