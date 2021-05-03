@@ -58,7 +58,7 @@ sys-kernel/gentoo-sources experimental symlink # preferences
 sys-libs/gdbm berkdb # "berkdb" required by dev-lang/python
 sys-libs/zlib minizip static-libs # "minizip" required by ungoogled-chromium, dev-qt/qtwebengine-, dev-libs/quazip,  "static-libs" required by elfutils
 www-client/firefox hwaccel # preferences
-www-client/ungoogled-chromium hangouts optimize-thinlto optimize-webui -pgo system-openjpeg thinlto -wayland
+www-client/ungoogled-chromium optimize-thinlto optimize-webui -pgo system-openjpeg thinlto -wayland
 www-client/w3m imlib # required by neofetch
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
 x11-base/xorg-server glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references

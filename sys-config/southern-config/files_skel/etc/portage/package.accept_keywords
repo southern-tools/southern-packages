@@ -35,7 +35,7 @@ sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 sys-kernel/gentoo-sources ~amd64
 #www-client/ungoogled-chromium ~amd64
-www-plugins/google-talkplugin ~amd64
+#www-plugins/google-talkplugin ~amd64
 x11-libs/gtk+ ~amd64 # from Vaeth, without "atk-bridge"
 x11-misc/libinput-gestures ~amd64
 x11-misc/py3status ~amd64
