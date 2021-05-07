@@ -12,10 +12,9 @@ app-text/pandoc ~amd64
 dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
 dev-lang/python:2.7::southern-packages ~amd64 # python with lto
-dev-lang/python:3.6::southern-packages ~amd64 # python with lto
-dev-lang/python:3.7::southern-packages ~amd64 # python with lto
 dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-lang/python:3.9::southern-packages ~amd64 # python with lto
+dev-lang/python:3.10::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
 dev-libs/light ~amd64

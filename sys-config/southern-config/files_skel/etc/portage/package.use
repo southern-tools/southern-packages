@@ -81,11 +81,17 @@ media-libs/libpng apng # "apng" required by base profile (firefox)
 media-libs/opencv qt5 # required by base profile
 
 # python stabilization
-*/* PYTHON_TARGETS: python3_8 python3_9
+*/* PYTHON_TARGETS: -* python3_8 python3_9
 */* PYTHON_SINGLE_TARGET: -* python3_9
 
 # packages without latest version
 app-text/calibre PYTHON_SINGLE_TARGET: python3_8
+#app-admin/eclean-kernel PYTHON_TARGETS: python3_8
+#app-misc/khal PYTHON_TARGETS: python3_8
+#app-misc/ranger PYTHON_TARGETS: python3_8
+#dev-python/vdirsyncer PYTHON_TARGETS: python3_8
+#media-sound/mps-youtube PYTHON_TARGETS: python3_8
+#net-misc/electrum PYTHON_TARGETS: python3_8
 net-print/hplip PYTHON_SINGLE_TARGET: python3_8
 
 # autounmask
