@@ -18,6 +18,6 @@ sys-firmware/intel-microcode intel-ucode intel-ucode-20180807
 sys-kernel/gentoo-sources linux-firmware
 sys-kernel/linux-firmware linux-fw-redistributable no-source-code
 www-plugins/chrome-binary-plugins google-chrome
-www-plugins/google-talkplugin Google-TOS
+#www-plugins/google-talkplugin Google-TOS
 
 # autounmask
