@@ -85,7 +85,7 @@ media-libs/opencv qt5 # required by base profile
 */* PYTHON_SINGLE_TARGET: -* python3_9
 
 # packages without latest version
-app-text/calibre PYTHON_SINGLE_TARGET: python3_8
+app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 #app-admin/eclean-kernel PYTHON_TARGETS: python3_8
 #app-misc/khal PYTHON_TARGETS: python3_8
 #app-misc/ranger PYTHON_TARGETS: python3_8
