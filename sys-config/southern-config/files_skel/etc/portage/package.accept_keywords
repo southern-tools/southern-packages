@@ -42,7 +42,7 @@ x11-misc/xkblayout-state ~amd64
 x11-wm/i3-gaps ~amd64
 
 # specific version
-=app-text/calibre-5.4.2-r1 ~amd64
+#=app-text/calibre-5.4.2-r1 ~amd64
 =dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 =dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 =dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
