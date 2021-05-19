@@ -5,6 +5,7 @@ app-editors/sublime-text ~amd64
 #app-editors/vscode **
 app-editors/vscodium-bin ~amd64
 app-editors/visual-studio-code-bin ~amd64
+app-emulation/anbox::southern-packages ~amd64 # required by app-emulation/anbox
 app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
