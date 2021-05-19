@@ -18,7 +18,7 @@ ReposToPull=(	"${repo_1[1]}"\
 				"${repo_6[1]}"\
 				"${repo_7[1]}"\
 				"${repo_8[1]}"\
-				"${repo_9[1]}")
+				"${repo_15[1]}")
 
 ReposToPush=(	"${repo_16[1]}")
 
@@ -87,10 +87,10 @@ Merge3
 Merge4
 Merge5
 Merge6
-Merge7
+# Merge7
 # Merge8
-# Merge9
-# Merge10
+Merge9
+Merge10
 
 # Push repos
 PushRepos

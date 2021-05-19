@@ -22,6 +22,8 @@ dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
+#dev-util/android-sdk-update-manager ~amd64 # required by dev-util/android-sdk-update-manager
+#dev-util/android-studio ~amd64 # required by dev-util/android-studio
 dev-util/clinfo ~amd64 # required by clinfo
 lxde-base/lxappearance ~amd64 # required by lxde-base/lxappearance
 media-sound/mps-youtube ** #~amd64
