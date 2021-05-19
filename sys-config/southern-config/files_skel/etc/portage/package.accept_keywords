@@ -10,6 +10,7 @@ app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/pandoc ~amd64
+dev-cpp/properties-cpp ~amd64 # required by app-emulation/anbox
 dev-java/icedtea ~amd64
 dev-java/openjdk ~amd64
 dev-lang/python:2.7::southern-packages ~amd64 # python with lto
