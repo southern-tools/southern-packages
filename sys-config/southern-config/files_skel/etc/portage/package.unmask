@@ -11,6 +11,7 @@ app-portage/portage-bashrc-mv::southern-packages # required by sys-config/ltoize
 #app-portage/showem::southern-packages
 app-shells/runtitle::southern-packages # required by app-portage/portage-bashrc-mv-17.3::mv[title], sys-config/ltoize-0.9.4-r1::southern-packages
 dev-cpp/properties-cpp::southern-packages # required by app-emulation/anbox
+dev-cpp/sdbus-cpp::southern-packages # required by app-emulation/anbox
 dev-lang/python::southern-packages
 #dev-util/electron::southern-packages # required by app-editors/vscode
 #games-util/steam-client-meta::southern-packages
