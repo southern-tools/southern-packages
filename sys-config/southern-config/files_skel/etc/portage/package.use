@@ -92,6 +92,6 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 #dev-python/vdirsyncer PYTHON_TARGETS: python3_8
 #media-sound/mps-youtube PYTHON_TARGETS: python3_8
 #net-misc/electrum PYTHON_TARGETS: python3_8
-net-print/hplip PYTHON_SINGLE_TARGET: python3_8
+#net-print/hplip PYTHON_SINGLE_TARGET: python3_8
 
 # autounmask
