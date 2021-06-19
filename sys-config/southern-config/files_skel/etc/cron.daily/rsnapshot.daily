@@ -1,0 +1,11 @@
+#!/bin/sh
+# Southern Tools
+#
+echo "### RSNAPSHOT DAILY ###"
+cryptsetup --key-file /root/.user_config/no_share/luks/encrypted_drive.key luksOpen /dev/disk/by-uuid/ENCRYPTED_DRIVE_UUID encrypted_drive
+vgchange --activate y vg_encrypted
+mount -L backup /mnt/backup && rsnapshot daily || echo "Backup failure"
+umount /mnt/backup
+vgchange --activate n vg_encrypted
+cryptsetup luksClose encrypted_drive
+echo ""
