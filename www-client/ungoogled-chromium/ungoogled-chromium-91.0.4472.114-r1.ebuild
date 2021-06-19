@@ -37,7 +37,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="cfi +clang convert-dict cups custom-cflags enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
+IUSE="cfi +clang convert-dict cups custom-cflags enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui +partition pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
 	!system-openh264? ( bindist )
@@ -663,6 +663,10 @@ src_configure() {
 
 	if use tcmalloc; then
 	myconf_gn+=" use_allocator=\"tcmalloc\""
+	fi
+
+	if use partition; then
+	myconf_gn+=" use_allocator=\"partition\""
 	fi
 
 	# Disable nacl, we can't build without pnacl (http://crbug.com/269560).
