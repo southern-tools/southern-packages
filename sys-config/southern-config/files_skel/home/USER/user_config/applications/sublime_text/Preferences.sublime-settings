@@ -1,12 +1,12 @@
 {
 	"color_scheme": "Packages/sublime_zk/Monokai Extended-zk.tmTheme",
 	"font_face": "Hack",
-	"font_size": 12,
+	"font_size": 24,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"theme": "Adaptive.sublime-theme",
 	"update_check": false,
-	"word_wrap": true
+	"word_wrap": true,
 }
