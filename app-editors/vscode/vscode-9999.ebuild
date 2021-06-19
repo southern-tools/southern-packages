@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{8..9} )
+PYTHON_COMPAT=( python3_{8..10} )
 
 inherit desktop flag-o-matic multilib ninja-utils pax-utils portability python-any-r1 toolchain-funcs xdg-utils
 
@@ -13,15 +13,15 @@ LICENSE="MIT"
 SLOT="0"
 VS_RIPGREP_V="1.11.3"
 SRC_URI="!build-online? (
-	https://registry.yarnpkg.com/esbuild/-/esbuild-0.8.30.tgz
-	https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.8.30.tgz
-	https://registry.npmjs.org/esbuild-linux-32/-/esbuild-linux-32-0.8.30.tgz
+	https://registry.yarnpkg.com/esbuild/-/esbuild-0.12.1.tgz
+	https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.12.1.tgz
+	https://registry.npmjs.org/esbuild-linux-32/-/esbuild-linux-32-0.12.1.tgz
 	)
 	https://registry.yarnpkg.com/vscode-ripgrep/-/vscode-ripgrep-${VS_RIPGREP_V}.tgz
 "
 
 REPO="https://github.com/microsoft/vscode"
-ELECTRON_SLOT="11"
+ELECTRON_SLOT="12"
 #CODE_COMMIT_ID="ae245c9b1f06e79cec4829f8cd1555206b0ec8f2"
 
 if [[ ${PV} = *9999* ]]; then
@@ -89,6 +89,7 @@ src_prepare() {
 	sed -i '/"vscode-ripgrep"/d' package.json || die
 	sed -i '/"vscode-telemetry-extractor"/d' package.json || die
 	use build-online || sed -i '/"esbuild"/d' build/package.json || die
+	use build-online || sed -i '/"esbuild"/d' extensions/package.json || die
 
 	#sed -i '/"electron"/d' package.json || die
 	#sed -i '/vscode-ripgrep/d' remote/package.json || die
@@ -148,7 +149,7 @@ src_prepare() {
 	cat product.json.bak >> product.json
 
 	einfo "Disabling telemetry by default"
-	perl -0777 -pi -e "s/'default': true,\n\s*'tags': \['usesOnlineServices'\]/'default': false,'tags': ['usesOnlineServices']/m or die" src/vs/platform/telemetry/common/telemetryService.ts || die
+	perl -0777 -pi -e "s/'default': true,\n\s*'restricted': true,/'default': false,'restricted': true,/m or die" src/vs/platform/telemetry/common/telemetryService.ts || die
 	perl -0777 -pi -e "s/'default': true,\n\s*'tags': \['usesOnlineServices'\]/'default': false,'tags': ['usesOnlineServices']/m or die" src/vs/workbench/electron-sandbox/desktop.contribution.ts || die
 
 	einfo "Disabling automatic updates by default"
@@ -216,12 +217,28 @@ src_configure() {
 	if ! use build-online; then
 	einfo "Restoring esbuild"
 	pushd build/node_modules > /dev/null || die
-	tar -xf "${DISTDIR}/esbuild-0.8.30.tgz"
+	tar -xf "${DISTDIR}/esbuild-0.12.1.tgz"
 	mv package esbuild
 	if [[ $myarch = amd64 ]] ; then
-		tar -xf "${DISTDIR}/esbuild-linux-64-0.8.30.tgz"
+		tar -xf "${DISTDIR}/esbuild-linux-64-0.12.1.tgz"
 	else
-		tar -xf "${DISTDIR}/esbuild-linux-32-0.8.30.tgz"
+		tar -xf "${DISTDIR}/esbuild-linux-32-0.12.1.tgz"
+	fi
+	mv -f package/bin/esbuild esbuild/bin/
+	popd > /dev/null || die
+	eend $? || die
+	fi
+
+	if ! use build-online; then
+	einfo "Restoring esbuild in extensions"
+	mkdir -p extensions/node_modules
+	pushd extensions/node_modules > /dev/null || die
+	tar -xf "${DISTDIR}/esbuild-0.12.1.tgz"
+	mv package esbuild
+	if [[ $myarch = amd64 ]] ; then
+		tar -xf "${DISTDIR}/esbuild-linux-64-0.12.1.tgz"
+	else
+		tar -xf "${DISTDIR}/esbuild-linux-32-0.12.1.tgz"
 	fi
 	mv -f package/bin/esbuild esbuild/bin/
 	popd > /dev/null || die
