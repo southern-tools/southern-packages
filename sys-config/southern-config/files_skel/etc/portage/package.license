@@ -2,7 +2,7 @@
 
 app-arch/unrar unRAR
 app-editors/sublime-text Sublime
-#app-editors/visual-studio-code-bin Microsoft-VSCode
+app-editors/vscode Microsoft-vscode
 app-text/calibre unRAR
 #dev-java/oracle-jre-bin Oracle-BCLA-JavaSE
 #dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE

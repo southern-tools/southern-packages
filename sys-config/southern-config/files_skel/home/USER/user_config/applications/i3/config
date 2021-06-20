@@ -370,7 +370,7 @@ bindsym $mod+Mod1+s exec spacefm
 # Text Edit
 bindsym $mod+Mod1+t exec subl
 bindsym $mod+Mod1+e exec emacs
-bindsym $mod+Mod1+c exec codium
+bindsym $mod+Mod1+c exec vscode
 
 # Multimedia
 # bindsym $mod+Mod1+v exec vlc
