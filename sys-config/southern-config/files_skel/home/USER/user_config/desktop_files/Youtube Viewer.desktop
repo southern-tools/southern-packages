@@ -2,11 +2,11 @@
 
 Type=Application
 
-Name=MPS Youtube
+Name=Youtube Viewer
 
 Comment=CLI Youtube player
 
-Exec=swaymsg "exec urxvtc -e mpsyt"
+Exec=swaymsg "exec urxvtc -e youtube-viewer"
 
 Icon=utilities-terminal
 

@@ -324,7 +324,7 @@ for_window [class="URxvt" title="terminal_randomize_mac"] floating enable
 for_window [class="URxvt" title="terminal_wake_remotes"] floating enable
 
 # Assign applications to specific workspaces
-assign [title="mpsyt"] $ws10
+assign [title="youtube-viewer"] $ws10
 assign [class="mpv"] $ws10
 #assign [class="vlc"] $ws10
 assign [title="ncmpcpp*"] $ws10
@@ -416,7 +416,7 @@ bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec urxvtc -e mpsyt; workspace $ws10
+bindsym $mod+Mod1+y exec urxvtc -e youtube-viewer; workspace $ws10
 
 # Neomutt
 bindsym $mod+Mod1+n exec urxvtc -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
