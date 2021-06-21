@@ -3,17 +3,10 @@
 # prefer latest version
 app-editors/sublime-text ~amd64
 app-editors/vscode ~amd64
-#app-editors/vscodium-bin ~amd64
-#app-editors/visual-studio-code-bin ~amd64
-#app-emulation/anbox::southern-packages ~amd64 # required by app-emulation/anbox
 app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/pandoc ~amd64
-#dev-cpp/properties-cpp ~amd64 # required by app-emulation/anbox
-#dev-cpp/sdbus-cpp ~amd64 # required by app-emulation/anbox
-dev-java/icedtea ~amd64
-dev-java/openjdk ~amd64
 dev-lang/python:2.7::southern-packages ~amd64 # python with lto
 dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-lang/python:3.9::southern-packages ~amd64 # python with lto
@@ -23,13 +16,11 @@ dev-libs/bemenu ~amd64
 dev-libs/light ~amd64
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
-dev-python/pafy ~amd64 # required by mps-youtube
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
 #dev-util/android-sdk-update-manager ~amd64 # required by dev-util/android-sdk-update-manager
 #dev-util/android-studio ~amd64 # required by dev-util/android-studio
 dev-util/clinfo ~amd64 # required by clinfo
 lxde-base/lxappearance ~amd64 # required by lxde-base/lxappearance
-#media-sound/mps-youtube ** #~amd64
 media-video/avidemux ~amd64
 media-libs/avidemux-core ~amd64
 media-libs/avidemux-plugins ~amd64
@@ -38,17 +29,14 @@ net-im/zoom ~amd64
 net-misc/youtube-viewer **
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
-sys-kernel/gentoo-sources ~amd64
+#sys-kernel/gentoo-sources ~amd64
 #www-client/ungoogled-chromium ~amd64
-#www-plugins/google-talkplugin ~amd64
 x11-libs/gtk+ ~amd64 # from Vaeth, without "atk-bridge"
 x11-misc/libinput-gestures ~amd64
 x11-misc/py3status ~amd64
 x11-misc/xkblayout-state ~amd64
-x11-wm/i3-gaps ~amd64
 
 # specific version
-#=app-text/calibre-5.4.2-r1 ~amd64
 =dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 =dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 =dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
@@ -59,12 +47,12 @@ dev-haskell/* ~amd64
 dev-lang/ghc ~amd64
 
 # ungoogled-chromium current
-=sys-devel/clang-12.0.0-r1 ~amd64 # required by ungoogled-chromium
-=sys-devel/clang-runtime-12.0.0 ~amd64 # required by ungoogled-chromium
-=sys-devel/lld-12.0.0 ~amd64 # required by ungoogled-chromium
-=sys-devel/llvm-12.0.0 ~amd64 # required by ungoogled-chromium
-=sys-libs/compiler-rt-12.0.0 ~amd64 # required by ungoogled-chromium
-=sys-libs/compiler-rt-sanitizers-12.0.0 ~amd64 # required by ungoogled-chromium
-=sys-libs/libomp-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-devel/clang-12.0.0-r1 ~amd64 # required by ungoogled-chromium
+#=sys-devel/clang-runtime-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-devel/lld-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-devel/llvm-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-libs/compiler-rt-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-libs/compiler-rt-sanitizers-12.0.0 ~amd64 # required by ungoogled-chromium
+#=sys-libs/libomp-12.0.0 ~amd64 # required by ungoogled-chromium
 
 # autounmask
