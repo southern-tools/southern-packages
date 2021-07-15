@@ -31,6 +31,7 @@ dev-qt/qtwidgets gtk # gtk preferences
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
 media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
+media-libs/freetype harfbuzz # required by x11-libs/pango, app-editors/vscode
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/leptonica jpeg tiff # "jpeg, tiff" required by teseract
 media-libs/libsdl2 gles2 # required by "wayland"
