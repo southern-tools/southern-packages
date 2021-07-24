@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic multilib ninja-utils pax-util
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-UGC_COMMIT_ID="4ee8b57c6e2c285ab80ce9f2a0d70e6e2844cb6b"
+UGC_COMMIT_ID="1b2c5593f9d6fd3e3d9209e6d247de2add1791ef"
 
 if [ -z "$UGC_COMMIT_ID" ]
 then
@@ -32,6 +32,7 @@ PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://files.pythonhosted.org/packages/ed/7b/bbf89ca71e722b7f9464ebffe4b5ee20a9e5c9a555a56e2d3914bb9119a6/setuptools-44.1.0.zip
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
+	https://dev.gentoo.org/~sultan/distfiles/www-client/chromium/chromium-92-glibc-2.33-patch.tar.xz
 	${UGC_URL}"
 
 LICENSE="BSD"
@@ -272,20 +273,13 @@ src_prepare() {
 
 	local PATCHES=(
 		"${WORKDIR}/patches"
+		"${WORKDIR}/sandbox-patches/chromium-syscall_broker.patch"
+		"${WORKDIR}/sandbox-patches/chromium-fstatat-crash.patch"
 		"${FILESDIR}/chromium-92-EnumTable-crash.patch"
+		"${FILESDIR}/chromium-92-GetUsableSize-nullptr.patch"
+		"${FILESDIR}/chromium-freetype-2.11.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 	)
-
-	# seccomp sandbox is broken if compiled against >=sys-libs/glibc-2.33, bug #769989
-	if has_version -d ">=sys-libs/glibc-2.33"; then
-		ewarn "Adding experimental glibc-2.33 sandbox patch. Seccomp sandbox might"
-		ewarn "still not work correctly. In case of issues, try to disable seccomp"
-		ewarn "sandbox by adding --disable-seccomp-filter-sandbox to CHROMIUM_FLAGS"
-		ewarn "in /etc/chromium/default."
-		PATCHES+=(
-			"${FILESDIR}/chromium-glibc-2.33.patch"
-		)
-	fi
 
 	default
 
@@ -940,9 +934,9 @@ src_configure() {
 	"$@" || die
 
 	# List all args
-	[[ -z "${NODIE}" ]] || gn args --list out/Release
+	# [[ -z "${NODIE}" ]] || gn args --list out/Release
 	# Quick compiler check for tests
-	[[ -z "${NODIE}" ]] || eninja -C out/Release convert_dict
+	# [[ -z "${NODIE}" ]] || eninja -C out/Release convert_dict
 }
 
 src_compile() {
