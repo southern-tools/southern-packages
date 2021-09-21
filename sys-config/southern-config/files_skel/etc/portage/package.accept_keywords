@@ -13,7 +13,7 @@ dev-lang/python:3.9::southern-packages ~amd64 # python with lto
 dev-lang/python:3.10::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
-dev-libs/light ~amd64
+#dev-libs/light ~amd64
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)

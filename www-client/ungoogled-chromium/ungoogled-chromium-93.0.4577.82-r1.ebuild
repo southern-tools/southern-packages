@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{8,9} )
 PYTHON_REQ_USE="xml"
 
 CHROMIUM_LANGS="am ar bg bn ca cs da de el en-GB es es-419 et fa fi fil fr gu he
@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic multilib ninja-utils pax-util
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-#UGC_COMMIT_ID="342ab1613423293c4842f8235b622153692c5727"
+#UGC_COMMIT_ID="1835aef1e831ad784b2513908761439bb6d37834"
 
 if [ -z "$UGC_COMMIT_ID" ]
 then
@@ -30,13 +30,14 @@ HOMEPAGE="https://github.com/Eloston/ungoogled-chromium"
 PATCHSET="6"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
-	https://files.pythonhosted.org/packages/ed/7b/bbf89ca71e722b7f9464ebffe4b5ee20a9e5c9a555a56e2d3914bb9119a6/setuptools-44.1.0.zip
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
+	https://dev.gentoo.org/~sultan/distfiles/www-client/chromium/chromium-92-glibc-2.33-patch.tar.xz
+	arm64? ( https://github.com/google/highway/archive/refs/tags/0.12.1.tar.gz -> highway-0.12.1.tar.gz )
 	${UGC_URL}"
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups custom-cflags enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui +partition pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -52,7 +53,7 @@ REQUIRED_USE="
 "
 
 COMMON_X_DEPEND="
-	media-libs/mesa:=[gbm]
+	media-libs/mesa:=[gbm(+)]
 	x11-libs/libX11:=
 	x11-libs/libXcomposite:=
 	x11-libs/libXcursor:=
@@ -99,6 +100,7 @@ COMMON_DEPEND="
 		)
 		>=media-libs/opus-1.3.1:=
 	)
+	net-misc/curl[ssl]
 	sys-apps/dbus:=
 	sys-apps/pciutils:=
 	virtual/udev
@@ -147,8 +149,10 @@ DEPEND="${COMMON_DEPEND}
 # dev-vcs/git - https://bugs.gentoo.org/593476
 BDEPEND="
 	${PYTHON_DEPS}
+	$(python_gen_any_dep '
+		dev-python/setuptools[${PYTHON_USEDEP}]
+	')
 	>=app-arch/gzip-1.7
-	app-arch/unzip
 	dev-lang/perl
 	>=dev-util/gn-0.1807
 	dev-vcs/git
@@ -198,6 +202,10 @@ in /etc/chromium/default.
 "
 
 S="${WORKDIR}/chromium-${PV}"
+
+python_check_deps() {
+	has_version -b "dev-python/setuptools[${PYTHON_USEDEP}]"
+}
 
 pre_build_checks() {
 	if [[ ${MERGE_TYPE} != binary ]]; then
@@ -261,34 +269,38 @@ pkg_setup() {
 }
 
 src_prepare() {
+	# Calling this here supports resumption via FEATURES=keepwork
+	python_setup
 
 	if ! use custom-cflags; then #See #25 #92
-		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-$(ver_cut 1)-compiler.patch" || die
+		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-91-compiler.patch" || die
 	fi
 
 	local PATCHES=(
 		"${WORKDIR}/patches"
-		"${FILESDIR}/chromium-89-EnumTable-crash.patch"
-		"${FILESDIR}/chromium-91-ThemeService-crash.patch"
-		"${FILESDIR}/chromium-91-system-icu.patch"
+		"${WORKDIR}/sandbox-patches/chromium-syscall_broker.patch"
+		"${WORKDIR}/sandbox-patches/chromium-fstatat-crash.patch"
+		"${FILESDIR}/chromium-93-EnumTable-crash.patch"
+		"${FILESDIR}/chromium-93-InkDropHost-crash.patch"
+		"${FILESDIR}/chromium-93-ffmpeg-4.4.patch"
+		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
+		"${FILESDIR}/sql-VirtualCursor-standard-layout.patch"
 	)
-
-	# seccomp sandbox is broken if compiled against >=sys-libs/glibc-2.33, bug #769989
-	if has_version -d ">=sys-libs/glibc-2.33"; then
-		ewarn "Adding experimental glibc-2.33 sandbox patch. Seccomp sandbox might"
-		ewarn "still not work correctly. In case of issues, try to disable seccomp"
-		ewarn "sandbox by adding --disable-seccomp-filter-sandbox to CHROMIUM_FLAGS"
-		ewarn "in /etc/chromium/default."
-		PATCHES+=(
-			"${FILESDIR}/chromium-glibc-2.33.patch"
-		)
-	fi
 
 	default
 
 	mkdir -p third_party/node/linux/node-linux-x64/bin || die
 	ln -s "${EPREFIX}"/usr/bin/node third_party/node/linux/node-linux-x64/bin/node || die
+
+	# adjust python interpreter version
+	sed -i -e "s|\(^script_executable = \).*|\1\"${EPYTHON}\"|g" .gn || die
+
+	# bundled highway library does not support arm64 with GCC
+	if use arm64; then
+		rm -r third_party/highway/src || die
+		ln -s "${WORKDIR}/highway-0.12.1" third_party/highway/src || die
+	fi
 
 	use convert-dict && eapply "${FILESDIR}/chromium-ucf-dict-utility.patch"
 
@@ -303,6 +315,11 @@ src_prepare() {
 
 	use vdpau && eapply "${FILESDIR}/vdpau-support-r3.patch"
 
+	# Fix CFI build on Chromium>=93 with Clang<13
+	if use cfi && ver_test "$(clang --version | head -n1 | cut -d' ' -f3)" -lt 13.0.0; then
+		eapply "${FILESDIR}/chromium-cfi-clang13-back-compat.patch"
+	fi
+
 	# From here we adapt ungoogled-chromium's patches to our needs
 	local ugc_pruning_list="${UGC_WD}/pruning.list"
 	local ugc_patch_series="${UGC_WD}/patches/series"
@@ -310,7 +327,6 @@ src_prepare() {
 	local ugc_unneeded=(
 		# GN bootstrap
 		extra/debian/gn/parallel
-		core/chromium-upstream/fix-crash-in-ThemeService
 	)
 
 	local ugc_p ugc_dir
@@ -365,7 +381,6 @@ src_prepare() {
 		third_party/angle/src/common/third_party/base
 		third_party/angle/src/common/third_party/smhasher
 		third_party/angle/src/common/third_party/xxhash
-		third_party/angle/src/third_party/compiler
 		third_party/angle/src/third_party/libXNVCtrl
 		third_party/angle/src/third_party/trace_event
 		third_party/angle/src/third_party/volk
@@ -380,8 +395,8 @@ src_prepare() {
 		third_party/catapult
 		third_party/catapult/common/py_vulcanize/third_party/rcssmin
 		third_party/catapult/common/py_vulcanize/third_party/rjsmin
-		third_party/catapult/third_party/beautifulsoup4
-		third_party/catapult/third_party/html5lib-python
+		third_party/catapult/third_party/beautifulsoup4-4.9.3
+		third_party/catapult/third_party/html5lib-1.1
 		third_party/catapult/third_party/polymer
 		third_party/catapult/third_party/six
 		third_party/catapult/tracing/third_party/d3
@@ -402,6 +417,7 @@ src_prepare() {
 		third_party/dav1d
 		third_party/dawn
 		third_party/dawn/third_party/khronos
+		third_party/dawn/third_party/tint
 		third_party/depot_tools
 		third_party/devscripts
 		third_party/devtools-frontend
@@ -409,7 +425,7 @@ src_prepare() {
 		third_party/devtools-frontend/src/front_end/third_party/axe-core
 		third_party/devtools-frontend/src/front_end/third_party/chromium
 		third_party/devtools-frontend/src/front_end/third_party/codemirror
-		third_party/devtools-frontend/src/front_end/third_party/fabricjs
+		third_party/devtools-frontend/src/front_end/third_party/diff
 		third_party/devtools-frontend/src/front_end/third_party/i18n
 		third_party/devtools-frontend/src/front_end/third_party/intl-messageformat
 		third_party/devtools-frontend/src/front_end/third_party/lighthouse
@@ -554,8 +570,8 @@ src_prepare() {
 		third_party/tflite/src/third_party/eigen3
 		third_party/tflite/src/third_party/fft2d
 		third_party/tflite-support
-		third_party/tint
 		third_party/ruy
+		third_party/six
 		third_party/ukey2
 		third_party/usrsctp
 		third_party/utf
@@ -578,7 +594,6 @@ src_prepare() {
 		third_party/xcbproto
 		third_party/zxcvbn-cpp
 		third_party/zlib/google
-		tools/grit/third_party/six
 		url/third_party/mozilla
 		v8/src/third_party/siphash
 		v8/src/third_party/valgrind
@@ -609,8 +624,17 @@ src_prepare() {
 	if ! use system-re2; then
 		keeplibs+=( third_party/re2 )
 	fi
-
-	python_setup
+	if use arm64 || use ppc64 ; then
+		keeplibs+=( third_party/swiftshader/third_party/llvm-10.0 )
+	fi
+	# we need to generate ppc64 stuff because upstream does not ship it yet
+	# it has to be done before unbundling.
+	if use ppc64; then
+		pushd third_party/libvpx >/dev/null || die
+		mkdir -p source/config/linux/ppc64 || die
+		./generate_gni.sh || die
+		popd >/dev/null || die
+	fi
 
 	# Remove most bundled libraries. Some are still needed.
 	build/linux/unbundle/remove_bundled_libraries.py "${keeplibs[@]}" --do-remove || die
@@ -618,6 +642,10 @@ src_prepare() {
 	if use js-type-check; then
 		ln -s "${EPREFIX}"/usr/bin/java third_party/jdk/current/bin/java || die
 	fi
+
+	# bundled eu-strip is for amd64 only and we don't want to pre-stripped binaries
+	mkdir -p buildtools/third_party/eu-strip/bin || die
+	ln -s "${EPREFIX}"/bin/true buildtools/third_party/eu-strip/bin/eu-strip || die
 }
 
 src_configure() {
@@ -795,6 +823,9 @@ src_configure() {
 	# Disable pseudolocales, only used for testing
 	myconf_gn+=" enable_pseudolocales=false"
 
+	# Disable code formating of generated files
+	myconf_gn+=" blink_enable_generated_code_formatting=false"
+
 	ffmpeg_branding="$(usex proprietary-codecs Chrome Chromium)"
 	myconf_gn+=" proprietary_codecs=$(usex proprietary-codecs true false)"
 	myconf_gn+=" ffmpeg_branding=\"${ffmpeg_branding}\""
@@ -847,7 +878,7 @@ src_configure() {
 		# from 25% to 10%. The performance number of page_cycler is the
 		# same on two of the thinLTO configurations, we got 1% slowdown
 		# on speedometer when changing import-instr-limit from 100 to 30.
-		# append-ldflags "-Wl,-plugin-opt,-import-instr-limit=30"
+		#append-ldflags "-Wl,-plugin-opt,-import-instr-limit=30"
 
 		append-ldflags "-Wl,--thinlto-jobs=$(makeopts_jobs)"
 		myconf_gn+=" use_lld=true"
@@ -887,6 +918,11 @@ src_configure() {
 
 	# Chromium relies on this, but was disabled in >=clang-10, crbug.com/1042470
 	append-cxxflags $(test-flags-CXX -flax-vector-conversions=all)
+
+	# highway/libjxl relies on this with arm64
+	if use arm64 && tc-is-gcc; then
+		append-cxxflags -flax-vector-conversions
+	fi
 
 	# Disable unknown warning message from clang.
 	tc-is-clang && append-flags -Wno-unknown-warning-option
@@ -936,10 +972,14 @@ src_configure() {
 	echo "$@"
 	"$@" || die
 
-	# List all args
-	# [[ -z "${NODIE}" ]] || gn args --list out/Release
-	# Quick compiler check for tests
-	# [[ -z "${NODIE}" ]] || eninja -C out/Release convert_dict
+	# The "if" below should not be executed unless testing
+	if [[ ! -z "${NODIE}" ]]; then
+		# List all args
+		# gn args --list out/Release
+
+		# Quick compiler check
+		eninja -C out/Release protoc torque
+	fi
 }
 
 src_compile() {
@@ -948,10 +988,6 @@ src_compile() {
 
 	# Calling this here supports resumption via FEATURES=keepwork
 	python_setup
-
-	# https://bugs.gentoo.org/717456
-	# don't inherit PYTHONPATH from environment, bug #789021
-	local -x PYTHONPATH="${WORKDIR}/setuptools-44.1.0"
 
 	use convert-dict && eninja -C out/Release convert_dict
 
@@ -975,6 +1011,8 @@ src_compile() {
 	use suid && eninja -C out/Release chrome_sandbox
 
 	pax-mark m out/Release/chrome
+
+	use enable-driver && mv out/Release/chromedriver{.unstripped,}
 
 	# Build manpage; bug #684550
 	sed -e 's|@@PACKAGE@@|chromium-browser|g;
