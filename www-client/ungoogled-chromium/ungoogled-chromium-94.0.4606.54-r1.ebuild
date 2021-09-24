@@ -35,7 +35,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-# KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups custom-cflags debug enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui +partition pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -293,7 +293,10 @@ src_prepare() {
 
 	use convert-dict && eapply "${FILESDIR}/chromium-ucf-dict-utility.patch"
 
-	use system-ffmpeg && eapply "${FILESDIR}/chromium-93-ffmpeg-4.4.patch"
+	if use system-ffmpeg; then
+		eapply "${FILESDIR}/chromium-93-ffmpeg-4.4.patch"
+		eapply -R "${FILESDIR}/chromium-94-ffmpeg-roll.patch"
+	fi
 
 	if use system-jsoncpp; then
 		eapply "${FILESDIR}/chromium-system-jsoncpp-r2.patch"
