@@ -1,78 +1,49 @@
 ;; Southern Tools
 ;;
 ;;
-;; Repos
+;; Melpa Repository
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (package-initialize)
 ;;
 ;;
 ;; Deft package
-(setq deft-extensions '("md" "txt" "org"))
-(setq deft-directory "~/Library/Zettelkasten/")
-(setq deft-use-filename-as-title t)
-(setq deft-recursive t)
+(use-package deft
+  :ensure t
+  :init
+   (setq deft-extensions '("md" "txt" "org")
+         deft-default-extension "md"
+         deft-directory "~/Library/Zettelkasten/"
+         deft-use-filename-as-title t
+         deft-current-sort-method 'title
+         deft-recursive t))
 (global-set-key [f8] 'deft)
-;; Open a file in the other window and shifting focus to it
-(defun efls/deft-open-other ()
- (interactive)
- (deft-open-file-other-window t))
-;; To select results from the item list without leaving the insert state
-(with-eval-after-load 'deft
-  (define-key deft-mode-map
-    (kbd "<tab>") 'efls/deft-open-preview)
-  (define-key deft-mode-map
-    (kbd "<s-return>") 'efls/deft-open-other)
-  (define-key deft-mode-map
-    (kbd "s-j") 'evil-next-line)
-  (define-key deft-mode-map (kbd "s-k") 'evil-previous-line))
-;; Ignore more org-mode metadata
-(setq deft-strip-summary-regexp
- (concat "\\("
-         "[\n\t]" ;; blank
-         "\\|^#\\+[a-zA-Z_]+:.*$" ;;org-mode metadata
-         "\\)"))
-;;
-;; Zetteldeft package
-;; Requires "general", "deft", "avy", "ace-window", "use-package"
-(add-to-list 'load-path "~/Remotes/git_only_pull/EFLS/zetteldeft/")
-(setq zd-id-format "%Y%m%d%H%M")
-(setq deft-new-file-format zd-id-format)
-(setq zd-id-regex "20[0-9]\\{10\\}")
-(setq zd-link-indicator "[[")
-(setq zd-title-prefix "---\nNote ID: '")
-(setq zd-title-suffix "'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n")
-(require 'zetteldeft)
-;;
-;; General package
-(general-define-key
-  :prefix "SPC"
-  :non-normal-prefix "C-SPC"
-  :states '(normal visual motion emacs)
-  :keymaps 'override
-  "d"  '(nil :wk "deft")
-  "dd" '(deft :wk "deft")
-  "dD" '(zd-deft-new-search :wk "new search")
-  "dR" '(deft-refresh :wk "refresh")
-  "ds" '(zd-search-at-point :wk "search at point")
-  "dc" '(zd-search-current-id :wk "search current id")
-  "df" '(zd-follow-link :wk "follow link")
-  "dF" '(zd-avy-file-search-ace-window :wk "avy file other window")
-  "dl" '(zd-avy-link-search :wk "avy link search")
-  "dt" '(zd-avy-tag-search :wk "avy tag search")
-  "dT" '(zd-tag-buffer :wk "tag list")
-  "di" '(zd-find-file-id-insert :wk "insert id")
-  "dI" '(zd-find-file-full-title-insert :wk "insert full title")
-  "do" '(zd-find-file :wk "find file")
-  "dn" '(zd-new-file :wk "new file")
-  "dN" '(zd-new-file-and-link :wk "new file & link")
-  "dr" '(zd-file-rename :wk "rename"))
-(require 'general)
-;;
-;;
-;;
+
+;; Zetteldeft
+(use-package zetteldeft
+  :ensure t
+  :after deft
+  :config (zetteldeft-set-classic-keybindings)
+  :init
+       (setq zetteldeft-link-indicator "[["
+             zetteldeft-link-suffix "]]"
+             ;;zetteldeft-title-prefix "# "
+             zetteldeft-title-prefix "---\nNote ID: '"
+             zetteldeft-title-suffix "'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n"
+             zetteldeft-list-prefix "* "
+             zetteldeft-id-format "%Y%m%d%H%M"
+             zetteldeft-id-regex "[0-9]\\{12\\}"))
+
+(font-lock-add-keywords 'markdown-mode
+   `((,zetteldeft-id-regex
+      . font-lock-warning-face)))
+
+(font-lock-add-keywords 'markdown-mode
+   `((,(concat "\\[\\["
+               zetteldeft-id-regex
+               "\\]\\]")
+      . font-lock-warning-face)))
+(setq deft-new-file-format zetteldeft-id-format)
 ;; Global settings
 (setq
    backup-by-copying t      ; don't clobber symlinks
@@ -82,15 +53,3 @@
    kept-new-versions 6
    kept-old-versions 2
    version-control t)       ; use versioned backups
-;;
-;;
-;;======================
-;; AUTOMATICALLY EDITED
-;;======================
-;;
-;;
-;;==========================
-;; END OF AUTOMATIC EDITION
-;;==========================
-;;
-;;

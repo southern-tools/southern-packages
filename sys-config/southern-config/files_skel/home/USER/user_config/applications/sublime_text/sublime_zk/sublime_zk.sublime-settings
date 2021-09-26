@@ -10,4 +10,5 @@
     "word_wrap": true,
     "id_in_title": true,
     "insert_links_with_titles": true,
-	"new_note_template": "---\nNote ID: '{file}'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n"}
+	"new_note_template": "---\nNote ID: '{file}'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n"
+}
