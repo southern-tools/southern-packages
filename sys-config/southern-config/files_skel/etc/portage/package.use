@@ -20,7 +20,8 @@ dev-java/openjdk-bin gentoo-vm # preferences
 dev-lang/python sqlite tk # "sqlite" required by dev-python/ipython, dev-python/nbformat, app-misc/khal, sys-apps/bleachbit, dev-python/vdirsyncer, app-text/calibre, "tk" preferences
 dev-lang/ruby -berkdb -gdbm -ncurses -readline # preferences
 dev-libs/boost nls # "nls" required by ncmpcpp, gnucash, libreoffice
-dev-libs/intel-neo l0 # preferences
+# move dev-libs/intel-neo dev-libs/intel-compute-runtime
+dev-libs/intel-compute-runtime l0 # preferences
 dev-python/PyQt5 gui network printsupport svg webchannel widgets # "gui widgets" required by "opengl", "network, printsupport svg webchannel" required by calibre, PyQtWebEngine, QtPy
 dev-python/QtPy printsupport gui svg # required by dev-python/qtconsole
 dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
