@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic multilib ninja-utils pax-util
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-#UGC_COMMIT_ID="80e3444fbff5e36e82407814c68cdd421d1ab683"
+UGC_COMMIT_ID="0b5d32b73f5350f981f7563c2680330aa8f369f2"
 
 # Use following environment variables to customise the build
 # EXTRA_GN — pass extra options to gn
@@ -34,7 +34,7 @@ fi
 
 DESCRIPTION="Modifications to Chromium for removing Google integration and enhancing privacy"
 HOMEPAGE="https://github.com/Eloston/ungoogled-chromium"
-PATCHSET="3"
+PATCHSET="4"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
@@ -42,7 +42,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+# KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups custom-cflags debug enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui +partition pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -278,13 +278,18 @@ src_prepare() {
 	python_setup
 
 	if ! use custom-cflags; then #See #25 #92
-		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-94-compiler.patch" || die
+		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-$(ver_cut 1)-compiler.patch" || die
 	fi
 
 	local PATCHES=(
 		"${WORKDIR}/patches"
 		"${FILESDIR}/chromium-93-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-93-InkDropHost-crash.patch"
+		"${FILESDIR}/chromium-95-maldoca-zlib.patch"
+		"${FILESDIR}/chromium-95-eigen-avx-1.patch"
+		"${FILESDIR}/chromium-95-eigen-avx-2.patch"
+		"${FILESDIR}/chromium-95-eigen-avx-3.patch"
+		"${FILESDIR}/chromium-95-harfbuzz-3.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 		"${FILESDIR}/sql-VirtualCursor-standard-layout.patch"
@@ -522,6 +527,9 @@ src_prepare() {
 		third_party/lss
 		third_party/lzma_sdk
 		third_party/mako
+		third_party/maldoca
+		third_party/maldoca/src/third_party/tensorflow_protos
+		third_party/maldoca/src/third_party/zlibwrapper
 		third_party/markupsafe
 		third_party/mesa
 		third_party/metrics_proto
@@ -780,8 +788,9 @@ src_configure() {
 	myconf_gn+=" use_kerberos=$(usex kerberos true false)"
 	myconf_gn+=" use_pulseaudio=$(usex pulseaudio true false)"
 	myconf_gn+=" use_vaapi=$(usex vaapi true false)"
-	myconf_gn+=" rtc_use_pipewire=$(usex screencast true false) rtc_pipewire_version=\"0.3\""
-	myconf_gn+=" link_pulseaudio=$(usex pulseaudio true false)"
+	myconf_gn+=" rtc_use_pipewire=$(usex screencast true false)"
+
+	# TODO: link_pulseaudio=true for GN.
 
 	myconf_gn+=" disable_fieldtrial_testing_config=true"
 
@@ -956,6 +965,7 @@ src_configure() {
 	# Enable ozone wayland and/or headless support
 	myconf_gn+=" use_ozone=true ozone_auto_platforms=false"
 	myconf_gn+=" ozone_platform_headless=true"
+	myconf_gn+=" ozone_platform_x11=$(usex headless false true)"
 	if use wayland || use headless; then
 		if use headless; then
 			myconf_gn+=" ozone_platform=\"headless\""
@@ -967,6 +977,8 @@ src_configure() {
 			myconf_gn+=" use_xkbcommon=true"
 			myconf_gn+=" ozone_platform=\"wayland\""
 		fi
+	else
+		myconf_gn+=" ozone_platform=\"x11\""
 	fi
 
 	# Enable official builds
@@ -1073,12 +1085,14 @@ src_install() {
 
 	use enable-driver && doexe out/Release/chromedriver
 
+	ozone_auto_session () {
+		use wayland && ! use headless && echo true || echo false
+	}
 	local sedargs=( -e
 			"s:/usr/lib/:/usr/$(get_libdir)/:g;
-			s:@@OZONE_AUTO_SESSION@@:$(usex wayland true false):g;
-			s:@@FORCE_OZONE_PLATFORM@@:$(usex headless true false):g"
+			s:@@OZONE_AUTO_SESSION@@:$(ozone_auto_session):g"
 	)
-	sed "${sedargs[@]}" "${FILESDIR}/chromium-launcher-r6.sh" > chromium-launcher.sh || die
+	sed "${sedargs[@]}" "${FILESDIR}/chromium-launcher-r7.sh" > chromium-launcher.sh || die
 	if  has_version ">=media-sound/apulse-0.1.9" ; then
 		sed -i 's/exec -a "chromium-browser"/exec -a "chromium-browser" apulse/' chromium-launcher.sh || die
 	fi
