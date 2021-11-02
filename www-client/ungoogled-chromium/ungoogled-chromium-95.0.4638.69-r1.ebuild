@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic multilib ninja-utils pax-util
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-UGC_COMMIT_ID="f1eee772d001448e23da78851b7a8418eab528fc"
+#UGC_COMMIT_ID="f1eee772d001448e23da78851b7a8418eab528fc"
 
 # Use following environment variables to customise the build
 # EXTRA_GN — pass extra options to gn
@@ -42,7 +42,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups custom-cflags debug enable-driver hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui +partition pgo +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-re2 tcmalloc thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -319,6 +319,8 @@ src_prepare() {
 	fi
 
 	use system-openjpeg && eapply "${FILESDIR}/chromium-system-openjpeg-r2.patch"
+
+	use vaapi && eapply "${FILESDIR}/ozone-x11-fix-VA-API.patch"
 
 	use vdpau && eapply "${FILESDIR}/vdpau-support-r3.patch"
 
@@ -847,6 +849,10 @@ src_configure() {
 	# Do not use bundled clang.
 	# Trying to use gold results in linker crash.
 	myconf_gn+=" use_gold=false use_sysroot=false use_custom_libcxx=false"
+
+	if use vaapi; then
+	myconf_gn+=" use_vaapi_x11=true"
+	fi
 
 	if use clang; then
 	myconf_gn+=" use_lld=true" #x86 fails with gnu ld
