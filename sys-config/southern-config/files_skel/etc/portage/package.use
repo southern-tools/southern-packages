@@ -99,3 +99,9 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 #net-print/hplip PYTHON_SINGLE_TARGET: python3_8
 
 # autounmask
+# required by dev-python/aiohttp-3.8.0::gentoo
+# required by dev-python/aiohttp-socks-0.6.0-r1::gentoo
+# required by net-misc/electrum-4.1.5::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-arch/brotli-1.0.9-r3 python

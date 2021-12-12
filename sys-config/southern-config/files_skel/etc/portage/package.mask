@@ -6,7 +6,7 @@ media-sound/pulseaudio
 sys-apps/systemd
 sys-auth/pambase
 sys-auth/polkit
-sys-fs/udev
+#sys-fs/udev
 x11-libs/gtk+::gentoo
 
 # specific versions
