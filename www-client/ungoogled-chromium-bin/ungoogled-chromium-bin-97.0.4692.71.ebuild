@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
@@ -93,7 +93,7 @@ CDEPEND="
 	>=dev-libs/atk-2.26
 	x11-libs/gtk+:3[X]
 	media-libs/lcms
-	~dev-libs/jsoncpp-1.9.4
+	dev-libs/jsoncpp:0/24
 	dev-libs/libevent
 	media-libs/openjpeg:2/7
 	app-arch/snappy

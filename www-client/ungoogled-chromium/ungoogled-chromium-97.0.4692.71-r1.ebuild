@@ -1,4 +1,4 @@
-# Copyright 2009-2021 Gentoo Authors
+# Copyright 2009-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-#UGC_COMMIT_ID="14ddda72b1b44f743153f1d394759e149c1b1f0d"
+#UGC_COMMIT_ID="b650ddc963825423591ae83dfd2ff8c64521eed6"
 
 # Use following environment variables to customise the build
 # EXTRA_GN — pass extra options to gn
@@ -123,7 +123,7 @@ COMMON_DEPEND="
 		x11-libs/gtk+:3[X]
 		wayland? (
 			dev-libs/wayland:=
-			screencast? ( media-video/pipewire:0/0.3 )
+			screencast? ( media-video/pipewire:= )
 			x11-libs/gtk+:3[wayland,X]
 			x11-libs/libdrm:=
 		)
@@ -282,7 +282,6 @@ src_prepare() {
 		"${WORKDIR}/patches"
 		"${FILESDIR}/chromium-93-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-96-EnumTable-crash.patch"
-		"${FILESDIR}/chromium-96-freetype-unbundle.patch"
 		"${FILESDIR}/chromium-glibc-2.34.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
@@ -302,6 +301,7 @@ src_prepare() {
 	if use system-ffmpeg; then
 		eapply "${FILESDIR}/chromium-93-ffmpeg-4.4.patch"
 		eapply -R "${FILESDIR}/chromium-94-ffmpeg-roll.patch"
+		eapply "${FILESDIR}/chromium-94-ffmpeg-seek.patch"
 	fi
 
 	if use system-jsoncpp; then
@@ -940,9 +940,6 @@ src_configure() {
 		popd > /dev/null || die
 	fi
 
-	# Chromium relies on this, but was disabled in >=clang-10, crbug.com/1042470
-	append-cxxflags $(test-flags-CXX -flax-vector-conversions=all)
-
 	# Disable unknown warning message from clang.
 	tc-is-clang && append-flags -Wno-unknown-warning-option
 
@@ -976,6 +973,8 @@ src_configure() {
 		# Allow building against system libraries in official builds
 		sed -i 's/OFFICIAL_BUILD/GOOGLE_CHROME_BUILD/' \
 			tools/generate_shim_headers/generate_shim_headers.py || die
+		# Don't add symbols to build
+		myconf_gn+=" symbol_level=0"
 	fi
 
 	# Facilitate deterministic builds (taken from build/config/compiler/BUILD.gn)
