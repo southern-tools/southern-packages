@@ -196,27 +196,27 @@ sudo chmod -v 755 /etc/local.d/postboot.start
 
 # Setting nano colors
 # User
-sudo sed -i 's/^# set linenumbers.*$/set linenumbers/' /etc/nanorc
+#sudo sed -i 's/^# set linenumbers.*$/set linenumbers/' /etc/nanorc
 #sudo sed -i 's/^# set mouse.*$/set mouse/' /etc/nanorc
-sudo sed -i 's/^# set titlecolor bold,lightwhite,blue.*$/set titlecolor bold,lightwhite,blue/' /etc/nanorc
-sudo sed -i 's/^# set statuscolor bold,lightwhite,green.*$/set statuscolor bold,lightwhite,green/' /etc/nanorc
-sudo sed -i 's/^# set errorcolor bold,lightwhite,red.*$/set errorcolor bold,lightwhite,red/' /etc/nanorc
-sudo sed -i 's/^# set selectedcolor lightwhite,magenta.*$/set selectedcolor lightwhite,magenta/' /etc/nanorc
-sudo sed -i 's/^# set stripecolor ,yellow.*$/set stripecolor ,yellow/' /etc/nanorc
-sudo sed -i 's/^# set scrollercolor cyan.*$/set scrollercolor cyan/' /etc/nanorc
-sudo sed -i 's/^# set numbercolor cyan.*$/set numbercolor cyan/' /etc/nanorc
-sudo sed -i 's/^# set keycolor cyan.*$/set keycolor cyan/' /etc/nanorc
-sudo sed -i 's/^# set functioncolor green.*$/set functioncolor green/' /etc/nanorc
+#sudo sed -i 's/^# set titlecolor bold,lightwhite,blue.*$/set titlecolor bold,lightwhite,blue/' /etc/nanorc
+#sudo sed -i 's/^# set statuscolor bold,lightwhite,green.*$/set statuscolor bold,lightwhite,green/' /etc/nanorc
+#sudo sed -i 's/^# set errorcolor bold,lightwhite,red.*$/set errorcolor bold,lightwhite,red/' /etc/nanorc
+#sudo sed -i 's/^# set selectedcolor lightwhite,magenta.*$/set selectedcolor lightwhite,magenta/' /etc/nanorc
+#sudo sed -i 's/^# set stripecolor ,yellow.*$/set stripecolor ,yellow/' /etc/nanorc
+#sudo sed -i 's/^# set scrollercolor cyan.*$/set scrollercolor cyan/' /etc/nanorc
+#sudo sed -i 's/^# set numbercolor cyan.*$/set numbercolor cyan/' /etc/nanorc
+#sudo sed -i 's/^# set keycolor cyan.*$/set keycolor cyan/' /etc/nanorc
+#sudo sed -i 's/^# set functioncolor green.*$/set functioncolor green/' /etc/nanorc
 # Root
-sudo sed -i 's/^# set titlecolor bold,lightwhite,magenta.*$/set titlecolor bold,lightwhite,magenta/' /etc/nanorc
-sudo sed -i 's/^# set statuscolor bold,lightwhite,magenta.*$/set statuscolor bold,lightwhite,magenta/' /etc/nanorc
-sudo sed -i 's/^# set errorcolor bold,lightwhite,red.*$/set errorcolor bold,lightwhite,red/' /etc/nanorc
-sudo sed -i 's/^# set selectedcolor lightwhite,cyan.*$/set selectedcolor lightwhite,cyan/' /etc/nanorc
-sudo sed -i 's/^# set stripecolor ,yellow.*$/set stripecolor ,yellow/' /etc/nanorc
-sudo sed -i 's/^# set scrollercolor magenta.*$/set scrollercolor magenta/' /etc/nanorc
-sudo sed -i 's/^# set numbercolor magenta.*$/set numbercolor magenta/' /etc/nanorc
-sudo sed -i 's/^# set keycolor lightmagenta.*$/set keycolor lightmagenta/' /etc/nanorc
-sudo sed -i 's/^# set functioncolor magenta.*$/set functioncolor magenta/' /etc/nanorc
+#sudo sed -i 's/^# set titlecolor bold,lightwhite,magenta.*$/set titlecolor bold,lightwhite,magenta/' /etc/nanorc
+#sudo sed -i 's/^# set statuscolor bold,lightwhite,magenta.*$/set statuscolor bold,lightwhite,magenta/' /etc/nanorc
+#sudo sed -i 's/^# set errorcolor bold,lightwhite,red.*$/set errorcolor bold,lightwhite,red/' /etc/nanorc
+#sudo sed -i 's/^# set selectedcolor lightwhite,cyan.*$/set selectedcolor lightwhite,cyan/' /etc/nanorc
+#sudo sed -i 's/^# set stripecolor ,yellow.*$/set stripecolor ,yellow/' /etc/nanorc
+#sudo sed -i 's/^# set scrollercolor magenta.*$/set scrollercolor magenta/' /etc/nanorc
+#sudo sed -i 's/^# set numbercolor magenta.*$/set numbercolor magenta/' /etc/nanorc
+#sudo sed -i 's/^# set keycolor lightmagenta.*$/set keycolor lightmagenta/' /etc/nanorc
+#sudo sed -i 's/^# set functioncolor magenta.*$/set functioncolor magenta/' /etc/nanorc
 
 # Configure Profile Sync Daemon
 sudo sed -i 's/^#USE_OVERLAYFS=".*$/USE_OVERLAYFS="yes"/' /etc/psd.conf
