@@ -85,7 +85,7 @@ media-libs/libpng apng # "apng" required by base profile (firefox)
 media-libs/opencv qt5 # required by base profile
 
 # python stabilization
-*/* PYTHON_TARGETS: -* python3_8 python3_9
+*/* PYTHON_TARGETS: -* python3_8 python3_9 python3_10
 */* PYTHON_SINGLE_TARGET: -* python3_9
 
 # packages without latest version
