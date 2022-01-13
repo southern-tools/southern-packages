@@ -2,6 +2,7 @@
 
 # prefered
 app-admin/keepassxc autotype browser
+app-arch/brotli python # required by net-misc/electrum-4.1.5::gentoo
 app-arch/bzip2 static-libs # "static-libs" required by elfutils, libelf, glib, etc.
 app-crypt/gcr gtk # Required by gnome-keyring
 app-editors/emacs gtk gui imagemagick libxml2 toolkit-scroll-bars xft # preferences
@@ -35,7 +36,7 @@ media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
 media-libs/freetype harfbuzz # required by x11-libs/pango, app-editors/vscode
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/leptonica jpeg tiff # "jpeg, tiff" required by teseract
-media-libs/libpng -apng # required by www-client/ungoogled-chromium-97.0.4692.71-r1::southern-packages[system-png]
+#media-libs/libpng -apng # required by www-client/ungoogled-chromium-97.0.4692.71-r1::southern-packages[system-png]
 media-libs/libsdl2 gles2 # required by "wayland"
 media-libs/libvpx postproc svc # "postproc" required by firefox, ungoogled-chromium "svc" required by dev-qt/qtwebengine
 media-libs/mesa gles2 -opencl xa -classic -video_cards_i965 -video_cards_intel # "-classic, -video_cards_i965, -video_cards_intel" required for iris "gles2" preferences (sakaki)
@@ -100,9 +101,7 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 #net-print/hplip PYTHON_SINGLE_TARGET: python3_8
 
 # autounmask
-# required by dev-python/aiohttp-3.8.0::gentoo
-# required by dev-python/aiohttp-socks-0.6.0-r1::gentoo
-# required by net-misc/electrum-4.1.5::gentoo
+# required by www-client/ungoogled-chromium-97.0.4692.71-r1::southern-packages[system-png]
 # required by @selected
 # required by @world (argument)
->=app-arch/brotli-1.0.9-r3 python
+>=media-libs/libpng-1.6.37-r2 -apng
