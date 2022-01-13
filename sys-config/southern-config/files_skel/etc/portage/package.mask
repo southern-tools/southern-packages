@@ -1,7 +1,7 @@
 # Southern Tools "package.mask"
 
 */*::southern-packages
-dev-lang/python::gentoo
+#dev-lang/python::gentoo
 media-sound/pulseaudio
 sys-apps/systemd
 sys-auth/pambase
