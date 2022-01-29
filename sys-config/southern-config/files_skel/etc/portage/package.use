@@ -55,7 +55,7 @@ net-nds/openldap -berkdb # preferences
 net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
 sys-apps/bleachbit gtk # preferences
 #sys-apps/busybox static # Required by sakaki method
-sys-apps/util-linux caps # "caps" required by app-portage/pfl
+sys-apps/util-linux caps -su # "caps" required by app-portage/pfl, "su" requires "pam"
 #sys-boot/grub:2 device-mapper
 sys-fs/e2fsprogs cron # preferences (check automatically LVM's)
 #sys-firmware/intel-microcode initramfs # only for x86
@@ -85,7 +85,6 @@ dev-libs/xmlsec nss # required by base profile (libreoffice)
 dev-qt/qtgui jpeg # "jpeg" required by profile (nomacs, calibre)
 media-libs/libpng apng # "apng" required by base profile (firefox)
 media-libs/opencv qt5 # required by base profile
-sys-apps/util-linux -su # "su" requires "pam"
 
 # python stabilization
 */* PYTHON_TARGETS: -* python3_9 python3_10
