@@ -4,7 +4,7 @@
 		"Vintage",
 	],
 	"color_scheme": "Packages/sublime_zk/Monokai Extended-zk.tmTheme",
-	"font_size": 8,
+	"font_size": 12,
 	"font_face": "Hack",
 	"theme": "Adaptive.sublime-theme",
 	"update_check": false,
