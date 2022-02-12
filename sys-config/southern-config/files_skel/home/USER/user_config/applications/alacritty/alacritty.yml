@@ -14,7 +14,7 @@ font:
   bold_italic:
     family: hack
     style: Bold Italic
-  size: 8
+  size: 11
 
 
 # Transparence
@@ -55,7 +55,6 @@ schemes:
       magenta:  '#FF5879'
       cyan:     '#44B5B1'
       white:    '#F2F1B9'
-    
 
 
   test_colors: &breeze
@@ -92,7 +91,6 @@ schemes:
       magenta:  '#614a73'
       cyan:     '#186c60'
       white:    '#63686d'
-
 
 
 colors: *southern

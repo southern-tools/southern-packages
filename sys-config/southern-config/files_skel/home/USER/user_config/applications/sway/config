@@ -4,7 +4,7 @@
 # GAPS
 #====================
 
-gaps inner 10
+gaps inner 7
 gaps outer 0
 smart_gaps on
 smart_borders on
@@ -80,8 +80,7 @@ set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -ni -p 'Gentoo Li
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 pos 0 0 res 3840x2160
-output eDP-1 scale 2 pos 0 0
+output eDP-1 pos 0 0 res 3840x2160 scale 2
 output HDMI-A-1 pos 3840 0 res 1920x1080
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
@@ -192,6 +191,7 @@ set $ws7 "7:《𝟳》"
 set $ws8 "8:《𝟴》"
 set $ws9 "9:《𝟵》"
 set $ws10 "10:《𝟭𝟬》"
+
 # Which workspace on which screen
 workspace $ws1 output eDP-1
 workspace $ws2 output eDP-1
@@ -277,7 +277,7 @@ mode "$mode_system" {
     #bindsym h exec sudo /usr/sbin/pm-hibernate, mode "default"
     bindsym r exec bash -c 'pkill -HUP X && sudo /sbin/reboot', mode "default"
     bindsym Shift+s exec bash -c 'pkill -HUP X && sudo /sbin/halt', mode "default"
-    bindsym Shift+c exec bash -c 'urxvt -e ~/.user_config/scripts/full_sync.sh && pkill -HUP X && sudo /sbin/halt', mode "default"
+    bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && pkill -HUP X && sudo /sbin/halt', mode "default"
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -313,15 +313,15 @@ for_window [title="SpeedCrunch"] floating enable
 
 
 # Rules for specific programs
-for_window [class="URxvt" title="terminal_alsamixer"] floating enable
-for_window [class="URxvt" title="terminal_bluetooth_ctl"] floating enable
-for_window [class="URxvt" title="terminal_ccache_stats"] floating enable
-for_window [class="URxvt" title="terminal_floating"] floating enable
-for_window [class="URxvt" title="terminal_genlop"] floating enable
-for_window [class="URxvt" title="terminal_hotspot"] floating enable
-#for_window [class="URxvt" title="terminal_mount"] floating enable
-for_window [class="URxvt" title="terminal_randomize_mac"] floating enable
-for_window [class="URxvt" title="terminal_wake_remotes"] floating enable
+for_window [title="terminal_alsamixer"] floating enable
+for_window [title="terminal_bluetooth_ctl"] floating enable
+for_window [title="terminal_ccache_stats"] floating enable
+for_window [title="terminal_floating"] floating enable
+for_window [title="terminal_genlop"] floating enable
+for_window [title="terminal_hotspot"] floating enable
+#for_window [title="terminal_mount"] floating enable
+for_window [title="terminal_randomize_mac"] floating enable
+for_window [title="terminal_wake_remotes"] floating enable
 
 # Assign applications to specific workspaces
 assign [title="youtube-viewer"] $ws10
@@ -398,7 +398,7 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #====================
 
 # Floating terminal
-#bindsym $mod+asterisk exec urxvtc -name floating
+#bindsym $mod+asterisk exec alacritty -name floating
 
 # Screen lock
 #bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
@@ -416,13 +416,13 @@ bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec urxvtc -e youtube-viewer; workspace $ws10
+bindsym $mod+Mod1+y exec alacritty -e youtube-viewer; workspace $ws10
 
 # Neomutt
-bindsym $mod+Mod1+n exec urxvtc -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
+bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
 
 # File Managers
-bindsym $mod+Mod1+f exec urxvtc -e ranger -r ~/.user_config/applications/ranger/
+bindsym $mod+Mod1+f exec alacritty -e ranger -r ~/.user_config/applications/ranger/
 bindsym $mod+Mod1+p exec pcmanfm-qt
 bindsym $mod+Mod1+s exec spacefm
 
@@ -441,22 +441,22 @@ bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10
 bindsym $mod+Mod1+z exec zotero
 
 # Htop
-bindsym Ctrl+Escape exec urxvtc -e htop
+bindsym Ctrl+Escape exec alacritty -e htop
 
 # Wpa_gui
 bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec urxvtc -t alsamixer-floating -e alsamixer
+bindsym Ctrl+2 exec alacritty -t alsamixer-floating -e alsamixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
 
 # Hotspot
-bindsym Ctrl+4 exec urxvtc -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
+bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
 
 # SSH
-bindsym Ctrl+5 exec urxvtc -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
+bindsym Ctrl+5 exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 
 
 #====================
@@ -478,5 +478,5 @@ exec_always {
 
 exec xrdb -merge ~/.Xresources
 exec light -S 90
-exec urxvtd
+#exec alacritty
 #exec redshift -l 49.59:17.25
