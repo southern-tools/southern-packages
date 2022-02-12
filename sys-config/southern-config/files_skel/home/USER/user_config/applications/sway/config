@@ -70,7 +70,7 @@ set $mod Mod4
 #set $right l
 
 # Your preferred terminal emulator
-set $term urxvtc
+set $term alacritty
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -81,8 +81,8 @@ set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -ni -p 'Gentoo Li
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 pos 0 0 res 3840x2160
-#output eDP-1 scale 2 pos 0 0
-#output HDMI-A-1 pos 3840 0 res 1920x1080
+output eDP-1 scale 2 pos 0 0
+output HDMI-A-1 pos 3840 0 res 1920x1080
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
@@ -429,7 +429,7 @@ bindsym $mod+Mod1+s exec spacefm
 # Text Edit
 bindsym $mod+Mod1+t exec subl
 bindsym $mod+Mod1+e exec emacs
-bindsym $mod+Mod1+c exec codium
+bindsym $mod+Mod1+c exec vscode
 
 # Multimedia
 # bindsym $mod+Mod1+v exec vlc
