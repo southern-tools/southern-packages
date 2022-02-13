@@ -14,8 +14,8 @@ x11-libs/gtk+::gentoo
 #dev-lang/python:3.4
 #dev-lang/python:3.5
 #=media-sound/mps-youtube-0.2.8-r2 # Bloquing live version
-<sys-kernel/gentoo-sources-5.10.93 # block upgrades
->sys-kernel/gentoo-sources-5.10.93 # block upgrades
+<sys-kernel/gentoo-sources-5.10.100 # block upgrades
+>sys-kernel/gentoo-sources-5.10.100 # block upgrades
 =x11-terms/rxvt-unicode-9.30 # Problem with perl module
 #>www-misc/profile-sync-daemon-5.75 # lastest openrc compatible version
 #=sys-kernel/genkernel-4.2.1-r1
