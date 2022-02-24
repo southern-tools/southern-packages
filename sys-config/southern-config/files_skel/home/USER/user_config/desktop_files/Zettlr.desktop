@@ -2,5 +2,6 @@
 Name=Zettlr
 Type=Application
 Comment=Zettelkasten Software
-Exec= ~/Software/Zettlr/Zettlr-2.2.3-x86_64.AppImage
+#Exec= ~/Software/Zettlr/Zettlr-2.2.3-x86_64.AppImage
+Exec= /usr/bin/Zettlr
 Categories=Education
