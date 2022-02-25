@@ -75,13 +75,15 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -n -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+
+#set $menu bemenu-run --no-exec | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 pos 0 0 res 3840x2160 scale 2
-output HDMI-A-1 pos 3840 0 res 1920x1080
+#output HDMI-A-1 pos 3840 0 res 1920x1080
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
@@ -181,16 +183,16 @@ input * xkb_numlock enable
 #====================
 # WORKSPACES
 #====================
-set $ws1 "1:《𝟭》"
-set $ws2 "2:《𝟮》"
-set $ws3 "3:《𝟯》"
-set $ws4 "4:《𝟰》"
-set $ws5 "5:《𝟱》"
-set $ws6 "6:《𝟲》"
-set $ws7 "7:《𝟳》"
-set $ws8 "8:《𝟴》"
-set $ws9 "9:《𝟵》"
-set $ws10 "10:《𝟭𝟬》"
+set $ws1 《𝟭》
+set $ws2 《𝟮》
+set $ws3 《𝟯》
+set $ws4 《𝟰》
+set $ws5 《𝟱》
+set $ws6 《𝟲》
+set $ws7 《𝟳》
+set $ws8 《𝟴》
+set $ws9 《𝟵》
+set $ws10 《𝟭𝟬》
 
 # Which workspace on which screen
 workspace $ws1 output eDP-1
@@ -204,7 +206,7 @@ workspace $ws8 output eDP-1
 workspace $ws9 output eDP-1
 workspace $ws10 output HDMI-A-1
     # switch to workspace
-    bindsym $mod+1 workspace 2$ws1
+    bindsym $mod+1 workspace $ws1
 	bindsym $mod+2 workspace $ws2
 	bindsym $mod+3 workspace $ws3
 	bindsym $mod+4 workspace $ws4
@@ -416,7 +418,7 @@ bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y exec alacritty -e youtube-viewer; workspace $ws10
+bindsym $mod+Mod1+y workspace $ws10; exec alacritty -e youtube-viewer
 
 # Neomutt
 bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
@@ -435,7 +437,7 @@ bindsym $mod+Mod1+c exec vscode
 # bindsym $mod+Mod1+v exec vlc
 	
 # Ncmpcpp con mi script
-bindsym $mod+Mod1+m exec ~/.user_config/scripts/mpd.sh; workspace $ws10
+bindsym $mod+Mod1+m workspace $ws10; exec ~/.user_config/scripts/mpd.sh
 
 # Zotero
 bindsym $mod+Mod1+z exec zotero
