@@ -6,7 +6,8 @@ Name=Update Git Repos
 
 Comment=Update Multiple Git Repos
 
-Exec=swaymsg "exec urxvtc -hold -e ~/.user_config/scripts/update_git_repos.sh"
+#Exec=swaymsg "exec urxvtc -hold -e ~/.user_config/scripts/update_git_repos.sh"
+Exec=swaymsg "exec alacritty -hold -e ~/.user_config/scripts/update_git_repos.sh"
 
 Icon=utilities-terminal
 

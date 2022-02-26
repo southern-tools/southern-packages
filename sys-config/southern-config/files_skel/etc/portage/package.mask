@@ -1,12 +1,10 @@
 # Southern Tools "package.mask"
 
 */*::southern-packages
-#dev-lang/python::gentoo
-media-sound/pulseaudio
-sys-apps/systemd
-sys-auth/pambase
-sys-auth/polkit
-#sys-fs/udev
+#media-sound/pulseaudio
+#sys-apps/systemd
+#sys-auth/pambase
+#sys-auth/polkit
 x11-libs/gtk+::gentoo
 
 # specific versions

@@ -6,7 +6,8 @@ Name=Youtube Viewer
 
 Comment=CLI Youtube player
 
-Exec=swaymsg "exec urxvtc -e youtube-viewer"
+#Exec=swaymsg "exec urxvtc -e youtube-viewer"
+Exec=swaymsg "exec alacritty -e youtube-viewer"
 
 Icon=utilities-terminal
 

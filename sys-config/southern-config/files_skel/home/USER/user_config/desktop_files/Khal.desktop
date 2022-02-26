@@ -6,7 +6,8 @@ Name=Khal
 
 Comment=CLI Calendar
 
-Exec=swaymsg "exec urxvtc -e ikhal"
+#Exec=swaymsg "exec urxvtc -e ikhal"
+Exec=swaymsg "exec alacritty -e ikhal"
 
 Icon=utilities-terminal
 

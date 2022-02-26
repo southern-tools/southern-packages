@@ -75,15 +75,21 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -m all -p 'Gentoo Linux' --tb '#021B21' --tf '#9ED9D8' --fn 'Hack:bold:size=10' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -m all -p 'Gentoo Linux' --fn 'Hack Bold 12' --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
 
-#set $menu bemenu-run --no-exec | xargs swaymsg exec --
+#set $menu dmenu_path | bemenu -i -m all -p 'Gentoo Linux' --fn Hack Bold [12] --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21' | xargs swaymsg exec --
+
+
+
+
+
+
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 pos 0 0 res 3840x2160 scale 2
-#output HDMI-A-1 pos 3840 0 res 1920x1080
+output eDP-1 pos 0 0 res 2160x3840 scale 2
+output HDMI-A-1 pos 3840 0 res 1920x1080
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
@@ -179,56 +185,47 @@ input * xkb_numlock enable
     bindsym $mod+Shift+Right move right
 
 
-
 #====================
 # WORKSPACES
 #====================
-set $ws1 《𝟭》
-set $ws2 《𝟮》
-set $ws3 《𝟯》
-set $ws4 《𝟰》
-set $ws5 《𝟱》
-set $ws6 《𝟲》
-set $ws7 《𝟳》
-set $ws8 《𝟴》
-set $ws9 《𝟵》
-set $ws10 《𝟭𝟬》
 
 # Which workspace on which screen
-workspace $ws1 output eDP-1
-workspace $ws2 output eDP-1
-workspace $ws3 output eDP-1
-workspace $ws4 output eDP-1
-workspace $ws5 output eDP-1
-workspace $ws6 output eDP-1
-workspace $ws7 output eDP-1
-workspace $ws8 output eDP-1
-workspace $ws9 output eDP-1
-workspace $ws10 output HDMI-A-1
-    # switch to workspace
-    bindsym $mod+1 workspace $ws1
-	bindsym $mod+2 workspace $ws2
-	bindsym $mod+3 workspace $ws3
-	bindsym $mod+4 workspace $ws4
-	bindsym $mod+5 workspace $ws5
-	bindsym $mod+6 workspace $ws6
-	bindsym $mod+7 workspace $ws7
-	bindsym $mod+8 workspace $ws8
-	bindsym $mod+9 workspace $ws9
-	bindsym $mod+0 workspace $ws10
-    # Move to workspace with focused container
-	bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-	bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-	bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-	bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-	bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-	bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-	bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-	bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-	bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-	bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+workspace number 1:《𝟭》 output eDP1
+workspace number 2:《𝟮》 output eDP1
+workspace number 3:《𝟯》 output eDP1
+workspace number 4:《𝟰》 output eDP1
+workspace number 5:《𝟱》 output eDP1
+workspace number 6:《𝟲》 output eDP1
+workspace number 7:《𝟳》 output eDP1
+workspace number 8:《𝟴》 output eDP1
+workspace number 9:《𝟵》 output eDP1
+workspace number 10:《𝟭𝟬》 output HDMI-A-1
+
+# switch to workspace
+bindsym $mod+1 workspace number 1:《𝟭》
+bindsym $mod+2 workspace number 2:《𝟮》
+bindsym $mod+3 workspace number 3:《𝟯》
+bindsym $mod+4 workspace number 4:《𝟰》
+bindsym $mod+5 workspace number 5:《𝟱》
+bindsym $mod+6 workspace number 6:《𝟲》
+bindsym $mod+7 workspace number 7:《𝟳》
+bindsym $mod+8 workspace number 8:《𝟴》
+bindsym $mod+9 workspace number 9:《𝟵》
+bindsym $mod+0 workspace number 10:《𝟭𝟬》
+
+# Move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace number 1:《𝟭》; workspace number 1:《𝟭》
+bindsym $mod+Shift+2 move container to workspace number 2:《𝟮》; workspace number 2:《𝟮》
+bindsym $mod+Shift+3 move container to workspace number 3:《𝟯》; workspace number 3:《𝟯》
+bindsym $mod+Shift+4 move container to workspace number 4:《𝟰》; workspace number 4:《𝟰》
+bindsym $mod+Shift+5 move container to workspace number 5:《𝟱》; workspace number 5:《𝟱》
+bindsym $mod+Shift+6 move container to workspace number 6:《𝟲》; workspace number 6:《𝟲》
+bindsym $mod+Shift+7 move container to workspace number 7:《𝟳》; workspace number 7:《𝟳》
+bindsym $mod+Shift+8 move container to workspace number 8:《𝟴》; workspace number 8:《𝟴》
+bindsym $mod+Shift+9 move container to workspace number 9:《𝟵》; workspace number 9:《𝟵》
+bindsym $mod+Shift+0 move container to workspace number 10:《𝟭𝟬》; workspace number 10:《𝟭𝟬》
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 
 # navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -326,10 +323,10 @@ for_window [title="terminal_randomize_mac"] floating enable
 for_window [title="terminal_wake_remotes"] floating enable
 
 # Assign applications to specific workspaces
-assign [title="youtube-viewer"] $ws10
-assign [class="mpv"] $ws10
-#assign [class="vlc"] $ws10
-assign [title="ncmpcpp*"] $ws10
+assign [title="youtube-viewer"] workspace number 10:《𝟭𝟬》
+assign [class="mpv"] workspace number 10:《𝟭𝟬》
+#assign [class="vlc"] workspace number 10:《𝟭𝟬》
+assign [title="ncmpcpp*"] workspace number 10:《𝟭𝟬》
 
 #====================
 # STATUS BAR
@@ -418,7 +415,7 @@ bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s
 bindsym $mod+Mod1+b exec chromium
 
 # Youtube player
-bindsym $mod+Mod1+y workspace $ws10; exec alacritty -e youtube-viewer
+bindsym $mod+Mod1+y workspace number 10:《𝟭𝟬》; exec alacritty -e youtube-viewer
 
 # Neomutt
 bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
@@ -426,10 +423,10 @@ bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neo
 # File Managers
 bindsym $mod+Mod1+f exec alacritty -e ranger -r ~/.user_config/applications/ranger/
 bindsym $mod+Mod1+p exec pcmanfm-qt
-bindsym $mod+Mod1+s exec spacefm
+#bindsym $mod+Mod1+s exec spacefm
 
 # Text Edit
-bindsym $mod+Mod1+t exec subl
+#bindsym $mod+Mod1+t exec subl
 bindsym $mod+Mod1+e exec emacs
 bindsym $mod+Mod1+c exec vscode
 
@@ -437,7 +434,7 @@ bindsym $mod+Mod1+c exec vscode
 # bindsym $mod+Mod1+v exec vlc
 	
 # Ncmpcpp con mi script
-bindsym $mod+Mod1+m workspace $ws10; exec ~/.user_config/scripts/mpd.sh
+bindsym $mod+Mod1+m workspace number 10:《𝟭𝟬》; exec ~/.user_config/scripts/mpd.sh
 
 # Zotero
 bindsym $mod+Mod1+z exec zotero

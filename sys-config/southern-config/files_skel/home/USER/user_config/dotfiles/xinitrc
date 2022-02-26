@@ -17,4 +17,4 @@ redshift -l 49.59:17.25 &
 urxvtd --quiet --opendisplay --fork
 # copyq &
 # Start i3
-exec i3 -c ~/.user_config/applications/i3/config
+exec dbus-launch --exit-with-session i3 -c ~/.user_config/applications/i3/config

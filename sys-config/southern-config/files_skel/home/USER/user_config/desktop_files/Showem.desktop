@@ -6,7 +6,8 @@ Name=Showem
 
 Comment=Output of a parallel emerge from a separate terminal
 
-Exec=swaymsg "exec urxvtc --title terminal_showem -e sudo showem"
+#Exec=swaymsg "exec urxvtc --title terminal_showem -e sudo showem"
+Exec=swaymsg "exec alacritty --title terminal_showem -e sudo showem"
 
 Icon=utilities-terminal
 
