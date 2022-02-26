@@ -77,14 +77,6 @@ set $term alacritty
 
 set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -m all -p 'Gentoo Linux' --fn 'Hack Bold 12' --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
 
-#set $menu dmenu_path | bemenu -i -m all -p 'Gentoo Linux' --fn Hack Bold [12] --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21' | xargs swaymsg exec --
-
-
-
-
-
-
-
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)

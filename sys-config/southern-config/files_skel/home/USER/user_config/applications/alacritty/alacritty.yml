@@ -18,7 +18,7 @@ font:
 
 
 # Transparence
-background_opacity: 0.25
+background_opacity: 0.60
 
 # Clipboard
 selection:
