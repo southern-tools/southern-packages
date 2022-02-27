@@ -110,11 +110,11 @@ ln -vsf ~/.user_config/applications/texstudio/texstudio.ini ~/.config/texstudio/
 
 # Sublime_ZK tweaking
 # User config
-mkdir -p ~/.config/sublime-text/Packages/User/
+#mkdir -p ~/.config/sublime-text/Packages/User/
 # Stop Sublime asking for money 
-ln -vsf ~/.user_config/applications/sublime_text/Preferences.sublime-settings ~/.config/sublime-text/Packages/User/
+#ln -vsf ~/.user_config/applications/sublime_text/Preferences.sublime-settings ~/.config/sublime-text/Packages/User/
 # Sublime_zk custom template
-ln -vsf ~/.user_config/applications/sublime_text/sublime_zk/sublime_zk.sublime-settings ~/.config/sublime-text/Packages/User/
+#ln -vsf ~/.user_config/applications/sublime_text/sublime_zk/sublime_zk.sublime-settings ~/.config/sublime-text/Packages/User/
 # Zettelkasten-mode colors DOES NOT WORK ANYMORE
 #mkdir -p ~/.config/sublime-text/Packages/sublime_zk
 #ln -vsf ~/.user_config/applications/sublime_text/sublime_zk/sublime_zk_results.sublime-settings ~/.config/sublime-text/Packages/sublime_zk/

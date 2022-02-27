@@ -28,8 +28,8 @@
        (setq zetteldeft-link-indicator "[["
              zetteldeft-link-suffix "]]"
              ;;zetteldeft-title-prefix "# "
-             zetteldeft-title-prefix "---\nNote ID: '"
-             zetteldeft-title-suffix "'\nKeyword(s): #\nIn: @\nPage(s)/Pos.: p. \n---\n# Content:\n\n\n# Comment(s):\n"
+             zetteldeft-title-prefix "---\nNote ID: \nTitle: ''"
+             zetteldeft-title-suffix "\nIn: @\nPage(s)/Pos.: p. \nKeyword(s): #\n---\n# Content:\n\n\n# Comment(s):\n"
              zetteldeft-list-prefix "* "
              zetteldeft-id-format "%Y%m%d%H%M"
              zetteldeft-id-regex "[0-9]\\{12\\}"))

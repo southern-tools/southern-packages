@@ -9,7 +9,6 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
-
 #====================
 # ASPECT
 #====================
@@ -75,13 +74,15 @@ set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -m all -p 'Gentoo Linux' --fn 'Hack Bold 12' --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -w -m -2 -p 'Gentoo Linux' --fn 'Hack Bold 12' --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" | xargs swaymsg exec --
+
+#set $menu j4-dmenu-desktop --dmenu="bemenu -i -w -m all -p 'Gentoo Linux' --fn 'Hack Bold 12' --tb '#021B21' --tf '#9ED9D8' --fb '#021B21' --ff '#9ED9D8' --nb '#021B21' --nf '#9ED9D8' --hb '#9ED9D8' --hf '#021B21' --sb '#9ED9D8' --sf '#021B21'" --no-generic --term=alacritty
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output eDP-1 pos 0 0 res 2160x3840 scale 2
-output HDMI-A-1 pos 3840 0 res 1920x1080
+output eDP-1 resolution 3840x2160 scale 2 position 0,0 
+output HDMI-A-1 resolution 1920x1080 position 3840,0
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
@@ -191,7 +192,7 @@ workspace number 6:《𝟲》 output eDP1
 workspace number 7:《𝟳》 output eDP1
 workspace number 8:《𝟴》 output eDP1
 workspace number 9:《𝟵》 output eDP1
-workspace number 10:《𝟭𝟬》 output HDMI-A-1
+workspace number 10:《𝟭𝟬》output HDMI-A-1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1:《𝟭》
@@ -261,7 +262,6 @@ bindsym $mod+Shift+plus scratchpad show
 # Set shut down, restart and locking features
 set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown ]
 mode "$mode_system" {
-
     #bindsym l exec "xlock -mode blank -lockdelay 7 -mousemotion", mode "default"
     #bindsym s exec sudo /usr/sbin/pm-suspend, mode "default"
     bindsym e exec swaymsg exit, mode "default"
@@ -302,7 +302,6 @@ for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [instance="copyq" class="copyq"] floating enable
 for_window [title="SpeedCrunch"] floating enable
 
-
 # Rules for specific programs
 for_window [title="terminal_alsamixer"] floating enable
 for_window [title="terminal_bluetooth_ctl"] floating enable
@@ -319,6 +318,9 @@ assign [title="youtube-viewer"] workspace number 10:《𝟭𝟬》
 assign [class="mpv"] workspace number 10:《𝟭𝟬》
 #assign [class="vlc"] workspace number 10:《𝟭𝟬》
 assign [title="ncmpcpp*"] workspace number 10:《𝟭𝟬》
+#  KeepassXC to scratchpad
+for_window [title="keepassxc_database.kdbx - KeePassXC"] move scratchpad
+
 
 #====================
 # STATUS BAR
@@ -349,8 +351,6 @@ bar {
             binding_mode        $transparent     $transparent     $foreground
     }
 }
-
-
 
 
 include /etc/sway/config.d/*
@@ -400,8 +400,15 @@ bindsym $mod+Mod1+u exec swaymsg "output * dpms on"
 # Capturas
 #bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Snapshots'
 #bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
-bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
-
+#bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
+# Full Screen to Buffer
+bindsym Print exec grim - | wl-copy
+# Cropp to buffer
+bindsym Control+Print exec grim -g "$(slurp)" - | wl-copy
+# Full Screen
+bindsym Alt+Print exec grim $(xdg-user-dir PICTURES)/Snapshots/$(date +"%Y%m%d%H%M%S")_snapshot.png
+# Cropp
+bindsym Alt+Control+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Snapshots/$(date +"%Y%m%d%H%M%S")_snapshot.png
 
 # Web Browser
 bindsym $mod+Mod1+b exec chromium
@@ -458,7 +465,7 @@ bindsym Ctrl+5 exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
-    gsettings set org.gnome.desktop.interface 'Hack 10'
+    gsettings set org.gnome.desktop.interface 'Hack 12'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
     gsettings set org.gnome.desktop.interface cursor-size '24'
 }
