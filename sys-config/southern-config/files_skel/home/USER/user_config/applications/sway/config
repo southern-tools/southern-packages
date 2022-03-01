@@ -466,6 +466,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
     gsettings set org.gnome.desktop.interface 'Hack 12'
+    gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
     gsettings set org.gnome.desktop.interface cursor-size '24'
 }

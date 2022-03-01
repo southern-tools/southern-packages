@@ -36,6 +36,8 @@ export RXVT_SOCKET="/tmp/urxvt-socket"
 
 # Wayland variables
 export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
 export QT_QPA_PLATFORM=wayland-egl
 export QT_WAYLAND_FORCE_DPI=physical
 export MOZ_ENABLE_WAYLAND=1
