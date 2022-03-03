@@ -105,25 +105,3 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 # required by @selected
 # required by @world (argument)
 >=media-libs/libpng-1.6.37-r2 -apng
-# required by sys-auth/pambase-20210201.1::gentoo[elogind]
-# required by sys-libs/pam-1.5.1_p20210622-r1::gentoo
-# required by sys-auth/passwdqc-2.0.2-r1::gentoo
->=sys-auth/elogind-246.10-r2 pam
-# required by x11-base/xorg-server-21.1.3::gentoo[elogind]
-# required by @selected
-# required by @world (argument)
->=sys-auth/pambase-20210201.1 elogind
-# required by net-print/hplip-3.20.11-r2::gentoo[snmp,-minimal]
-# required by @selected
-# required by @world (argument)
->=net-dns/avahi-0.8-r5 python
-# required by dev-python/PyQt5-5.15.4-r1::gentoo[multimedia]
-# required by net-print/hplip-3.20.11-r2::gentoo[qt5,-minimal,python_single_target_python3_9]
-# required by @selected
-# required by @world (argument)
->=dev-qt/qtmultimedia-5.15.2-r2 widgets
-# required by gui-apps/swayidle-1.7.1::gentoo[elogind]
-# required by gui-wm/sway-1.7::gentoo[swayidle]
-# required by @selected
-# required by @world (argument)
->=sys-auth/elogind-246.10-r2 policykit
