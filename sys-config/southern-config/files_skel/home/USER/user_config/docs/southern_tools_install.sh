@@ -99,6 +99,8 @@ ln -vsf ~/.user_config/applications/mpd/mpd.conf ~/.config/mpd/
 # Ranger
 mkdir -p ~/.config/ranger
 ranger --copy-config=all
+sudo mkdir -p /.config/ranger
+sudo ranger --copy-config=all
 
 # Redshift
 #mkdir -p ~/.config/redshift

@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-UGC_COMMIT_ID="d9a405d70bbe8882f7547f21869c0537a97ccd4a"
+#UGC_COMMIT_ID="d9a405d70bbe8882f7547f21869c0537a97ccd4a"
 
 # Use following environment variables to customise the build
 # EXTRA_GN — pass extra options to gn
@@ -36,8 +36,7 @@ DESCRIPTION="Modifications to Chromium for removing Google integration and enhan
 HOMEPAGE="https://github.com/Eloston/ungoogled-chromium"
 PATCHSET="3"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
-PPC64LE_PATCHSET="chromium_98.0.4758.102-1raptor0"
-PPC64LE_PATCHSET_NAME="${PPC64LE_PATCHSET}.debian"
+PPC64LE_PATCHSET_NAME="chromium_98.0.4758.102-1raptor0.debian"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
 	ppc64? (
@@ -47,7 +46,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )

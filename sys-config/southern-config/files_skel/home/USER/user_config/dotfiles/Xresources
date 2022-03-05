@@ -37,7 +37,7 @@ URxvt*background:		[25]#021B21
 ! Native transparency (less resources)
 ! URxvt*inheritPixmap:	true
 URxvt*transparent:		true
-URxvt*shading:          40
+URxvt*shading:          20
 !URxvt*tintColor:		40
 
 ! URxvt scroll settings

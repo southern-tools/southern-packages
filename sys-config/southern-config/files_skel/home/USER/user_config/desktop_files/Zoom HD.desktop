@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Zoom HD
-Type=Application
-Comment=Video conferencing and web conferencing service
-Exec=QT_SCALE_FACTOR=2 zoom %U
-TryExec=zoom
-Icon=zoom-videocam
-Categories=Network;InstantMessaging;
-MimeType=x-scheme-handler/zoommtg;application/x-zoom;

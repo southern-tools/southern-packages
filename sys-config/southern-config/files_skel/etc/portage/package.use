@@ -76,7 +76,7 @@ x11-libs/libfm -automount # preferences
 x11-libs/libva-intel-media-driver set-as-default # self-evident
 x11-misc/redshift geoclue # preferences
 x11-misc/spacefm video-thumbnails # preferences
-x11-terms/rxvt-unicode gdk-pixbuf xft # preferences
+x11-terms/rxvt-unicode fading-colors gdk-pixbuf xft perl # preferences
 
 # base profile adjustments
 app-text/poppler cairo qt5 # required by base profile (texstudio, zathura-pdf-poppler, gimp, qpdfview)
@@ -105,3 +105,9 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 # required by @selected
 # required by @world (argument)
 >=media-libs/libpng-1.6.37-r2 -apng
+# required by mail-client/alot-0.9.1::gentoo
+# required by mail-client/alot (argument)
+>=app-crypt/gpgme-1.16.0 python
+# required by mail-client/alot-0.9.1::gentoo
+# required by mail-client/alot (argument)
+>=net-mail/notmuch-0.32.2-r1 python
