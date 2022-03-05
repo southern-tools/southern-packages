@@ -69,7 +69,7 @@ PushRepos(){
 					GitBranch=$(git -C $repo branch --show-current)
 	  				git -C $repo add . && echo -e "*** Added files to $repo"
 					git -C $repo commit -a -m "Automatic Update" && echo -e "*** Changes commited to $repo"
-					git -C $repo push --force -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
+					git -C $repo push -u origin $GitBranch && echo -e "*** Repository $repo pushed (origin master)"
 	  		else
 	  			echo -e "*** ERROR: One or more of repos you are trying to Push do not belong to the current user.\n*** Exiting..."
 	  			exit
