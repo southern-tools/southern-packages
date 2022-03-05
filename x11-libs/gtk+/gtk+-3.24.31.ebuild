@@ -1,7 +1,7 @@
-# Copyright 1999-2021 Gentoo Authors and Martin V\"ath
+# Copyright 1999-2022 Gentoo Authors and Martin V\"ath
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 GNOME2_EAUTORECONF="yes"
 
 inherit gnome2 multilib multilib-minimal virtualx
@@ -12,13 +12,13 @@ SRC_URI=${SRC_URI-}
 
 LICENSE="LGPL-2+"
 SLOT="3"
-IUSE="adwaita-icon-theme aqua atk-bridge broadway cloudprint colord cups examples gtk-doc +introspection sysprof test vim-syntax wayland +X xinerama"
+IUSE="adwaita-icon-theme aqua atk-bridge broadway colord cups examples gtk-doc +introspection sysprof test vim-syntax wayland +X xinerama"
 REQUIRED_USE="
 	|| ( aqua wayland X )
 	xinerama? ( X )
 "
 
-KEYWORDS="~alpha ~amd64 ~arm ~arm64 ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sparc ~x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 hppa ~ia64 ~mips ppc ppc64 ~riscv ~s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 # Upstream wants us to do their job:
 # https://bugzilla.gnome.org/show_bug.cgi?id=768662#c1
@@ -31,18 +31,14 @@ COMMON_DEPEND="
 	>=dev-libs/fribidi-0.19.7[${MULTILIB_USEDEP}]
 	>=dev-libs/glib-2.57.2:2[${MULTILIB_USEDEP}]
 	media-libs/fontconfig[${MULTILIB_USEDEP}]
-	>=media-libs/harfbuzz-0.9:=
+	>=media-libs/harfbuzz-2.2.0:=
 	>=media-libs/libepoxy-1.4[X(+)?,${MULTILIB_USEDEP}]
 	virtual/libintl[${MULTILIB_USEDEP}]
 	>=x11-libs/cairo-1.14[aqua?,glib,svg,X?,${MULTILIB_USEDEP}]
 	>=x11-libs/gdk-pixbuf-2.30:2[introspection?,${MULTILIB_USEDEP}]
-	>=x11-libs/pango-1.41.0[introspection?,${MULTILIB_USEDEP}]
+	>=x11-libs/pango-1.44.0[introspection?,${MULTILIB_USEDEP}]
 	x11-misc/shared-mime-info
 
-	cloudprint? (
-		>=dev-libs/json-glib-1.0[${MULTILIB_USEDEP}]
-		>=net-libs/rest-0.7[${MULTILIB_USEDEP}]
-	)
 	colord? ( >=x11-misc/colord-0.1.9:0=[${MULTILIB_USEDEP}] )
 	cups? ( >=net-print/cups-2.0[${MULTILIB_USEDEP}] )
 	introspection? ( >=dev-libs/gobject-introspection-1.39:= )
@@ -62,7 +58,7 @@ COMMON_DEPEND="
 		x11-libs/libXdamage[${MULTILIB_USEDEP}]
 		x11-libs/libXext[${MULTILIB_USEDEP}]
 		x11-libs/libXfixes[${MULTILIB_USEDEP}]
-		>=x11-libs/libXi-1.3[${MULTILIB_USEDEP}]
+		>=x11-libs/libXi-1.8[${MULTILIB_USEDEP}]
 		>=x11-libs/libXrandr-1.5[${MULTILIB_USEDEP}]
 		xinerama? ( x11-libs/libXinerama[${MULTILIB_USEDEP}] )
 	)
@@ -157,7 +153,6 @@ multilib_src_configure() {
 	local myconf=(
 		$(use_enable aqua quartz-backend)
 		$(use_enable broadway broadway-backend)
-		$(use_enable cloudprint)
 		$(use_enable colord)
 		$(use_enable cups cups auto)
 		$(multilib_native_use_enable gtk-doc)
