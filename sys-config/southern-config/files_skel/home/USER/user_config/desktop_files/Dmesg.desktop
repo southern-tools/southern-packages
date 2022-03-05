@@ -6,8 +6,7 @@ Name=Dmesg
 
 Comment=Dmesg
 
-#Exec=swaymsg "exec urxvtc --title terminal_dmesg -e dmesg -wH"
-Exec=swaymsg "exec alacritty --title terminal_dmesg -e dmesg -wH"
+Exec=swaymsg "exec urxvtc --title terminal_dmesg -e dmesg -wH"
 
 Icon=utilities-terminal
 

@@ -6,8 +6,7 @@ Name=Weechat
 
 Comment=IRC client
 
-#Exec=swaymsg "exec urxvtc -e weechat"
-Exec=swaymsg "exec alacritty -e weechat"
+Exec=swaymsg "exec urxvtc -e weechat"
 
 Icon=utilities-terminal
 

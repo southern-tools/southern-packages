@@ -6,8 +6,7 @@ Name=Ranger as Root
 
 Comment=Text based file browser (as Root)
 
-#Exec=swaymsg "exec urxvtc -e sudo ranger -r ~/.user_config/applications/ranger/as_root"
-Exec=swaymsg "exec alacritty -e sudo ranger -r ~/.user_config/applications/ranger/as_root"
+Exec=swaymsg "exec urxvtc -e sudo ranger -r ~/.user_config/applications/ranger/as_root"
 
 Icon=utilities-terminal
 

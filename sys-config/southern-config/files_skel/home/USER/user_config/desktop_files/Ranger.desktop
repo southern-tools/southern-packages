@@ -6,8 +6,7 @@ Name=Ranger
 
 Comment=Text based file browser
 
-#Exec=swaymsg "exec urxvtc -e ranger -r ~/.user_config/applications/ranger"
-Exec=swaymsg "exec alacritty -e ranger -r ~/.user_config/applications/ranger"
+Exec=swaymsg "exec urxvtc -e ranger -r ~/.user_config/applications/ranger"
 
 Icon=utilities-terminal
 

@@ -454,7 +454,7 @@ bindsym Ctrl+2 exec alacritty -t alsamixer-floating -e alsamixer
 bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 enp0s20u3
 
 # SSH
-bindsym Ctrl+5 exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
+# bindsym Ctrl+5 exec alacritty -e ~/.user_config/scripts/ssh_reverse_tunnel.sh
 
 
 #====================

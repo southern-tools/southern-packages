@@ -351,10 +351,10 @@ bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/
 #bindsym --release Print exec grim -g "$(slurp)" ~/Pictures/Snapshots/$(date +'%s_snapshot.png')
 
 # Pop-up copyq
-bindsym $mod+x exec copyq show
+#bindsym $mod+x exec copyq show
 
 # Web Browser
-bindsym $mod+Mod1+b exec chromium
+bindsym $mod+Mod1+b exec chromium --force-device-scale-factor=3
 
 # Youtube player
 bindsym $mod+Mod1+y exec urxvtc -e youtube-viewer; workspace $ws10

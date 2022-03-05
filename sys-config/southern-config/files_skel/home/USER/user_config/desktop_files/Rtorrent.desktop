@@ -6,8 +6,7 @@ Name=Rtorrent
 
 Comment=Torrent client
 
-#Exec=swaymsg "exec urxvtc -e rtorrent"
-Exec=swaymsg "exec alacritty -e rtorrent"
+Exec=swaymsg "exec urxvtc -e rtorrent"
 
 Icon=utilities-terminal
 
