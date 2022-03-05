@@ -52,8 +52,8 @@ PullRepos(){
 			if [[ $(stat -c '%U' $repo) == $USER ]]
 				then
 					# For repos owned by user
-					GitBranch=$(git -C $repo branch --show-current)
-					git -C $repo pull origin $GitBranch && echo -e "*** Repository $repo pulled"
+					
+					git -C $repo pull origin $(git -C $repo branch --show-current) && echo -e "*** Repository $repo pulled"
 			else
 				echo -e "*** ERROR: One or more of repo/s you are trying to Pull do not belong to the current user.\n*** Exiting..."
 				exit
