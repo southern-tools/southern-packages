@@ -1,7 +1,7 @@
 #!/bin/bash
 # Southern Tools
 #
-#set -x
+set -x
 set -e
 set -u
 shopt -s nullglob
@@ -18,8 +18,13 @@ ReposToPull=(	"${repo_1[1]}"\
 				"${repo_6[1]}"\
 				"${repo_7[1]}"\
 				"${repo_8[1]}"\
+				"${repo_9[1]}"\
+				"${repo_10[1]}"\
+				"${repo_11[1]}"\
+				"${repo_12[1]}"\
+				"${repo_13[1]}"\
+				"${repo_14[1]}"\
 				"${repo_15[1]}")
-
 ReposToPush=(	"${repo_16[1]}")
 
 # ***************** functions ****************** 

@@ -356,6 +356,9 @@ bindsym --release Print exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/
 # Web Browser
 bindsym $mod+Mod1+b exec chromium --force-device-scale-factor=3
 
+# Zettlr
+bindsym $mod+Mod1+k exec /usr/bin/Zettlr --force-device-scale-factor=3
+
 # Youtube player
 bindsym $mod+Mod1+y exec urxvtc -e youtube-viewer; workspace $ws10
 
@@ -368,7 +371,7 @@ bindsym $mod+Mod1+p exec pcmanfm-qt
 bindsym $mod+Mod1+s exec spacefm
 
 # Text Edit
-bindsym $mod+Mod1+t exec subl
+#bindsym $mod+Mod1+t exec subl
 bindsym $mod+Mod1+e exec emacs
 bindsym $mod+Mod1+c exec vscode
 
