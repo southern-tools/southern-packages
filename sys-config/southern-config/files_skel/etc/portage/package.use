@@ -119,3 +119,4 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 # required by @selected
 # required by @world (argument)
 >=sys-auth/elogind-246.10-r2 policykit
+gui-apps/swaylock pam

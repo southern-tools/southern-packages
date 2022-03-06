@@ -82,7 +82,7 @@ set $menu dmenu_path | j4-dmenu-desktop --dmenu="bemenu -i -w -m -2 -p 'Gentoo L
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output eDP-1 resolution 3840x2160 scale 2 position 0,0 
-output HDMI-A-1 resolution 1920x1080 position 3840,0
+#output HDMI-A-1 resolution 1920x1080 position 3840,0
 output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
@@ -96,10 +96,10 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-#    timeout 300 'swaylock -c 000000' \
+    timeout 300 'swaylock -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' \
        resume 'swaymsg "output * dpms on"; pkill -n swayidle' \
-#    before-sleep 'swaylock -c 000000'
+   before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -183,16 +183,16 @@ input * xkb_numlock enable
 #====================
 
 # Which workspace on which screen
-workspace number 1:《𝟭》 output eDP1
-workspace number 2:《𝟮》 output eDP1
-workspace number 3:《𝟯》 output eDP1
-workspace number 4:《𝟰》 output eDP1
-workspace number 5:《𝟱》 output eDP1
-workspace number 6:《𝟲》 output eDP1
-workspace number 7:《𝟳》 output eDP1
-workspace number 8:《𝟴》 output eDP1
-workspace number 9:《𝟵》 output eDP1
-workspace number 10:《𝟭𝟬》output HDMI-A-1
+#workspace number 1:《𝟭》 output eDP1
+#workspace number 2:《𝟮》 output eDP1
+#workspace number 3:《𝟯》 output eDP1
+#workspace number 4:《𝟰》 output eDP1
+#workspace number 5:《𝟱》 output eDP1
+#workspace number 6:《𝟲》 output eDP1
+#workspace number 7:《𝟳》 output eDP1
+#workspace number 8:《𝟴》 output eDP1
+#workspace number 9:《𝟵》 output eDP1
+#workspace number 10:《𝟭𝟬》output HDMI-A-1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1:《𝟭》
@@ -465,7 +465,7 @@ bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 e
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
-    gsettings set org.gnome.desktop.interface 'Hack 12'
+    gsettings set org.gnome.desktop.interface 'Hack 24'
     gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
     gsettings set org.gnome.desktop.interface cursor-size '24'
