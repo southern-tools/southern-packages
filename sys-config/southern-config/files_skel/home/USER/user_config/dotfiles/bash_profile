@@ -8,34 +8,6 @@ if [[ -f ~/.bashrc ]] ; then
 	. ~/.bashrc
 fi
 
-
-# Export variables
-export PATH="$(du $HOME/.user_config/scripts/ | cut -f2 | tr '\n' ':')$PATH"
-export VDPAU_DRIVER="i965"
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
-
-# X variables
-export GDK_SCALE="2"
-export GDK_DPI_SCALE="0.5"
-export RXVT_SOCKET="/tmp/urxvt-socket"
-
-# deprecated
-#export CALIBRE_USE_SYSTEM_THEME=1
-#export QT_AUTO_SCREEN_SCALE_FACTOR="1"
-#export WINIT_HIDPI_FACTOR=1
-#export DRI_PRIME=1
-#export VK_ICD_FILENAMES=/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
-
-# Wayland variables
-#export XDG_SESSION_TYPE=wayland
-#export QT_QPA_PLATFORM=wayland-egl
-#export QT_WAYLAND_FORCE_DPI=physical
-#export MOZ_ENABLE_WAYLAND=1
-#export BEMENU_BACKEND=wayland
-#export _JAVA_AWT_WM_NONREPARENTING=1
-#export SDL_VIDEODRIVER=wayland
-#export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
-
 # Set XDG_RUNTIME_DIR for Sway to work
 if test -z "${XDG_RUNTIME_DIR}"; then
     export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
@@ -45,14 +17,41 @@ if test -z "${XDG_RUNTIME_DIR}"; then
     fi
 fi
 
+# System Variables
+export RXVT_SOCKET="/tmp/urxvt-socket"
+export PATH="$(du $HOME/.user_config/scripts/ | cut -f2 | tr '\n' ':')$PATH"
+export VDPAU_DRIVER="i965"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+#export DRI_PRIME=1
+#export VK_ICD_FILENAMES=/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
 
-## Autologin to Sway
-#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec sway -c ~/.user_config/applications/sway/config; fi
+# GTK+ variables
+export GDK_SCALE="2"
+export GDK_DPI_SCALE="0.75"
 
+# QT5 Variables
+export CALIBRE_USE_SYSTEM_THEME=1
+export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+#export QT_SCALE_FACTOR="1.25"
+#export WINIT_HIDPI_FACTOR=1
 
-## Autologin to Sway with log
-#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec sway -c ~/.user_config/applications/sway/config -d 2> ~/sway.log; fi
+# Wayland variables
+#export XDG_SESSION_TYPE=wayland
+#export XDG_SESSION_DESKTOP=sway
+#export XDG_CURRENT_DESKTOP=sway
+#export QT_QPA_PLATFORM=wayland-egl
+#export QT_WAYLAND_FORCE_DPI=physical
+#export MOZ_ENABLE_WAYLAND=1
+#export BEMENU_BACKEND=wayland
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export SDL_VIDEODRIVER=wayland
+#export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
 
+# Autologin to Sway
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-run-session sway -c ~/.user_config/applications/sway/config; fi
 
-## Auto-login to i3wm
+# Autologin to Sway with log
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-run-session sway -c ~/.user_config/applications/sway/config -d 2> ~/sway.log; fi
+
+# Auto-login to i3wm
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi

@@ -5,6 +5,7 @@
 #sys-apps/systemd
 #sys-auth/pambase
 #sys-auth/polkit
+#sys-libs/pam
 x11-libs/gtk+::gentoo
 
 # specific versions

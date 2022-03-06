@@ -32,7 +32,6 @@ dev-qt/qtwidgets gtk # gtk preferences
 #dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto -vaapi
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
-media-libs/avidemux-plugins qt5 # "qt5" required by media-video/avidemux
 media-libs/freetype harfbuzz # required by x11-libs/pango, app-editors/vscode
 media-libs/gegl cairo # required by media-gfx/gimp-2.10.8-r1::gentoo
 media-libs/leptonica jpeg tiff # "jpeg, tiff" required by teseract
@@ -67,7 +66,7 @@ www-client/firefox hwaccel # preferences
 www-client/ungoogled-chromium optimize-thinlto optimize-webui -system-libvpx system-openjpeg thinlto
 www-client/w3m imlib # required by neofetch
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
-x11-base/xorg-server glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references
+x11-base/xorg-server -elogind glamor -minimal suid xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references
 x11-libs/gdk-pixbuf jpeg # "jpeg" preferences (walpaper under sway)
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge # preferences
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati
@@ -101,3 +100,22 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 #net-print/hplip PYTHON_SINGLE_TARGET: python3_8
 
 # autounmask
+# required by gui-apps/swayidle-1.7.1::gentoo[elogind]
+# required by gui-wm/sway-1.7::gentoo[swayidle]
+# required by @selected
+# required by @world (argument)
+#>=sys-auth/elogind-246.10-r2 policykit
+
+# required by sys-auth/pambase-20210201.1::gentoo[elogind]
+# required by sys-libs/pam-1.5.1_p20210622-r1::gentoo
+# required by sys-auth/passwdqc-2.0.2-r1::gentoo
+>=sys-auth/elogind-246.10-r2 pam
+# required by x11-base/xorg-server-21.1.3::gentoo[elogind]
+# required by @selected
+# required by @world (argument)
+###>=sys-auth/pambase-20210201.1 elogind
+# required by gui-apps/swayidle-1.7.1::gentoo[elogind]
+# required by gui-wm/sway-1.7::gentoo[swayidle]
+# required by @selected
+# required by @world (argument)
+>=sys-auth/elogind-246.10-r2 policykit
