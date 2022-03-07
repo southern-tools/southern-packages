@@ -26,8 +26,8 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 #export VK_ICD_FILENAMES=/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
 
 # GTK+ variables
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+export GDK_SCALE="2"
+export GDK_DPI_SCALE="0.5"
 
 # QT5 Variables
 export CALIBRE_USE_SYSTEM_THEME="1"
@@ -45,7 +45,7 @@ export MOZ_ENABLE_WAYLAND=1
 export BEMENU_BACKEND=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SDL_VIDEODRIVER=wayland
-#export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1 sway
+export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/renderD128 sway
 
 # Autologin to Sway
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-run-session sway -c ~/.user_config/applications/sway/config; fi
