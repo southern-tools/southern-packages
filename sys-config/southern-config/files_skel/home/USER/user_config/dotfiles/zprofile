@@ -8,14 +8,14 @@
 #	. ~/.bashrc
 #fi
 
-# Set XDG_RUNTIME_DIR for Sway to work
-if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-    if ! test -d "${XDG_RUNTIME_DIR}"; then
-        mkdir "${XDG_RUNTIME_DIR}"
-        chmod 0700 "${XDG_RUNTIME_DIR}"
-    fi
-fi
+# Set XDG_RUNTIME_DIR for Sway to work without elogind
+#if test -z "${XDG_RUNTIME_DIR}"; then
+#    export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+#    if ! test -d "${XDG_RUNTIME_DIR}"; then
+#        mkdir "${XDG_RUNTIME_DIR}"
+#        chmod 0700 "${XDG_RUNTIME_DIR}"
+#    fi
+#fi
 
 # System Variables
 export RXVT_SOCKET="/tmp/urxvt-socket"
