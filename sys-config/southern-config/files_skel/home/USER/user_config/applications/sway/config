@@ -478,5 +478,4 @@ exec_always {
 
 exec xrdb -merge ~/.Xresources
 exec light -S 90
-#exec alacritty
-#exec redshift -l 49.59:17.25
+#exec wlsunset -l 49.59 -L 17.25
