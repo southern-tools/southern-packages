@@ -53,7 +53,7 @@ net-nds/openldap -berkdb # preferences
 net-wireless/wpa_supplicant ap qt5 # dbus # "ap" required for Southern Tools hotspot, "dbus" required by hidden networks
 sys-apps/bleachbit gtk # preferences
 #sys-apps/busybox static # Required by sakaki method
-sys-apps/util-linux caps -su # "caps" required by app-portage/pfl, "su" requires "pam"
+sys-apps/util-linux caps pam # "caps" required by app-portage/pfl, "su" requires "pam" and viceversa
 #sys-boot/grub:2 device-mapper
 sys-fs/e2fsprogs cron # preferences (check automatically LVM's)
 #sys-firmware/intel-microcode initramfs # only for x86

@@ -45,13 +45,13 @@ export MOZ_ENABLE_WAYLAND=1
 export BEMENU_BACKEND=wayland
 export _JAVA_AWT_WM_NONREPARENTING=1
 export SDL_VIDEODRIVER=wayland
-export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/renderD128 sway
+#export WLR_DRM_DEVICES=/dev/dri/card0:/dev/dri/renderD128 sway
 
 # Autologin to Sway
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-run-session sway -c ~/.user_config/applications/sway/config; fi
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-launch --exit-with-session sway -c ~/.user_config/applications/sway/config; fi
 
 # Autologin to Sway with log
-#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-run-session sway -c ~/.user_config/applications/sway/config -d 2> ~/sway.log; fi
+#if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then dbus-launch --exit-with-session sway -c ~/.user_config/applications/sway/config -d 2> ~/sway.log; fi
 
 # Auto-login to i3wm
 #if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi

@@ -266,9 +266,9 @@ mode "$mode_system" {
     #bindsym s exec sudo /usr/sbin/pm-suspend, mode "default"
     bindsym e exec swaymsg exit, mode "default"
     #bindsym h exec sudo /usr/sbin/pm-hibernate, mode "default"
-    bindsym r exec bash -c 'pkill -HUP X && sudo /sbin/reboot', mode "default"
-    bindsym Shift+s exec bash -c 'pkill -HUP X && sudo /sbin/halt', mode "default"
-    bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && pkill -HUP X && sudo /sbin/halt', mode "default"
+    bindsym r exec bash -c 'loginctl reboot', mode "default"
+    bindsym Shift+s exec bash -c 'loginctl poweroff', mode "default"
+    bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && loginctl poweroff', mode "default"
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -413,6 +413,9 @@ bindsym Alt+Control+Print exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/Snaps
 # Web Browser
 bindsym $mod+Mod1+b exec chromium
 
+# Zettlr
+bindsym $mod+Mod1+k exec /usr/bin/Zettlr --force-device-scale-factor=1.5
+
 # Youtube player
 bindsym $mod+Mod1+y workspace number 10:《𝟭𝟬》; exec alacritty -e youtube-viewer
 
@@ -465,10 +468,10 @@ bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 e
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
-    gsettings set org.gnome.desktop.interface 'Hack 24'
+    gsettings set org.gnome.desktop.interface 'Hack 12'
     gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
-    gsettings set org.gnome.desktop.interface cursor-size '24'
+    gsettings set org.gnome.desktop.interface cursor-size '12'
 }
 
 
