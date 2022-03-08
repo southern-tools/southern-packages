@@ -294,13 +294,13 @@ for_window [class="(?i)blueman"] floating enable
 for_window [class="(?i)pinentry"] floating enable
 for_window [instance="__scratchpad"] floating enable
 # (Personal)
-for_window [title="Hangouts"] floating disable
+#for_window [title="Hangouts"] floating disable
 for_window [title="Llamada de Facebook - Chromium"] floating disable
-for_window [class="mpv"] fullscreen enable
-#for_window [class="vlc"] fullscreen enable
+#for_window [class="mpv"] fullscreen enable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [instance="copyq" class="copyq"] floating enable
 for_window [title="SpeedCrunch"] floating enable
+for_window [window_role="GtkFileChooserDialog"] resize set 1920 1080
 
 # Rules for specific programs
 for_window [title="terminal_alsamixer"] floating enable

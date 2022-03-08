@@ -6,7 +6,8 @@ Name=Bluetooth CTL
 
 Comment=Bluetooth CLI tool
 
-Exec=swaymsg "exec urxvtc --title terminal_bluetooth_ctl -e sudo ~/.user_config/scripts/bluetooth_ctl.sh"
+#Exec=swaymsg "exec urxvtc --title terminal_bluetooth_ctl -e sudo ~/.user_config/scripts/bluetooth_ctl.sh"
+Exec=swaymsg "exec alacritty --title terminal_bluetooth_ctl -e sudo ~/.user_config/scripts/bluetooth_ctl.sh"
 
 Icon=utilities-terminal
 

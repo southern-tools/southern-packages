@@ -1,7 +1,7 @@
 # Southern Tools "package.license"
 
 app-arch/unrar unRAR
-app-editors/sublime-text Sublime
+#app-editors/sublime-text Sublime
 app-editors/vscode Microsoft-vscode
 app-text/calibre unRAR
 #dev-java/oracle-jre-bin Oracle-BCLA-JavaSE

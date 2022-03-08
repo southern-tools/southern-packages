@@ -21,7 +21,7 @@ dev-java/openjdk-bin gentoo-vm # preferences
 dev-lang/python sqlite tk # "sqlite" required by dev-python/ipython, dev-python/nbformat, app-misc/khal, sys-apps/bleachbit, dev-python/vdirsyncer, app-text/calibre, "tk" preferences
 dev-lang/ruby -berkdb -gdbm -ncurses -readline # preferences
 dev-libs/boost nls # "nls" required by ncmpcpp, gnucash, libreoffice
-# move dev-libs/intel-neo dev-libs/intel-compute-runtime
+# dev-libs/intel-neo dev-libs/intel-compute-runtime
 dev-libs/intel-compute-runtime l0 # preferences
 dev-python/PyQt5 gui network printsupport svg webchannel widgets # "gui widgets" required by "opengl", "network, printsupport svg webchannel" required by calibre, PyQtWebEngine, QtPy
 dev-python/QtPy printsupport gui svg # required by dev-python/qtconsole
@@ -29,7 +29,6 @@ dev-qt/qtgui dbus # "dbus" required by qtwidgets, qt5ct
 dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
 dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
 dev-qt/qtwidgets gtk # gtk preferences
-#dev-util/electron optimize-thinlto optimize-webui system-openjpeg thinlto -vaapi
 mail-client/neomutt sasl # required for gmail account
 media-gfx/imagemagick jpeg #png # "png" required by net-misc/electrum [qrcode], "jpeg" preferences
 media-libs/freetype harfbuzz # required by x11-libs/pango, app-editors/vscode
@@ -66,7 +65,7 @@ www-client/firefox hwaccel # preferences
 www-client/ungoogled-chromium optimize-thinlto optimize-webui -system-libvpx system-openjpeg thinlto
 www-client/w3m imlib # required by neofetch
 #x11-base/xorg-drivers -video_cards_intel # "-video_cards_intel" prevents pulling xf86-video-intel and allows modsetting
-x11-base/xorg-server glamor -minimal xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" references
+x11-base/xorg-server glamor -minimal xvfb # "xvfb" required by firefox, "suid" required for login "glamor, -minimal" preferences
 x11-libs/gdk-pixbuf jpeg # "jpeg" preferences (walpaper under sway)
 x11-libs/gtk+ adwaita-icon-theme -atk-bridge # preferences
 x11-libs/libdrm libkms video_cards_radeon # "radeon" required by x11-drivers/xf86-video-ati
@@ -120,3 +119,28 @@ app-text/calibre PYTHON_SINGLE_TARGET: python3_9
 # required by @world (argument)
 >=sys-auth/elogind-246.10-r2 policykit
 gui-apps/swaylock pam
+# required by sys-libs/compiler-rt-sanitizers-13.0.1::gentoo
+# required by sys-devel/clang-runtime-13.0.1::gentoo[compiler-rt,sanitize]
+# required by sys-devel/clang-13.0.1::gentoo
+# required by sys-devel/clang-common-13.0.1::gentoo
+# required by sys-devel/clang-11.1.0::gentoo
+# required by dev-util/spirv-llvm-translator-11.1.0_pre20210212::gentoo
+# required by dev-libs/opencl-clang-11.1.0_pre20201222::gentoo
+# required by dev-util/intel-graphics-compiler-1.0.8744::gentoo
+# required by dev-libs/intel-compute-runtime-21.46.21636-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=virtual/libcrypt-2 abi_x86_32
+# required by virtual/libcrypt-2::gentoo
+# required by sys-libs/compiler-rt-sanitizers-13.0.1::gentoo
+# required by sys-devel/clang-runtime-13.0.1::gentoo[compiler-rt,sanitize]
+# required by sys-devel/clang-13.0.1::gentoo
+# required by sys-devel/clang-common-13.0.1::gentoo
+# required by sys-devel/clang-11.1.0::gentoo
+# required by dev-util/spirv-llvm-translator-11.1.0_pre20210212::gentoo
+# required by dev-libs/opencl-clang-11.1.0_pre20201222::gentoo
+# required by dev-util/intel-graphics-compiler-1.0.8744::gentoo
+# required by dev-libs/intel-compute-runtime-21.46.21636-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=sys-libs/libxcrypt-4.4.27 abi_x86_32

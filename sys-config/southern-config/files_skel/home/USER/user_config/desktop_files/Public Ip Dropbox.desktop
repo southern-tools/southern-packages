@@ -6,7 +6,8 @@ Name=Public Ip Dropbox
 
 Comment=Obtain public IP
 
-Exec=swaymsg "exec urxvtc -e ~/.user_config/scripts/public_ip_dropbox.sh"
+#Exec=swaymsg "exec urxvtc -e ~/.user_config/scripts/public_ip_dropbox.sh"
+Exec=swaymsg "exec alacritty -e ~/.user_config/scripts/public_ip_dropbox.sh"
 
 Icon=utilities-terminal
 

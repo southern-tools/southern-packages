@@ -6,10 +6,7 @@ Name=Chromium Incognito
 
 Comment=Incognito version of Chromium
 
-# i3
 # Exec=swaymsg "exec chromium-browser --force-device-scale-factor=3 --incognito %U"
-
-# Sway
 Exec=swaymsg "exec chromium-browser --incognito %U"
 
 Icon=chromium-browser
