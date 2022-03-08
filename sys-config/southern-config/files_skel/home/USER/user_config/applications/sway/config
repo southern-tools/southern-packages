@@ -95,11 +95,11 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
 #
-exec swayidle -w \
+exec swayidle \
     timeout 300 'swaylock -c 000000' \
     timeout 600 'swaymsg "output * dpms off"' \
-       resume 'swaymsg "output * dpms on"; pkill -n swayidle' \
-   before-sleep 'swaylock -c 000000'
+    after-resume 'swaymsg "output * dpms on"; pkill -n swayidle' \
+    before-sleep 'swaylock -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -263,9 +263,9 @@ bindsym $mod+Shift+plus scratchpad show
 set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown ]
 mode "$mode_system" {
     #bindsym l exec "xlock -mode blank -lockdelay 7 -mousemotion", mode "default"
-    #bindsym s exec sudo /usr/sbin/pm-suspend, mode "default"
+    bindsym s exec 'loginctl suspend', mode "default"
     bindsym e exec swaymsg exit, mode "default"
-    #bindsym h exec sudo /usr/sbin/pm-hibernate, mode "default"
+    bindsym h exec 'loginctl hibernate', mode "default"
     bindsym r exec bash -c 'loginctl reboot', mode "default"
     bindsym Shift+s exec bash -c 'loginctl poweroff', mode "default"
     bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && loginctl poweroff', mode "default"
@@ -392,9 +392,9 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 #bindsym $mod+asterisk exec alacritty -name floating
 
 # Screen lock
-#bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
-bindsym $mod+Mod1+l exec swaymsg "output * dpms off"
-bindsym $mod+Mod1+u exec swaymsg "output * dpms on"
+bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
+bindsym $mod+l exec swaymsg "output * dpms off"
+#bindsym $mod+u exec swaymsg "output * dpms on"
 
 
 # Capturas
@@ -468,10 +468,10 @@ bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 e
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
-    gsettings set org.gnome.desktop.interface 'Hack 12'
+    gsettings set org.gnome.desktop.interface 'Hack 24'
     gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
-    gsettings set org.gnome.desktop.interface cursor-size '12'
+    gsettings set org.gnome.desktop.interface cursor-size '24'
 }
 
 
