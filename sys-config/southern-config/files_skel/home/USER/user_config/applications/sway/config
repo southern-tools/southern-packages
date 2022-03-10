@@ -95,15 +95,24 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #
 # Example configuration:
 #
-exec swayidle \
-    timeout 300 'swaylock -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' \
-    after-resume 'swaymsg "output * dpms on"; pkill -n swayidle' \
-    before-sleep 'swaylock -c 000000'
-#
+# Auto lock the screen after being idle
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+#exec swayidle -w \
+#    timeout 300 'swaylock' \
+#    timeout 300 'swaymsg "output * dpms off"' \
+#         resume 'swaymsg "output * dpms on"' \
+#    before-sleep 'swaylock'
+
+# This option looks better
+set $lock_command swaylock --daemonize --ignore-empty-password --show-failed-attempts
+exec swayidle -w \
+    timeout 300 'swaymsg "output * dpms off"' \
+    timeout 307 "$lock_command" \
+    timeout 5 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep "$lock_command"
 
 ### Input configuration
 #
@@ -262,7 +271,7 @@ bindsym $mod+Shift+plus scratchpad show
 # Set shut down, restart and locking features
 set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown ]
 mode "$mode_system" {
-    #bindsym l exec "xlock -mode blank -lockdelay 7 -mousemotion", mode "default"
+    bindsym l exec `~/.user_config/scripts/sway_locker.sh`
     bindsym s exec 'loginctl suspend', mode "default"
     bindsym e exec swaymsg exit, mode "default"
     bindsym h exec 'loginctl hibernate', mode "default"
@@ -274,7 +283,6 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Delete mode "$mode_system"
-
 
 #====================
 # WINDOWS
@@ -301,7 +309,6 @@ for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [instance="copyq" class="copyq"] floating enable
 for_window [title="SpeedCrunch"] floating enable
 for_window [window_role="GtkFileChooserDialog"] resize set 1920 1080
-
 # Rules for specific programs
 for_window [title="terminal_alsamixer"] floating enable
 for_window [title="terminal_bluetooth_ctl"] floating enable
@@ -312,7 +319,6 @@ for_window [title="terminal_hotspot"] floating enable
 #for_window [title="terminal_mount"] floating enable
 for_window [title="terminal_randomize_mac"] floating enable
 for_window [title="terminal_wake_remotes"] floating enable
-
 # Assign applications to specific workspaces
 assign [title="youtube-viewer"] workspace number 10:《𝟭𝟬》
 assign [class="mpv"] workspace number 10:《𝟭𝟬》
@@ -467,6 +473,7 @@ bindsym Ctrl+4 exec alacritty -e sudo ~/.user_config/scripts/hotspot.sh wlp7s0 e
 
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    gsettings set org.gnome.desktop.interface gtk-color-scheme 'dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
     gsettings set org.gnome.desktop.interface 'Hack 24'
     gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
