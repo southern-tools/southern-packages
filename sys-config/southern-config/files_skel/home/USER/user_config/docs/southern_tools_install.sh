@@ -61,6 +61,9 @@ ln -vsf ~/.user_config/dotfiles/rtorrent.rc ~/.rtorrent.rc
 ln -vsf ~/.user_config/dotfiles/xinitrc ~/.xinitrc
 ln -vsf ~/.user_config/dotfiles/xserverrc ~/.xserverrc
 
+# Udiskie
+mkdir -p ~/.config/udiskie/
+ln -vsf ~/.user_config/applications/udiskie/config.yml ~/.config/udiskie/config.yml
 
 ##### Applications #####
 

@@ -106,7 +106,7 @@ output * bg ~/.user_config/backgrounds/forest_3.jpg fill
 #    before-sleep 'swaylock'
 
 # This option looks better
-set $lock_command swaylock --daemonize --ignore-empty-password --show-failed-attempts
+set $lock_command swaylock --daemonize --ignore-empty-password --show-failed-attempts -c 000000
 exec swayidle -w \
     timeout 300 'swaymsg "output * dpms off"' \
     timeout 307 "$lock_command" \
@@ -476,7 +476,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface gtk-color-scheme 'dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
     gsettings set org.gnome.desktop.interface 'Hack 24'
-    gsettings set org.gnome.desktop.interface text-scaling-factor '2.73'
+    gsettings set org.gnome.desktop.interface text-scaling-factor '1.5'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
     gsettings set org.gnome.desktop.interface cursor-size '24'
 }

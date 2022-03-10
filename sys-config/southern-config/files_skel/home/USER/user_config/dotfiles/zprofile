@@ -26,12 +26,12 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 #export VK_ICD_FILENAMES=/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
 
 # GTK+ variables
-export GDK_SCALE="2"
-export GDK_DPI_SCALE="0.5"
+#export GDK_SCALE="2"
+#export GDK_DPI_SCALE="0.5"
 
 # QT5 Variables
-export CALIBRE_USE_SYSTEM_THEME="1"
-export QT_AUTO_SCREEN_SCALE_FACTOR="1"
+#export CALIBRE_USE_SYSTEM_THEME="1"
+#export QT_AUTO_SCREEN_SCALE_FACTOR="1"
 #export QT_SCALE_FACTOR="1.25"
 #export WINIT_HIDPI_FACTOR="1"
 
