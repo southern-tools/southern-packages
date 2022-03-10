@@ -2,7 +2,7 @@
 
 # prefer latest version
 app-editors/sublime-text ~amd64
-app-editors/vscode ~amd64
+app-editors/vscodium ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
@@ -44,6 +44,7 @@ x11-misc/xkblayout-state ~amd64
 #=dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 #=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 #=dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
+=gui-libs/wlroots-0.15.1 ~amd64 # conflict with vscodium
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64

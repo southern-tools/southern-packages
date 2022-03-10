@@ -145,3 +145,9 @@ gui-apps/swaylock pam
 # required by @selected
 # required by @world (argument)
 >=sys-libs/libxcrypt-4.4.27 abi_x86_32
+# required by dev-python/PyQt5-5.15.4-r1::gentoo[multimedia]
+# required by dev-python/pyudev-0.22.0-r1::gentoo[qt5,-test]
+# required by x11-misc/py3status-3.41::gentoo[udev]
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qtmultimedia-5.15.2-r2 widgets
