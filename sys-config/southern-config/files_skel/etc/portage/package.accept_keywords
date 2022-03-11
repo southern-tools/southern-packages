@@ -2,7 +2,7 @@
 
 # prefer latest version
 app-editors/sublime-text ~amd64
-app-editors/vscodium ~amd64
+app-editors/vscode ~amd64
 app-misc/khal ~amd64  # required by khal (argument)
 app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config/ltoize
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
@@ -14,13 +14,17 @@ dev-lang/python:3.9::southern-packages ~amd64 # python with lto
 dev-lang/python:3.10::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
+dev-libs/date ~amd64 # required by waybar
+dev-libs/libfmt ~amd64 # required by waybar
 #dev-libs/light ~amd64
+dev-libs/spdlog ~amd64 # required by waybar
 dev-python/click-log ~amd64 # required by app-misc/khal-0.9.10::gentoo
 dev-python/click-threading ~amd64 # required by dev-python/vdirsyncer-0.16.7::gentoo
 dev-python/vdirsyncer ~amd64 # required by dev-python/vdirsyncer (argument)
 #dev-util/android-sdk-update-manager ~amd64 # required by dev-util/android-sdk-update-manager
 #dev-util/android-studio ~amd64 # required by dev-util/android-studio
 dev-util/clinfo ~amd64 # required by clinfo
+gui-apps/waybar ~amd64 # unstable
 gui-apps/wlsunset ~amd64 # unstable
 lxde-base/lxappearance ~amd64 # required by lxde-base/lxappearance
 #mail-client/alot ~amd64
@@ -44,7 +48,7 @@ x11-misc/xkblayout-state ~amd64
 #=dev-libs/opencl-clang-11.1.0_pre20201222 ~amd64 # required by intel-neo
 #=dev-util/intel-graphics-compiler-1.0.5353 ~amd64 # required by intel-neo
 #=dev-util/spirv-llvm-translator-11.1.0_pre20210212 ~amd64 # required by intel-neo
-=gui-libs/wlroots-0.15.1 ~amd64 # conflict with vscodium
+#=gui-libs/wlroots-0.15.1 ~amd64 # conflict with vscodium
 
 # haskell packages for pandoc and pandoc-citeproc
 app-admin/haskell-updater ~amd64

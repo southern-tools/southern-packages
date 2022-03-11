@@ -476,7 +476,7 @@ exec_always {
     gsettings set org.gnome.desktop.interface gtk-color-scheme 'dark'
     gsettings set org.gnome.desktop.interface icon-theme 'breeze-dark'
     gsettings set org.gnome.desktop.interface 'Hack 24'
-    gsettings set org.gnome.desktop.interface text-scaling-factor '1.5'
+    gsettings set org.gnome.desktop.interface text-scaling-factor '1.25'
     gsettings set org.gnome.desktop.interface cursor-theme 'gentoo-silver'
     gsettings set org.gnome.desktop.interface cursor-size '24'
 }
@@ -488,4 +488,4 @@ exec_always {
 
 exec xrdb -merge ~/.Xresources
 exec light -S 90
-#exec wlsunset -l 49.59 -L 17.25
+exec wlsunset -l 49.59 -L 17.25
