@@ -428,7 +428,7 @@ bindsym $mod+Mod1+b exec chromium
 bindsym $mod+Mod1+k exec /usr/bin/Zettlr --force-device-scale-factor=1.5
 
 # Youtube player
-bindsym $mod+Mod1+y workspace number 10:《𝟭𝟬》; exec alacritty -e youtube-viewer
+bindsym $mod+Mod1+y workspace number 10; exec alacritty -e youtube-viewer
 
 # Neomutt
 bindsym $mod+Mod1+n exec alacritty -e neomutt -F ~/.user_config/applications/neomutt/neomuttrc
