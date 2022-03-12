@@ -133,7 +133,8 @@ sudo ln -vsf /usr/share/cursors/xorg-x11 ~/.icons
 
 # Waybar
 mkdir -p ~/.config/waybar
-~/.user_config/applications/waybar/*
+ln -vsf ~/.user_config/applications/waybar/config ~/.config/waybar/config
+ln -vsf ~/.user_config/applications/waybar/style.css ~/.config/waybar/style.css
 
 # Sway cursors
 sudo ln -vsf /usr/share/cursors/xorg-x11/gentoo-silver /usr/share/icons

@@ -204,28 +204,28 @@ input * xkb_numlock enable
 #workspace number 10:《𝟭𝟬》output HDMI-A-1
 
 # switch to workspace
-bindsym $mod+1 workspace number 1:《𝟭》
-bindsym $mod+2 workspace number 2:《𝟮》
-bindsym $mod+3 workspace number 3:《𝟯》
-bindsym $mod+4 workspace number 4:《𝟰》
-bindsym $mod+5 workspace number 5:《𝟱》
-bindsym $mod+6 workspace number 6:《𝟲》
-bindsym $mod+7 workspace number 7:《𝟳》
-bindsym $mod+8 workspace number 8:《𝟴》
-bindsym $mod+9 workspace number 9:《𝟵》
-bindsym $mod+0 workspace number 10:《𝟭𝟬》
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace number 1:《𝟭》; workspace number 1:《𝟭》
-bindsym $mod+Shift+2 move container to workspace number 2:《𝟮》; workspace number 2:《𝟮》
-bindsym $mod+Shift+3 move container to workspace number 3:《𝟯》; workspace number 3:《𝟯》
-bindsym $mod+Shift+4 move container to workspace number 4:《𝟰》; workspace number 4:《𝟰》
-bindsym $mod+Shift+5 move container to workspace number 5:《𝟱》; workspace number 5:《𝟱》
-bindsym $mod+Shift+6 move container to workspace number 6:《𝟲》; workspace number 6:《𝟲》
-bindsym $mod+Shift+7 move container to workspace number 7:《𝟳》; workspace number 7:《𝟳》
-bindsym $mod+Shift+8 move container to workspace number 8:《𝟴》; workspace number 8:《𝟴》
-bindsym $mod+Shift+9 move container to workspace number 9:《𝟵》; workspace number 9:《𝟵》
-bindsym $mod+Shift+0 move container to workspace number 10:《𝟭𝟬》; workspace number 10:《𝟭𝟬》
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 
@@ -308,9 +308,11 @@ for_window [title="Llamada de Facebook - Chromium"] floating disable
 for_window [class="Zotero" title="Quick Format Citation"] floating enable
 #for_window [instance="copyq" class="copyq"] floating enable
 for_window [title="SpeedCrunch"] floating enable
-for_window [window_role="GtkFileChooserDialog"] resize set 1920 1080
+for_window [title="wpa_gui"] floating enable
+#for_window [window_role="GtkFileChooserDialog"] resize set 1920 1080
 # Rules for specific programs
 for_window [title="terminal_alsamixer"] floating enable
+for_window [title="terminal_pulsemixer"] floating enable
 for_window [title="terminal_bluetooth_ctl"] floating enable
 for_window [title="terminal_ccache_stats"] floating enable
 for_window [title="terminal_floating"] floating enable
@@ -320,10 +322,10 @@ for_window [title="terminal_hotspot"] floating enable
 for_window [title="terminal_randomize_mac"] floating enable
 for_window [title="terminal_wake_remotes"] floating enable
 # Assign applications to specific workspaces
-assign [title="youtube-viewer"] workspace number 10:《𝟭𝟬》
-assign [class="mpv"] workspace number 10:《𝟭𝟬》
-#assign [class="vlc"] workspace number 10:《𝟭𝟬》
-assign [title="ncmpcpp*"] workspace number 10:《𝟭𝟬》
+assign [title="youtube-viewer"] workspace number 10
+assign [class="mpv"] workspace number 10
+#assign [class="vlc"] workspace number 10
+assign [title="ncmpcpp*"] workspace number 10
 #  KeepassXC to scratchpad
 for_window [title="keepassxc_database.kdbx - KeePassXC"] move scratchpad
 
@@ -333,29 +335,32 @@ for_window [title="keepassxc_database.kdbx - KeePassXC"] move scratchpad
 #====================
 
 # Read `man 5 sway-bar` for more information about this section.
+#bar {
+#    position top
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    status_command py3status --config ~/.user_config/applications/py3status/py3status.conf
+#	output eDP-1
+#	#tray_output eDP-1
+#	font pango:Font Awesome 5 Free Solid 12
+#	mode dock
+#	position top
+#	strip_workspace_numbers yes
+#    separator_symbol " | "
+#    colors {
+#            background      $transparent
+#            separator       $color9
+#            statusline      $foreground
+#
+##                               <border>        <background>      <text>
+#            focused_workspace   $transparent     $transparent     $color6
+#            active_workspace    $transparent     $transparent     $foreground
+#            inactive_workspace  $transparent     $transparent     $foreground
+#            urgent_workspace    $foreground      $transparent     $color9
+#            binding_mode        $transparent     $transparent     $foreground
+#    }
+#}
 bar {
-    position top
-    # When the status_command prints a new line to stdout, swaybar updates.
-    status_command py3status --config ~/.user_config/applications/py3status/py3status.conf
-	output eDP-1
-	#tray_output eDP-1
-	font pango:Font Awesome 5 Free Solid 12
-	mode dock
-	position top
-	strip_workspace_numbers yes
-    separator_symbol " | "
-    colors {
-            background      $transparent
-            separator       $color9
-            statusline      $foreground
-
-#                               <border>        <background>      <text>
-            focused_workspace   $transparent     $transparent     $color6
-            active_workspace    $transparent     $transparent     $foreground
-            inactive_workspace  $transparent     $transparent     $foreground
-            urgent_workspace    $foreground      $transparent     $color9
-            binding_mode        $transparent     $transparent     $foreground
-    }
+    swaybar_command waybar
 }
 
 
@@ -454,7 +459,7 @@ bindsym Ctrl+Escape exec alacritty -e htop
 bindsym Ctrl+1 exec wpa_gui
 
 # Alsamixer
-bindsym Ctrl+2 exec alacritty -t alsamixer-floating -e alsamixer
+bindsym Ctrl+2 exec alacritty -t terminal_pulsemixer -e pulsemixer
 
 # Clear the clipboard
 #bindsym Ctrl+3 exec xsel --clear
