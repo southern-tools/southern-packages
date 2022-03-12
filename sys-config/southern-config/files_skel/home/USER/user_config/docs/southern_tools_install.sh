@@ -130,6 +130,11 @@ mkdir -p ~/.local/share/fonts
 
 # GTK settings
 sudo ln -vsf /usr/share/cursors/xorg-x11 ~/.icons
+
+# Waybar
+mkdir -p ~/.config/waybar
+~/.user_config/applications/waybar/*
+
 # Sway cursors
 sudo ln -vsf /usr/share/cursors/xorg-x11/gentoo-silver /usr/share/icons
 

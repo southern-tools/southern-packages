@@ -153,3 +153,13 @@ x11-terms/rxvt-unicode fading-colors gdk-pixbuf xft perl # preferences
 # required by @selected
 # required by @world (argument)
 >=dev-qt/qtmultimedia-5.15.2-r2 widgets
+# required by dev-libs/libappindicator-12.10.1_p20200706::gentoo
+# required by gui-apps/waybar-0.9.9::gentoo[tray]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libdbusmenu-16.04.0-r1 gtk3
+# required by sys-fs/udisks-2.9.4::gentoo
+# required by app-text/calibre-5.16.1-r1::gentoo[udisks]
+# required by @selected
+# required by @world (argument)
+>=sys-libs/libblockdev-2.25 lvm
