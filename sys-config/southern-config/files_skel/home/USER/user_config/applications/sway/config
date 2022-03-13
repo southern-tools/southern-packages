@@ -441,13 +441,13 @@ bindsym $mod+Mod1+p exec pcmanfm-qt
 # Text Edit
 #bindsym $mod+Mod1+t exec subl
 bindsym $mod+Mod1+e exec emacs
-bindsym $mod+Mod1+c exec vscode
+bindsym $mod+Mod1+c exec vscodium
 
 # Multimedia
 # bindsym $mod+Mod1+v exec vlc
 	
 # Ncmpcpp con mi script
-bindsym $mod+Mod1+m workspace number 10:《𝟭𝟬》; exec ~/.user_config/scripts/mpd.sh
+bindsym $mod+Mod1+m workspace number 10 ; exec ~/.user_config/scripts/mpd.sh
 
 # Zotero
 bindsym $mod+Mod1+z exec zotero
