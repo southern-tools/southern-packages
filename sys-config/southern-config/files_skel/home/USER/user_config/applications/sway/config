@@ -272,12 +272,12 @@ bindsym $mod+Shift+plus scratchpad show
 set $mode_system [ (l)ock | (e)xit | (r)eboot | (S)hutdown | (C)icledown ]
 mode "$mode_system" {
     bindsym l exec `~/.user_config/scripts/sway_locker.sh`
-    bindsym s exec 'loginctl suspend', mode "default"
+    bindsym s exec 'systemctl suspend', mode "default"
     bindsym e exec swaymsg exit, mode "default"
-    bindsym h exec 'loginctl hibernate', mode "default"
-    bindsym r exec bash -c 'loginctl reboot', mode "default"
-    bindsym Shift+s exec bash -c 'loginctl poweroff', mode "default"
-    bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && loginctl poweroff', mode "default"
+    bindsym h exec 'systemctl hibernate', mode "default"
+    bindsym r exec bash -c 'systemctl reboot', mode "default"
+    bindsym Shift+s exec bash -c 'systemctl poweroff', mode "default"
+    bindsym Shift+c exec bash -c 'alacritty -e ~/.user_config/scripts/full_sync.sh && systemctl poweroff', mode "default"
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
     bindsym Escape mode "default"
