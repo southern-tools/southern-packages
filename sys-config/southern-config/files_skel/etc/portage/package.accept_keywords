@@ -8,6 +8,7 @@ app-portage/portage-bashrc-mv::southern-packages ~amd64 # required by sys-config
 app-shells/runtitle::southern-packages ~amd64 # required by app-portage/portage-bashrc-mv, sys-config/ltoize
 app-text/pandoc ~amd64
 app-text/zettlr-bin ~amd64
+app-text/zotero-bin ~amd64 # unstable
 dev-lang/python:2.7::southern-packages ~amd64 # python with lto
 dev-lang/python:3.8::southern-packages ~amd64 # python with lto
 dev-lang/python:3.9::southern-packages ~amd64 # python with lto
