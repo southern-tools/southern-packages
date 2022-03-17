@@ -20,7 +20,6 @@ app-text/zettlr-bin::southern-packages
 #games-util/steam-launcher::southern-packages
 #games-util/steam-meta::southern-packages
 gui-apps/wlsunset::southern-packages
-sci-misc/zotero-bin::southern-packages
 sys-config/ltoize::southern-packages
 #sys-kernel/buildkernel::southern-packages
 #sys-kernel/genkernel-next::southern-packages

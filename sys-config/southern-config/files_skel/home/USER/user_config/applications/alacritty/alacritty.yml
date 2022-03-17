@@ -1,5 +1,10 @@
 # Southern Tools
 #
+window:
+  padding:
+    x: 5
+    y: 5
+
 # Fonts
 font:
   normal:
@@ -16,14 +21,12 @@ font:
     style: Bold Italic
   size: 12
 
-
 # Transparence
 background_opacity: 0.80
 
 # Clipboard
 selection:
   save_to_clipboard: true
-
 
 # Southern Tools Colors
 schemes:
@@ -55,7 +58,6 @@ schemes:
       magenta:  '#FF5879'
       cyan:     '#44B5B1'
       white:    '#F2F1B9'
-
 
   test_colors: &breeze
     # Default colors
@@ -91,6 +93,5 @@ schemes:
       magenta:  '#614a73'
       cyan:     '#186c60'
       white:    '#63686d'
-
 
 colors: *southern

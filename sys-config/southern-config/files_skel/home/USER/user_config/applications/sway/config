@@ -374,10 +374,20 @@ include /etc/sway/config.d/*
 # Caps indicator
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
-# Teclas de volumen
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer -q set Master toggle
+# Sound keys under Alsa
+# bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+# bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+# bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Sound keys under Pulseaudio
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 
 # Teclas de reproduccion (requires playerctl and probably dbus)
 # bindsym XF86AudioPlay exec playerctl play
@@ -404,7 +414,7 @@ bindsym $mod+p resize shrink width 10 px or 10 ppt
 
 # Screen lock
 bindsym $mod+Mod1+l exec ~/.user_config/scripts/sway_locker.sh
-bindsym $mod+l exec swaymsg "output * dpms off"
+#bindsym $mod+l exec swaymsg "output * dpms off"
 #bindsym $mod+u exec swaymsg "output * dpms on"
 
 

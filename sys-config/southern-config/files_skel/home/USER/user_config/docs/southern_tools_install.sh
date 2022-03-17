@@ -66,8 +66,8 @@ mkdir -p ~/.config/udiskie/
 ln -vsf ~/.user_config/applications/udiskie/config.yml ~/.config/udiskie/config.yml
 
 ##### Applications #####
-
-
+# Setting PSD
+ln -vsf ~/.user_config/applications/profile_sync_daemon/psd.conf ~/.config/psd/psd.conf
 
 # Setting up configurations for "public_ip_dropbox.sh", rclone need to be configured by the user
 mkdir -p ~/Remotes/dropbox_sync

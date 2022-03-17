@@ -52,6 +52,7 @@ net-misc/electrum qrcode # preferences
 net-mail/mailutils berkdb sasl # required for Southern Tools public-ip-gmail
 #net-misc/iputils -caps -filecaps # preferences
 #net-nds/openldap -berkdb # preferences
+net-wireless/iwd standalone wired # preferences
 net-wireless/wpa_supplicant ap # "ap" required for Southern Tools hotspot
 sys-apps/bleachbit gtk # preferences
 #sys-apps/busybox static # Required by sakaki method

@@ -26,7 +26,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 #export VK_ICD_FILENAMES=/opt/amdgpu-pro/etc/vulkan/icd.d/amd_icd64.json
 
 # GTK+ variables
-export GDK_BACKEND="wayland"
+#export GDK_BACKEND="wayland"
 #export GDK_SCALE="2"
 #export GDK_DPI_SCALE="0.5"
 
