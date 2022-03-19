@@ -1,4 +1,0 @@
-# Southern Tools
-#
-#dev-java/openjdk -gentoo-vm
-#dev-java/openjdk-bin -gentoo-vm

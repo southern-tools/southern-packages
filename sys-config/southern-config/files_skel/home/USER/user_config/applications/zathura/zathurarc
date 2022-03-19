@@ -1,8 +1,0 @@
-# Southern Tools
-
-set selection-clipboard "clipboard"
-set show-scrollbars "true"
-#set recolor "true"
-set zoom-center "true"
-#set zoom-step "5"
-set font "hack normal 5"

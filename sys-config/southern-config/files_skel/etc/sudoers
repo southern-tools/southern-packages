@@ -1,7 +1,0 @@
-
-
-# Southern Tools
-#
-USER_NAME ALL=(ALL) ALL
-USER_NAME ALL=(ALL) NOPASSWD: /usr/sbin/genup, /etc/cron.daily/rsnapshot.daily
-%wheel ALL=(ALL) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/shutdown

@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Zettlr
-Type=Application
-Comment=Zettelkasten Software
-Exec= ~/Software/Zettlr/Zettlr-2.2.4-x86_64.AppImage --force-device-scale-factor=1.5
-#Exec= /usr/bin/Zettlr --force-device-scale-factor=1.5
-Categories=Education

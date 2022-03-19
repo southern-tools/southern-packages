@@ -1,5 +1,0 @@
-
- 
-# Southern Tools
-#
-wpa_supplicant_args="-B -M -c/etc/wpa_supplicant/wpa_supplicant.conf"
