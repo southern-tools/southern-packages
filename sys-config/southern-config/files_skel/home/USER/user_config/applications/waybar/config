@@ -132,10 +132,10 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         //"format-alt": "{ifname}: {ipaddr}/{cidr}"
-        "on-click": "wpa_gui",
-        "on-click-right": "killall wpa_gui"
-        //"on-click": "iwgtk",
-        //"on-click-right": "killall iwgtk"
+        //"on-click": "wpa_gui",
+        //"on-click-right": "killall wpa_gui"
+        "on-click": "iwgtk",
+        "on-click-right": "killall iwgtk"
     },
 
     "pulseaudio": {

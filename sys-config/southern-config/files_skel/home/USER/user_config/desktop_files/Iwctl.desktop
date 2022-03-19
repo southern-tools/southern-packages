@@ -1,0 +1,14 @@
+[Desktop Entry]
+
+Type=Application
+
+Name=Iwctl
+
+Comment=Control Network Interfaces
+
+#Exec=swaymsg "exec urxvtc --title terminal_sensors -e watch -cn 1 sensors"
+Exec=swaymsg "exec alacritty --title terminal_iwctl -e iwctl"
+
+Icon=utilities-terminal
+
+Categories=System;

@@ -18,7 +18,7 @@
 #fi
 
 # System Variables
-export RXVT_SOCKET="/tmp/urxvt-socket"
+#export RXVT_SOCKET="/tmp/urxvt-socket"
 export PATH="$(du $HOME/.user_config/scripts/ | cut -f2 | tr '\n' ':')$PATH"
 export VDPAU_DRIVER="i965"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"

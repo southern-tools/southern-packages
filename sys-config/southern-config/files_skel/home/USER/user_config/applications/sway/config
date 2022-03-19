@@ -315,6 +315,7 @@ for_window [title="iwgtk"] floating enable
 for_window [title="terminal_alsamixer"] floating enable
 for_window [title="terminal_pulsemixer"] floating enable
 for_window [title="terminal_bluetooth_ctl"] floating enable
+for_window [title="terminal_iwctl"] floating enable
 for_window [title="terminal_ccache_stats"] floating enable
 for_window [title="terminal_floating"] floating enable
 for_window [title="terminal_genlop"] floating enable
@@ -505,3 +506,4 @@ exec_always {
 exec xrdb -merge ~/.Xresources
 exec light -S 90
 exec wlsunset -l 49.59 -L 17.25
+exec udiskie --no-automount --no-notify --tray &
