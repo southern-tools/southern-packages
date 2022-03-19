@@ -29,6 +29,7 @@ dev-python/PyQt5 webchannel # "webchannel" required by slot conflict
 dev-qt/qtwebengine widgets # required by dev-python/PyQtWebEngine
 dev-qt/qtwebchannel qml # required by dev-qt/qtwebengine
 dev-qt/qtwidgets gtk # gtk preferences
+gnome-extra/nm-applet appindicator modemmanager # preferences
 gui-apps/waybar mpd network sndio tray wifi # preferences
 gui-wm/sway tray # preferences
 mail-client/neomutt sasl # required for gmail account

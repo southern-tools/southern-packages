@@ -16,6 +16,7 @@ dev-lang/python:3.10::southern-packages ~amd64 # python with lto
 dev-libs/amdgpu-pro-opencl ~amd64 # required by amdgpu-pro-opencl
 dev-libs/bemenu ~amd64
 dev-libs/date ~amd64 # required by waybar
+dev-libs/ell # required by unstable iwd
 dev-libs/libfmt ~amd64 # required by waybar
 #dev-libs/light ~amd64
 dev-libs/spdlog ~amd64 # required by waybar
@@ -35,6 +36,8 @@ media-libs/avidemux-plugins ~amd64
 net-im/discord-bin ~amd64
 net-im/zoom ~amd64
 net-misc/youtube-viewer **
+net-wireless/iwd ~amd64 # preferences
+net-wireless/iwgtk ~amd64 # unstable
 sci-misc/zotero-bin::southern-packages ~amd64
 sys-config/ltoize::southern-packages ~amd64  # required by sys-config/ltoize (argument)
 #sys-kernel/gentoo-sources ~amd64
