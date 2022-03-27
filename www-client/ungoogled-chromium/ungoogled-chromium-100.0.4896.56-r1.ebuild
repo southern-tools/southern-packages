@@ -14,7 +14,7 @@ inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-
 UGC_PVR="${PVR/r}"
 UGC_PF="${PN}-${UGC_PVR}"
 UGC_URL="https://github.com/Eloston/${PN}/archive/"
-#UGC_COMMIT_ID="5920ed15a05d7d781b01f7c08951b2c0daf4d5dd"
+UGC_COMMIT_ID="e688d78a0623524610ed344809e1241436ae092d"
 
 # Use following environment variables to customise the build
 # EXTRA_GN — pass extra options to gn
@@ -34,7 +34,7 @@ fi
 
 DESCRIPTION="Modifications to Chromium for removing Google integration and enhancing privacy"
 HOMEPAGE="https://github.com/Eloston/ungoogled-chromium"
-PATCHSET="3"
+PATCHSET="4"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
 PPC64LE_PATCHSET_NAME="chromium_98.0.4758.102-1raptor0.debian"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV}.tar.xz
@@ -46,7 +46,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~x86"
+# KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE="cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -104,7 +104,6 @@ COMMON_SNAPSHOT_DEPEND="
 				>=media-sound/apulse-0.1.9
 			)
 		)
-		sys-apps/pciutils:=
 		kerberos? ( virtual/krb5 )
 		vaapi? ( >=x11-libs/libva-2.7:=[X,drm] )
 		x11-libs/libX11:=
@@ -139,6 +138,7 @@ COMMON_DEPEND="
 		>=app-accessibility/at-spi2-core-2.26:2
 		>=dev-libs/atk-2.26
 		cups? ( >=net-print/cups-1.3.11:= )
+		sys-apps/pciutils:=
 		virtual/udev
 		x11-libs/cairo:=
 		x11-libs/pango:=
@@ -298,7 +298,7 @@ src_prepare() {
 	python_setup
 
 	if ! use custom-cflags; then #See #25 #92
-		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-98-compiler.patch" || die
+		sed -i '/default_stack_frames/Q' "${WORKDIR}/patches/chromium-$(ver_cut 1)-compiler.patch" || die
 	fi
 
 	local PATCHES=(
@@ -306,9 +306,7 @@ src_prepare() {
 		"${FILESDIR}/chromium-93-InkDropHost-crash.patch"
 		"${FILESDIR}/chromium-97-arm-tflite-cast.patch"
 		"${FILESDIR}/chromium-98-EnumTable-crash.patch"
-		"${FILESDIR}/chromium-98-system-libdrm.patch"
 		"${FILESDIR}/chromium-98-gtk4-build.patch"
-		"${FILESDIR}/chromium-glibc-2.34-r1.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 		"${FILESDIR}/chromium-cross-compile.patch"
@@ -662,7 +660,6 @@ src_prepare() {
 		third_party/swiftshader/third_party/marl
 		third_party/swiftshader/third_party/subzero
 		third_party/swiftshader/third_party/SPIRV-Headers/include/spirv/unified1
-		third_party/tcmalloc
 		third_party/tensorflow-text
 		third_party/tflite
 		third_party/tflite/src/third_party/eigen3
