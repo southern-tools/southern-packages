@@ -20,9 +20,9 @@ inherit check-reqs chromium-2 desktop flag-o-matic ninja-utils pax-utils python-
 
 DESCRIPTION="Modifications to Chromium for removing Google integration and enhancing privacy"
 HOMEPAGE="https://github.com/ungoogled-software/ungoogled-chromium"
-PATCHSET="2"
+PATCHSET="1"
 PATCHSET_NAME="chromium-$(ver_cut 1)-patchset-${PATCHSET}"
-PATCHSET_NAME_PPC64="chromium_104.0.5112.101-1raptor0~deb11u1.debian"
+PATCHSET_NAME_PPC64="chromium_105.0.5195.52-1raptor0~deb11u1.debian"
 SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chromium-${PV/_*}.tar.xz
 	https://github.com/stha09/chromium-patches/releases/download/${PATCHSET_NAME}/${PATCHSET_NAME}.tar.xz
 	ppc64? ( https://ppa.quickbuild.io/raptor-engineering-public/chromium/ubuntu/pool/main/c/chromium/${PATCHSET_NAME_PPC64}.tar.xz )
@@ -30,7 +30,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="amd64 ~arm64 ~ppc64 ~x86"
+# KEYWORDS="amd64 ~arm64 ~ppc64 ~x86"
 IUSE="+X cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio screencast selinux suid +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent +system-libusb system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 +system-snappy thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -46,11 +46,11 @@ REQUIRED_USE="
 	!headless ( || ( X wayland ) )
 "
 
-#UGC_COMMIT_ID="c69a90bb74d08291d8543192f296031a7059232f"
-# UGC_PR_COMMITS=(
-# 	f2fbbb954431dcb4f1a62779053692fa2b5c7971
-# 	08aaf6a0c81eb14b5eee59dd92281cd05043f3a7
-# )
+#UGC_COMMIT_ID="6189820f350e6d7e7316bd6bd0e85fd60230dbf5"
+UGC_PR_COMMITS=(
+	74aa3f858696cf61899aa6c09f854ca95e6bbba9
+	f0a76b48893e20c2822d194293b79a75d9e72eb7
+)
 
 UGC_PV="${PV/_p/-}"
 UGC_PF="${PN}-${UGC_PV}"
@@ -67,7 +67,7 @@ fi
 SRC_URI+="${UGC_URL}
 "
 
-if [ ! -z "${UGC_PR_COMMITS[@]}" ]; then
+if [ ! -z "${UGC_PR_COMMITS[*]}" ]; then
 	for i in "${UGC_PR_COMMITS[@]}"; do
 		SRC_URI+="https://github.com/ungoogled-software/${PN}/commit/$i.patch -> ${PN}-$i.patch
 		"
@@ -260,12 +260,12 @@ pre_build_checks() {
 
 	# Check build requirements, bug #541816 and bug #471810 .
 	CHECKREQS_MEMORY="4G"
-	CHECKREQS_DISK_BUILD="10G"
-	tc-is-cross-compiler && CHECKREQS_DISK_BUILD="13G"
+	CHECKREQS_DISK_BUILD="12G"
+	tc-is-cross-compiler && CHECKREQS_DISK_BUILD="14G"
 	if ( shopt -s extglob; is-flagq '-g?(gdb)?([1-9])' ); then
 		CHECKREQS_DISK_BUILD="16G"
 	fi
-	check-reqs_pkg_setup
+	check-reqs_${EBUILD_PHASE_FUNC}
 }
 
 pkg_pretend() {
@@ -327,13 +327,13 @@ src_prepare() {
 		"${FILESDIR}/chromium-98-EnumTable-crash.patch"
 		"${FILESDIR}/chromium-98-gtk4-build.patch"
 		"${FILESDIR}/chromium-104-tflite-system-zlib.patch"
-		"${FILESDIR}/chromium-104-swiftshader-no-wayland.patch"
+		"${FILESDIR}/chromium-105-swiftshader-no-wayland.patch"
 		"${FILESDIR}/chromium-use-oauth2-client-switches-as-default.patch"
 		"${FILESDIR}/chromium-shim_headers.patch"
 		"${FILESDIR}/chromium-cross-compile.patch"
 		"${FILESDIR}/perfetto-system-zlib.patch"
 		"${FILESDIR}/gtk-fix-prefers-color-scheme-query.diff"
-		"${FILESDIR}/restore-x86.patch"
+		"${FILESDIR}/restore-x86-r2.patch"
 		"${FILESDIR}/disable-GlobalMediaControlsCastStartStop.patch"
 	)
 
@@ -417,7 +417,7 @@ src_prepare() {
 	use vdpau && eapply "${FILESDIR}/vdpau-support-r4.patch"
 
 	#* Applying UGC PRs here
-	if [ ! -z "${UGC_PR_COMMITS[@]}" ]; then
+	if [ ! -z "${UGC_PR_COMMITS[*]}" ]; then
 		pushd "${UGC_WD}" >/dev/null
 		for i in "${UGC_PR_COMMITS[@]}"; do
 			eapply "${DISTDIR}/${PN}-$i.patch"
@@ -536,6 +536,7 @@ src_prepare() {
 		third_party/ced
 		third_party/cld_3
 		third_party/closure_compiler
+		third_party/content_analysis_sdk
 		third_party/cpuinfo
 		third_party/crashpad
 		third_party/crashpad/crashpad/third_party/lss
@@ -604,6 +605,12 @@ src_prepare() {
 		third_party/libaom/source/libaom/third_party/vector
 		third_party/libaom/source/libaom/third_party/x86inc
 		third_party/libavif
+	)
+	use system-libevent || keeplibs+=(
+		third_party/libevent
+	)
+	keeplibs+=(
+
 		third_party/libgav1
 		third_party/libjingle
 		third_party/libjxl
@@ -660,7 +667,7 @@ src_prepare() {
 		third_party/pdfium/third_party/lcms
 	)
 	use system-openjpeg || keeplibs+=(
-		third_party/pdfium/third_party/libopenjpeg20
+		third_party/pdfium/third_party/libopenjpeg
 	)
 	keeplibs+=(
 		third_party/pdfium/third_party/libpng16
@@ -736,11 +743,7 @@ src_prepare() {
 		v8/src/third_party/utf8-decoder
 		v8/third_party/inspector_protocol
 		v8/third_party/v8
-	)
-	use system-libevent || keeplibs+=(
-		base/third_party/libevent
-	)
-	keeplibs+=(
+
 		third_party/speech-dispatcher
 		third_party/usb_ids
 		third_party/xdg-utils
@@ -761,6 +764,8 @@ src_prepare() {
 	fi
 	if use wayland && ! use headless ; then
 		keeplibs+=( third_party/wayland )
+		# only need the .gn files
+		rm -r third_party/wayland/src || die
 	fi
 	if ! use system-openh264; then
 		keeplibs+=( third_party/openh264 )
@@ -1125,17 +1130,6 @@ src_configure() {
 		fi
 	fi
 
-	# Disable opaque pointers, https://crbug.com/1316298
-	if tc-is-clang; then
-		if test-flag-CXX -Xclang -no-opaque-pointers; then
-			append-flags -Xclang -no-opaque-pointers
-			if tc-is-cross-compiler; then
-				export BUILD_CXXFLAGS+=" -Xclang -no-opaque-pointers"
-				export BUILD_CFLAGS+=" -Xclang -no-opaque-pointers"
-			fi
-		fi
-	fi
-
 	# Explicitly disable ICU data file support for system-icu/headless builds.
 	if use system-icu || use headless; then
 		myconf_gn+=" icu_use_data_file=false"
@@ -1159,6 +1153,7 @@ src_configure() {
 		myconf_gn+=" ozone_platform_x11=$(usex X true false)"
 		myconf_gn+=" ozone_platform_wayland=$(usex wayland true false)"
 		myconf_gn+=" ozone_platform=$(usex wayland \"wayland\" \"x11\")"
+		use wayland && myconf_gn+=" use_system_wayland_scanner=true"
 	fi
 
 	# Results in undefined references in chrome linking, may require CFI to work
