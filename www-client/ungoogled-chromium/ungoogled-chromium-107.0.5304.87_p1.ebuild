@@ -30,8 +30,8 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~ppc64 ~x86"
-IUSE="+X cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless hevc js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio qt5 reuse-work screencast selinux suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent +system-libusb system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 +system-snappy thinlto vaapi vdpau wayland widevine"
+KEYWORDS="amd64 ~arm64 ~ppc64 ~x86"
+IUSE="+X cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless hevc js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio qt5 screencast selinux suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent +system-libusb system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 +system-snappy thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
 	!system-openh264? ( bindist )
@@ -46,7 +46,7 @@ REQUIRED_USE="
 	!headless ( || ( X wayland ) )
 "
 
-UGC_COMMIT_ID="3623e4ea66ea0d21059cefd9d960dbf5d5e4406f"
+#UGC_COMMIT_ID="3623e4ea66ea0d21059cefd9d960dbf5d5e4406f"
 # UGC_PR_COMMITS=(
 # 	f2fbbb954431dcb4f1a62779053692fa2b5c7971
 # 	08aaf6a0c81eb14b5eee59dd92281cd05043f3a7
@@ -317,27 +317,6 @@ pkg_setup() {
 		ewarn "Proprietary nVidia driver does not work with Wayland. You can disable"
 		ewarn "Wayland by setting DISABLE_OZONE_PLATFORM=true in /etc/chromium/default."
 	fi
-}
-
-src_unpack() {
-	if use reuse-work; then
-		if [ ! -d ${WORKDIR}/chromium-* ]; then
-			array=( $(find "${PORTAGE_TMPDIR}/portage/${CATEGORY}/" -maxdepth 1 -type d -name "${PN}-*" -print| sort -r) )
-			for i in "${array[@]}"; do
-				if [[ $i == *${PVR}* ]] ; then continue; fi
-				if [ -d ${i}/work/chromium-* ]; then
-					mv ${i}/work/chromium-* ${WORKDIR}/chromium-${PV%%_*}
-					rm -rf ${i}
-					rm ${WORKDIR}/chromium-${PV%%_*}/buildtools/third_party/eu-strip/bin/eu-strip
-					rm ${WORKDIR}/chromium-${PV%%_*}/third_party/jdk/current/bin/java
-					rm ${WORKDIR}/chromium-${PV%%_*}/third_party/node/linux/node-linux-x64/bin/node
-					break
-				fi
-			done
-		fi
-	fi
-
-	default
 }
 
 src_prepare() {
