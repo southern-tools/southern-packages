@@ -30,7 +30,7 @@ SRC_URI="https://commondatastorage.googleapis.com/chromium-browser-official/chro
 
 LICENSE="BSD"
 SLOT="0"
-KEYWORDS="~amd64 ~arm64 ~x86"
+KEYWORDS="amd64 ~arm64 ~x86"
 IUSE="+X cfi +clang convert-dict cups cpu_flags_arm_neon custom-cflags debug enable-driver gtk4 hangouts headless hevc js-type-check kerberos +official optimize-thinlto optimize-webui pgo pic +proprietary-codecs pulseaudio qt5 screencast selinux suid +system-av1 +system-ffmpeg +system-harfbuzz +system-icu +system-jsoncpp +system-libevent +system-libusb system-libvpx +system-openh264 system-openjpeg +system-png +system-re2 +system-snappy thinlto vaapi vdpau wayland widevine"
 RESTRICT="
 	!system-ffmpeg? ( proprietary-codecs? ( bindist ) )
@@ -44,9 +44,10 @@ REQUIRED_USE="
 	x86? ( !thinlto !widevine )
 	screencast? ( wayland )
 	!headless ( || ( X wayland ) )
+	!proprietary-codecs? ( !hevc )
 "
 
-UGC_COMMIT_ID="159a0e654b5b30f4926c31f611c901a946f2ea30"
+#UGC_COMMIT_ID="159a0e654b5b30f4926c31f611c901a946f2ea30"
 # UGC_PR_COMMITS=(
 # 	f2fbbb954431dcb4f1a62779053692fa2b5c7971
 # 	08aaf6a0c81eb14b5eee59dd92281cd05043f3a7
@@ -974,7 +975,7 @@ src_configure() {
 
 	# Ungoogled flags
 	myconf_gn+=" enable_mdns=false"
-	myconf_gn+=" enable_mse_mpeg2ts_stream_parser=true"
+	myconf_gn+=" enable_mse_mpeg2ts_stream_parser=$(usex proprietary-codecs true false)"
 	myconf_gn+=" enable_reading_list=false"
 	myconf_gn+=" enable_remoting=false"
 	myconf_gn+=" enable_reporting=false"
