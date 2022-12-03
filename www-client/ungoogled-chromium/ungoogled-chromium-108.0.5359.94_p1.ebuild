@@ -47,7 +47,7 @@ REQUIRED_USE="
 	!proprietary-codecs? ( !hevc )
 "
 
-#UGC_COMMIT_ID="159a0e654b5b30f4926c31f611c901a946f2ea30"
+#UGC_COMMIT_ID="d88201a0ba93b71dbd9b6eee98f08b2f8ea3e5d7"
 # UGC_PR_COMMITS=(
 # 	f2fbbb954431dcb4f1a62779053692fa2b5c7971
 # 	08aaf6a0c81eb14b5eee59dd92281cd05043f3a7
